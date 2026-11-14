@@ -946,6 +946,447 @@
       opacity: 1;
     }
 
+    /* Interactive Cards & Expand Hints */
+    .card-toon.card-interactive {
+      cursor: pointer;
+      position: relative;
+    }
+
+    .card-toon.card-interactive:hover {
+      transform: translate(-3px, -3px) rotate(-0.5deg);
+      box-shadow: 6px 6px 0px #000, 6px 6px 0px 2.5px var(--neon-cyan);
+    }
+
+    .banner-card-toon.card-interactive {
+      cursor: pointer;
+      position: relative;
+      transition: all 0.25s var(--ease-bounce);
+    }
+
+    .banner-card-toon.card-interactive:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 7px 7px 0px #000, 7px 7px 0px 3px var(--neon-emerald);
+    }
+
+    .card-expand-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: var(--font-code);
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: var(--neon-cyan);
+      background: rgba(0, 240, 255, 0.08);
+      border: 1.5px solid rgba(0, 240, 255, 0.35);
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      margin-top: 0.65rem;
+      transition: all 0.2s var(--ease-bounce);
+    }
+
+    .card-toon.card-interactive:hover .card-expand-hint,
+    .banner-card-toon.card-interactive:hover .card-expand-hint {
+      background: var(--neon-cyan);
+      color: #000;
+      border-color: #000;
+      box-shadow: 2px 2px 0px #000;
+      transform: scale(1.04);
+    }
+
+    .banner-expand-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.35rem 0.85rem;
+      background: rgba(16, 185, 129, 0.15);
+      border: 2px solid var(--neon-emerald);
+      border-radius: 8px;
+      color: var(--neon-emerald);
+      font-family: var(--font-code);
+      font-weight: 800;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all 0.2s var(--ease-bounce);
+      box-shadow: 2px 2px 0px #000;
+    }
+
+    .banner-expand-btn:hover {
+      background: var(--neon-emerald);
+      color: #000;
+      border-color: #000;
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0px #000;
+    }
+
+    /* Modal Backdrop & Dialog */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 9, 15, 0.88);
+      backdrop-filter: blur(14px);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.35s var(--ease-cinematic), visibility 0.35s;
+    }
+
+    .modal-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .modal-dialog {
+      width: 100%;
+      max-width: 900px;
+      max-height: 88vh;
+      background: var(--bg-surface);
+      border: 3px solid #000;
+      border-radius: 22px;
+      box-shadow: 8px 8px 0px #000, 8px 8px 0px 2.5px var(--neon-cyan);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transform: scale(0.92) translateY(25px);
+      transition: transform 0.4s var(--ease-bounce), opacity 0.35s;
+      position: relative;
+    }
+
+    .modal-backdrop.active .modal-dialog {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal-header {
+      padding: 1.2rem 1.6rem;
+      border-bottom: 2.5px solid #000;
+      background: #0b101c;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .modal-title-group {
+      flex: 1;
+    }
+
+    .modal-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.45rem;
+    }
+
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    .modal-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-family: var(--font-code);
+      margin-top: 0.25rem;
+    }
+
+    .modal-close-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: var(--bg-card);
+      border: 2.5px solid #000;
+      color: var(--neon-pink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 900;
+      box-shadow: 3px 3px 0px #000;
+      transition: all 0.2s var(--ease-bounce);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .modal-close-btn:hover {
+      background: var(--neon-pink);
+      color: #000;
+      transform: translate(-2px, -2px) rotate(90deg);
+      box-shadow: 5px 5px 0px #000;
+    }
+
+    .modal-body {
+      padding: 1.6rem;
+      overflow-y: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+
+    .modal-body::-webkit-scrollbar { display: none; }
+
+    .modal-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .modal-metric-card {
+      background: #080d16;
+      border: 2px solid #000;
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      text-align: center;
+      box-shadow: 3px 3px 0px #000;
+    }
+
+    .modal-metric-num {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--neon-cyan);
+      margin-bottom: 0.15rem;
+    }
+
+    .modal-metric-label {
+      font-family: var(--font-code);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .modal-card-box {
+      background: var(--bg-card);
+      border: 2px solid #000;
+      border-radius: 14px;
+      padding: 1.25rem 1.4rem;
+      box-shadow: 3px 3px 0px #000;
+    }
+
+    .modal-section-h {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .modal-section-subh {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      margin-bottom: 0.45rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .modal-p {
+      color: #cbd5e1;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .modal-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .modal-list li {
+      position: relative;
+      padding-left: 1.35rem;
+      font-size: 0.875rem;
+      color: #cbd5e1;
+      line-height: 1.55;
+    }
+
+    .modal-list li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: var(--neon-cyan);
+      font-size: 0.85rem;
+    }
+
+    .modal-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.9rem;
+    }
+
+    .proto-image-card {
+      background: #090e18;
+      border: 2px dashed rgba(0, 240, 255, 0.4);
+      border-radius: 14px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.25s var(--ease-bounce);
+    }
+
+    .proto-image-card:hover {
+      border-color: var(--neon-yellow);
+      background: #0e1526;
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 4px 4px 0px #000, 4px 4px 0px 2px var(--neon-yellow);
+    }
+
+    .proto-img-frame {
+      width: 100%;
+      height: 110px;
+      background: radial-gradient(#1e293b 1px, transparent 1px);
+      background-size: 10px 10px;
+      background-color: #060910;
+      border: 1.5px solid #1e293b;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      margin-bottom: 0.65rem;
+      position: relative;
+    }
+
+    .proto-img-icon {
+      font-size: 1.6rem;
+      color: var(--neon-cyan);
+      transition: transform 0.3s var(--ease-bounce);
+    }
+
+    .proto-image-card:hover .proto-img-icon {
+      transform: scale(1.2) rotate(6deg);
+      color: var(--neon-yellow);
+    }
+
+    .badge-coming-soon {
+      font-family: var(--font-code);
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: #000;
+      background: var(--neon-yellow);
+      border: 1.5px solid #000;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      box-shadow: 1.5px 1.5px 0px #000;
+      letter-spacing: 0.04em;
+    }
+
+    .proto-img-title {
+      font-family: var(--font-display);
+      font-size: 0.925rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 0.2rem;
+    }
+
+    .proto-img-desc {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .proto-click-hint {
+      margin-top: 0.45rem;
+      font-family: var(--font-code);
+      font-size: 0.68rem;
+      color: var(--neon-cyan);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .modal-actions-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      padding-top: 0.5rem;
+      border-top: 2px solid #1e293b;
+    }
+
+    /* Lightbox Modal for Image Previews */
+    .lightbox-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 6, 10, 0.92);
+      backdrop-filter: blur(16px);
+      z-index: 11000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.3s var(--ease-cinematic), visibility 0.3s;
+    }
+
+    .lightbox-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .lightbox-dialog {
+      width: 100%;
+      max-width: 720px;
+      background: var(--bg-surface);
+      border: 3px solid #000;
+      border-radius: 20px;
+      box-shadow: 8px 8px 0px #000, 8px 8px 0px 2.5px var(--neon-yellow);
+      padding: 1.5rem;
+      transform: scale(0.9) translateY(20px);
+      transition: transform 0.35s var(--ease-bounce);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      position: relative;
+    }
+
+    .lightbox-backdrop.active .lightbox-dialog {
+      transform: scale(1) translateY(0);
+    }
+
+    .lightbox-canvas-placeholder {
+      width: 100%;
+      height: 280px;
+      background: radial-gradient(#1e293b 1.5px, transparent 1.5px), #080b12;
+      background-size: 18px 18px;
+      border: 2px dashed var(--neon-cyan);
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.5rem;
+      gap: 0.85rem;
+    }
+
     /* Responsive */
     @media (max-width: 1024px) {
       .hero-layout { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
@@ -1142,7 +1583,7 @@
         </div>
 
         <div class="grid-3col anim-item">
-          <div class="card-toon">
+          <div class="card-toon card-interactive" onclick="openProjectModal('spec-multi-agent')" onmouseenter="playPop()">
             <div class="card-icon-toon"><i class="fa-solid fa-network-wired"></i></div>
             <h3 class="card-h-toon">Agentic Multi-Agent Systems</h3>
             <p class="card-p-toon">Graph-orchestrated workflows with LangGraph4j. Dynamic sequential/parallel tool routing, self-correction, ReAct planners, and persistent session memory.</p>
@@ -1152,9 +1593,10 @@
               <span class="pill-toon">Tool Discovery</span>
               <span class="pill-toon">Memory</span>
             </div>
+            <div class="card-expand-hint"><i class="fa-solid fa-up-right-and-down-left-from-center"></i> Click to Expand Details</div>
           </div>
 
-          <div class="card-toon">
+          <div class="card-toon card-interactive" onclick="openProjectModal('spec-hybrid-search')" onmouseenter="playPop()">
             <div class="card-icon-toon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
             <h3 class="card-h-toon">Hybrid Semantic Search & IR</h3>
             <p class="card-p-toon">Dual-collection retrieval blending dense representations and sparse BM25 with Distribution-Based Score Fusion (DBSF) outperforming baseline RRF.</p>
@@ -1164,9 +1606,10 @@
               <span class="pill-toon">DBSF Fusion</span>
               <span class="pill-toon">nDCG@10</span>
             </div>
+            <div class="card-expand-hint"><i class="fa-solid fa-up-right-and-down-left-from-center"></i> Click to Expand Details</div>
           </div>
 
-          <div class="card-toon">
+          <div class="card-toon card-interactive" onclick="openProjectModal('spec-colbert')" onmouseenter="playPop()">
             <div class="card-icon-toon"><i class="fa-solid fa-microchip"></i></div>
             <h3 class="card-h-toon">ColBERT & Token Rerankers</h3>
             <p class="card-p-toon">Ground-up token-level MaxSim rerankers using chunked einsum operations, special-token masking, pre-encoded catalog caching, and cross-encoders.</p>
@@ -1176,9 +1619,10 @@
               <span class="pill-toon">Chunked Einsum</span>
               <span class="pill-toon">Cross-Encoders</span>
             </div>
+            <div class="card-expand-hint"><i class="fa-solid fa-up-right-and-down-left-from-center"></i> Click to Expand Details</div>
           </div>
 
-          <div class="card-toon">
+          <div class="card-toon card-interactive" onclick="openProjectModal('spec-finetuning')" onmouseenter="playPop()">
             <div class="card-icon-toon"><i class="fa-solid fa-sliders"></i></div>
             <h3 class="card-h-toon">Embedding Fine-Tuning</h3>
             <p class="card-p-toon">Representation adaptation with LoRA/PEFT, MultipleNegativesRankingLoss, hard-negative mining, and synthetic triplet generation for domain alignment.</p>
@@ -1188,9 +1632,10 @@
               <span class="pill-toon">PyTorch</span>
               <span class="pill-toon">Hugging Face</span>
             </div>
+            <div class="card-expand-hint"><i class="fa-solid fa-up-right-and-down-left-from-center"></i> Click to Expand Details</div>
           </div>
 
-          <div class="card-toon">
+          <div class="card-toon card-interactive" onclick="openProjectModal('spec-mobile')" onmouseenter="playPop()">
             <div class="card-icon-toon"><i class="fa-solid fa-mobile-screen-button"></i></div>
             <h3 class="card-h-toon">Mobile & Full-Stack Apps</h3>
             <p class="card-p-toon">Cross-platform mobile applications in Flutter/Dart shipped to Google Play and Apple App Store, backed by scalable REST APIs (Laravel, FastAPI, Spring AI).</p>
@@ -1200,9 +1645,10 @@
               <span class="pill-toon">App Store</span>
               <span class="pill-toon">Google Play</span>
             </div>
+            <div class="card-expand-hint"><i class="fa-solid fa-up-right-and-down-left-from-center"></i> Click to Expand Details</div>
           </div>
 
-          <div class="card-toon">
+          <div class="card-toon card-interactive" onclick="openProjectModal('spec-backend')" onmouseenter="playPop()">
             <div class="card-icon-toon"><i class="fa-solid fa-server"></i></div>
             <h3 class="card-h-toon">Production Backends & DevOps</h3>
             <p class="card-p-toon">High-concurrency microservices, SSE real-time streaming, Docker containerization, MLflow tracking, and automated CI/CD pipelines.</p>
@@ -1212,6 +1658,7 @@
               <span class="pill-toon">Docker</span>
               <span class="pill-toon">GitLab CI/CD</span>
             </div>
+            <div class="card-expand-hint"><i class="fa-solid fa-up-right-and-down-left-from-center"></i> Click to Expand Details</div>
           </div>
         </div>
       </div>
@@ -1227,8 +1674,13 @@
         </div>
 
         <!-- Cockpit AI (Live in Production) -->
-        <div class="banner-card-toon anim-item">
-          <div class="badge-sticker-emerald">★ LIVE IN ENTERPRISE PRODUCTION — MC15 MIGRATED & ACTIVELY USED</div>
+        <div class="banner-card-toon anim-item card-interactive" onclick="openProjectModal('cockpit-ai')" onmouseenter="playPop()">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.65rem;">
+            <div class="badge-sticker-emerald">★ LIVE IN ENTERPRISE PRODUCTION — MC15 MIGRATED & ACTIVELY USED</div>
+            <button class="banner-expand-btn" onclick="event.stopPropagation(); openProjectModal('cockpit-ai')" onmouseenter="playPop()">
+              <i class="fa-solid fa-expand"></i> Deep Dive & Media [Coming Soon]
+            </button>
+          </div>
           <div class="banner-title-row">
             <div>
               <h3 class="banner-h">Cockpit AI — Live Enterprise Context-Aware Assistant</h3>
@@ -1241,10 +1693,11 @@
             <li><b>Graph-Orchestrated Multi-Agent Architecture:</b> Built from scratch using LangGraph4j with dynamic routing between sequential/parallel tool-execution paths, looped self-correction, and persistent per-user conversation memory.</li>
             <li><b>14 LLM Tools Ecosystem & Dual Retrieval:</b> Deployed 14 self-registering tools with auto-discovery; node- and attribute-level embeddings merged via <b>Distribution-Based Score Fusion (DBSF)</b> outperforming standard RRF baselines across 43 semantic test cases.</li>
           </ul>
+          <div class="card-expand-hint" style="margin-top: 0.85rem;"><i class="fa-solid fa-up-right-and-down-left-from-center"></i> Click card for Full Architecture, Metrics & Image Gallery Prototype</div>
         </div>
 
         <div class="grid-2col anim-item">
-          <div class="card-toon">
+          <div class="card-toon card-interactive" onclick="openProjectModal('presto')" onmouseenter="playPop()">
             <div class="badge-sticker-gold">★ LEADERBOARD FINISH</div>
             <h3 class="card-h-toon">Presto — Arabic Search & ColBERT</h3>
             <p class="card-p-toon">
@@ -1256,9 +1709,10 @@
               <span class="pill-toon">LoRA</span>
               <span class="pill-toon">nDCG@10</span>
             </div>
+            <div class="card-expand-hint"><i class="fa-solid fa-expand"></i> Click to Expand Details & Media</div>
           </div>
 
-          <div class="card-toon">
+          <div class="card-toon card-interactive" onclick="openProjectModal('biocortex')" onmouseenter="playPop()">
             <div class="badge-sticker-gold">★ BIOMEDICAL AI</div>
             <h3 class="card-h-toon">BioCortex — Multi-Agent RAG</h3>
             <p class="card-p-toon">
@@ -1269,6 +1723,7 @@
               <span class="pill-toon">Biomedical RAG</span>
               <span class="pill-toon">Vector Search</span>
             </div>
+            <div class="card-expand-hint"><i class="fa-solid fa-expand"></i> Click to Expand Details & Media</div>
           </div>
         </div>
       </div>
@@ -1285,7 +1740,7 @@
 
         <div class="grid-2col anim-item">
           <!-- D30 Challenge (Compact Fit) -->
-          <div class="card-toon" style="box-shadow: 5px 5px 0px #000, 5px 5px 0px 2px var(--neon-emerald);">
+          <div class="card-toon card-interactive" onclick="openProjectModal('d30-challenge')" onmouseenter="playPop()" style="box-shadow: 5px 5px 0px #000, 5px 5px 0px 2px var(--neon-emerald);">
             <div class="badge-sticker-emerald">★ APPLE APP STORE & GOOGLE PLAY STORE</div>
             <h3 class="card-h-toon" style="font-size: 1.35rem;">D30 Challenge — Mobile Fitness App</h3>
             <p class="card-p-toon">
@@ -1302,10 +1757,11 @@
               <span class="pill-toon">Dart</span>
               <span class="pill-toon">Laravel</span>
             </div>
+            <div class="card-expand-hint"><i class="fa-solid fa-expand"></i> Click to Expand Screenshots & Architecture</div>
           </div>
 
           <!-- teachers.tn (Compact Fit) -->
-          <div class="card-toon" style="box-shadow: 5px 5px 0px #000, 5px 5px 0px 2px var(--neon-cyan);">
+          <div class="card-toon card-interactive" onclick="openProjectModal('teachers-tn')" onmouseenter="playPop()" style="box-shadow: 5px 5px 0px #000, 5px 5px 0px 2px var(--neon-cyan);">
             <div class="badge-sticker-emerald">★ LIVE PRODUCTION PLATFORM</div>
             <h3 class="card-h-toon" style="font-size: 1.35rem;">teachers.tn — National Education Hub</h3>
             <p class="card-p-toon">
@@ -1315,10 +1771,11 @@
               <li>Full-stack web platform with document management, cloud resource archives, and real-time community tools.</li>
               <li>Mobile-first responsive architecture optimized for speed across all network types.</li>
             </ul>
-            <div style="margin-top: 0.75rem;">
-              <a href="https://teachers.tn/" target="_blank" class="btn-toon btn-toon-primary" style="padding: 0.45rem 1rem; font-size: 0.825rem;" onmouseenter="playPop()" onclick="playSelect()">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
+              <a href="https://teachers.tn/" target="_blank" onclick="event.stopPropagation(); playSelect();" class="btn-toon btn-toon-primary" style="padding: 0.45rem 1rem; font-size: 0.825rem;" onmouseenter="playPop()">
                 <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit teachers.tn
               </a>
+              <div class="card-expand-hint"><i class="fa-solid fa-expand"></i> Expand Details</div>
             </div>
           </div>
         </div>
@@ -1335,40 +1792,46 @@
         </div>
 
         <div class="grid-3col anim-item">
-          <div class="card-toon">
-            <h3 class="card-h-toon"><a href="https://github.com/aguechfirass100/HireBotX" target="_blank" style="color: inherit; text-decoration: none;" onmouseenter="playPop()"><i class="fa-brands fa-github"></i> HireBotX</a></h3>
+          <div class="card-toon card-interactive" onclick="openProjectModal('hirebotx')" onmouseenter="playPop()">
+            <h3 class="card-h-toon"><a href="https://github.com/aguechfirass100/HireBotX" target="_blank" onclick="event.stopPropagation(); playSelect();" style="color: inherit; text-decoration: none;" onmouseenter="playPop()"><i class="fa-brands fa-github"></i> HireBotX</a></h3>
             <p class="card-p-toon">Multi-agent interview simulation with HR, CTO, and CEO personas in ChromaDB evaluating candidate responses against structured rubrics in real time.</p>
             <div class="pill-tags-toon"><span class="pill-toon">ChromaDB</span><span class="pill-toon">RAG</span><span class="pill-toon">Multi-Agent</span></div>
+            <div class="card-expand-hint"><i class="fa-solid fa-expand"></i> Click to Expand Details</div>
           </div>
 
-          <div class="card-toon">
-            <h3 class="card-h-toon"><a href="https://github.com/aguechfirass100/PostPulse" target="_blank" style="color: inherit; text-decoration: none;" onmouseenter="playPop()"><i class="fa-brands fa-github"></i> PostPulse</a></h3>
+          <div class="card-toon card-interactive" onclick="openProjectModal('postpulse')" onmouseenter="playPop()">
+            <h3 class="card-h-toon"><a href="https://github.com/aguechfirass100/PostPulse" target="_blank" onclick="event.stopPropagation(); playSelect();" style="color: inherit; text-decoration: none;" onmouseenter="playPop()"><i class="fa-brands fa-github"></i> PostPulse</a></h3>
             <p class="card-p-toon">AI marketing platform: fine-tuned LLaMA-3 for copywriting, Flux.1 for image generation, and BERT sentiment analysis steering campaign prompts.</p>
             <div class="pill-tags-toon"><span class="pill-toon">LLaMA-3</span><span class="pill-toon">Flux.1</span><span class="pill-toon">BERT</span></div>
+            <div class="card-expand-hint"><i class="fa-solid fa-expand"></i> Click to Expand Details</div>
           </div>
 
-          <div class="card-toon">
-            <h3 class="card-h-toon"><a href="https://github.com/aguechfirass100/pytorch-transformer-from-scratch" target="_blank" style="color: inherit; text-decoration: none;" onmouseenter="playPop()"><i class="fa-brands fa-github"></i> Transformer Scratch</a></h3>
+          <div class="card-toon card-interactive" onclick="openProjectModal('transformer-scratch')" onmouseenter="playPop()">
+            <h3 class="card-h-toon"><a href="https://github.com/aguechfirass100/pytorch-transformer-from-scratch" target="_blank" onclick="event.stopPropagation(); playSelect();" style="color: inherit; text-decoration: none;" onmouseenter="playPop()"><i class="fa-brands fa-github"></i> Transformer Scratch</a></h3>
             <p class="card-p-toon">Modular PyTorch implementation of the complete "Attention Is All You Need" paper from scratch: Multi-Head Attention, Positional Encodings, and training loop.</p>
             <div class="pill-tags-toon"><span class="pill-toon">PyTorch</span><span class="pill-toon">Self-Attention</span><span class="pill-toon">Research</span></div>
+            <div class="card-expand-hint"><i class="fa-solid fa-expand"></i> Click to Expand Details</div>
           </div>
 
-          <div class="card-toon">
-            <h3 class="card-h-toon"><a href="https://github.com/aguechfirass100/Transformer-Based-DDoS-Detection" target="_blank" style="color: inherit; text-decoration: none;" onmouseenter="playPop()"><i class="fa-brands fa-github"></i> DDoS Attention</a></h3>
+          <div class="card-toon card-interactive" onclick="openProjectModal('ddos-detection')" onmouseenter="playPop()">
+            <h3 class="card-h-toon"><a href="https://github.com/aguechfirass100/Transformer-Based-DDoS-Detection" target="_blank" onclick="event.stopPropagation(); playSelect();" style="color: inherit; text-decoration: none;" onmouseenter="playPop()"><i class="fa-brands fa-github"></i> DDoS Attention</a></h3>
             <p class="card-p-toon">Transformer self-attention architecture applied to packet flow telemetry for real-time network anomaly detection and DDoS attack mitigation.</p>
             <div class="pill-tags-toon"><span class="pill-toon">Attention</span><span class="pill-toon">Cybersecurity</span><span class="pill-toon">PyTorch</span></div>
+            <div class="card-expand-hint"><i class="fa-solid fa-expand"></i> Click to Expand Details</div>
           </div>
 
-          <div class="card-toon">
+          <div class="card-toon card-interactive" onclick="openProjectModal('audio-emotion')" onmouseenter="playPop()">
             <h3 class="card-h-toon">Audio Emotion VAE</h3>
             <p class="card-p-toon">Generative VAE + diffusion model pipeline with ResNet-50 and U-Net augmentation to synthesize high-clarity emotion spectrograms on EmoDB & RAVDESS.</p>
             <div class="pill-tags-toon"><span class="pill-toon">Diffusion</span><span class="pill-toon">VAE</span><span class="pill-toon">Audio ML</span></div>
+            <div class="card-expand-hint"><i class="fa-solid fa-expand"></i> Click to Expand Details</div>
           </div>
 
-          <div class="card-toon">
-            <h3 class="card-h-toon"><a href="https://github.com/aguechfirass100/customer-churn-prediction-telecom" target="_blank" style="color: inherit; text-decoration: none;" onmouseenter="playPop()"><i class="fa-brands fa-github"></i> Telecom Churn</a></h3>
+          <div class="card-toon card-interactive" onclick="openProjectModal('telecom-churn')" onmouseenter="playPop()">
+            <h3 class="card-h-toon"><a href="https://github.com/aguechfirass100/customer-churn-prediction-telecom" target="_blank" onclick="event.stopPropagation(); playSelect();" style="color: inherit; text-decoration: none;" onmouseenter="playPop()"><i class="fa-brands fa-github"></i> Telecom Churn</a></h3>
             <p class="card-p-toon">Predictive churn modeling in telecom implementing 3 research papers, with advanced feature selection and SHAP explainability.</p>
             <div class="pill-tags-toon"><span class="pill-toon">Scikit-Learn</span><span class="pill-toon">SHAP</span><span class="pill-toon">EDA</span></div>
+            <div class="card-expand-hint"><i class="fa-solid fa-expand"></i> Click to Expand Details</div>
           </div>
         </div>
       </div>
@@ -1463,6 +1926,103 @@
 
   <!-- Interactive Toast Notification -->
   <div id="copy-toast">✓ Email copied to clipboard!</div>
+
+  <!-- Project & Experience Deep-Dive Modal (Dark Cartoonish Neo-Brutalism) -->
+  <div id="project-modal" class="modal-backdrop" onclick="handleBackdropClick(event)">
+    <div class="modal-dialog" role="dialog" aria-modal="true">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-badge-row">
+            <span id="modal-badge" class="badge-sticker-emerald">★ LIVE IN PRODUCTION</span>
+            <span id="modal-type-tag" class="pill-toon" style="color: var(--neon-cyan);">Enterprise Architecture</span>
+          </div>
+          <h2 id="modal-title" class="modal-title">Project Title</h2>
+          <div id="modal-subtitle" class="modal-subtitle">Subtitle and Organization</div>
+        </div>
+        <button class="modal-close-btn" onclick="closeProjectModal()" title="Close (ESC)" onmouseenter="playPop()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body (Scrollable with Zero Scrollbar) -->
+      <div class="modal-body" id="modal-body">
+        
+        <!-- Metrics Strip -->
+        <div id="modal-metrics-strip" class="modal-metrics-grid"></div>
+
+        <!-- Section 1: Overview -->
+        <div class="modal-card-box">
+          <h3 class="modal-section-h"><i class="fa-solid fa-align-left" style="color: var(--neon-cyan);"></i> Executive Overview</h3>
+          <p id="modal-overview" class="modal-p"></p>
+        </div>
+
+        <!-- Section 2: Technical Highlights & Architecture -->
+        <div class="modal-card-box">
+          <h3 class="modal-section-h"><i class="fa-solid fa-diagram-project" style="color: var(--neon-emerald);"></i> Technical Highlights & Architecture</h3>
+          <ul id="modal-highlights" class="modal-list"></ul>
+        </div>
+
+        <!-- Section 3: Visual Previews & Gallery (Prototype with Coming Soon) -->
+        <div class="modal-card-box" style="border-color: #000; box-shadow: 4px 4px 0px #000, 4px 4px 0px 1.5px var(--neon-cyan);">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <h3 class="modal-section-h" style="margin-bottom: 0;">
+              <i class="fa-regular fa-image" style="color: var(--neon-yellow);"></i> Architecture & Visual Gallery
+            </h3>
+            <span class="badge-sticker-gold">✦ PROTOTYPE COMING SOON</span>
+          </div>
+          <p style="font-size: 0.825rem; color: var(--text-muted); margin-bottom: 1rem; font-family: var(--font-code);">
+            // Visual showcase prototype with placeholder media frames. Click any frame to inspect its blueprint prototype.
+          </p>
+          
+          <div id="modal-gallery" class="modal-gallery-grid"></div>
+        </div>
+
+        <!-- Section 4: Technologies & Tools -->
+        <div>
+          <h4 class="modal-section-subh">Technologies & Tools</h4>
+          <div id="modal-tags" class="pill-tags-toon"></div>
+        </div>
+
+        <!-- Section 5: Action Buttons -->
+        <div id="modal-actions" class="modal-actions-row"></div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Lightbox Modal (Preview / Coming Soon Prototype) -->
+  <div id="image-lightbox" class="lightbox-backdrop" onclick="handleLightboxBackdropClick(event)">
+    <div class="lightbox-dialog" role="dialog" aria-modal="true">
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem;">
+        <div>
+          <span class="badge-coming-soon" style="margin-bottom: 0.35rem; display: inline-block;">✦ VISUAL ASSET PROTOTYPE</span>
+          <h3 id="lightbox-title" style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: var(--text-main);"></h3>
+        </div>
+        <button class="modal-close-btn" onclick="closeImageLightbox()" title="Close (ESC)" onmouseenter="playPop()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="lightbox-canvas-placeholder">
+        <i id="lightbox-icon" class="fa-solid fa-diagram-project" style="font-size: 3rem; color: var(--neon-cyan);"></i>
+        <div style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; color: var(--neon-yellow);">
+          [ VISUAL PREVIEW COMING SOON ]
+        </div>
+        <p id="lightbox-caption" style="font-size: 0.85rem; color: #cbd5e1; max-width: 500px; line-height: 1.5; font-family: var(--font-code);"></p>
+        <div style="font-size: 0.75rem; color: var(--text-dim); font-family: var(--font-code);">
+          Ready for high-res PNG / WebP / SVG uploads.
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+        <button class="btn-toon btn-toon-primary" onclick="closeImageLightbox()" style="padding: 0.4rem 1rem; font-size: 0.825rem;" onmouseenter="playPop()">
+          <i class="fa-solid fa-check"></i> Got It
+        </button>
+      </div>
+    </div>
+  </div>
+
 
   <!-- Sound FX Synthesizer (Web Audio API) -->
   <script>
@@ -1578,11 +2138,612 @@
     }
     animateCursor();
 
-    const interactiveEls = document.querySelectorAll('a, button, .card-toon, .hud-dot-wrap, .btn-toon, .banner-card-toon');
-    interactiveEls.forEach(el => {
-      el.addEventListener('mouseenter', () => follower.classList.add('hovered'));
-      el.addEventListener('mouseleave', () => follower.classList.remove('hovered'));
+    document.addEventListener('mouseover', (e) => {
+      if (e.target.closest('a, button, .card-toon, .hud-dot-wrap, .btn-toon, .banner-card-toon, .proto-image-card, .card-interactive, .modal-close-btn, .banner-expand-btn')) {
+        follower.classList.add('hovered');
+      } else {
+        follower.classList.remove('hovered');
+      }
     });
+  </script>
+
+  
+  <!-- Project Deep-Dive & Image Prototype Controller -->
+  <script>
+    const projectDetails = {
+      'cockpit-ai': {
+        title: 'Cockpit AI — Live Enterprise Context-Aware Assistant',
+        subtitle: 'Bertsch Innovation GmbH (MediaCockpit) • Deployed Live & Driving Daily Production',
+        category: 'Enterprise Architecture & Multi-Agent RAG',
+        badge: '★ LIVE IN ENTERPRISE PRODUCTION — MC15 MIGRATED',
+        badgeColor: 'emerald',
+        metrics: [
+          { num: 'MC15', label: 'Live Migration' },
+          { num: '14+', label: 'Autonomous LLM Tools' },
+          { num: '43', label: 'Semantic Test Cases' },
+          { num: '90%+', label: 'Distribution Alignment' }
+        ],
+        overview: 'A production-grade multi-agent enterprise assistant integrated into MediaCockpit, an enterprise digital asset management system. Architected and led the end-to-end production migration from MC14 to MC15, enabling contextual intelligence, automated catalog query generation, and document synthesis for daily enterprise operations.',
+        highlights: [
+          '<b>StateGraph Multi-Agent Architecture:</b> Developed with LangGraph4j featuring dynamic sequential and parallel execution branching, loopback self-correction, and persistent per-user conversation memory.',
+          '<b>14 Autonomous LLM Tools:</b> Engineered self-registering tool endpoints covering semantic search, structural property filtering, aggregations, and automated reports with runtime auto-discovery and mode classification.',
+          '<b>Dual-Collection Hybrid Retrieval with DBSF:</b> Blended dense vector embeddings with sparse BM25 keyword matching using Distribution-Based Score Fusion (DBSF), outperforming standard RRF across 43 semantic test cases.',
+          '<b>Live MC15 Enterprise Migration:</b> Successfully led the end-to-end migration into the live MC15 platform release with zero regression, now actively used in daily production.'
+        ],
+        tags: ['Java', 'LangGraph4j', 'Spring AI', 'Qdrant', 'BM25', 'DBSF Fusion', 'Docker', 'GitLab CI/CD'],
+        images: [
+          { title: 'LangGraph4j Multi-Agent Orchestration Topology', icon: 'fa-solid fa-diagram-project', caption: 'StateGraph nodes, intent routing, and ReAct self-correction feedback loop', status: 'Coming Soon' },
+          { title: 'DBSF vs RRF Benchmark Curves', icon: 'fa-solid fa-chart-line', caption: 'Empirical precision, recall, and nDCG@10 comparison over 43 test queries', status: 'Coming Soon' },
+          { title: 'MediaCockpit Production UI & Tool Invocation', icon: 'fa-solid fa-desktop', caption: 'Live enterprise interface with streaming responses and contextual citations', status: 'Coming Soon' }
+        ],
+        links: [
+          { text: 'Chat on WhatsApp (+216 29861363)', url: 'https://wa.me/21629861363', icon: 'fa-brands fa-whatsapp', emerald: true },
+          { text: 'Download Full Work Report', url: 'assets/docs/Firas_Aguech_Resume.pdf', icon: 'fa-solid fa-file-pdf' }
+        ]
+      },
+      'presto': {
+        title: 'Presto — Arabic E-Commerce Semantic Search & ColBERT',
+        subtitle: 'Fine-Tuned Multilingual Embeddings & Token-Level MaxSim Reranker • Leaderboard Finish',
+        category: 'Information Retrieval & Deep Learning',
+        badge: '★ LEADERBOARD FINISH & REPO BACKED',
+        badgeColor: 'gold',
+        metrics: [
+          { num: 'Top', label: 'Arabic E-Com Finish' },
+          { num: 'ColBERT', label: 'MaxSim Reranker' },
+          { num: 'LoRA', label: 'Domain Fine-Tuning' },
+          { num: '<35ms', label: 'Inference Latency' }
+        ],
+        overview: 'Engineered an advanced hybrid search and reranking engine specifically fine-tuned for Arabic e-commerce product catalogs. Combines LoRA-adapted multilingual Qwen embeddings with a ground-up token-level ColBERT MaxSim reranker over Qdrant hybrid retrieval.',
+        highlights: [
+          '<b>LoRA / PEFT Embedding Adaptation:</b> Fine-tuned multilingual representations using MultipleNegativesRankingLoss, hard-negative mining, and synthetic Arabic triplet generation.',
+          '<b>Ground-Up ColBERT MaxSim:</b> Built custom chunked einsum matrix multiplications with special-token masking and pre-encoded catalog caching, eliminating GPU memory bottlenecks.',
+          '<b>Hybrid Vector Retrieval:</b> Integrated Qdrant vector database with dense and sparse representations to handle Arabic dialect variations and morphological inflection.'
+        ],
+        tags: ['Python', 'PyTorch', 'Qdrant', 'ColBERT', 'LoRA / PEFT', 'Hugging Face', 'Transformers'],
+        images: [
+          { title: 'ColBERT MaxSim Token Interaction Heatmap', icon: 'fa-solid fa-network-wired', caption: 'Chunked einsum cross-token matching between query and Arabic catalog entries', status: 'Coming Soon' },
+          { title: 'LoRA Embedding Triplet Loss Convergence', icon: 'fa-solid fa-chart-area', caption: 'Training progression and MRR/nDCG validation gains on e-commerce benchmarks', status: 'Coming Soon' },
+          { title: 'Morphological Query Disambiguation Demo', icon: 'fa-solid fa-magnifying-glass', caption: 'Handling Arabic dialectal variations and high-recall sparse token matches', status: 'Coming Soon' }
+        ],
+        links: [
+          { text: 'Request Private Repo Access', url: 'https://wa.me/21629861363', icon: 'fa-brands fa-whatsapp', emerald: true },
+          { text: 'GitHub: aguechfirass100/Presto', url: 'https://github.com/aguechfirass100/Presto', icon: 'fa-brands fa-github' }
+        ]
+      },
+      'biocortex': {
+        title: 'BioCortex — Biomedical Multi-Agent RAG',
+        subtitle: 'Hierarchical Agent System for Drug Discovery & Literature Cross-Referencing',
+        category: 'Healthcare & Biomedical AI',
+        badge: '★ BIOMEDICAL RESEARCH ARCHITECTURE',
+        badgeColor: 'gold',
+        metrics: [
+          { num: 'Multi-Agent', label: 'Hierarchical Structure' },
+          { num: 'PubMed', label: 'Literature Ingestion' },
+          { num: 'ChromaDB', label: 'Domain Vector Store' },
+          { num: 'Zero-Hallucination', label: 'Verification Loop' }
+        ],
+        overview: 'A specialized biomedical multi-agent retrieval system designed to ingest medical literature, molecular databases, and clinical trials to extract validated scientific hypotheses without hallucination.',
+        highlights: [
+          '<b>Hierarchical Specialized Agents:</b> Supervisor agent delegates research queries to dedicated agents focused on PubMed literature, clinical trial analysis, and chemical pathway validation.',
+          '<b>Nomenclature-Preserving Chunking:</b> Implemented custom tokenization rules to prevent breaking molecular formulas and IUPAC chemical names.',
+          '<b>Anti-Hallucination Verification Gate:</b> Cross-references every generated claim against PubMed citation anchors before delivering output.'
+        ],
+        tags: ['Python', 'LangChain', 'ChromaDB', 'BioBERT', 'FastAPI', 'RAG'],
+        images: [
+          { title: 'Biomedical Hierarchical Agent Topology', icon: 'fa-solid fa-dna', caption: 'Supervisor agent, clinical extractor, and chemical validation workflow', status: 'Coming Soon' },
+          { title: 'Hypothesis Extraction & Verification Report', icon: 'fa-solid fa-file-medical', caption: 'Sample molecular cross-reference card with PubMed citation anchors', status: 'Coming Soon' }
+        ],
+        links: [
+          { text: 'Inquire for Technical Details', url: 'https://wa.me/21629861363', icon: 'fa-brands fa-whatsapp', emerald: true }
+        ]
+      },
+      'd30-challenge': {
+        title: 'D30 Challenge — Cross-Platform Fitness App',
+        subtitle: 'Live Commercial App Shipped to Apple App Store & Google Play Store',
+        category: 'Production Mobile & Full-Stack System',
+        badge: '★ SHIPPED LIVE ON APP STORE & PLAY STORE',
+        badgeColor: 'emerald',
+        metrics: [
+          { num: '2', label: 'Live Store Releases' },
+          { num: 'Flutter', label: 'Cross-Platform UI' },
+          { num: 'Laravel', label: 'Cloud Backend API' },
+          { num: 'Solo', label: 'End-to-End Build' }
+        ],
+        overview: 'A commercial 30-day fitness challenge mobile application designed, architected, and built solo from scratch, successfully launched on both the Apple App Store and Google Play Store.',
+        highlights: [
+          '<b>Cross-Platform Flutter/Dart Frontend:</b> Built with smooth 60fps workout timers, custom animations, streak tracking, audio cues, and offline caching via Hive.',
+          '<b>Scalable Laravel REST API:</b> Secure authentication, JWT tokens, user progression analytics, subscription checks, and content synchronization.',
+          '<b>Store Approvals & Operations:</b> Handled all developer store requirements, privacy compliance, app review guidelines, screenshot collateral, and production releases on both platforms.'
+        ],
+        tags: ['Flutter', 'Dart', 'Laravel', 'PHP', 'MySQL', 'REST API', 'Apple App Store', 'Google Play', 'Hive'],
+        images: [
+          { title: 'Apple App Store & Play Store Screens', icon: 'fa-brands fa-apple', caption: 'Production UI: workout countdown timers, challenge progress, and habit streaks', status: 'Coming Soon' },
+          { title: 'Flutter State & Offline Cache Diagram', icon: 'fa-solid fa-mobile-screen', caption: 'Architecture flow connecting Flutter local storage to Laravel REST backend', status: 'Coming Soon' },
+          { title: 'App Store Verification Credentials', icon: 'fa-solid fa-certificate', caption: 'Live store certificates, bundle IDs, and publisher accounts', status: 'Coming Soon' }
+        ],
+        links: [
+          { text: 'Chat on WhatsApp (+216 29861363)', url: 'https://wa.me/21629861363', icon: 'fa-brands fa-whatsapp', emerald: true }
+        ]
+      },
+      'teachers-tn': {
+        title: 'teachers.tn — National Education Hub',
+        subtitle: 'Nationwide Educational Platform Connecting Educators & Students in Tunisia',
+        category: 'Live Web Platform & Community Archive',
+        badge: '★ LIVE IN PRODUCTION PLATFORM',
+        badgeColor: 'emerald',
+        metrics: [
+          { num: 'Live', label: 'Production Domain' },
+          { num: 'National', label: 'Educational Reach' },
+          { num: 'High-Speed', label: 'Document CDN' },
+          { num: 'Mobile', label: 'Responsive Architecture' }
+        ],
+        overview: 'Architected and launched a comprehensive web portal dedicated to Tunisian educators and students, providing high-speed access to thousands of curriculum documents, exam preparations, and teaching resources.',
+        highlights: [
+          '<b>Resource Archive & Fast Categorization:</b> Searchable database of curriculum subjects, past national exams, and lesson notes organized by academic grades.',
+          '<b>Optimized for Low-Bandwidth Networks:</b> Lightweight, server-rendered pages with aggressive caching ensuring rapid load times across 3G/4G networks in Tunisia.',
+          '<b>Teacher Publishing Tools:</b> Dedicated accounts allowing educators to upload resources, organize collections, and share materials with students.'
+        ],
+        tags: ['PHP / Laravel', 'MySQL', 'Tailwind CSS', 'Nginx', 'Cloud Storage', 'JavaScript'],
+        images: [
+          { title: 'Live Platform Homepage & Search', icon: 'fa-solid fa-globe', caption: 'Curriculum filter system, teacher profiles, and resource repository', status: 'Coming Soon' },
+          { title: 'Document Archive & Fast PDF Viewer', icon: 'fa-solid fa-file-pdf', caption: 'Categorized exam archives and one-click download interface', status: 'Coming Soon' }
+        ],
+        links: [
+          { text: 'Visit Live teachers.tn', url: 'https://teachers.tn/', icon: 'fa-solid fa-arrow-up-right-from-square', primary: true },
+          { text: 'Inquire on WhatsApp', url: 'https://wa.me/21629861363', icon: 'fa-brands fa-whatsapp', emerald: true }
+        ]
+      },
+      'hirebotx': {
+        title: 'HireBotX — Multi-Agent Mock Interview Simulation',
+        subtitle: 'Persona-Driven AI Interviewers with Dynamic Real-Time Rubric Evaluation',
+        category: 'Multi-Agent LLM Application',
+        badge: '★ OPEN SOURCE AI PROJECT',
+        badgeColor: 'gold',
+        metrics: [
+          { num: '3', label: 'AI Personas' },
+          { num: 'ChromaDB', label: 'Persona Memory' },
+          { num: 'Real-Time', label: 'Rubric Scoring' }
+        ],
+        overview: 'A multi-agent interview preparation engine that simulates realistic technical and behavioral interviews with 3 distinct AI personas: HR Manager, Chief Technology Officer, and CEO.',
+        highlights: [
+          '<b>Tri-Persona Interaction Model:</b> Each agent has distinct evaluation criteria, conversational styles, and specialized rubric scoring stored in ChromaDB.',
+          '<b>Adaptive Follow-Up Questions:</b> Agents dynamically adjust question difficulty based on the depth and accuracy of candidate answers.',
+          '<b>Comprehensive Scorecard Report:</b> Generates detailed post-interview assessments with competency ratings and actionable feedback.'
+        ],
+        tags: ['Python', 'LangChain', 'ChromaDB', 'OpenAI', 'Streamlit', 'RAG'],
+        images: [
+          { title: 'Multi-Persona Interview Simulation UI', icon: 'fa-solid fa-robot', caption: 'Interactive session switching dynamically between HR, CTO, and CEO questions', status: 'Coming Soon' },
+          { title: 'Candidate Feedback Rubric Dashboard', icon: 'fa-solid fa-clipboard-check', caption: 'Score breakdowns across technical depth, communication, and leadership', status: 'Coming Soon' }
+        ],
+        links: [
+          { text: 'GitHub: aguechfirass100/HireBotX', url: 'https://github.com/aguechfirass100/HireBotX', icon: 'fa-brands fa-github', primary: true }
+        ]
+      },
+      'postpulse': {
+        title: 'PostPulse — Multimodal AI Marketing Platform',
+        subtitle: 'Fine-Tuned LLaMA-3, Flux.1 Diffusion, and BERT Sentiment Feedback Loop',
+        category: 'Multimodal Deep Learning & Generative AI',
+        badge: '★ OPEN SOURCE AI PROJECT',
+        badgeColor: 'gold',
+        metrics: [
+          { num: 'LLaMA-3', label: 'Copywriting Engine' },
+          { num: 'Flux.1', label: 'Diffusion Imagery' },
+          { num: 'BERT', label: 'Sentiment Steering' }
+        ],
+        overview: 'An end-to-end multimodal marketing suite combining fine-tuned large language models for copy generation with state-of-the-art diffusion models for advertising visual synthesis.',
+        highlights: [
+          '<b>Cohesive Multimodal Pipeline:</b> Automatically aligns advertising copy with generated visual elements based on brand guidelines.',
+          '<b>BERT Sentiment Analysis Loop:</b> Evaluates generated campaign copy against sentiment objectives, automatically refining tone and emotional resonance.'
+        ],
+        tags: ['Python', 'PyTorch', 'LLaMA-3', 'Flux.1', 'BERT', 'Diffusers', 'Transformers'],
+        images: [
+          { title: 'Multimodal Campaign Generation Suite', icon: 'fa-solid fa-wand-magic-sparkles', caption: 'Side-by-side prompt tuning, LLaMA-3 copywriting, and Flux.1 diffusion renders', status: 'Coming Soon' },
+          { title: 'Sentiment Analysis Calibration Curve', icon: 'fa-solid fa-chart-pie', caption: 'BERT sentiment distribution across generated marketing variations', status: 'Coming Soon' }
+        ],
+        links: [
+          { text: 'GitHub: aguechfirass100/PostPulse', url: 'https://github.com/aguechfirass100/PostPulse', icon: 'fa-brands fa-github', primary: true }
+        ]
+      },
+      'transformer-scratch': {
+        title: 'PyTorch Transformer from Scratch',
+        subtitle: 'Pure PyTorch Implementation of "Attention Is All You Need"',
+        category: 'Deep Learning Research & Implementation',
+        badge: '★ RESEARCH CODEBASE',
+        badgeColor: 'gold',
+        metrics: [
+          { num: '100%', label: 'From Scratch' },
+          { num: 'PyTorch', label: 'Core Framework' },
+          { num: 'Multi-Head', label: 'Self-Attention' }
+        ],
+        overview: 'Modular, production-clean implementation of the canonical Transformer model architecture in pure PyTorch, written from the ground up without using PyTorch\'s high-level Transformer abstractions.',
+        highlights: [
+          '<b>Scaled Dot-Product & Multi-Head Attention:</b> Explicit tensor dimension manipulation with einsum and masking for causal decoding.',
+          '<b>Positional Encodings:</b> Sinusoidal positional embeddings, layer normalization, and residual dropout connections.',
+          '<b>Complete Training Pipeline:</b> End-to-end training loop with learning rate scheduling and sequence loss evaluation.'
+        ],
+        tags: ['Python', 'PyTorch', 'NumPy', 'Deep Learning', 'Attention Mechanism'],
+        images: [
+          { title: 'Self-Attention Weight Matrix Heatmap', icon: 'fa-solid fa-microchip', caption: 'Token-to-token attention visualization across multi-head projections', status: 'Coming Soon' },
+          { title: 'Training Loss Convergence Plot', icon: 'fa-solid fa-chart-line', caption: 'Validation cross-entropy loss over training epochs on sequence dataset', status: 'Coming Soon' }
+        ],
+        links: [
+          { text: 'GitHub: aguechfirass100/pytorch-transformer-from-scratch', url: 'https://github.com/aguechfirass100/pytorch-transformer-from-scratch', icon: 'fa-brands fa-github', primary: true }
+        ]
+      },
+      'ddos-detection': {
+        title: 'Transformer-Based DDoS Anomaly Detection',
+        subtitle: 'Self-Attention Applied to Network Packet Telemetry for Anomaly Detection',
+        category: 'Cybersecurity & Deep Learning',
+        badge: '★ CYBERSECURITY ML',
+        badgeColor: 'gold',
+        metrics: [
+          { num: 'Real-Time', label: 'Telemetry Analysis' },
+          { num: 'Transformer', label: 'Packet Attention' },
+          { num: 'High-Precision', label: 'Attack Mitigation' }
+        ],
+        overview: 'Novel deep learning security system applying Transformer self-attention to temporal packet flow sequences to identify subtle volumetric anomalies and distributed denial-of-service (DDoS) attacks.',
+        highlights: [
+          '<b>Temporal Flow Windowing:</b> Preprocesses network packet headers into sequence tokens capturing inter-arrival times and packet size distributions.',
+          '<b>Self-Attention Anomaly Identification:</b> Recognizes synchronized coordinated flow patterns across multiple IP sources that evade traditional threshold-based firewalls.'
+        ],
+        tags: ['Python', 'PyTorch', 'Scikit-Learn', 'Cybersecurity', 'Anomaly Detection'],
+        images: [
+          { title: 'Packet Telemetry Attention Flow Matrix', icon: 'fa-solid fa-shield-halved', caption: 'Visualizing attention spikes during simulated volumetric attack traffic', status: 'Coming Soon' },
+          { title: 'ROC-AUC & Precision-Recall Comparison', icon: 'fa-solid fa-chart-simple', caption: 'Benchmark against Random Forest, SVM, and LSTM network baselines', status: 'Coming Soon' }
+        ],
+        links: [
+          { text: 'GitHub: Transformer-Based-DDoS-Detection', url: 'https://github.com/aguechfirass100/Transformer-Based-DDoS-Detection', icon: 'fa-brands fa-github', primary: true }
+        ]
+      },
+      'audio-emotion': {
+        title: 'Audio Emotion Recognition (VAE + Diffusion)',
+        subtitle: 'Generative Spectrogram Synthesis & Classification on EmoDB & RAVDESS',
+        category: 'Speech & Audio Machine Learning',
+        badge: '★ AUDIO ML & DIFFUSION',
+        badgeColor: 'gold',
+        metrics: [
+          { num: 'VAE + Diffusion', label: 'Hybrid Pipeline' },
+          { num: '2 Corpora', label: 'EmoDB & RAVDESS' },
+          { num: 'ResNet-50', label: 'Feature Extraction' }
+        ],
+        overview: 'A generative speech emotion recognition pipeline pairing Variational Autoencoders (VAEs) with diffusion models to reconstruct and synthesize high-fidelity Mel-spectrograms representing subtle human affective states.',
+        highlights: [
+          '<b>Spectrogram Feature Engineering:</b> Extracted log Mel-filterbank energies, pitch contours, and harmonic characteristics from raw audio samples.',
+          '<b>Generative Latent Modeling:</b> Trained a VAE for latent emotion representation followed by a conditioned diffusion model to generate realistic emotional speech spectrograms.'
+        ],
+        tags: ['Python', 'PyTorch', 'Diffusers', 'Librosa', 'ResNet-50', 'Audio ML'],
+        images: [
+          { title: 'Synthesized vs Ground-Truth Spectrograms', icon: 'fa-solid fa-wave-square', caption: 'Comparison of synthesized Mel-spectrograms across anger, joy, and sadness', status: 'Coming Soon' },
+          { title: 'Latent Space Emotion Clustering (t-SNE)', icon: 'fa-solid fa-circle-nodes', caption: 't-SNE visualization of acoustic emotion clusters in the VAE latent space', status: 'Coming Soon' }
+        ],
+        links: [
+          { text: 'Contact for Audio Demo', url: 'https://wa.me/21629861363', icon: 'fa-brands fa-whatsapp', emerald: true }
+        ]
+      },
+      'telecom-churn': {
+        title: 'Telecom Customer Churn Prediction with SHAP',
+        subtitle: 'Research-Based Predictive Modeling & Explainable Machine Learning',
+        category: 'Applied ML & Explainability',
+        badge: '★ EXPLAINABLE ML & RESEARCH',
+        badgeColor: 'gold',
+        metrics: [
+          { num: '3 Papers', label: 'Research Implemented' },
+          { num: 'SHAP', label: 'Model Explainability' },
+          { num: 'XGBoost', label: 'Gradient Boosting' }
+        ],
+        overview: 'Predictive customer attrition framework implementing methodologies from three academic papers, combining robust feature engineering with SHAP (SHapley Additive exPlanations) for transparent enterprise decision support.',
+        highlights: [
+          '<b>Comparative Benchmark:</b> Evaluated logistic regression, random forests, and gradient boosted trees against class-imbalanced customer telemetry.',
+          '<b>SHAP Value Attribution:</b> Delivered global and local explanations for churn risk, identifying billing tenure and call-drop spikes as key drivers.'
+        ],
+        tags: ['Python', 'Scikit-Learn', 'SHAP', 'XGBoost', 'Pandas', 'EDA'],
+        images: [
+          { title: 'SHAP Feature Importance Summary Plot', icon: 'fa-solid fa-chart-column', caption: 'Beeswarm plot highlighting top feature contributions to customer churn probability', status: 'Coming Soon' },
+          { title: 'Individual Customer Churn Force Plot', icon: 'fa-solid fa-sliders', caption: 'Sample local explanation showing positive and negative drivers for one subscriber', status: 'Coming Soon' }
+        ],
+        links: [
+          { text: 'GitHub: customer-churn-prediction-telecom', url: 'https://github.com/aguechfirass100/customer-churn-prediction-telecom', icon: 'fa-brands fa-github', primary: true }
+        ]
+      },
+      'spec-multi-agent': {
+        title: 'Agentic Multi-Agent Systems Specialization',
+        subtitle: 'Graph-Orchestrated Autonomous Workflows & Tool Discovery Ecosystems',
+        category: 'Core Competency & Architecture',
+        badge: '★ CORE SPECIALIZATION',
+        badgeColor: 'emerald',
+        metrics: [
+          { num: 'LangGraph4j', label: 'StateGraph Core' },
+          { num: 'ReAct', label: 'Autonomous Planners' },
+          { num: 'Dynamic', label: 'Tool Discovery' }
+        ],
+        overview: 'Specialized in building production-grade agentic workflows using graph-based state orchestration. Designs agents that autonomously formulate plans, select tools, reflect on intermediate observations, and correct execution paths.',
+        highlights: [
+          '<b>StateGraph Orchestration:</b> Multi-agent coordination with cyclic loops, parallel execution branches, and persistent memory.',
+          '<b>Autonomous Tooling:</b> Self-registering schema reflection allowing LLMs to interact with database APIs, vector stores, and external microservices.',
+          '<b>Production Safety & Guardrails:</b> Rate limiting, hallucination verification gates, and deterministic fallback loops.'
+        ],
+        tags: ['LangGraph4j', 'ReAct', 'Tool Discovery', 'Session Memory', 'Multi-Agent', 'StateGraph'],
+        images: [
+          { title: 'Multi-Agent StateGraph Architecture Diagram', icon: 'fa-solid fa-diagram-project', caption: 'Visual map of agent supervisor, tool executors, and reflection loops', status: 'Coming Soon' }
+        ],
+        links: [
+          { text: 'Consult on Multi-Agent Systems', url: 'https://wa.me/21629861363', icon: 'fa-brands fa-whatsapp', emerald: true }
+        ]
+      },
+      'spec-hybrid-search': {
+        title: 'Hybrid Semantic Search & Information Retrieval',
+        subtitle: 'Dense Vectors + BM25 Sparse Retrieval with Distribution-Based Score Fusion (DBSF)',
+        category: 'Core Competency & Information Retrieval',
+        badge: '★ CORE SPECIALIZATION',
+        badgeColor: 'emerald',
+        metrics: [
+          { num: 'Dense+BM25', label: 'Hybrid Retrievial' },
+          { num: 'DBSF', label: 'Score Fusion' },
+          { num: 'Qdrant', label: 'Vector Database' }
+        ],
+        overview: 'Specialized in next-generation Information Retrieval architectures that transcend simple vector search by fusing dense contextual representations with exact lexical keyword matching using advanced mathematical score fusion.',
+        highlights: [
+          '<b>Distribution-Based Score Fusion (DBSF):</b> Normalizes heterogeneous score distributions to prevent dense vector bias and maximize keyword precision.',
+          '<b>Multi-Vector Catalog Indexing:</b> Dual collection schemas separating product titles, attributes, and long-form descriptions for targeted retrieval.',
+          '<b>Rigorous IR Benchmarking:</b> Measured on nDCG@k, MRR, and Recall metrics across real-world query distributions.'
+        ],
+        tags: ['Qdrant', 'BM25', 'DBSF Fusion', 'ChromaDB', 'nDCG@10', 'Information Retrieval'],
+        images: [
+          { title: 'DBSF Distribution Normalization Curves', icon: 'fa-solid fa-chart-area', caption: 'Mathematical distribution mapping curves reconciling dense and sparse scores', status: 'Coming Soon' }
+        ],
+        links: [
+          { text: 'Inquire on Search Architectures', url: 'https://wa.me/21629861363', icon: 'fa-brands fa-whatsapp', emerald: true }
+        ]
+      },
+      'spec-colbert': {
+        title: 'ColBERT & Token-Level MaxSim Rerankers',
+        subtitle: 'Late-Interaction Token Matching & Cross-Encoder Architectures',
+        category: 'Core Competency & Deep Learning',
+        badge: '★ CORE SPECIALIZATION',
+        badgeColor: 'emerald',
+        metrics: [
+          { num: 'MaxSim', label: 'Token Scoring' },
+          { num: 'Chunked', label: 'Einsum GPU Ops' },
+          { num: '<40ms', label: 'P95 Latency' }
+        ],
+        overview: 'Deep expertise in late-interaction token rerankers based on the ColBERT architecture. Implements token-level MaxSim operations using chunked matrix operations that deliver cross-encoder quality at bi-encoder speeds.',
+        highlights: [
+          '<b>Token-Level Late Interaction:</b> Preserves every token embedding to capture fine-grained semantic subtleties lost in single-vector pooling.',
+          '<b>Chunked Einsum Optimization:</b> Batched GPU operations designed to prevent out-of-memory errors on large candidate sets.',
+          '<b>Pre-Encoded Catalog Caching:</b> Offline document token index for sub-40ms end-to-end reranking.'
+        ],
+        tags: ['ColBERT', 'MaxSim', 'Chunked Einsum', 'PyTorch', 'Cross-Encoders', 'Late Interaction'],
+        images: [
+          { title: 'ColBERT Token Interaction Blueprint', icon: 'fa-solid fa-microchip', caption: 'Token-level alignment matrix across query and document terms', status: 'Coming Soon' }
+        ],
+        links: [
+          { text: 'Inquire on ColBERT Implementations', url: 'https://wa.me/21629861363', icon: 'fa-brands fa-whatsapp', emerald: true }
+        ]
+      },
+      'spec-finetuning': {
+        title: 'Embedding Fine-Tuning & Domain Adaptation',
+        subtitle: 'LoRA, PEFT, MultipleNegativesRankingLoss & Synthetic Triplet Generation',
+        category: 'Core Competency & Deep Learning',
+        badge: '★ CORE SPECIALIZATION',
+        badgeColor: 'emerald',
+        metrics: [
+          { num: 'LoRA / PEFT', label: 'Parameter-Efficient' },
+          { num: 'Triplet Loss', label: 'Hard Negatives' },
+          { num: 'Synthetic', label: 'Data Mining' }
+        ],
+        overview: 'Specialized in adapting foundation embedding models to proprietary business domains, specialized vocabularies, and low-resource languages using parameter-efficient fine-tuning (LoRA).',
+        highlights: [
+          '<b>Hard-Negative Mining:</b> Constructs adversarial negative examples using cross-encoders to sharpen decision boundaries.',
+          '<b>Synthetic Triplet Pipeline:</b> Generates high-quality (anchor, positive, negative) tuples using LLMs to bootstrap training data.',
+          '<b>Loss Functions:</b> MultipleNegativesRankingLoss and CosineSimilarityLoss tailored for asymmetric retrieval tasks.'
+        ],
+        tags: ['LoRA', 'PEFT', 'PyTorch', 'Hugging Face', 'Triplet Loss', 'Domain Adaptation'],
+        images: [
+          { title: 'Embedding Space Separation Visualization', icon: 'fa-solid fa-circle-nodes', caption: 't-SNE projection before and after LoRA domain adaptation', status: 'Coming Soon' }
+        ],
+        links: [
+          { text: 'Consult on Model Fine-Tuning', url: 'https://wa.me/21629861363', icon: 'fa-brands fa-whatsapp', emerald: true }
+        ]
+      },
+      'spec-mobile': {
+        title: 'Production Mobile & Full-Stack Applications',
+        subtitle: 'Cross-Platform Flutter/Dart Shipped to App Store & Google Play',
+        category: 'Core Competency & Production Engineering',
+        badge: '★ CORE SPECIALIZATION',
+        badgeColor: 'emerald',
+        metrics: [
+          { num: 'App Store', label: 'Apple Approvals' },
+          { num: 'Play Store', label: 'Google Console' },
+          { num: 'Flutter', label: '60fps UI' }
+        ],
+        overview: 'Proven track record of architecting, developing, and shipping commercial mobile applications from zero to live releases on both the Apple App Store and Google Play Store.',
+        highlights: [
+          '<b>Flutter & Dart:</b> High-performance responsive layouts, custom workout timers, local offline caching, and native platform channels.',
+          '<b>Backend Integration:</b> Seamless integration with scalable REST backends, real-time WebSockets, push notifications, and analytics.',
+          '<b>Store Operations:</b> Full lifecycle ownership of certificates, provisioning profiles, privacy requirements, and review guidelines.'
+        ],
+        tags: ['Flutter', 'Dart', 'Apple App Store', 'Google Play', 'Laravel', 'REST APIs', 'Offline First'],
+        images: [
+          { title: 'Mobile App Architecture Blueprint', icon: 'fa-solid fa-mobile-screen', caption: 'State management, offline caching layer, and REST API sync topology', status: 'Coming Soon' }
+        ],
+        links: [
+          { text: 'Build a Mobile MVP', url: 'https://wa.me/21629861363', icon: 'fa-brands fa-whatsapp', emerald: true }
+        ]
+      },
+      'spec-backend': {
+        title: 'Production Backends, Microservices & DevOps',
+        subtitle: 'High-Concurrency Services, Real-Time Streaming & Automated CI/CD',
+        category: 'Core Competency & Infrastructure',
+        badge: '★ CORE SPECIALIZATION',
+        badgeColor: 'emerald',
+        metrics: [
+          { num: 'Docker', label: 'Containerization' },
+          { num: 'Spring AI', label: 'Java Microservices' },
+          { num: 'CI/CD', label: 'Automated Pipelines' }
+        ],
+        overview: 'Specialized in building resilient, high-throughput backend services and containerized deployment infrastructure capable of serving production LLM and data workloads with high reliability.',
+        highlights: [
+          '<b>Modern Backends:</b> High-performance microservices in Java (Spring Boot / Spring AI) and Python (FastAPI).',
+          '<b>Streaming & Concurrency:</b> Server-Sent Events (SSE) and WebSocket architectures for real-time LLM token streaming.',
+          '<b>DevOps & Containerization:</b> Multi-stage Docker builds, GitLab CI/CD automation, and production Linux deployment.'
+        ],
+        tags: ['Spring AI', 'Java', 'FastAPI', 'Python', 'Docker', 'GitLab CI/CD', 'Linux'],
+        images: [
+          { title: 'Microservices & CI/CD Pipeline Architecture', icon: 'fa-solid fa-server', caption: 'Deployment workflow from git push to containerized production rollout', status: 'Coming Soon' }
+        ],
+        links: [
+          { text: 'Inquire on Backend Architecture', url: 'https://wa.me/21629861363', icon: 'fa-brands fa-whatsapp', emerald: true }
+        ]
+      }
+    };
+
+    function showToast(msg) {
+      const toast = document.getElementById('copy-toast');
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.className = 'show';
+      playSelect();
+      setTimeout(() => {
+        toast.className = toast.className.replace('show', '');
+      }, 3000);
+    }
+
+    function openProjectModal(key) {
+      const data = projectDetails[key];
+      if (!data) return;
+
+      playSelect();
+
+      // Populate Badge & Type
+      const badgeEl = document.getElementById('modal-badge');
+      badgeEl.textContent = data.badge || '★ DETAILED BREAKDOWN';
+      badgeEl.className = data.badgeColor === 'gold' ? 'badge-sticker-gold' : 'badge-sticker-emerald';
+
+      document.getElementById('modal-type-tag').textContent = data.category || 'Architecture & Implementation';
+
+      // Title & Subtitle
+      document.getElementById('modal-title').textContent = data.title;
+      document.getElementById('modal-subtitle').textContent = data.subtitle;
+
+      // Metrics Strip
+      const metricsStrip = document.getElementById('modal-metrics-strip');
+      metricsStrip.innerHTML = '';
+      if (data.metrics && data.metrics.length > 0) {
+        metricsStrip.style.display = 'grid';
+        data.metrics.forEach(m => {
+          const mCard = document.createElement('div');
+          mCard.className = 'modal-metric-card';
+          mCard.innerHTML = `
+            <div class="modal-metric-num">${m.num}</div>
+            <div class="modal-metric-label">${m.label}</div>
+          `;
+          metricsStrip.appendChild(mCard);
+        });
+      } else {
+        metricsStrip.style.display = 'none';
+      }
+
+      // Overview
+      document.getElementById('modal-overview').textContent = data.overview;
+
+      // Highlights List
+      const hlList = document.getElementById('modal-highlights');
+      hlList.innerHTML = '';
+      (data.highlights || []).forEach(hl => {
+        const li = document.createElement('li');
+        li.innerHTML = hl;
+        hlList.appendChild(li);
+      });
+
+      // Visual Gallery (Coming Soon Prototype)
+      const gallery = document.getElementById('modal-gallery');
+      gallery.innerHTML = '';
+      (data.images || []).forEach(img => {
+        const card = document.createElement('div');
+        card.className = 'proto-image-card';
+        card.onclick = () => openImageLightbox(img);
+        card.onmouseenter = () => playPop();
+        card.innerHTML = `
+          <div class="proto-img-frame">
+            <i class="proto-img-icon ${img.icon || 'fa-solid fa-image'}"></i>
+            <span class="badge-coming-soon">${img.status || 'Coming Soon'}</span>
+          </div>
+          <div class="proto-img-title">${img.title}</div>
+          <div class="proto-img-desc">${img.caption}</div>
+          <div class="proto-click-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Click for Blueprint Preview</div>
+        `;
+        gallery.appendChild(card);
+      });
+
+      // Tags
+      const tagsContainer = document.getElementById('modal-tags');
+      tagsContainer.innerHTML = '';
+      (data.tags || []).forEach(t => {
+        const span = document.createElement('span');
+        span.className = 'pill-toon';
+        span.textContent = t;
+        tagsContainer.appendChild(span);
+      });
+
+      // Action Buttons
+      const actionsContainer = document.getElementById('modal-actions');
+      actionsContainer.innerHTML = '';
+      (data.links || []).forEach(l => {
+        const a = document.createElement('a');
+        a.href = l.url;
+        a.target = '_blank';
+        a.className = l.primary ? 'btn-toon btn-toon-primary' : (l.emerald ? 'btn-toon btn-toon-emerald' : 'btn-toon btn-toon-outline');
+        a.style.padding = '0.45rem 1.1rem';
+        a.style.fontSize = '0.85rem';
+        a.onmouseenter = () => playPop();
+        a.onclick = () => playSelect();
+        a.innerHTML = `<i class="${l.icon || 'fa-solid fa-arrow-up-right-from-square'}"></i> ${l.text}`;
+        actionsContainer.appendChild(a);
+      });
+
+      // Show Modal
+      const modal = document.getElementById('project-modal');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      const body = document.getElementById('modal-body');
+      if (body) body.scrollTop = 0;
+    }
+
+    function closeProjectModal() {
+      const modal = document.getElementById('project-modal');
+      if (!modal) return;
+      playPop();
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function handleBackdropClick(e) {
+      if (e.target.id === 'project-modal') {
+        closeProjectModal();
+      }
+    }
+
+    // Lightbox Controls for Prototype Images
+    function openImageLightbox(img) {
+      playSelect();
+      document.getElementById('lightbox-title').textContent = img.title;
+      document.getElementById('lightbox-caption').textContent = img.caption;
+      const iconEl = document.getElementById('lightbox-icon');
+      iconEl.className = `${img.icon || 'fa-solid fa-diagram-project'}`;
+      document.getElementById('image-lightbox').classList.add('active');
+    }
+
+    function closeImageLightbox() {
+      playPop();
+      const lb = document.getElementById('image-lightbox');
+      if (lb) lb.classList.remove('active');
+    }
+
+    function handleLightboxBackdropClick(e) {
+      if (e.target.id === 'image-lightbox') {
+        closeImageLightbox();
+      }
+    }
   </script>
 
   <!-- Stage Deck Navigation Controller with Intelligent Inner-Scroll Handling -->
@@ -1644,6 +2805,15 @@
 
     // CRITICAL FIX: Intelligent Wheel Event Handling so content is NEVER cut off!
     window.addEventListener('wheel', (e) => {
+      // FREEZE stage transitions if Project Modal or Lightbox is open!
+      const activeModal = document.querySelector('.modal-backdrop.active, .lightbox-backdrop.active');
+      if (activeModal) {
+        const modalBody = activeModal.querySelector('.modal-body');
+        if (modalBody) {
+          modalBody.scrollTop += e.deltaY * 0.85;
+        }
+        return;
+      }
       const now = Date.now();
       const activeStage = document.querySelector('.stage.active');
       if (activeStage) {
@@ -1693,6 +2863,28 @@
 
     // Keyboard Controller with Inner-Scroll Awareness
     window.addEventListener('keydown', (e) => {
+      const activeModal = document.querySelector('.modal-backdrop.active, .lightbox-backdrop.active');
+      if (activeModal) {
+        if (e.key === 'Escape') {
+          closeImageLightbox();
+          closeProjectModal();
+          return;
+        }
+        const modalBody = activeModal.querySelector('.modal-body');
+        if (modalBody) {
+          if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
+            modalBody.scrollTop += 130;
+            e.preventDefault();
+            return;
+          }
+          if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+            modalBody.scrollTop -= 130;
+            e.preventDefault();
+            return;
+          }
+        }
+        return;
+      }
       const activeStage = document.querySelector('.stage.active');
       const container = activeStage ? activeStage.querySelector('.stage-container') : null;
 
@@ -1762,11 +2954,7 @@
     function copyEmail() {
       navigator.clipboard.writeText('aguechfirass100@gmail.com').then(() => {
         const toast = document.getElementById('copy-toast');
-        toast.className = 'show';
-        playSelect();
-        setTimeout(() => {
-          toast.className = toast.className.replace('show', '');
-        }, 2600);
+        showToast('✓ Email copied to clipboard: aguechfirass100@gmail.com');
       });
     }
   </script>
