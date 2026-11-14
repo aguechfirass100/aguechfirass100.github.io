@@ -1,90 +1,144 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Firas Aguech — AI Engineer & RAG Architect</title>
-  <meta name="description" content="AI Engineer specializing in Retrieval-Augmented Generation (RAG), Hybrid Semantic Search, and Multi-Agent LLM Systems. Explore enterprise projects, publications, and services.">
+  <meta name="description" content="AI Engineer specializing in Retrieval-Augmented Generation (RAG), Hybrid Semantic Search, Multi-Agent LLMs, and End-to-End Mobile & Web Systems.">
   <link rel="icon" href="assets/img/me.jpg" type="image/jpeg">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
     :root {
-      --bg-dark: #090d16;
-      --bg-surface: #0f172a;
-      --bg-card: rgba(18, 26, 45, 0.75);
+      --bg-dark: #070a12;
+      --bg-card: rgba(15, 23, 42, 0.72);
       --border-card: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(56, 189, 248, 0.35);
+      --border-hover: rgba(56, 189, 248, 0.45);
       --primary: #38bdf8;
-      --primary-glow: rgba(56, 189, 248, 0.25);
+      --primary-glow: rgba(56, 189, 248, 0.35);
       --secondary: #10b981;
-      --secondary-glow: rgba(16, 185, 129, 0.25);
+      --secondary-glow: rgba(16, 185, 129, 0.35);
       --accent: #818cf8;
+      --whatsapp: #25d366;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --text-dim: #64748b;
       --font-body: 'Plus Jakarta Sans', sans-serif;
       --font-display: 'Space Grotesk', sans-serif;
       --font-code: 'JetBrains Mono', monospace;
+      --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    * {
+    /* Reset & Disable Default Document Scrollbar */
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      user-select: none;
     }
 
-    body {
+    p, span, h1, h2, h3, h4, a, li {
+      user-select: text;
+    }
+
+    html, body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
       background-color: var(--bg-dark);
       color: var(--text-main);
       font-family: var(--font-body);
-      line-height: 1.65;
-      overflow-x: hidden;
-      background-image: 
-        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.08) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(16, 185, 129, 0.06) 0px, transparent 50%),
-        radial-gradient(at 50% 100%, rgba(129, 140, 248, 0.06) 0px, transparent 50%);
-      background-attachment: fixed;
+      line-height: 1.55;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
 
-    /* Container */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
+    ::-webkit-scrollbar {
+      display: none;
     }
 
-    /* Navbar */
-    .navbar {
+    /* Living Interactive Background Canvas */
+    #neural-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Ambient Cyber Gradients & Glows */
+    .ambient-glow {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(100px);
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.45;
+      animation: floatGlow 14s infinite alternate ease-in-out;
+    }
+
+    .ambient-glow-1 {
+      top: -10%;
+      left: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.25), transparent 70%);
+    }
+
+    .ambient-glow-2 {
+      bottom: -10%;
+      right: -10%;
+      width: 650px;
+      height: 650px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.2), transparent 70%);
+      animation-delay: -7s;
+    }
+
+    .ambient-glow-3 {
+      top: 40%;
+      left: 45%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(129, 140, 248, 0.15), transparent 70%);
+      animation-delay: -3.5s;
+    }
+
+    @keyframes floatGlow {
+      0% { transform: translate(0, 0) scale(0.9); }
+      50% { transform: translate(40px, 30px) scale(1.1); }
+      100% { transform: translate(-30px, -20px) scale(0.95); }
+    }
+
+    /* Fixed Futuristic Navigation HUD */
+    .hud-navbar {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
+      height: 72px;
       z-index: 100;
-      background: rgba(9, 13, 22, 0.82);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border-card);
-      transition: all 0.3s ease;
-    }
-
-    .navbar-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 72px;
+      padding: 0 2.5rem;
+      background: rgba(7, 10, 18, 0.65);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-card);
     }
 
-    .nav-brand {
+    .hud-brand {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.85rem;
       text-decoration: none;
       color: var(--text-main);
       font-family: var(--font-display);
@@ -92,58 +146,321 @@
       font-size: 1.25rem;
     }
 
-    .nav-brand-dot {
+    .beacon-pulse {
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: var(--primary);
-      box-shadow: 0 0 12px var(--primary);
+      background: var(--secondary);
+      box-shadow: 0 0 12px var(--secondary);
+      animation: beacon 2s infinite;
     }
 
-    .nav-links {
+    @keyframes beacon {
+      0% { transform: scale(0.9); opacity: 0.8; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { transform: scale(1.15); opacity: 1; box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+      100% { transform: scale(0.9); opacity: 0.8; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    .hud-nav-links {
       display: flex;
       align-items: center;
-      gap: 2rem;
+      gap: 1.5rem;
       list-style: none;
     }
 
-    .nav-link {
-      text-decoration: none;
+    .hud-link {
       color: var(--text-muted);
-      font-size: 0.925rem;
-      font-weight: 500;
-      transition: color 0.2s ease;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      font-family: var(--font-code);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: color 0.25s;
     }
 
-    .nav-link:hover {
+    .hud-link:hover, .hud-link.active {
       color: var(--primary);
     }
 
-    .nav-cta {
-      padding: 0.55rem 1.2rem;
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      color: var(--primary);
+    .hud-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 1rem;
+      background: rgba(37, 211, 102, 0.12);
+      border: 1px solid rgba(37, 211, 102, 0.35);
+      color: var(--whatsapp);
       border-radius: 9999px;
       font-weight: 600;
-      font-size: 0.875rem;
+      font-size: 0.825rem;
       text-decoration: none;
-      transition: all 0.2s ease;
+      transition: all 0.25s;
     }
 
-    .nav-cta:hover {
-      background: var(--primary);
-      color: var(--bg-dark);
-      box-shadow: 0 0 20px var(--primary-glow);
+    .btn-whatsapp:hover {
+      background: var(--whatsapp);
+      color: #000;
+      box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+      transform: translateY(-1px);
     }
+
+    .sound-toggle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-card);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    .sound-toggle:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    /* Right-Side Stage Navigation Indicator */
+    .hud-pagination {
+      position: fixed;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 90;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .hud-dot-wrap {
+      position: relative;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hud-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hud-dot-wrap:hover .hud-dot {
+      background: var(--primary);
+      transform: scale(1.4);
+    }
+
+    .hud-dot-wrap.active .hud-dot {
+      width: 10px;
+      height: 28px;
+      border-radius: 9999px;
+      background: var(--primary);
+      box-shadow: 0 0 15px var(--primary);
+    }
+
+    .hud-dot-tooltip {
+      position: absolute;
+      right: 28px;
+      top: 50%;
+      transform: translateY(-50%) translateX(10px);
+      padding: 4px 10px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid var(--border-card);
+      border-radius: 6px;
+      color: var(--text-main);
+      font-family: var(--font-code);
+      font-size: 0.75rem;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+    }
+
+    .hud-dot-wrap:hover .hud-dot-tooltip {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+    }
+
+    /* Bottom Controller HUD */
+    .hud-footer {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 2.5rem;
+      right: 2.5rem;
+      z-index: 90;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+
+    .hud-counter {
+      font-family: var(--font-code);
+      font-size: 0.85rem;
+      color: var(--primary);
+      letter-spacing: 0.1em;
+    }
+
+    .hud-scroll-hint {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-code);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      pointer-events: auto;
+      cursor: pointer;
+    }
+
+    .mouse-icon {
+      width: 18px;
+      height: 28px;
+      border: 2px solid var(--text-dim);
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .mouse-wheel {
+      width: 3px;
+      height: 6px;
+      background: var(--primary);
+      border-radius: 2px;
+      position: absolute;
+      top: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: mouseScroll 1.6s infinite;
+    }
+
+    @keyframes mouseScroll {
+      0% { transform: translate(-50%, 0); opacity: 1; }
+      100% { transform: translate(-50%, 12px); opacity: 0; }
+    }
+
+    .hud-arrows {
+      display: flex;
+      gap: 0.5rem;
+      pointer-events: auto;
+    }
+
+    .btn-arrow {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-card);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .btn-arrow:hover {
+      background: var(--primary);
+      color: #000;
+      box-shadow: 0 0 15px var(--primary-glow);
+    }
+
+    /* Stage Deck Presentation Viewport */
+    .deck-viewport {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      z-index: 10;
+    }
+
+    .stage {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 90px 4rem 80px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: scale(0.9) translateY(60px);
+      transition: 
+        opacity 0.75s var(--ease-cinematic),
+        transform 0.85s var(--ease-cinematic),
+        visibility 0.85s;
+    }
+
+    .stage.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: scale(1) translateY(0);
+      z-index: 20;
+    }
+
+    .stage.exit-up {
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.92) translateY(-70px);
+    }
+
+    .stage.exit-down {
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.92) translateY(70px);
+    }
+
+    .stage-container {
+      width: 100%;
+      max-width: 1180px;
+      max-height: calc(100vh - 170px);
+      overflow-y: auto;
+      scrollbar-width: none;
+      padding-right: 6px;
+    }
+
+    .stage-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Staggered Animations inside Active Stage */
+    .stage .anim-item {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s var(--ease-cinematic), transform 0.6s var(--ease-cinematic);
+    }
+
+    .stage.active .anim-item:nth-child(1) { transition-delay: 0.12s; opacity: 1; transform: translateY(0); }
+    .stage.active .anim-item:nth-child(2) { transition-delay: 0.22s; opacity: 1; transform: translateY(0); }
+    .stage.active .anim-item:nth-child(3) { transition-delay: 0.32s; opacity: 1; transform: translateY(0); }
+    .stage.active .anim-item:nth-child(4) { transition-delay: 0.42s; opacity: 1; transform: translateY(0); }
+    .stage.active .anim-item:nth-child(5) { transition-delay: 0.52s; opacity: 1; transform: translateY(0); }
 
     /* Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: 10px;
+      gap: 0.6rem;
+      padding: 0.8rem 1.6rem;
+      border-radius: 12px;
       font-weight: 600;
       font-size: 0.95rem;
       text-decoration: none;
@@ -154,48 +471,44 @@
 
     .btn-primary {
       background: var(--primary);
-      color: var(--bg-dark);
+      color: #060912;
       box-shadow: 0 4px 20px var(--primary-glow);
     }
 
     .btn-primary:hover {
       background: #7dd3fc;
       transform: translateY(-2px);
-      box-shadow: 0 6px 25px rgba(56, 189, 248, 0.4);
+      box-shadow: 0 8px 30px rgba(56, 189, 248, 0.5);
     }
 
-    .btn-secondary {
+    .btn-outline {
       background: rgba(255, 255, 255, 0.05);
       color: var(--text-main);
       border: 1px solid var(--border-card);
+      backdrop-filter: blur(10px);
     }
 
-    .btn-secondary:hover {
+    .btn-outline:hover {
       background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.25);
       transform: translateY(-2px);
     }
 
-    /* Hero Section */
-    .hero {
-      padding: 160px 0 90px;
-      position: relative;
-    }
-
-    .hero-grid {
+    /* Stage 1: Hero Styles */
+    .hero-layout {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 4rem;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 3.5rem;
       align-items: center;
     }
 
-    .badge-available {
+    .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.35rem 0.9rem;
+      gap: 0.6rem;
+      padding: 0.4rem 1rem;
       background: rgba(16, 185, 129, 0.12);
-      border: 1px solid rgba(16, 185, 129, 0.3);
+      border: 1px solid rgba(16, 185, 129, 0.35);
       color: var(--secondary);
       border-radius: 9999px;
       font-size: 0.85rem;
@@ -203,26 +516,11 @@
       margin-bottom: 1.5rem;
     }
 
-    .pulse-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--secondary);
-      box-shadow: 0 0 10px var(--secondary);
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(0.95); opacity: 0.8; }
-      50% { transform: scale(1.3); opacity: 1; }
-      100% { transform: scale(0.95); opacity: 0.8; }
-    }
-
     .hero-title {
       font-family: var(--font-display);
-      font-size: 3.5rem;
+      font-size: 3.8rem;
       font-weight: 800;
-      line-height: 1.15;
+      line-height: 1.1;
       margin-bottom: 1.25rem;
       letter-spacing: -0.02em;
     }
@@ -237,146 +535,149 @@
       font-size: 1.25rem;
       color: var(--text-muted);
       margin-bottom: 2rem;
-      max-width: 600px;
+      max-width: 620px;
+      line-height: 1.65;
     }
 
-    .hero-actions {
+    .hero-btn-row {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
       margin-bottom: 2.5rem;
     }
 
-    .hero-avatar-wrap {
+    .hero-avatar-frame {
       position: relative;
-      display: flex;
-      justify-content: center;
+      width: 290px;
+      height: 290px;
+      margin: 0 auto;
     }
 
-    .hero-avatar-glow {
+    .avatar-ring {
       position: absolute;
-      width: 320px;
-      height: 320px;
+      inset: -12px;
       border-radius: 50%;
-      background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
-      filter: blur(40px);
-      z-index: 0;
+      border: 2px dashed rgba(56, 189, 248, 0.4);
+      animation: rotateRing 20s linear infinite;
     }
 
-    .hero-avatar-card {
+    @keyframes rotateRing {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .avatar-card {
       position: relative;
-      z-index: 1;
-      width: 300px;
-      height: 300px;
-      border-radius: 30px;
-      padding: 8px;
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.4), rgba(129, 140, 248, 0.2), rgba(16, 185, 129, 0.4));
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      padding: 6px;
+      background: linear-gradient(135deg, #38bdf8, #818cf8, #10b981);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
     }
 
-    .hero-avatar-img {
+    .avatar-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 22px;
-      background-color: var(--bg-surface);
+      border-radius: 50%;
     }
 
-    /* Stats strip */
-    .stats-strip {
+    /* Hero Live Counters */
+    .counters-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
-      padding: 1.75rem 2rem;
+      gap: 1.25rem;
+      padding: 1.5rem;
       background: var(--bg-card);
       border: 1px solid var(--border-card);
       border-radius: 16px;
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(16px);
     }
 
-    .stat-item {
+    .counter-item {
       text-align: center;
     }
 
-    .stat-number {
+    .counter-num {
       font-family: var(--font-display);
-      font-size: 2.25rem;
+      font-size: 2.2rem;
       font-weight: 700;
       color: var(--primary);
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.2rem;
     }
 
-    .stat-label {
-      font-size: 0.85rem;
+    .counter-label {
+      font-size: 0.8rem;
       color: var(--text-muted);
-      font-weight: 500;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
 
-    /* Section Styling */
-    section {
-      padding: 90px 0;
+    /* Section Headers */
+    .stage-header {
+      margin-bottom: 2.5rem;
     }
 
-    .section-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .section-tag {
+    .stage-tag {
       font-family: var(--font-code);
       color: var(--primary);
-      font-size: 0.875rem;
+      font-size: 0.85rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.5rem;
-      display: inline-block;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.35rem;
+      display: block;
     }
 
-    .section-title {
+    .stage-title {
       font-family: var(--font-display);
       font-size: 2.5rem;
       font-weight: 700;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
     }
 
-    .section-desc {
+    .stage-desc {
       color: var(--text-muted);
-      max-width: 650px;
-      margin: 0 auto;
       font-size: 1.05rem;
+      max-width: 720px;
     }
 
-    /* Capabilities / Expertise Cards */
-    .cards-grid {
+    /* 3D Glass Cards */
+    .grid-3col {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 1.75rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
     }
 
-    .capability-card {
+    .grid-2col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .glass-card {
       background: var(--bg-card);
       border: 1px solid var(--border-card);
-      border-radius: 16px;
-      padding: 2rem;
+      border-radius: 18px;
+      padding: 1.75rem;
+      backdrop-filter: blur(14px);
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
-      backdrop-filter: blur(12px);
     }
 
-    .capability-card:hover {
+    .glass-card:hover {
       border-color: var(--border-hover);
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
     }
 
-    .card-icon {
-      width: 52px;
-      height: 52px;
+    .card-icon-wrap {
+      width: 48px;
+      height: 48px;
       border-radius: 12px;
       background: rgba(56, 189, 248, 0.12);
       border: 1px solid rgba(56, 189, 248, 0.25);
@@ -384,156 +685,114 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.35rem;
-      margin-bottom: 1.25rem;
+      font-size: 1.25rem;
+      margin-bottom: 1.2rem;
     }
 
-    .card-title {
+    .card-h {
       font-family: var(--font-display);
       font-size: 1.25rem;
       font-weight: 700;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.6rem;
+      color: var(--text-main);
     }
 
-    .card-text {
+    .card-p {
       color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 1.25rem;
+      font-size: 0.925rem;
       line-height: 1.6;
+      margin-bottom: 1.2rem;
     }
 
     .pill-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.45rem;
     }
 
     .pill {
       font-family: var(--font-code);
-      font-size: 0.75rem;
-      padding: 0.25rem 0.65rem;
+      font-size: 0.72rem;
+      padding: 0.2rem 0.55rem;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 6px;
       color: #cbd5e1;
     }
 
-    /* Projects Section */
-    .project-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
+    /* Enterprise & Shipped Cards */
+    .enterprise-card {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 41, 59, 0.5) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.25);
       border-radius: 18px;
-      padding: 2.25rem;
-      margin-bottom: 2rem;
-      transition: all 0.3s ease;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
       position: relative;
-      backdrop-filter: blur(12px);
     }
 
-    .project-card:hover {
-      border-color: var(--border-hover);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-    }
-
-    .project-badge-private {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
+    .badge-enterprise {
+      font-family: var(--font-code);
       font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
       color: #fbbf24;
       background: rgba(251, 191, 36, 0.1);
-      border: 1px solid rgba(251, 191, 36, 0.25);
+      border: 1px solid rgba(251, 191, 36, 0.3);
       padding: 0.2rem 0.6rem;
       border-radius: 6px;
-      margin-bottom: 0.75rem;
-    }
-
-    .project-badge-live {
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      color: #10b981;
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      padding: 0.2rem 0.6rem;
-      border-radius: 6px;
       margin-bottom: 0.75rem;
     }
 
-    .project-title-row {
+    .badge-shipped {
+      font-family: var(--font-code);
+      font-size: 0.75rem;
+      color: var(--secondary);
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .ent-title-row {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 0.75rem;
-      flex-wrap: wrap;
       gap: 1rem;
+      margin-bottom: 0.5rem;
     }
 
-    .project-name {
+    .ent-title {
       font-family: var(--font-display);
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: 700;
-      color: var(--text-main);
     }
 
-    .project-links {
-      display: flex;
-      gap: 0.75rem;
-    }
-
-    .project-link-btn {
+    .ent-sub {
       color: var(--primary);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.35rem 0.8rem;
-      border-radius: 8px;
-      background: rgba(56, 189, 248, 0.08);
-      border: 1px solid rgba(56, 189, 248, 0.2);
-      transition: all 0.2s;
-    }
-
-    .project-link-btn:hover {
-      background: var(--primary);
-      color: var(--bg-dark);
-    }
-
-    .project-company {
       font-size: 0.95rem;
-      color: var(--primary);
       font-weight: 600;
       margin-bottom: 1rem;
     }
 
-    .project-desc {
-      color: var(--text-muted);
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-
-    .project-highlights {
+    .ent-list {
       list-style: none;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
-    .project-highlights li {
+    .ent-list li {
       position: relative;
-      padding-left: 1.5rem;
-      margin-bottom: 0.5rem;
+      padding-left: 1.4rem;
+      margin-bottom: 0.45rem;
       color: #cbd5e1;
-      font-size: 0.95rem;
+      font-size: 0.925rem;
     }
 
-    .project-highlights li::before {
+    .ent-list li::before {
       content: "▹";
       position: absolute;
       left: 0;
@@ -541,160 +800,72 @@
       font-weight: bold;
     }
 
-    /* Freelance Services */
-    .services-banner {
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(16, 185, 129, 0.08) 100%);
+    /* Services Box */
+    .services-wrapper {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(16, 185, 129, 0.06) 100%);
       border: 1px solid rgba(56, 189, 248, 0.25);
-      border-radius: 24px;
-      padding: 3.5rem;
-      position: relative;
-      overflow: hidden;
-      backdrop-filter: blur(16px);
+      border-radius: 20px;
+      padding: 2.5rem;
     }
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0 2.5rem;
-    }
-
-    .service-box {
-      background: rgba(15, 23, 42, 0.8);
-      border: 1px solid var(--border-card);
-      border-radius: 14px;
-      padding: 1.5rem;
-    }
-
-    .service-box h4 {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      margin-bottom: 0.5rem;
-      color: var(--text-main);
-    }
-
-    .service-box p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    /* Experience Timeline */
-    .timeline {
-      position: relative;
-      max-width: 800px;
-      margin: 0 auto;
-      padding-left: 2rem;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 7px;
-      width: 2px;
-      background: linear-gradient(180deg, var(--primary), var(--secondary), transparent);
-    }
-
-    .timeline-item {
-      position: relative;
-      margin-bottom: 3rem;
-    }
-
-    .timeline-dot {
-      position: absolute;
-      left: -2rem;
-      top: 6px;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: var(--bg-dark);
-      border: 3px solid var(--primary);
-    }
-
-    .timeline-date {
-      font-family: var(--font-code);
-      font-size: 0.85rem;
-      color: var(--primary);
-      margin-bottom: 0.25rem;
-    }
-
-    .timeline-role {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 0.2rem;
-    }
-
-    .timeline-company {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      margin-bottom: 0.75rem;
-    }
-
-    /* Footer & Contact */
-    .footer {
-      background: #060911;
-      border-top: 1px solid var(--border-card);
-      padding: 80px 0 40px;
-      text-align: center;
-    }
-
+    /* Contact Card */
     .contact-card {
-      max-width: 700px;
-      margin: 0 auto 3rem;
       background: var(--bg-card);
       border: 1px solid var(--border-card);
-      border-radius: 20px;
+      border-radius: 24px;
       padding: 3rem;
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto;
     }
 
-    .social-links {
+    .social-pill-row {
       display: flex;
       justify-content: center;
-      gap: 1.25rem;
+      flex-wrap: wrap;
+      gap: 1rem;
       margin: 2rem 0;
     }
 
-    .social-btn {
-      width: 48px;
-      height: 48px;
+    .social-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.25rem;
       border-radius: 12px;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-card);
       color: var(--text-main);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
       text-decoration: none;
-      transition: all 0.2s ease;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.25s;
     }
 
-    .social-btn:hover {
+    .social-pill:hover {
       background: var(--primary);
-      color: var(--bg-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px var(--primary-glow);
+      color: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px var(--primary-glow);
     }
 
     /* Toast */
     #copy-toast {
       visibility: hidden;
-      min-width: 250px;
+      min-width: 260px;
       background-color: var(--secondary);
-      color: #000;
+      color: #060912;
       text-align: center;
-      border-radius: 8px;
-      padding: 12px;
+      border-radius: 10px;
+      padding: 14px 20px;
       position: fixed;
       z-index: 1000;
-      bottom: 30px;
+      bottom: 40px;
       left: 50%;
       transform: translateX(-50%);
-      font-weight: 600;
-      box-shadow: 0 4px 20px var(--secondary-glow);
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 8px 30px var(--secondary-glow);
       opacity: 0;
       transition: opacity 0.3s, visibility 0.3s;
     }
@@ -704,495 +875,723 @@
       opacity: 1;
     }
 
-    /* Responsive */
-    @media (max-width: 900px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 3rem;
-      }
-      .hero-title {
-        font-size: 2.75rem;
-      }
-      .hero-subtitle {
-        margin: 0 auto 2rem;
-      }
-      .hero-actions {
-        justify-content: center;
-      }
-      .stats-strip {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .nav-links {
-        display: none;
-      }
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .hero-layout { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+      .hero-title { font-size: 2.8rem; }
+      .hero-subtitle { margin: 0 auto 1.5rem; }
+      .hero-btn-row { justify-content: center; }
+      .grid-3col { grid-template-columns: repeat(2, 1fr); }
+      .hud-nav-links { display: none; }
+      .hud-pagination { display: none; }
+      .stage { padding: 85px 1.5rem 70px; }
     }
 
-    @media (max-width: 600px) {
-      .hero-title {
-        font-size: 2.25rem;
-      }
-      .stats-strip {
-        grid-template-columns: 1fr;
-      }
-      .services-banner {
-        padding: 2rem 1.5rem;
-      }
+    @media (max-width: 640px) {
+      .hero-title { font-size: 2.2rem; }
+      .grid-3col, .grid-2col { grid-template-columns: 1fr; }
+      .counters-grid { grid-template-columns: repeat(2, 1fr); }
+      .hud-navbar { padding: 0 1.25rem; }
+      .hud-footer { left: 1.25rem; right: 1.25rem; }
+      .services-wrapper { padding: 1.5rem; }
+      .contact-card { padding: 1.75rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="container navbar-inner">
-      <a href="#" class="nav-brand">
-        <span class="nav-brand-dot"></span>
-        <span>Firas Aguech</span>
+  <!-- Living Interactive Canvas -->
+  <canvas id="neural-canvas"></canvas>
+
+  <!-- Ambient Blurred Orbs -->
+  <div class="ambient-glow ambient-glow-1"></div>
+  <div class="ambient-glow ambient-glow-2"></div>
+  <div class="ambient-glow ambient-glow-3"></div>
+
+  <!-- Futuristic Fixed Navigation HUD -->
+  <header class="hud-navbar">
+    <a href="javascript:goToStage(0)" class="hud-brand">
+      <span class="beacon-pulse"></span>
+      <span>Firas Aguech</span>
+    </a>
+
+    <ul class="hud-nav-links">
+      <li><a class="hud-link active" onclick="goToStage(0)">// 01. Intro</a></li>
+      <li><a class="hud-link" onclick="goToStage(1)">// 02. Expertise</a></li>
+      <li><a class="hud-link" onclick="goToStage(2)">// 03. Enterprise</a></li>
+      <li><a class="hud-link" onclick="goToStage(3)">// 04. Products</a></li>
+      <li><a class="hud-link" onclick="goToStage(4)">// 05. Open Source</a></li>
+      <li><a class="hud-link" onclick="goToStage(5)">// 06. Services</a></li>
+      <li><a class="hud-link" onclick="goToStage(6)">// 07. Contact</a></li>
+    </ul>
+
+    <div class="hud-actions">
+      <a href="https://wa.me/21629861363" target="_blank" class="btn-whatsapp">
+        <i class="fa-brands fa-whatsapp"></i> +216 29861363
       </a>
-      <ul class="nav-links">
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#capabilities" class="nav-link">Expertise</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#experience" class="nav-link">Experience</a></li>
-        <li><a href="#freelance" class="nav-link">Services</a></li>
-      </ul>
-      <a href="#contact" class="nav-cta"><i class="fa-solid fa-paper-plane"></i> Let's Talk</a>
+      <button class="sound-toggle" onclick="toggleAudio()" title="Sound FX Toggle" id="audio-btn">
+        <i class="fa-solid fa-volume-high"></i>
+      </button>
     </div>
-  </nav>
+  </header>
 
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="container">
-      <div class="hero-grid">
-        <div class="hero-content">
-          <div class="badge-available">
-            <span class="pulse-dot"></span>
-            <span>Available for Freelance & Full-Time Roles</span>
-          </div>
-          <h1 class="hero-title">
-            Engineering <span class="gradient-text">Intelligent RAG</span> & Multi-Agent Systems
-          </h1>
-          <p class="hero-subtitle">
-            I'm <b>Firas Aguech</b>, an AI Engineer specializing in Graph-Orchestrated Multi-Agent Systems, Hybrid Semantic Search (Dense + Sparse), and Domain-Adapted Embedding Fine-Tuning.
-          </p>
-          <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-arrow-down"></i> Explore Work</a>
-            <a href="#freelance" class="btn btn-secondary"><i class="fa-solid fa-handshake"></i> Freelance Services</a>
-            <a href="assets/docs/Firas_Aguech_Resume.pdf" target="_blank" class="btn btn-secondary"><i class="fa-solid fa-file-pdf"></i> Download Resume</a>
-          </div>
-        </div>
-
-        <div class="hero-avatar-wrap">
-          <div class="hero-avatar-glow"></div>
-          <div class="hero-avatar-card">
-            <img src="assets/img/me.jpg" alt="Firas Aguech" class="hero-avatar-img">
-          </div>
-        </div>
-      </div>
-
-      <!-- Quick Metrics Strip -->
-      <div class="stats-strip">
-        <div class="stat-item">
-          <div class="stat-number">14+</div>
-          <div class="stat-label">Production LLM Tools</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">43+</div>
-          <div class="stat-label">Evaluation Benchmarks</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">90%+</div>
-          <div class="stat-label">Distribution Alignment</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Empirical Verification</div>
-        </div>
-      </div>
+  <!-- Right-Side Stage Dot Navigator -->
+  <div class="hud-pagination" id="dot-navigator">
+    <div class="hud-dot-wrap active" onclick="goToStage(0)">
+      <div class="hud-dot"></div>
+      <span class="hud-dot-tooltip">01. HERO</span>
     </div>
-  </section>
-
-  <!-- About Me -->
-  <section id="about" style="border-top: 1px solid var(--border-card);">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">// 01. Background & Philosophy</span>
-        <h2 class="section-title">Bridging Research & Production Reality</h2>
-        <p class="section-desc">
-          Building AI that doesn't just demo well, but survives enterprise workloads, ambiguity, and real-world edge cases.
-        </p>
-      </div>
-
-      <div style="max-width: 860px; margin: 0 auto; color: #cbd5e1; font-size: 1.1rem; line-height: 1.8;">
-        <p style="margin-bottom: 1.5rem;">
-          I am an AI Engineer holding an <b>Engineering Degree in Machine Learning & Data Science</b> (2023–2026) and a <b>Bachelor’s in Software Engineering</b> (2020–2023). My work focuses on taking complex retrieval and multi-agent workflows from architecture and research into stable production environments.
-        </p>
-        <p style="margin-bottom: 1.5rem;">
-          At <b>Bertsch Innovation GmbH (MediaCockpit)</b>, I designed and shipped an enterprise-scale context-aware assistant with a self-registering ecosystem of 14 LLM tools, dynamic LangGraph4j orchestration, and a dual-collection semantic retrieval pipeline utilizing <b>Distribution-Based Score Fusion (DBSF)</b>.
-        </p>
-        <p style="margin-bottom: 1.5rem;">
-          I believe that <b>what cannot be measured cannot be trusted</b>. Whether fine-tuning embedding models with LoRA, engineering token-level ColBERT MaxSim rerankers, or deploying ReAct retrieval planners, every design choice I make is validated through rigorous offline IR metrics (nDCG@10, MRR, HitRate) before entering production.
-        </p>
-      </div>
+    <div class="hud-dot-wrap" onclick="goToStage(1)">
+      <div class="hud-dot"></div>
+      <span class="hud-dot-tooltip">02. EXPERTISE</span>
     </div>
-  </section>
-
-  <!-- Capabilities / Expertise -->
-  <section id="capabilities" style="border-top: 1px solid var(--border-card);">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">// 02. Core Expertise</span>
-        <h2 class="section-title">What I Architect & Build</h2>
-        <p class="section-desc">Deep technical proficiencies across the modern AI engineering stack.</p>
-      </div>
-
-      <div class="cards-grid">
-        <div class="capability-card">
-          <div class="card-icon"><i class="fa-solid fa-network-wired"></i></div>
-          <h3 class="card-title">Agentic LLM Systems</h3>
-          <p class="card-text">Multi-agent graph workflows using LangGraph and LangGraph4j. Dynamic sequential/parallel routing, self-correction, ReAct planners, and persistent per-user memory.</p>
-          <div class="pill-tags">
-            <span class="pill">LangGraph4j</span>
-            <span class="pill">Tool Ecosystems</span>
-            <span class="pill">ReAct</span>
-            <span class="pill">Stateful Memory</span>
-          </div>
-        </div>
-
-        <div class="capability-card">
-          <div class="card-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-          <h3 class="card-title">Hybrid Semantic Search</h3>
-          <p class="card-text">Dual-collection retrieval blending dense vector representations and sparse BM25 with Distribution-Based Score Fusion (DBSF) and Reciprocal Rank Fusion (RRF).</p>
-          <div class="pill-tags">
-            <span class="pill">Qdrant</span>
-            <span class="pill">ChromaDB</span>
-            <span class="pill">DBSF / RRF</span>
-            <span class="pill">BM25</span>
-          </div>
-        </div>
-
-        <div class="capability-card">
-          <div class="card-icon"><i class="fa-solid fa-microchip"></i></div>
-          <h3 class="card-title">Reranking & ColBERT</h3>
-          <p class="card-text">High-precision token-level MaxSim rerankers built from scratch using chunked einsum operations, special-token masking, pre-encoded catalog caching, and cross-encoders.</p>
-          <div class="pill-tags">
-            <span class="pill">ColBERT</span>
-            <span class="pill">MaxSim</span>
-            <span class="pill">Cross-Encoders</span>
-            <span class="pill">nDCG@10</span>
-          </div>
-        </div>
-
-        <div class="capability-card">
-          <div class="card-icon"><i class="fa-solid fa-sliders"></i></div>
-          <h3 class="card-title">Embedding Fine-Tuning</h3>
-          <p class="card-text">Domain adaptation using LoRA / PEFT, MultipleNegativesRankingLoss, hard-negative mining, and synthetic triplet generation to eliminate training/inference distribution gaps.</p>
-          <div class="pill-tags">
-            <span class="pill">LoRA / PEFT</span>
-            <span class="pill">PyTorch</span>
-            <span class="pill">Transformers</span>
-            <span class="pill">Triplet Loss</span>
-          </div>
-        </div>
-
-        <div class="capability-card">
-          <div class="card-icon"><i class="fa-solid fa-server"></i></div>
-          <h3 class="card-title">Production Backends</h3>
-          <p class="card-text">Robust microservices with FastAPI, Spring Boot, and Spring AI. Server-Sent Events (SSE) streaming, deterministic UUID indexing, and asynchronous tool handlers.</p>
-          <div class="pill-tags">
-            <span class="pill">Spring AI</span>
-            <span class="pill">FastAPI</span>
-            <span class="pill">Docker</span>
-            <span class="pill">SSE Streaming</span>
-          </div>
-        </div>
-
-        <div class="capability-card">
-          <div class="card-icon"><i class="fa-solid fa-globe"></i></div>
-          <h3 class="card-title">Full-Stack Platforms</h3>
-          <p class="card-text">Shipped scalable web platforms like teachers.tn. Modern JavaScript/TypeScript frontends, responsive mobile-first interfaces, and secure backend integrations.</p>
-          <div class="pill-tags">
-            <span class="pill">Full-Stack</span>
-            <span class="pill">Web Apps</span>
-            <span class="pill">REST APIs</span>
-            <span class="pill">Cloud / Linux</span>
-          </div>
-        </div>
-      </div>
+    <div class="hud-dot-wrap" onclick="goToStage(2)">
+      <div class="hud-dot"></div>
+      <span class="hud-dot-tooltip">03. ENTERPRISE</span>
     </div>
-  </section>
-
-  <!-- Featured Projects & Client Work -->
-  <section id="projects" style="border-top: 1px solid var(--border-card);">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">// 03. Selected Work</span>
-        <h2 class="section-title">Enterprise Systems & Flagship Projects</h2>
-        <p class="section-desc">A selection of enterprise engagements, published platforms, and open-source systems.</p>
-      </div>
-
-      <!-- Project 1: MediaCockpit (Enterprise) -->
-      <div class="project-card">
-        <div class="project-badge-private"><i class="fa-solid fa-lock"></i> Enterprise & Proprietary</div>
-        <div class="project-title-row">
-          <div>
-            <h3 class="project-name">Cockpit AI — Enterprise Context-Aware Assistant</h3>
-            <div class="project-company">Bertsch Innovation GmbH (MediaCockpit)</div>
-          </div>
-          <div class="project-links">
-            <span class="pill" style="color: var(--primary);">Java • LangGraph4j • Qdrant • Spring AI</span>
-          </div>
-        </div>
-        <p class="project-desc">
-          Designed and engineered a production-grade multi-agent LLM ecosystem from the ground up to empower enterprise users to search, query, aggregate, and generate reports across large-scale digital asset catalogs.
-        </p>
-        <ul class="project-highlights">
-          <li><b>Multi-Agent Graph Orchestration:</b> Built with LangGraph4j featuring dynamic sequential and parallel tool-routing, looped self-correction, and persistent per-user conversation memory.</li>
-          <li><b>Autonomous Tool Ecosystem:</b> Deployed 14 LLM-callable tools with a self-registering framework that auto-discovers and classifies tools by execution mode.</li>
-          <li><b>Intent Routing & Decomposition:</b> Classifies natural-language inputs and routes to a ReAct retrieval agent or an LLM planner that decomposes ambiguous multi-part prompts into structured sub-queries.</li>
-          <li><b>Dual-Collection Retrieval:</b> Node- and attribute-level embeddings merged via Distribution-Based Score Fusion (DBSF), significantly outperforming baseline RRF rank stability across 43 semantic test cases.</li>
-        </ul>
-      </div>
-
-      <!-- Project 2: Presto -->
-      <div class="project-card">
-        <div class="project-badge-private"><i class="fa-solid fa-code-branch"></i> Competition & Research System</div>
-        <div class="project-title-row">
-          <div>
-            <h3 class="project-name">Presto — Arabic E-Commerce Hybrid Search & ColBERT Reranker</h3>
-            <div class="project-company">Leaderboard Finish Pipeline</div>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/aguechfirass100/Presto" target="_blank" class="project-link-btn"><i class="fa-brands fa-github"></i> View Repo</a>
-          </div>
-        </div>
-        <p class="project-desc">
-          High-performance search and reranking architecture for complex, colloquial Arabic e-commerce product catalogs.
-        </p>
-        <ul class="project-highlights">
-          <li><b>Embedding Fine-Tuning:</b> Fine-tuned multilingual Qwen embeddings with LoRA and MultipleNegativesRankingLoss, evaluated on query-disjoint validation splits.</li>
-          <li><b>Custom ColBERT MaxSim:</b> Built a token-level ColBERT reranker from scratch with chunked einsum operations, special-token masking, and pre-encoded catalog caching.</li>
-          <li><b>Distribution Mismatch Diagnosis:</b> Detected a 90%+ gap between long training positives and short inference catalog names; designed a TF-IDF fuzzy alignment pipeline to close the gap.</li>
-          <li><b>Qdrant Hybrid Retrieval:</b> Dense semantic search + BM25 sparse vectors merged via DBSF score fusion.</li>
-        </ul>
-      </div>
-
-      <!-- Project 3: teachers.tn -->
-      <div class="project-card">
-        <div class="project-badge-live"><i class="fa-solid fa-circle-check"></i> Live Production Platform</div>
-        <div class="project-title-row">
-          <div>
-            <h3 class="project-name">teachers.tn — National Educational Platform</h3>
-            <div class="project-company">Live Web Platform (Tunisia)</div>
-          </div>
-          <div class="project-links">
-            <a href="https://teachers.tn/" target="_blank" class="project-link-btn" style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3); color: var(--secondary);"><i class="fa-solid fa-arrow-up-right-from-square"></i> Visit teachers.tn</a>
-          </div>
-        </div>
-        <p class="project-desc">
-          Designed and developed a comprehensive nationwide educational web platform connecting educators, tutors, and students across Tunisia. Provides document sharing, educational material archives, and curriculum collaboration.
-        </p>
-        <ul class="project-highlights">
-          <li>Engineered a fast, responsive mobile-first interface optimized for varying internet connections.</li>
-          <li>Implemented secure authentication, document management, and rich pedagogical resource repositories.</li>
-        </ul>
-      </div>
-
-      <!-- Project 4: HireBotX -->
-      <div class="project-card">
-        <div class="project-badge-live"><i class="fa-brands fa-github"></i> Open Source Platform</div>
-        <div class="project-title-row">
-          <div>
-            <h3 class="project-name">HireBotX — Multi-Agent AI Interview & Recruitment Platform</h3>
-            <div class="project-company">Autonomous Interview Simulation</div>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/aguechfirass100/HireBotX" target="_blank" class="project-link-btn"><i class="fa-brands fa-github"></i> GitHub</a>
-          </div>
-        </div>
-        <p class="project-desc">
-          Multi-agent recruitment and technical mock interview platform featuring distinct interviewer personas (HR, CTO, CEO) grounded in dedicated ChromaDB vector stores with role-specific evaluation criteria.
-        </p>
-        <ul class="project-highlights">
-          <li>Adaptive real-time interview flows that score candidate answers against a structured rubric.</li>
-          <li>Generates context-aware follow-up technical questions conditioned on candidate answers.</li>
-          <li>Session-level state orchestration simulating multi-round panel technical interviews.</li>
-        </ul>
-      </div>
-
-      <!-- Project 5: PostPulse -->
-      <div class="project-card">
-        <div class="project-badge-live"><i class="fa-brands fa-github"></i> Open Source Platform</div>
-        <div class="project-title-row">
-          <div>
-            <h3 class="project-name">PostPulse — AI Marketing Content Engine</h3>
-            <div class="project-company">Multimodal Generation Pipeline</div>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/aguechfirass100/PostPulse" target="_blank" class="project-link-btn"><i class="fa-brands fa-github"></i> GitHub</a>
-          </div>
-        </div>
-        <p class="project-desc">
-          Fine-tuned LLaMA-3 for on-brand copywriting and Flux.1 for image generation conditioned on campaign briefs, with a BERT-based sentiment classifier steering prompt synthesis.
-        </p>
-      </div>
-
-      <!-- Project 6: Transformer from Scratch -->
-      <div class="project-card">
-        <div class="project-badge-live"><i class="fa-brands fa-github"></i> Open Source Research Code</div>
-        <div class="project-title-row">
-          <div>
-            <h3 class="project-name">PyTorch Transformer from Scratch</h3>
-            <div class="project-company">Clean Paper Implementation</div>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/aguechfirass100/pytorch-transformer-from-scratch" target="_blank" class="project-link-btn"><i class="fa-brands fa-github"></i> GitHub</a>
-          </div>
-        </div>
-        <p class="project-desc">
-          Modular, from-scratch implementation of the "Attention Is All You Need" architecture in PyTorch (Multi-Head Attention, Scaled Dot-Product, Positional Encodings, Feed-Forward layers, training loop, and inference).
-        </p>
-      </div>
-
+    <div class="hud-dot-wrap" onclick="goToStage(3)">
+      <div class="hud-dot"></div>
+      <span class="hud-dot-tooltip">04. PRODUCTS</span>
     </div>
-  </section>
-
-  <!-- Freelance & Consulting Services -->
-  <section id="freelance" style="border-top: 1px solid var(--border-card);">
-    <div class="container">
-      <div class="services-banner">
-        <span class="section-tag" style="color: var(--secondary);">// 04. Work With Me</span>
-        <h2 class="section-title" style="margin-bottom: 1rem;">Freelance & Consulting Services</h2>
-        <p style="color: #cbd5e1; max-width: 700px; font-size: 1.1rem; line-height: 1.7;">
-          Need to add production AI capabilities to your product or audit an underperforming retrieval system? I provide high-touch engineering consulting and contract development:
-        </p>
-
-        <div class="services-grid">
-          <div class="service-box">
-            <h4><i class="fa-solid fa-diagram-project" style="color: var(--primary);"></i> Multi-Agent Systems</h4>
-            <p>Design graph workflows, tool ecosystems, self-correcting loops, and stateful memory architectures.</p>
-          </div>
-          <div class="service-box">
-            <h4><i class="fa-solid fa-magnifying-glass" style="color: var(--secondary);"></i> Advanced RAG & Search</h4>
-            <p>Hybrid retrieval, custom chunking, reciprocal rank & DBSF score fusion, and ColBERT rerankers.</p>
-          </div>
-          <div class="service-box">
-            <h4><i class="fa-solid fa-sliders" style="color: #f59e0b);"></i> Model Fine-Tuning</h4>
-            <p>Domain adaptation for embeddings and LLMs with LoRA, PEFT, triplet loss, and hard-negative mining.</p>
-          </div>
-          <div class="service-box">
-            <h4><i class="fa-solid fa-code" style="color: #818cf8);"></i> End-to-End AI MVPs</h4>
-            <p>FastAPI/Spring backends, vector database indexing, and interactive responsive web applications.</p>
-          </div>
-        </div>
-
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-          <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book a Consultation</a>
-          <button onclick="copyEmail()" class="btn btn-secondary"><i class="fa-regular fa-copy"></i> Copy Email Address</button>
-        </div>
-      </div>
+    <div class="hud-dot-wrap" onclick="goToStage(4)">
+      <div class="hud-dot"></div>
+      <span class="hud-dot-tooltip">05. OPEN SOURCE</span>
     </div>
-  </section>
-
-  <!-- Experience & Education -->
-  <section id="experience" style="border-top: 1px solid var(--border-card);">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">// 05. Trajectory</span>
-        <h2 class="section-title">Experience & Education</h2>
-      </div>
-
-      <div class="timeline">
-        <!-- Item 1 -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">Jan 2026 – Present</div>
-          <h3 class="timeline-role">AI Engineering Intern — Semantic Search & Multi-Agent Assistant</h3>
-          <div class="timeline-company">Bertsch Innovation GmbH — MediaCockpit</div>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">
-            Architected the Cockpit AI assistant with LangGraph4j graph orchestration, 14 autonomous tools, intent routing, and dual-collection semantic search with DBSF score fusion.
-          </p>
-        </div>
-
-        <!-- Item 2 -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">2023 – Present</div>
-          <h3 class="timeline-role">Freelance AI & Full-Stack Software Engineer</h3>
-          <div class="timeline-company">Independent Contracting</div>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">
-            Built and shipped live platforms including teachers.tn, customized RAG systems, and computer vision / ML pipelines for clients and startups.
-          </p>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">2023 – 2026</div>
-          <h3 class="timeline-role">Engineering Degree — Machine Learning & Data Science</h3>
-          <div class="timeline-company">ESPRIT</div>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">
-            Advanced machine learning, deep learning, mathematical optimization, information retrieval, and distributed data systems.
-          </p>
-        </div>
-
-        <!-- Item 4 -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">2020 – 2023</div>
-          <h3 class="timeline-role">Bachelor's Degree — Computer Science (Software Engineering)</h3>
-          <div class="timeline-company">Higher Institute of Computer Science and Multimedia (ISIMS)</div>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">
-            Foundations of software engineering, algorithms, data structures, object-oriented design, databases, and systems architecture.
-          </p>
-        </div>
-      </div>
+    <div class="hud-dot-wrap" onclick="goToStage(5)">
+      <div class="hud-dot"></div>
+      <span class="hud-dot-tooltip">06. SERVICES</span>
     </div>
-  </section>
+    <div class="hud-dot-wrap" onclick="goToStage(6)">
+      <div class="hud-dot"></div>
+      <span class="hud-dot-tooltip">07. CONTACT</span>
+    </div>
+  </div>
 
-  <!-- Contact & Footer -->
-  <footer class="footer" id="contact">
-    <div class="container">
-      <div class="contact-card">
-        <span class="section-tag">// Let's Connect</span>
-        <h2 class="section-title" style="margin-bottom: 1rem;">Let's Build Something Exceptional</h2>
-        <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 1.05rem;">
-          Whether you have an upcoming freelance project, an enterprise consulting inquiry, or a full-time engineering opportunity, my inbox is always open.
-        </p>
-
-        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-          <a href="mailto:aguechfirass100@gmail.com" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Send an Email</a>
-          <button onclick="copyEmail()" class="btn btn-secondary"><i class="fa-regular fa-copy"></i> Copy: aguechfirass100@gmail.com</button>
-        </div>
-
-        <div class="social-links">
-          <a href="https://linkedin.com/in/agfirass" target="_blank" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="https://github.com/aguechfirass100" target="_blank" class="social-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
-          <a href="https://github.com/aguechfirass100/resumes" target="_blank" class="social-btn" title="Resumes Repository"><i class="fa-solid fa-file-lines"></i></a>
-          <a href="mailto:aguechfirass100@gmail.com" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
-        </div>
-      </div>
-
-      <p style="color: var(--text-dim); font-size: 0.9rem;">
-        &copy; 2026 Firas Aguech. Built with precision and attention to detail.
-      </p>
+  <!-- Bottom Navigation HUD -->
+  <footer class="hud-footer">
+    <div class="hud-counter" id="stage-counter">STAGE 01 / 07</div>
+    <div class="hud-scroll-hint" onclick="nextStage()">
+      <div class="mouse-icon"><div class="mouse-wheel"></div></div>
+      <span>Scroll or Press ↓ to Navigate</span>
+    </div>
+    <div class="hud-arrows">
+      <button class="btn-arrow" onclick="prevStage()" title="Previous Stage"><i class="fa-solid fa-chevron-up"></i></button>
+      <button class="btn-arrow" onclick="nextStage()" title="Next Stage"><i class="fa-solid fa-chevron-down"></i></button>
     </div>
   </footer>
 
-  <!-- Toast Notification -->
-  <div id="copy-toast">✓ Email address copied to clipboard!</div>
+  <!-- Single-Page Animated Stage Deck -->
+  <main class="deck-viewport" id="deck-viewport">
 
+    <!-- STAGE 01: HERO & IMPACT -->
+    <section class="stage active" id="stage-0">
+      <div class="stage-container">
+        <div class="hero-layout anim-item">
+          <div>
+            <div class="hero-badge">
+              <span class="pulse-dot"></span>
+              <span>Available for Freelance & High-Impact Roles</span>
+            </div>
+            <h1 class="hero-title">
+              Engineering <span class="gradient-text">RAG & Multi-Agent</span> Systems
+            </h1>
+            <p class="hero-subtitle">
+              I'm <b>Firas Aguech</b> — AI Engineer specializing in Graph-Orchestrated Multi-Agent Systems, Hybrid Semantic Search (Dense + Sparse), ColBERT Reranking, and Cross-Platform Production Applications.
+            </p>
+            <div class="hero-btn-row">
+              <a href="javascript:goToStage(2)" class="btn btn-primary"><i class="fa-solid fa-bolt"></i> Enterprise Work</a>
+              <a href="https://wa.me/21629861363" target="_blank" class="btn btn-outline" style="color: var(--whatsapp); border-color: rgba(37,211,102,0.3);"><i class="fa-brands fa-whatsapp"></i> WhatsApp Me</a>
+              <a href="assets/docs/Firas_Aguech_Resume.pdf" target="_blank" class="btn btn-outline"><i class="fa-solid fa-file-pdf"></i> Resume PDF</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="hero-avatar-frame">
+              <div class="avatar-ring"></div>
+              <div class="avatar-card">
+                <img src="assets/img/me.jpg" alt="Firas Aguech" class="avatar-img">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="counters-grid anim-item" style="margin-top: 2rem;">
+          <div class="counter-item">
+            <div class="counter-num" data-target="14">14+</div>
+            <div class="counter-label">Production LLM Tools</div>
+          </div>
+          <div class="counter-item">
+            <div class="counter-num" data-target="43">43+</div>
+            <div class="counter-label">IR Benchmark Tests</div>
+          </div>
+          <div class="counter-item">
+            <div class="counter-num" data-target="90">90%+</div>
+            <div class="counter-label">Distribution Alignment</div>
+          </div>
+          <div class="counter-item">
+            <div class="counter-num">2</div>
+            <div class="counter-label">App Store & Play Store</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 02: CORE AI & TECHNICAL ARSENAL -->
+    <section class="stage" id="stage-1">
+      <div class="stage-container">
+        <div class="stage-header anim-item">
+          <span class="stage-tag">// 02. Capabilities</span>
+          <h2 class="stage-title">Technical Specializations</h2>
+          <p class="stage-desc">Taking ambiguous AI requirements and turning them into measurable, battle-tested production systems.</p>
+        </div>
+
+        <div class="grid-3col anim-item">
+          <div class="glass-card">
+            <div class="card-icon-wrap"><i class="fa-solid fa-network-wired"></i></div>
+            <h3 class="card-h">Agentic Multi-Agent Systems</h3>
+            <p class="card-p">Graph-orchestrated workflows with LangGraph4j. Dynamic sequential/parallel tool routing, self-correction, ReAct planners, and persistent session memory.</p>
+            <div class="pill-tags">
+              <span class="pill">LangGraph4j</span>
+              <span class="pill">ReAct</span>
+              <span class="pill">Tool Discovery</span>
+              <span class="pill">State Memory</span>
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-icon-wrap"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+            <h3 class="card-h">Hybrid Semantic Search & IR</h3>
+            <p class="card-p">Dual-collection retrieval blending dense representations and sparse BM25 with Distribution-Based Score Fusion (DBSF) outperforming baseline RRF.</p>
+            <div class="pill-tags">
+              <span class="pill">Qdrant</span>
+              <span class="pill">ChromaDB</span>
+              <span class="pill">DBSF Fusion</span>
+              <span class="pill">nDCG@10</span>
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-icon-wrap"><i class="fa-solid fa-microchip"></i></div>
+            <h3 class="card-h">ColBERT & Token Rerankers</h3>
+            <p class="card-p">Ground-up token-level MaxSim rerankers using chunked einsum operations, special-token masking, pre-encoded catalog caching, and cross-encoders.</p>
+            <div class="pill-tags">
+              <span class="pill">ColBERT</span>
+              <span class="pill">MaxSim</span>
+              <span class="pill">Chunked Einsum</span>
+              <span class="pill">Cross-Encoders</span>
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-icon-wrap"><i class="fa-solid fa-sliders"></i></div>
+            <h3 class="card-h">Embedding Fine-Tuning</h3>
+            <p class="card-p">Representation adaptation with LoRA/PEFT, MultipleNegativesRankingLoss, hard-negative mining, and synthetic triplet generation for domain alignment.</p>
+            <div class="pill-tags">
+              <span class="pill">LoRA / PEFT</span>
+              <span class="pill">Triplet Loss</span>
+              <span class="pill">PyTorch</span>
+              <span class="pill">Hugging Face</span>
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-icon-wrap"><i class="fa-solid fa-mobile-screen-button"></i></div>
+            <h3 class="card-h">Mobile & Full-Stack Apps</h3>
+            <p class="card-p">Cross-platform mobile applications in Flutter/Dart shipped to Google Play and Apple App Store, backed by scalable REST APIs (Laravel, FastAPI, Spring AI).</p>
+            <div class="pill-tags">
+              <span class="pill">Flutter</span>
+              <span class="pill">Dart</span>
+              <span class="pill">App Store</span>
+              <span class="pill">Google Play</span>
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-icon-wrap"><i class="fa-solid fa-server"></i></div>
+            <h3 class="card-h">Production Backends & DevOps</h3>
+            <p class="card-p">High-concurrency microservices, SSE real-time streaming, Docker containerization, MLflow tracking, and automated CI/CD pipelines.</p>
+            <div class="pill-tags">
+              <span class="pill">Spring AI</span>
+              <span class="pill">FastAPI</span>
+              <span class="pill">Docker</span>
+              <span class="pill">GitLab CI/CD</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 03: ENTERPRISE & FLAGSHIP WORK -->
+    <section class="stage" id="stage-2">
+      <div class="stage-container">
+        <div class="stage-header anim-item">
+          <span class="stage-tag">// 03. Enterprise Impact</span>
+          <h2 class="stage-title">Flagship Architectures</h2>
+          <p class="stage-desc">Enterprise solutions designed, benchmarked, and deployed under strict real-world constraints.</p>
+        </div>
+
+        <div class="enterprise-card anim-item">
+          <div class="badge-enterprise"><i class="fa-solid fa-lock"></i> Bertsch Innovation GmbH — MediaCockpit</div>
+          <div class="ent-title-row">
+            <div>
+              <h3 class="ent-title">Cockpit AI — Enterprise Context-Aware Assistant</h3>
+              <div class="ent-sub">Production Multi-Agent System & Dual-Collection Search</div>
+            </div>
+            <span class="pill" style="color: var(--primary);">Java • LangGraph4j • Qdrant • Spring AI</span>
+          </div>
+          <ul class="ent-list">
+            <li><b>Graph-Orchestrated Multi-Agent Architecture:</b> Built with LangGraph4j featuring dynamic sequential and parallel tool routing, looped self-correction, and persistent per-user conversation memory.</li>
+            <li><b>Autonomous Tool Ecosystem:</b> Deployed 14 LLM-callable tools with runtime auto-discovery and mode classification across semantic search, aggregation, and report generation.</li>
+            <li><b>Dual-Collection Hybrid Retrieval:</b> Node- and attribute-level embeddings merged via <b>Distribution-Based Score Fusion (DBSF)</b>, outperforming standard RRF baselines across 43 semantic test cases.</li>
+          </ul>
+        </div>
+
+        <div class="grid-2col anim-item">
+          <div class="glass-card">
+            <div class="badge-enterprise"><i class="fa-solid fa-trophy"></i> Leaderboard Benchmark System</div>
+            <h3 class="card-h">Presto — Arabic E-Commerce Search & ColBERT</h3>
+            <p class="card-p">
+              Fine-tuned multilingual Qwen embeddings with LoRA and MultipleNegativesRankingLoss. Engineered a custom ColBERT token-level MaxSim reranker with chunked einsum and catalog caching.
+            </p>
+            <div class="pill-tags">
+              <span class="pill">Qdrant Hybrid</span>
+              <span class="pill">ColBERT MaxSim</span>
+              <span class="pill">LoRA</span>
+              <span class="pill">nDCG@10</span>
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <div class="badge-enterprise"><i class="fa-solid fa-dna"></i> Drug Discovery & Bio Research</div>
+            <h3 class="card-h">BioCortex — Hierarchical Multi-Agent RAG</h3>
+            <p class="card-p">
+              Hierarchical multi-agent retrieval system tailored for complex biomedical queries, molecular datasets, hypothesis extraction, and chemical structure cross-referencing.
+            </p>
+            <div class="pill-tags">
+              <span class="pill">Multi-Agent</span>
+              <span class="pill">Biomedical RAG</span>
+              <span class="pill">Vector Search</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 04: SHIPPED PRODUCTS (MOBILE & WEB) -->
+    <section class="stage" id="stage-3">
+      <div class="stage-container">
+        <div class="stage-header anim-item">
+          <span class="stage-tag">// 04. Shipped Platforms</span>
+          <h2 class="stage-title">Live Mobile & Web Products</h2>
+          <p class="stage-desc">End-to-end commercial software architected, built, and deployed to live app stores and production domains.</p>
+        </div>
+
+        <div class="grid-2col anim-item">
+          <div class="glass-card" style="border-color: rgba(16, 185, 129, 0.35);">
+            <div class="badge-shipped"><i class="fa-brands fa-apple"></i> <i class="fa-brands fa-google-play"></i> App Store & Play Store</div>
+            <h3 class="card-h" style="font-size: 1.45rem;">D30 Challenge — Mobile Fitness App</h3>
+            <p class="card-p">
+              Architected and built solo from zero to live releases on both the <b>Apple App Store</b> and <b>Google Play Store</b>.
+            </p>
+            <ul class="ent-list">
+              <li>Cross-platform Flutter frontend with custom workout timers, streak tracking, interactive animations, and offline caching.</li>
+              <li>Scalable Laravel REST API backend handling authentication, challenge progression, analytics, and content synchronization.</li>
+            </ul>
+            <div class="pill-tags">
+              <span class="pill" style="color: var(--secondary);">Apple App Store</span>
+              <span class="pill" style="color: var(--secondary);">Google Play Store</span>
+              <span class="pill">Flutter</span>
+              <span class="pill">Dart</span>
+              <span class="pill">Laravel</span>
+            </div>
+          </div>
+
+          <div class="glass-card" style="border-color: rgba(56, 189, 248, 0.35);">
+            <div class="badge-shipped"><i class="fa-solid fa-globe"></i> Live Web Platform</div>
+            <h3 class="card-h" style="font-size: 1.45rem;">teachers.tn — National Education Hub</h3>
+            <p class="card-p">
+              Nationwide educational platform built for Tunisia connecting educators, tutors, and students with high-speed access to teaching resources.
+            </p>
+            <ul class="ent-list">
+              <li>Full-stack web platform with document management, cloud resource archives, and real-time community tools.</li>
+              <li>Mobile-first responsive architecture optimized for speed across all network types.</li>
+            </ul>
+            <div style="margin-top: 1rem;">
+              <a href="https://teachers.tn/" target="_blank" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem; color: var(--primary);">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit teachers.tn
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 05: OPEN-SOURCE AI & RESEARCH REPOSITORIES -->
+    <section class="stage" id="stage-4">
+      <div class="stage-container">
+        <div class="stage-header anim-item">
+          <span class="stage-tag">// 05. Open Source AI</span>
+          <h2 class="stage-title">Open-Source & Deep Learning</h2>
+          <p class="stage-desc">Public research implementations and multi-agent platforms available on GitHub.</p>
+        </div>
+
+        <div class="grid-3col anim-item">
+          <div class="glass-card">
+            <h3 class="card-h"><a href="https://github.com/aguechfirass100/HireBotX" target="_blank" style="color: inherit; text-decoration: none;"><i class="fa-brands fa-github"></i> HireBotX</a></h3>
+            <p class="card-p">Multi-agent interview simulation with HR, CTO, and CEO personas in ChromaDB evaluating candidate responses against structured rubrics in real time.</p>
+            <div class="pill-tags"><span class="pill">ChromaDB</span><span class="pill">RAG</span><span class="pill">Multi-Agent</span></div>
+          </div>
+
+          <div class="glass-card">
+            <h3 class="card-h"><a href="https://github.com/aguechfirass100/PostPulse" target="_blank" style="color: inherit; text-decoration: none;"><i class="fa-brands fa-github"></i> PostPulse</a></h3>
+            <p class="card-p">AI marketing platform: fine-tuned LLaMA-3 for copywriting, Flux.1 for image generation, and BERT sentiment analysis steering campaign prompts.</p>
+            <div class="pill-tags"><span class="pill">LLaMA-3</span><span class="pill">Flux.1</span><span class="pill">BERT</span></div>
+          </div>
+
+          <div class="glass-card">
+            <h3 class="card-h"><a href="https://github.com/aguechfirass100/pytorch-transformer-from-scratch" target="_blank" style="color: inherit; text-decoration: none;"><i class="fa-brands fa-github"></i> Transformer Scratch</a></h3>
+            <p class="card-p">Modular PyTorch implementation of the complete "Attention Is All You Need" paper from scratch: Multi-Head Attention, Positional Encodings, and training loop.</p>
+            <div class="pill-tags"><span class="pill">PyTorch</span><span class="pill">Self-Attention</span><span class="pill">Research</span></div>
+          </div>
+
+          <div class="glass-card">
+            <h3 class="card-h"><a href="https://github.com/aguechfirass100/Transformer-Based-DDoS-Detection" target="_blank" style="color: inherit; text-decoration: none;"><i class="fa-brands fa-github"></i> DDoS Attention</a></h3>
+            <p class="card-p">Transformer self-attention architecture applied to packet flow telemetry for real-time network anomaly detection and DDoS attack mitigation.</p>
+            <div class="pill-tags"><span class="pill">Attention</span><span class="pill">Cybersecurity</span><span class="pill">PyTorch</span></div>
+          </div>
+
+          <div class="glass-card">
+            <h3 class="card-h">Audio Emotion VAE</h3>
+            <p class="card-p">Generative VAE + diffusion model pipeline with ResNet-50 and U-Net augmentation to synthesize high-clarity emotion spectrograms on EmoDB & RAVDESS.</p>
+            <div class="pill-tags"><span class="pill">Diffusion</span><span class="pill">VAE</span><span class="pill">Audio ML</span></div>
+          </div>
+
+          <div class="glass-card">
+            <h3 class="card-h"><a href="https://github.com/aguechfirass100/customer-churn-prediction-telecom" target="_blank" style="color: inherit; text-decoration: none;"><i class="fa-brands fa-github"></i> Telecom Churn</a></h3>
+            <p class="card-p">Predictive churn modeling in telecom implementing 3 research papers, with advanced feature selection and SHAP explainability.</p>
+            <div class="pill-tags"><span class="pill">Scikit-Learn</span><span class="pill">SHAP</span><span class="pill">EDA</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 06: FREELANCE & SERVICES -->
+    <section class="stage" id="stage-5">
+      <div class="stage-container">
+        <div class="services-wrapper anim-item">
+          <div class="stage-header" style="margin-bottom: 1.5rem;">
+            <span class="stage-tag" style="color: var(--secondary);">// 06. Consulting & Freelance</span>
+            <h2 class="stage-title">Turn AI Research into High-Throughput Production</h2>
+            <p class="stage-desc">Direct technical advisory, contract architecture, and execution for companies and startups.</p>
+          </div>
+
+          <div class="grid-2col" style="margin-bottom: 2rem;">
+            <div class="glass-card">
+              <h4 class="card-h"><i class="fa-solid fa-diagram-project" style="color: var(--primary);"></i> Multi-Agent Orchestration</h4>
+              <p class="card-p">Graph workflows, custom tool ecosystems, self-correcting loops, ReAct planning, and persistent multi-session memory.</p>
+            </div>
+            <div class="glass-card">
+              <h4 class="card-h"><i class="fa-solid fa-magnifying-glass" style="color: var(--secondary);"></i> Hybrid RAG & Vector Search</h4>
+              <p class="card-p">Dense + BM25 sparse search, reciprocal rank & DBSF score fusion, custom chunking, and token-level ColBERT rerankers.</p>
+            </div>
+            <div class="glass-card">
+              <h4 class="card-h"><i class="fa-solid fa-sliders" style="color: #f59e0b);"></i> Model Fine-Tuning</h4>
+              <p class="card-p">Domain embedding adaptation with LoRA, PEFT, triplet loss, and hard-negative mining to eliminate distribution gaps.</p>
+            </div>
+            <div class="glass-card">
+              <h4 class="card-h"><i class="fa-solid fa-mobile" style="color: var(--accent);"></i> Cross-Platform Apps & MVPs</h4>
+              <p class="card-p">Flutter mobile applications deployed to App Store & Play Store, backed by scalable FastAPI / Spring AI services.</p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="https://wa.me/21629861363" target="_blank" class="btn btn-primary" style="background: var(--whatsapp); color: #000;">
+              <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp (+216 29861363)
+            </a>
+            <a href="javascript:goToStage(6)" class="btn btn-outline">
+              <i class="fa-solid fa-envelope"></i> Send an Inquiry
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 07: TRAJECTORY & DIRECT CONTACT -->
+    <section class="stage" id="stage-6">
+      <div class="stage-container">
+        <div class="contact-card anim-item">
+          <span class="stage-tag">// 07. Get in Touch</span>
+          <h2 class="stage-title" style="margin-bottom: 0.75rem;">Let's Build Something Exceptional</h2>
+          <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 650px; margin: 0 auto 1.5rem;">
+            Whether you have an upcoming freelance project, an enterprise architecture audit, or an engineering role, reach out directly.
+          </p>
+
+          <div class="social-pill-row">
+            <a href="https://wa.me/21629861363" target="_blank" class="social-pill" style="border-color: rgba(37,211,102,0.3); color: var(--whatsapp);">
+              <i class="fa-brands fa-whatsapp"></i> WhatsApp: +216 29861363
+            </a>
+            <a href="mailto:aguechfirass100@gmail.com" class="social-pill">
+              <i class="fa-solid fa-envelope"></i> aguechfirass100@gmail.com
+            </a>
+            <a href="https://linkedin.com/in/agfirass" target="_blank" class="social-pill">
+              <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+            </a>
+            <a href="https://github.com/aguechfirass100" target="_blank" class="social-pill">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+            <a href="https://github.com/aguechfirass100/resumes" target="_blank" class="social-pill">
+              <i class="fa-solid fa-file-lines"></i> Resumes Repo
+            </a>
+          </div>
+
+          <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <button onclick="copyEmail()" class="btn btn-primary"><i class="fa-regular fa-copy"></i> Copy Email Address</button>
+            <a href="assets/docs/Firas_Aguech_Resume.pdf" target="_blank" class="btn btn-outline"><i class="fa-solid fa-download"></i> Download Resume PDF</a>
+          </div>
+
+          <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 2rem;">
+            &copy; 2026 Firas Aguech. Engineering Degree in Machine Learning & Data Science (ESPRIT) • Bachelor's in CS (ISIMS).
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive Toast Notification -->
+  <div id="copy-toast">✓ Email copied to clipboard!</div>
+
+  <!-- Sound FX Synthesizer (Web Audio API) -->
   <script>
+    let audioCtx = null;
+    let soundEnabled = true;
+
+    function playCyberChime(freq = 440, type = 'sine', duration = 0.08) {
+      if (!soundEnabled) return;
+      try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (e) {}
+    }
+
+    function toggleAudio() {
+      soundEnabled = !soundEnabled;
+      const btn = document.getElementById('audio-btn');
+      btn.innerHTML = soundEnabled ? '<i class="fa-solid fa-volume-high"></i>' : '<i class="fa-solid fa-volume-xmark"></i>';
+      if (soundEnabled) playCyberChime(660);
+    }
+  </script>
+
+  <!-- Single-Page Animated Navigation Controller -->
+  <script>
+    const stages = document.querySelectorAll('.stage');
+    const dots = document.querySelectorAll('.hud-dot-wrap');
+    const navLinks = document.querySelectorAll('.hud-link');
+    const counterEl = document.getElementById('stage-counter');
+    const totalStages = stages.length;
+    let currentStage = 0;
+    let isTransitioning = false;
+    let lastWheelTime = 0;
+
+    function updateStageUI(index) {
+      stages.forEach((stage, i) => {
+        stage.classList.remove('active', 'exit-up', 'exit-down');
+        if (i === index) {
+          stage.classList.add('active');
+        } else if (i < index) {
+          stage.classList.add('exit-up');
+        } else {
+          stage.classList.add('exit-down');
+        }
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+
+      navLinks.forEach((link, i) => {
+        link.classList.toggle('active', i === index);
+      });
+
+      counterEl.textContent = `STAGE 0${index + 1} / 0${totalStages}`;
+      playCyberChime(420 + index * 60, 'triangle', 0.12);
+    }
+
+    function goToStage(index) {
+      if (index === currentStage || isTransitioning) return;
+      if (index < 0 || index >= totalStages) return;
+      isTransitioning = true;
+      currentStage = index;
+      updateStageUI(currentStage);
+      setTimeout(() => {
+        isTransitioning = false;
+      }, 750);
+    }
+
+    function nextStage() {
+      if (currentStage < totalStages - 1) goToStage(currentStage + 1);
+    }
+
+    function prevStage() {
+      if (currentStage > 0) goToStage(currentStage - 1);
+    }
+
+    // Wheel Event Controller
+    window.addEventListener('wheel', (e) => {
+      const now = Date.now();
+      if (now - lastWheelTime < 700) return; // Debounce wheel
+      if (Math.abs(e.deltaY) > 25) {
+        lastWheelTime = now;
+        if (e.deltaY > 0) {
+          nextStage();
+        } else {
+          prevStage();
+        }
+      }
+    }, { passive: true });
+
+    // Keyboard Controller
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
+        e.preventDefault();
+        nextStage();
+      } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevStage();
+      }
+    });
+
+    // Touch Controller for Mobile
+    let touchStartY = 0;
+    window.addEventListener('touchstart', (e) => {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    window.addEventListener('touchend', (e) => {
+      const touchEndY = e.changedTouches[0].clientY;
+      const diffY = touchStartY - touchEndY;
+      if (Math.abs(diffY) > 50) {
+        if (diffY > 0) {
+          nextStage();
+        } else {
+          prevStage();
+        }
+      }
+    }, { passive: true });
+
+    // Copy Email Toast
     function copyEmail() {
       navigator.clipboard.writeText('aguechfirass100@gmail.com').then(() => {
         const toast = document.getElementById('copy-toast');
         toast.className = 'show';
+        playCyberChime(880, 'sine', 0.15);
         setTimeout(() => {
           toast.className = toast.className.replace('show', '');
-        }, 3000);
+        }, 2800);
       });
     }
+  </script>
+
+  <!-- Interactive 60fps Living Neural Synapses Canvas -->
+  <script>
+    const canvas = document.getElementById('neural-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+    let mouse = { x: null, y: null, radius: 140 };
+
+    function initCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      const count = Math.floor((width * height) / 10000);
+      particles = [];
+      for (let i = 0; i < Math.min(count, 130); i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.7,
+          vy: (Math.random() - 0.5) * 0.7,
+          radius: Math.random() * 2 + 1,
+          color: Math.random() > 0.4 ? '#38bdf8' : '#10b981'
+        });
+      }
+    }
+
+    window.addEventListener('resize', initCanvas);
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+    window.addEventListener('mouseleave', () => {
+      mouse.x = null;
+      mouse.y = null;
+    });
+
+    function drawNeuralNetwork() {
+      ctx.clearRect(0, 0, width, height);
+
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+
+        // Move
+        p.x += p.vx;
+        p.y += p.vy;
+
+        // Bounce
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
+
+        // Mouse interaction
+        if (mouse.x !== null) {
+          const dx = mouse.x - p.x;
+          const dy = mouse.y - p.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < mouse.radius) {
+            const force = (mouse.radius - dist) / mouse.radius;
+            p.x -= (dx / dist) * force * 2.5;
+            p.y -= (dy / dist) * force * 2.5;
+          }
+        }
+
+        // Draw particle node
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = p.color;
+        ctx.fill();
+
+        // Connect adjacent nodes
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+          if (dist < 130) {
+            const alpha = (1 - dist / 130) * 0.28;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = `rgba(56, 189, 248, ${alpha})`;
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(drawNeuralNetwork);
+    }
+
+    initCanvas();
+    drawNeuralNetwork();
   </script>
 </body>
 </html>
