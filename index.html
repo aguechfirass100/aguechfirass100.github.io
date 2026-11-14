@@ -947,16 +947,379 @@
       .modal-header { padding: 1rem 1.25rem; }
       .modal-body { padding: 1.25rem 1rem; }
     }
+  
+    /* Accessible Focus Rings (WCAG 2.2 AA) */
+    :focus-visible {
+      outline: 2px solid var(--accent-crimson);
+      outline-offset: 3px;
+    }
+
+    /* Hairline Scroll Progress Bar */
+    #scroll-progress-bar {
+      position: fixed;
+      top: 64px;
+      left: 0;
+      height: 2.5px;
+      background: var(--accent-crimson);
+      width: 0%;
+      z-index: 999;
+      transition: width 0.08s linear;
+      pointer-events: none;
+    }
+
+    /* Dynamic Header Breadcrumb */
+    .header-crumb {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--accent-crimson);
+      font-weight: 600;
+      margin-left: 0.4rem;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      letter-spacing: -0.2px;
+    }
+
+    /* Header Print Button */
+    .btn-header-print {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.4rem 0.75rem;
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .btn-header-print:hover {
+      background: var(--bg-surface);
+      border-color: var(--border-strong);
+      color: var(--text-primary);
+    }
+
+    /* Mobile Menu Toggle & Slide-Down Drawer */
+    .mobile-menu-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 0.45rem 0.75rem;
+      color: var(--text-primary);
+      font-size: 1.15rem;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+    }
+    .mobile-menu-toggle:hover {
+      background: var(--bg-surface);
+      border-color: var(--border-strong);
+    }
+    .mobile-nav-drawer {
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-strong);
+      box-shadow: 0 15px 30px rgba(15, 23, 42, 0.08);
+      z-index: 998;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+    }
+    .mobile-nav-drawer.open {
+      max-height: 520px;
+      opacity: 1;
+    }
+    .mobile-nav-content {
+      padding: 1.25rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .mobile-nav-content a {
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.6rem 0.5rem;
+      border-radius: 6px;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+    .mobile-nav-content a:hover {
+      background: var(--bg-surface);
+      color: var(--accent-crimson);
+    }
+    .mobile-nav-actions {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    /* Floating Back-to-Top Button */
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #ffffff;
+      border: 1px solid var(--border-strong);
+      color: var(--text-primary);
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 900;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s, border-color 0.15s, background-color 0.15s;
+    }
+    .back-to-top-btn.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .back-to-top-btn:hover {
+      background: var(--bg-surface);
+      border-color: var(--accent-crimson);
+      color: var(--accent-crimson);
+      transform: translateY(-2px);
+    }
+    .back-to-top-btn .top-label {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      font-weight: 700;
+      margin-top: 1px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Project Control Bar (Filter Pills & View Switcher) */
+    .project-control-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .filter-pills {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .filter-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 9999px;
+      padding: 0.35rem 0.85rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.15s ease;
+    }
+    .filter-pill:hover {
+      background: var(--bg-surface);
+      border-color: var(--border-strong);
+      color: var(--text-primary);
+    }
+    .filter-pill.active {
+      background: var(--text-primary);
+      color: #ffffff;
+      border-color: var(--text-primary);
+    }
+    .filter-pill .filter-count {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 0.1rem 0.4rem;
+      border-radius: 9999px;
+      background: rgba(0, 0, 0, 0.08);
+      font-weight: 700;
+    }
+    .filter-pill.active .filter-count {
+      background: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+    }
+    .view-switcher {
+      display: inline-flex;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 0.2rem;
+    }
+    .view-btn {
+      background: transparent;
+      border: none;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.15s ease;
+    }
+    .view-btn.active {
+      background: #ffffff;
+      color: var(--text-primary);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    /* Modal Navigation Actions (Prev / Next / Counter) */
+    .modal-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .modal-nav-group {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      background: var(--bg-surface);
+      padding: 0.15rem;
+    }
+    .modal-nav-btn {
+      background: transparent;
+      border: none;
+      padding: 0.35rem 0.6rem;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.12s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-nav-btn:hover {
+      background: #ffffff;
+      color: var(--accent-crimson);
+      box-shadow: var(--shadow-sm);
+    }
+    .modal-project-counter {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      padding: 0 0.5rem;
+      font-weight: 600;
+    }
+
+    /* Compact View Mode Styling */
+    .view-mode-compact .grid-2,
+    .view-mode-compact .grid-3 {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0.75rem !important;
+    }
+    .view-mode-compact .card {
+      flex-direction: row !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 1rem 1.25rem !important;
+    }
+    .view-mode-compact .card-desc,
+    .view-mode-compact .card-icon,
+    .view-mode-compact .card .bullet-list {
+      display: none !important;
+    }
+    .view-mode-compact .card-title {
+      margin-bottom: 0.25rem !important;
+      font-size: 0.98rem !important;
+    }
+    .view-mode-compact .banner-card {
+      padding: 1.25rem 1.5rem !important;
+    }
+    .view-mode-compact .banner-card .bullet-list {
+      display: none !important;
+    }
+
+    /* Print Stylesheet (Executive Clean Harvard Résumé Format) */
+    @media print {
+      .site-header,
+      .header-actions,
+      .mobile-menu-toggle,
+      .mobile-nav-drawer,
+      .back-to-top-btn,
+      #scroll-progress-bar,
+      .project-control-bar,
+      .modal-backdrop,
+      .lightbox-backdrop,
+      #copy-toast,
+      .card-link-prompt,
+      .btn,
+      .social-links {
+        display: none !important;
+      }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-size: 11pt !important;
+        line-height: 1.4 !important;
+      }
+      .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+      }
+      .section-spacing {
+        padding: 1.25rem 0 !important;
+      }
+      .card, .banner-card {
+        box-shadow: none !important;
+        border: 1px solid #cccccc !important;
+        page-break-inside: avoid !important;
+        margin-bottom: 1rem !important;
+      }
+      .grid-2, .grid-3 {
+        display: block !important;
+      }
+      .grid-2 > *, .grid-3 > * {
+        margin-bottom: 0.75rem !important;
+      }
+      h1, h2, h3, h4 {
+        color: #000000 !important;
+        page-break-after: avoid !important;
+      }
+      a {
+        text-decoration: underline !important;
+        color: #000000 !important;
+      }
+    }
+
   </style>
 </head>
 <body>
+  <!-- Reading Progress Bar -->
+  <div id="scroll-progress-bar"></div>
 
   <!-- Top Institutional Header -->
   <header class="site-header">
     <a href="#overview" class="brand-link" title="Firas Aguech">
       <div class="brand-crest">FA</div>
       <div class="brand-text">
-        <span class="brand-name">Firas Aguech</span>
+        <span class="brand-name">Firas Aguech <span id="header-breadcrumb" class="header-crumb">/ Overview</span></span>
         <span class="brand-sub">AI Engineer & Architect</span>
       </div>
     </a>
@@ -972,6 +1335,9 @@
     </ul>
 
     <div class="header-actions">
+      <button onclick="window.print()" class="btn-header-print" title="Print Executive Summary CV">
+        <i class="fa-solid fa-print"></i> Print CV
+      </button>
       <a href="https://wa.me/21629861363" target="_blank" class="btn-header-wa">
         <i class="fa-brands fa-whatsapp"></i> +216 29861363
       </a>
@@ -979,7 +1345,36 @@
         <i class="fa-solid fa-file-pdf"></i> Resume CV
       </a>
     </div>
+
+    <!-- Mobile Menu Toggle Button -->
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" aria-expanded="false">
+      <i id="menu-icon" class="fa-solid fa-bars"></i>
+    </button>
   </header>
+
+  <!-- Mobile Navigation Slide-Down Drawer -->
+  <div id="mobile-nav-drawer" class="mobile-nav-drawer">
+    <div class="mobile-nav-content">
+      <a href="#overview" onclick="closeMobileMenu()">Overview</a>
+      <a href="#capabilities" onclick="closeMobileMenu()">Capabilities</a>
+      <a href="#production" onclick="closeMobileMenu()">Shipped Platforms</a>
+      <a href="#ai-systems" onclick="closeMobileMenu()">AI Systems</a>
+      <a href="#research" onclick="closeMobileMenu()">Open-Source Research</a>
+      <a href="#advisory" onclick="closeMobileMenu()">Advisory & Experience</a>
+      <a href="#contact" onclick="closeMobileMenu()">Contact & Inquiries</a>
+      <div class="mobile-nav-actions">
+        <button onclick="window.print(); closeMobileMenu();" class="btn btn-outline" style="width: 100%; justify-content: center;">
+          <i class="fa-solid fa-print"></i> Print Executive Summary
+        </button>
+        <a href="https://wa.me/21629861363" target="_blank" class="btn btn-outline" style="color: var(--whatsapp); border-color: #86efac; width: 100%; justify-content: center;">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp Direct (+216 29861363)
+        </a>
+        <a href="assets/docs/Firas_Aguech_Resume.pdf" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center;">
+          <i class="fa-solid fa-file-pdf"></i> Download CV (PDF)
+        </a>
+      </div>
+    </div>
+  </div>
 
   <main>
 
@@ -1181,9 +1576,39 @@
           <h2 class="section-title">Shipped Production Platforms</h2>
           <p class="section-desc">Full-scale platforms architected, migrated, and deployed into active daily production across enterprise B2B, Apple App Store, Google Play Store, and national web domains.</p>
         </div>
+        <!-- Interactive Project Filter Tabs & View Switcher -->
+        <div class="project-control-bar">
+          <div class="filter-pills" role="tablist" aria-label="Filter projects by domain">
+            <button class="filter-pill active" onclick="setProjectFilter('all', this)" role="tab" aria-selected="true">
+              All Systems <span class="filter-count">11</span>
+            </button>
+            <button class="filter-pill" onclick="setProjectFilter('shipped', this)" role="tab" aria-selected="false">
+              <i class="fa-solid fa-circle-check" style="color: var(--accent-emerald);"></i> Shipped Live <span class="filter-count">3</span>
+            </button>
+            <button class="filter-pill" onclick="setProjectFilter('agent-rag', this)" role="tab" aria-selected="false">
+              Multi-Agent & RAG <span class="filter-count">5</span>
+            </button>
+            <button class="filter-pill" onclick="setProjectFilter('ir-colbert', this)" role="tab" aria-selected="false">
+              IR & ColBERT <span class="filter-count">3</span>
+            </button>
+            <button class="filter-pill" onclick="setProjectFilter('mobile-fullstack', this)" role="tab" aria-selected="false">
+              Mobile & Web <span class="filter-count">3</span>
+            </button>
+          </div>
+
+          <div class="view-switcher" role="group" aria-label="View layout switch">
+            <button id="view-btn-grid" class="view-btn active" onclick="setViewMode('grid')" title="Detailed Grid View">
+              <i class="fa-solid fa-border-all"></i> <span>Grid</span>
+            </button>
+            <button id="view-btn-list" class="view-btn" onclick="setViewMode('list')" title="Executive Compact Table View">
+              <i class="fa-solid fa-list-ul"></i> <span>Compact</span>
+            </button>
+          </div>
+        </div>
+
 
         <!-- 1. Cockpit AI (Shipped Enterprise Production) -->
-        <div class="banner-card interactive" onclick="openProjectModal('cockpit-ai')">
+        <div class="banner-card interactive filter-target" data-domains="shipped agent-rag ir-colbert" onclick="openProjectModal('cockpit-ai')">
           <div class="banner-header-row">
             <span class="badge badge-emerald">★ SHIPPED & LIVE IN ENTERPRISE PRODUCTION — MC15 MIGRATED & ACTIVELY USED</span>
             <div class="card-link-prompt" style="margin-top: 0;">Click to Inspect Architecture & Metrics →</div>
@@ -1214,7 +1639,7 @@
 
         <div class="grid-2" style="margin-top: 1.5rem;">
           <!-- 2. D30 Challenge (Shipped App Store & Google Play) -->
-          <div class="card interactive" onclick="openProjectModal('d30-challenge')">
+          <div class="card interactive filter-target" data-domains="shipped mobile-fullstack" onclick="openProjectModal('d30-challenge')">
             <div>
               <span class="badge badge-emerald" style="margin-bottom: 0.65rem;">★ SHIPPED & LIVE ON APPLE APP STORE & GOOGLE PLAY STORE</span>
               <h3 class="card-title">D30 Challenge — Mobile Fitness Application</h3>
@@ -1239,7 +1664,7 @@
           </div>
 
           <!-- 3. teachers.tn (Shipped Public Web Platform) -->
-          <div class="card interactive" onclick="openProjectModal('teachers-tn')">
+          <div class="card interactive filter-target" data-domains="shipped mobile-fullstack" onclick="openProjectModal('teachers-tn')">
             <div>
               <span class="badge badge-emerald" style="margin-bottom: 0.65rem;">★ SHIPPED & LIVE NATIONAL PRODUCTION PLATFORM</span>
               <h3 class="card-title">teachers.tn — National Education Hub</h3>
@@ -1278,7 +1703,7 @@
 
         <div class="grid-2">
           <!-- Presto -->
-          <div class="card interactive" onclick="openProjectModal('presto')">
+          <div class="card interactive filter-target" data-domains="ir-colbert agent-rag" onclick="openProjectModal('presto')">
             <div>
               <span class="badge badge-gold" style="margin-bottom: 0.65rem;">★ TOP LEADERBOARD FINISH & IR BENCHMARK</span>
               <h3 class="card-title">Presto — Arabic Search & ColBERT</h3>
@@ -1298,7 +1723,7 @@
           </div>
 
           <!-- BioCortex -->
-          <div class="card interactive" onclick="openProjectModal('biocortex')">
+          <div class="card interactive filter-target" data-domains="agent-rag" onclick="openProjectModal('biocortex')">
             <div>
               <span class="badge badge-blue" style="margin-bottom: 0.65rem;">★ BIOMEDICAL RESEARCH ARCHITECTURE</span>
               <h3 class="card-title">BioCortex — Multi-Agent RAG</h3>
@@ -1329,7 +1754,7 @@
         </div>
 
         <div class="grid-3">
-          <div class="card interactive" onclick="openProjectModal('hirebotx')">
+          <div class="card interactive filter-target" data-domains="agent-rag" onclick="openProjectModal('hirebotx')">
             <div>
               <h3 class="card-title"><a href="https://github.com/aguechfirass100/HireBotX" target="_blank" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;"><i class="fa-brands fa-github"></i> HireBotX</a></h3>
               <p class="card-desc">Multi-agent interview simulation with HR, CTO, and CEO personas in ChromaDB evaluating candidate responses against structured rubrics in real time.</p>
@@ -1340,7 +1765,7 @@
             </div>
           </div>
 
-          <div class="card interactive" onclick="openProjectModal('postpulse')">
+          <div class="card interactive filter-target" data-domains="agent-rag" onclick="openProjectModal('postpulse')">
             <div>
               <h3 class="card-title"><a href="https://github.com/aguechfirass100/PostPulse" target="_blank" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;"><i class="fa-brands fa-github"></i> PostPulse</a></h3>
               <p class="card-desc">AI marketing platform: fine-tuned LLaMA-3 for copywriting, Flux.1 for image generation, and BERT sentiment analysis steering campaign prompts.</p>
@@ -1351,7 +1776,7 @@
             </div>
           </div>
 
-          <div class="card interactive" onclick="openProjectModal('transformer-scratch')">
+          <div class="card interactive filter-target" data-domains="agent-rag ir-colbert" onclick="openProjectModal('transformer-scratch')">
             <div>
               <h3 class="card-title"><a href="https://github.com/aguechfirass100/pytorch-transformer-from-scratch" target="_blank" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;"><i class="fa-brands fa-github"></i> Transformer Scratch</a></h3>
               <p class="card-desc">Modular PyTorch implementation of the complete "Attention Is All You Need" paper from scratch: Multi-Head Attention, Positional Encodings, and training loop.</p>
@@ -1362,7 +1787,7 @@
             </div>
           </div>
 
-          <div class="card interactive" onclick="openProjectModal('ddos-detection')">
+          <div class="card interactive filter-target" data-domains="agent-rag" onclick="openProjectModal('ddos-detection')">
             <div>
               <h3 class="card-title"><a href="https://github.com/aguechfirass100/Transformer-Based-DDoS-Detection" target="_blank" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;"><i class="fa-brands fa-github"></i> DDoS Attention</a></h3>
               <p class="card-desc">Transformer self-attention architecture applied to packet flow telemetry for real-time network anomaly detection and DDoS attack mitigation.</p>
@@ -1373,7 +1798,7 @@
             </div>
           </div>
 
-          <div class="card interactive" onclick="openProjectModal('audio-emotion')">
+          <div class="card interactive filter-target" data-domains="agent-rag" onclick="openProjectModal('audio-emotion')">
             <div>
               <h3 class="card-title">Audio Emotion VAE</h3>
               <p class="card-desc">Generative VAE + diffusion model pipeline with ResNet-50 and U-Net augmentation to synthesize high-clarity emotion spectrograms on EmoDB & RAVDESS.</p>
@@ -1384,7 +1809,7 @@
             </div>
           </div>
 
-          <div class="card interactive" onclick="openProjectModal('telecom-churn')">
+          <div class="card interactive filter-target" data-domains="agent-rag" onclick="openProjectModal('telecom-churn')">
             <div>
               <h3 class="card-title"><a href="https://github.com/aguechfirass100/customer-churn-prediction-telecom" target="_blank" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;"><i class="fa-brands fa-github"></i> Telecom Churn</a></h3>
               <p class="card-desc">Predictive churn modeling in telecom implementing 3 research papers, with advanced feature selection and SHAP explainability.</p>
@@ -1504,9 +1929,21 @@
           <h2 id="modal-title" class="modal-title">Project Title</h2>
           <div id="modal-subtitle" class="modal-subtitle">Subtitle and Organization</div>
         </div>
-        <button class="modal-close-btn" onclick="closeProjectModal()" title="Close (ESC)">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
+
+        <div class="modal-header-actions">
+          <div class="modal-nav-group" title="Navigate projects (or use Left / Right Arrow keys)">
+            <button class="modal-nav-btn" onclick="navigateProjectModal(-1)" title="Previous Project (←)" aria-label="Previous Project">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <span id="modal-project-counter" class="modal-project-counter">1 / 11</span>
+            <button class="modal-nav-btn" onclick="navigateProjectModal(1)" title="Next Project (→)" aria-label="Next Project">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+          <button class="modal-close-btn" onclick="closeProjectModal()" title="Close Dialog (ESC)" aria-label="Close Dialog">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
       </div>
 
       <!-- Modal Body (Scrollable) -->
@@ -2213,6 +2650,246 @@
         }
       });
     }, { passive: true });
+  
+    // Project Sequence for Modal Carousel Navigation
+    let currentProjectId = null;
+    const projectSequence = [
+      'cockpit-ai',
+      'd30-challenge',
+      'teachers-tn',
+      'presto',
+      'biocortex',
+      'hirebotx',
+      'postpulse',
+      'transformer-scratch',
+      'ddos-detection',
+      'audio-emotion',
+      'telecom-churn'
+    ];
+
+    function updateModalProjectCounter() {
+      const counterEl = document.getElementById('modal-project-counter');
+      if (!counterEl || !currentProjectId) return;
+      const idx = projectSequence.indexOf(currentProjectId);
+      if (idx !== -1) {
+        counterEl.textContent = `${idx + 1} / ${projectSequence.length}`;
+      }
+    }
+
+    function navigateProjectModal(direction) {
+      if (!currentProjectId) return;
+      let idx = projectSequence.indexOf(currentProjectId);
+      if (idx === -1) idx = 0;
+      let nextIdx = idx + direction;
+      if (nextIdx < 0) nextIdx = projectSequence.length - 1;
+      if (nextIdx >= projectSequence.length) nextIdx = 0;
+      openProjectModal(projectSequence[nextIdx], true);
+    }
+
+    // Wrap original openProjectModal with state & counter
+    const originalOpenModal = openProjectModal;
+    openProjectModal = function(id, pushState = true) {
+      currentProjectId = id;
+      originalOpenModal(id);
+      updateModalProjectCounter();
+
+      // Deep Linking URL Hash Sync
+      if (pushState && history.pushState) {
+        history.pushState({ projectId: id }, '', '#project-' + id);
+      }
+    };
+
+    const originalCloseModal = closeProjectModal;
+    closeProjectModal = function(clearHash = true) {
+      currentProjectId = null;
+      originalCloseModal();
+      if (clearHash && window.location.hash.startsWith('#project-') && history.pushState) {
+        history.pushState(null, '', window.location.pathname + window.location.search);
+      }
+    };
+
+    // Popstate: Handle Browser Back & Forward Buttons Smoothly
+    window.addEventListener('popstate', (e) => {
+      if (window.location.hash.startsWith('#project-')) {
+        const pid = window.location.hash.replace('#project-', '');
+        if (projectDetails[pid]) {
+          openProjectModal(pid, false);
+        }
+      } else {
+        closeProjectModal(false);
+      }
+    });
+
+    // Keyboard Controller: ESC to close, Left/Right Arrows to navigate modal
+    window.addEventListener('keydown', (e) => {
+      const activeModal = document.querySelector('.modal-backdrop.active');
+      const activeLightbox = document.querySelector('.lightbox-backdrop.active');
+      if (activeLightbox && e.key === 'Escape') {
+        closeImageLightbox();
+        return;
+      }
+      if (activeModal) {
+        if (e.key === 'Escape') {
+          closeProjectModal();
+        } else if (e.key === 'ArrowLeft') {
+          navigateProjectModal(-1);
+        } else if (e.key === 'ArrowRight') {
+          navigateProjectModal(1);
+        }
+      }
+    });
+
+    // Reading Scroll Progress Bar & Dynamic Breadcrumb
+    const sectionNames = {
+      'overview': '/ Overview',
+      'capabilities': '/ Capabilities',
+      'production': '/ Shipped Platforms',
+      'ai-systems': '/ AI Systems',
+      'research': '/ Open-Source Research',
+      'advisory': '/ Advisory & Experience',
+      'contact': '/ Contact'
+    };
+
+    window.addEventListener('scroll', () => {
+      // 1. Reading Progress Bar
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      const progressBar = document.getElementById('scroll-progress-bar');
+      if (progressBar) progressBar.style.width = `${progress}%`;
+
+      // 2. Back to Top Button Visibility
+      const backToTopBtn = document.getElementById('back-to-top');
+      if (backToTopBtn) {
+        if (scrollTop > 380) {
+          backToTopBtn.classList.add('visible');
+        } else {
+          backToTopBtn.classList.remove('visible');
+        }
+      }
+
+      // 3. Dynamic Header Breadcrumb
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (scrollTop >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+      const crumbEl = document.getElementById('header-breadcrumb');
+      if (crumbEl && sectionNames[current]) {
+        crumbEl.textContent = sectionNames[current];
+      }
+    }, { passive: true });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Mobile Navigation Drawer Toggle
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobile-nav-drawer');
+      const icon = document.getElementById('menu-icon');
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      if (!drawer) return;
+      const isOpen = drawer.classList.contains('open');
+      if (isOpen) {
+        drawer.classList.remove('open');
+        if (icon) { icon.className = 'fa-solid fa-bars'; }
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      } else {
+        drawer.classList.add('open');
+        if (icon) { icon.className = 'fa-solid fa-xmark'; }
+        if (toggle) toggle.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    function closeMobileMenu() {
+      const drawer = document.getElementById('mobile-nav-drawer');
+      const icon = document.getElementById('menu-icon');
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      if (drawer) drawer.classList.remove('open');
+      if (icon) icon.className = 'fa-solid fa-bars';
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    // Project Domain Filtering System
+    function setProjectFilter(category, btnEl) {
+      // Update Active Pill
+      document.querySelectorAll('.filter-pill').forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+      });
+      if (btnEl) {
+        btnEl.classList.add('active');
+        btnEl.setAttribute('aria-selected', 'true');
+      }
+
+      const targets = document.querySelectorAll('.filter-target');
+      targets.forEach(target => {
+        if (category === 'all') {
+          target.style.display = '';
+        } else {
+          const domains = target.getAttribute('data-domains') || '';
+          if (domains.includes(category)) {
+            target.style.display = '';
+          } else {
+            target.style.display = 'none';
+          }
+        }
+      });
+    }
+
+    // Density Switcher (Grid vs Compact List)
+    function setViewMode(mode) {
+      const gridBtn = document.getElementById('view-btn-grid');
+      const listBtn = document.getElementById('view-btn-list');
+      const secProd = document.getElementById('production');
+      const secAI = document.getElementById('ai-systems');
+      const secRes = document.getElementById('research');
+
+      if (mode === 'list') {
+        if (gridBtn) gridBtn.classList.remove('active');
+        if (listBtn) listBtn.classList.add('active');
+        if (secProd) secProd.classList.add('view-mode-compact');
+        if (secAI) secAI.classList.add('view-mode-compact');
+        if (secRes) secRes.classList.add('view-mode-compact');
+      } else {
+        if (listBtn) listBtn.classList.remove('active');
+        if (gridBtn) gridBtn.classList.add('active');
+        if (secProd) secProd.classList.remove('view-mode-compact');
+        if (secAI) secAI.classList.remove('view-mode-compact');
+        if (secRes) secRes.classList.remove('view-mode-compact');
+      }
+    }
+
+    // Tactile Email Copy Feedback
+    function copyEmail(btnEl) {
+      navigator.clipboard.writeText('aguechfirass100@gmail.com').then(() => {
+        showToast('✓ Email copied to clipboard: aguechfirass100@gmail.com');
+        if (btnEl) {
+          const originalHTML = btnEl.innerHTML;
+          btnEl.innerHTML = '<i class="fa-solid fa-check" style="color: var(--accent-emerald);"></i> Copied!';
+          setTimeout(() => { btnEl.innerHTML = originalHTML; }, 2000);
+        }
+      });
+    }
+
+    // Deep Linking: Auto-open project if URL has hash on initial load
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.location.hash.startsWith('#project-')) {
+        const pid = window.location.hash.replace('#project-', '');
+        if (projectDetails[pid]) {
+          setTimeout(() => openProjectModal(pid, false), 150);
+        }
+      }
+    });
+
   </script>
+  <!-- Minimal Back to Top Floating Button -->
+  <button id="back-to-top" class="back-to-top-btn" onclick="scrollToTop()" title="Back to top" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+    <span class="top-label">TOP</span>
+  </button>
 </body>
 </html>
