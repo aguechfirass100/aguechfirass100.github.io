@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Firas Aguech — AI Engineer & System Architect | Machine Learning & RAG</title>
   <meta name="description" content="AI Engineer specialized in Graph-Orchestrated Multi-Agent Architectures (LangGraph4j), Dense + Sparse Hybrid Search with DBSF, ColBERT Token Reranking, and Production Mobile & Web Systems.">
   <link rel="icon" href="assets/img/me.jpg" type="image/jpeg">
 
-  <!-- Typography: Newsreader (Stately Editorial Serif), Plus Jakarta Sans (Clean Modern Sans), JetBrains Mono (Precise Monospace) -->
+  <!-- Typography: Newsreader (Stately Harvard Serif), Plus Jakarta Sans (Clean Modern Sans), JetBrains Mono (Precision Code) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -17,83 +17,73 @@
 
   <style>
     :root {
-      --bg-base: #06090f;
-      --bg-surface: #0c111a;
-      --bg-card: rgba(14, 20, 32, 0.72);
-      --bg-card-hover: rgba(20, 28, 45, 0.88);
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-highlight: rgba(197, 160, 89, 0.35); /* Scholarly Gold */
-      --border-crimson: rgba(185, 28, 28, 0.35);    /* Harvard Crimson */
-      --accent-gold: #c5a059;                        /* Ivy Gold */
-      --accent-gold-light: #e6ca85;
-      --accent-crimson: #a51c30;                     /* Harvard Crimson */
-      --accent-crimson-light: #e11d48;
-      --accent-cyan: #38bdf8;                        /* High-Tech Research Cyan */
-      --accent-emerald: #10b981;                     /* Live Production Emerald */
-      --whatsapp: #25d366;
-      --text-primary: #f8fafc;
-      --text-secondary: #94a3b8;
+      --bg-base: #ffffff;
+      --bg-surface: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f1f5f9;
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --accent-crimson: #991b1b;       /* Harvard Crimson */
+      --accent-crimson-subtle: #fef2f2;
+      --accent-gold: #b45309;          /* Scholarly Amber / Gold */
+      --accent-gold-subtle: #fffbeb;
+      --accent-blue: #0369a1;          /* Research Blue */
+      --accent-blue-subtle: #f0f9ff;
+      --accent-emerald: #047857;       /* Production Live Emerald */
+      --accent-emerald-subtle: #ecfdf5;
+      --whatsapp: #16a34a;
+      --text-primary: #0f172a;         /* High-contrast deep slate */
+      --text-secondary: #475569;
       --text-muted: #64748b;
+      --text-dim: #94a3b8;
       --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
       --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
-      --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
-      --ease-snappy: cubic-bezier(0.2, 0.8, 0.2, 1);
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+      --shadow-modal: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     }
 
-    /* Base Reset with Standard Professional Cursor */
+    /* Reset & Standard Professional Cursor */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    html, body {
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-base);
+    }
+
+    body {
       background-color: var(--bg-base);
       color: var(--text-primary);
       font-family: var(--font-sans);
-      line-height: 1.55;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      background-image: 
-        radial-gradient(circle at 15% 15%, rgba(197, 160, 89, 0.05) 0%, transparent 45%),
-        radial-gradient(circle at 85% 85%, rgba(56, 189, 248, 0.05) 0%, transparent 45%),
-        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-      background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+      overflow-x: hidden;
     }
 
-    /* Living Knowledge Graph Canvas (Subtle Scholarly Background) */
-    #neural-canvas {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 1;
-      pointer-events: none;
-      opacity: 0.55;
-    }
-
-    /* Top Institutional Header / HUD Navbar */
-    .hud-navbar {
-      position: fixed;
+    /* Sticky Minimalist Institutional Header */
+    .site-header {
+      position: sticky;
       top: 0;
       left: 0;
       right: 0;
       height: 64px;
-      z-index: 100;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 2.25rem;
-      background: rgba(6, 9, 15, 0.85);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border-subtle);
+      padding: 0 2rem;
     }
 
-    .hud-brand {
+    .brand-link {
       display: flex;
       align-items: center;
       gap: 0.75rem;
@@ -104,780 +94,515 @@
     .brand-crest {
       width: 32px;
       height: 32px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, var(--accent-crimson), #6b0c1c);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      background: var(--accent-crimson);
+      color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
       font-family: var(--font-serif);
       font-weight: 700;
       font-size: 1rem;
-      box-shadow: 0 2px 8px rgba(165, 28, 48, 0.35);
+      box-shadow: 0 2px 6px rgba(153, 27, 27, 0.25);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
     }
 
     .brand-name {
       font-family: var(--font-serif);
       font-size: 1.15rem;
       font-weight: 600;
-      letter-spacing: -0.01em;
       color: var(--text-primary);
+      letter-spacing: -0.01em;
+      line-height: 1.1;
     }
 
-    .brand-tag {
-      padding: 0.15rem 0.55rem;
-      background: rgba(197, 160, 89, 0.12);
-      color: var(--accent-gold);
-      border: 1px solid var(--border-highlight);
-      border-radius: 6px;
+    .brand-sub {
       font-family: var(--font-mono);
-      font-size: 0.72rem;
-      font-weight: 600;
+      font-size: 0.68rem;
+      color: var(--text-muted);
       letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
-    .hud-nav-links {
+    .site-nav {
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.25rem;
       list-style: none;
     }
 
-    .hud-link {
+    .nav-item a {
       color: var(--text-secondary);
       text-decoration: none;
-      font-size: 0.8rem;
+      font-size: 0.825rem;
       font-weight: 600;
-      font-family: var(--font-sans);
-      letter-spacing: 0.02em;
       padding: 0.35rem 0.75rem;
       border-radius: 6px;
-      border: 1px solid transparent;
-      transition: all 0.2s ease;
-      cursor: pointer;
+      transition: all 0.15s ease;
     }
 
-    .hud-link:hover, .hud-link.active {
+    .nav-item a:hover {
       color: var(--text-primary);
-      background: rgba(255, 255, 255, 0.05);
-      border-color: var(--border-subtle);
+      background: var(--bg-surface);
     }
 
-    .hud-link.active {
-      color: var(--accent-gold);
-      border-color: var(--border-highlight);
-      background: rgba(197, 160, 89, 0.08);
-    }
-
-    .hud-action-group {
+    .header-actions {
       display: flex;
       align-items: center;
       gap: 0.75rem;
     }
 
-    .btn-whatsapp-pill {
+    .btn-header-wa {
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
-      padding: 0.35rem 0.85rem;
-      background: rgba(37, 211, 102, 0.12);
+      gap: 0.4rem;
+      padding: 0.35rem 0.8rem;
+      background: #f0fdf4;
       color: var(--whatsapp);
-      border: 1px solid rgba(37, 211, 102, 0.3);
-      border-radius: 8px;
-      font-family: var(--font-sans);
-      font-weight: 600;
-      font-size: 0.78rem;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      cursor: pointer;
-    }
-
-    .btn-whatsapp-pill:hover {
-      background: var(--whatsapp);
-      color: #000;
-      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-    }
-
-    /* Right-Side Stage Dot Navigator */
-    .hud-pagination {
-      position: fixed;
-      right: 1.5rem;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 90;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.75rem;
-      background: rgba(12, 17, 26, 0.8);
-      padding: 0.85rem 0.45rem;
-      border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      backdrop-filter: blur(16px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    }
-
-    .hud-dot-wrap {
-      position: relative;
-      padding: 4px;
-      cursor: pointer;
-    }
-
-    .hud-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
-      transition: all 0.3s var(--ease-smooth);
-    }
-
-    .hud-dot-wrap:hover .hud-dot {
-      background: var(--accent-gold);
-      transform: scale(1.3);
-    }
-
-    .hud-dot-wrap.active .hud-dot {
-      width: 7px;
-      height: 22px;
-      border-radius: 999px;
-      background: var(--accent-gold);
-      box-shadow: 0 0 8px rgba(197, 160, 89, 0.6);
-    }
-
-    .hud-dot-tooltip {
-      position: absolute;
-      right: 28px;
-      top: 50%;
-      transform: translateY(-50%) translateX(8px);
-      padding: 4px 10px;
-      background: #0d121c;
-      border: 1px solid var(--border-subtle);
+      border: 1px solid #bbf7d0;
       border-radius: 6px;
-      color: var(--text-primary);
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
+      font-size: 0.78rem;
       font-weight: 600;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.2s ease;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      text-decoration: none;
+      transition: all 0.15s ease;
     }
 
-    .hud-dot-wrap:hover .hud-dot-tooltip {
-      opacity: 1;
-      transform: translateY(-50%) translateX(0);
+    .btn-header-wa:hover {
+      background: var(--whatsapp);
+      color: #ffffff;
     }
 
-    /* Bottom HUD Controller */
-    .hud-footer {
-      position: fixed;
-      bottom: 1.15rem;
-      left: 2.25rem;
-      right: 2.25rem;
-      z-index: 90;
-      display: flex;
+    .btn-header-cv {
+      display: inline-flex;
       align-items: center;
-      justify-content: space-between;
-      pointer-events: none;
+      gap: 0.4rem;
+      padding: 0.35rem 0.8rem;
+      background: #0f172a;
+      color: #ffffff;
+      border: 1px solid #0f172a;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.15s ease;
     }
 
-    .hud-counter-box {
+    .btn-header-cv:hover {
+      background: #1e293b;
+    }
+
+    /* Content Layout Container */
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-spacing {
+      padding: 4.5rem 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    /* Section Typography */
+    .section-eyebrow {
       font-family: var(--font-mono);
       font-size: 0.75rem;
       font-weight: 600;
-      color: var(--accent-gold);
-      background: rgba(12, 17, 26, 0.85);
-      border: 1px solid var(--border-subtle);
-      padding: 0.25rem 0.75rem;
-      border-radius: 6px;
-      backdrop-filter: blur(12px);
+      color: var(--accent-crimson);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.35rem;
+      display: inline-block;
     }
 
-    .hud-scroll-hint {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 2.25rem;
       font-weight: 600;
-      color: var(--text-secondary);
-      letter-spacing: 0.04em;
-      pointer-events: auto;
-      padding: 0.35rem 0.85rem;
-      background: rgba(12, 17, 26, 0.85);
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      backdrop-filter: blur(12px);
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .hud-scroll-hint:hover {
-      color: var(--accent-gold);
-      border-color: var(--border-highlight);
-    }
-
-    .mouse-icon {
-      width: 14px;
-      height: 20px;
-      border: 1.5px solid var(--text-muted);
-      border-radius: 6px;
-      position: relative;
-    }
-
-    .mouse-wheel {
-      width: 2.5px;
-      height: 4px;
-      background: var(--accent-gold);
-      border-radius: 1px;
-      position: absolute;
-      top: 3px;
-      left: 50%;
-      transform: translateX(-50%);
-      animation: mouseScroll 1.8s infinite;
-    }
-
-    @keyframes mouseScroll {
-      0% { transform: translate(-50%, 0); opacity: 1; }
-      100% { transform: translate(-50%, 7px); opacity: 0; }
-    }
-
-    .hud-arrows {
-      display: flex;
-      gap: 0.4rem;
-      pointer-events: auto;
-    }
-
-    .btn-arrow {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: rgba(12, 17, 26, 0.85);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-secondary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      backdrop-filter: blur(12px);
-    }
-
-    .btn-arrow:hover {
-      background: rgba(255, 255, 255, 0.08);
       color: var(--text-primary);
-      border-color: var(--border-subtle);
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.015em;
     }
 
-    /* Deck Viewport & Stages */
-    .deck-viewport {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-      z-index: 10;
+    .section-desc {
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+      max-width: 740px;
+      line-height: 1.6;
+      margin-bottom: 2rem;
     }
 
-    .stage {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding: 72px 3rem 48px;
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transform: scale(0.96) translateY(35px);
-      transition: 
-        opacity 0.6s var(--ease-smooth),
-        transform 0.65s var(--ease-smooth),
-        visibility 0.65s;
-    }
-
-    .stage.active {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-      transform: scale(1) translateY(0);
-      z-index: 20;
-    }
-
-    .stage.exit-up {
-      opacity: 0;
-      visibility: hidden;
-      transform: scale(0.96) translateY(-40px);
-    }
-
-    .stage.exit-down {
-      opacity: 0;
-      visibility: hidden;
-      transform: scale(0.96) translateY(40px);
-    }
-
-    /* Scrollable Stage Container with Zero Scrollbar */
-    .stage-container {
-      width: 100%;
-      max-width: 1180px;
-      max-height: calc(100vh - 132px);
-      overflow-y: auto;
-      overflow-x: hidden;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding: 0.2rem 0.5rem 2.5rem 0.5rem;
-    }
-
-    .stage-container::-webkit-scrollbar { display: none; }
-
-    /* Staggered Item Entrance */
-    .stage .anim-item {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.45s var(--ease-smooth), transform 0.5s var(--ease-smooth);
-    }
-
-    .stage.active .anim-item:nth-child(1) { transition-delay: 0.06s; opacity: 1; transform: translateY(0); }
-    .stage.active .anim-item:nth-child(2) { transition-delay: 0.12s; opacity: 1; transform: translateY(0); }
-    .stage.active .anim-item:nth-child(3) { transition-delay: 0.18s; opacity: 1; transform: translateY(0); }
-
-    /* Buttons (Academic & Enterprise Clean) */
-    .btn-academic {
+    /* Buttons */
+    .btn {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
       padding: 0.55rem 1.25rem;
-      border-radius: 8px;
+      border-radius: 6px;
       font-family: var(--font-sans);
+      font-size: 0.875rem;
       font-weight: 600;
-      font-size: 0.86rem;
       text-decoration: none;
-      transition: all 0.2s ease;
       cursor: pointer;
+      transition: all 0.15s ease;
+      border: 1px solid transparent;
     }
 
-    .btn-academic-gold {
-      background: var(--accent-gold);
-      color: #000;
-      border: 1px solid var(--accent-gold-light);
-      font-weight: 700;
+    .btn-primary {
+      background: #0f172a;
+      color: #ffffff;
+      border-color: #0f172a;
     }
 
-    .btn-academic-gold:hover {
-      background: var(--accent-gold-light);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(197, 160, 89, 0.35);
+    .btn-primary:hover {
+      background: #1e293b;
     }
 
-    .btn-academic-crimson {
+    .btn-crimson {
       background: var(--accent-crimson);
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      border-color: var(--accent-crimson);
     }
 
-    .btn-academic-crimson:hover {
-      background: #be123c;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(165, 28, 48, 0.35);
+    .btn-crimson:hover {
+      background: #7f1d1d;
     }
 
-    .btn-academic-outline {
-      background: rgba(255, 255, 255, 0.04);
+    .btn-outline {
+      background: #ffffff;
       color: var(--text-primary);
-      border: 1px solid var(--border-subtle);
+      border-color: var(--border-strong);
     }
 
-    .btn-academic-outline:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.2);
-      transform: translateY(-1px);
+    .btn-outline:hover {
+      background: var(--bg-surface);
+      border-color: #94a3b8;
     }
 
-    /* Stage 1: Hero & Scholar Profile */
-    .hero-layout {
-      display: grid;
-      grid-template-columns: 1.35fr 0.65fr;
-      gap: 2.5rem;
-      align-items: center;
-    }
-
-    .badge-institutional {
+    /* Badges */
+    .badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.3rem 0.8rem;
-      background: rgba(197, 160, 89, 0.08);
-      border: 1px solid var(--border-highlight);
-      color: var(--accent-gold);
-      border-radius: 999px;
-      font-family: var(--font-mono);
-      font-size: 0.74rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      margin-bottom: 0.85rem;
-    }
-
-    .pulse-dot-green {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent-emerald);
-      box-shadow: 0 0 6px var(--accent-emerald);
-    }
-
-    .hero-title {
-      font-family: var(--font-serif);
-      font-size: 3.1rem;
-      font-weight: 600;
-      line-height: 1.15;
-      margin-bottom: 0.9rem;
-      letter-spacing: -0.015em;
-      color: #fff;
-    }
-
-    .text-gold {
-      color: var(--accent-gold);
-      font-style: italic;
-    }
-
-    .hero-subtitle {
-      font-size: 1.02rem;
-      color: var(--text-secondary);
-      margin-bottom: 1.35rem;
-      max-width: 620px;
-      line-height: 1.6;
-    }
-
-    .hero-credentials-strip {
-      display: flex;
-      flex-direction: column;
       gap: 0.35rem;
-      margin-bottom: 1.4rem;
-      padding: 0.75rem 1rem;
-      background: rgba(15, 23, 42, 0.45);
-      border: 1px solid var(--border-subtle);
-      border-left: 3px solid var(--accent-crimson);
-      border-radius: 6px;
-    }
-
-    .credential-item {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      font-size: 0.82rem;
-      color: #cbd5e1;
-    }
-
-    .credential-item i {
-      color: var(--accent-gold);
-      width: 14px;
-      text-align: center;
-    }
-
-    .hero-avatar-frame {
-      position: relative;
-      width: 230px;
-      height: 230px;
-      margin: 0 auto;
-    }
-
-    .avatar-card-academic {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      border-radius: 16px;
-      padding: 6px;
-      background: linear-gradient(145deg, rgba(197, 160, 89, 0.25), rgba(165, 28, 48, 0.25));
-      border: 1px solid var(--border-subtle);
-      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.6);
-    }
-
-    .avatar-img-academic {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    /* Counters Strip */
-    .counters-grid-academic {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      padding: 1rem 1.4rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      margin-top: 1.35rem;
-      backdrop-filter: blur(16px);
-    }
-
-    .counter-item-academic {
-      text-align: center;
-      border-right: 1px solid var(--border-subtle);
-    }
-
-    .counter-item-academic:last-child {
-      border-right: none;
-    }
-
-    .counter-num-academic {
-      font-family: var(--font-serif);
-      font-size: 1.9rem;
-      font-weight: 700;
-      color: var(--accent-gold);
-      margin-bottom: 0.05rem;
-    }
-
-    .counter-label-academic {
-      font-size: 0.72rem;
-      color: var(--text-secondary);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
       font-family: var(--font-mono);
+      font-size: 0.7rem;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.02em;
     }
 
-    /* Section Headers */
-    .stage-header {
-      margin-bottom: 1.15rem;
+    .badge-emerald {
+      background: var(--accent-emerald-subtle);
+      color: var(--accent-emerald);
+      border: 1px solid #a7f3d0;
     }
 
-    .stage-tag {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      font-weight: 600;
+    .badge-crimson {
+      background: var(--accent-crimson-subtle);
+      color: var(--accent-crimson);
+      border: 1px solid #fecaca;
+    }
+
+    .badge-gold {
+      background: var(--accent-gold-subtle);
       color: var(--accent-gold);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.3rem;
-      display: inline-block;
+      border: 1px solid #fde68a;
     }
 
-    .stage-title {
-      font-family: var(--font-serif);
-      font-size: 2.15rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-      letter-spacing: -0.015em;
-      color: #fff;
+    .badge-blue {
+      background: var(--accent-blue-subtle);
+      color: var(--accent-blue);
+      border: 1px solid #bae6fd;
     }
 
-    .stage-desc {
-      color: var(--text-secondary);
-      font-size: 0.92rem;
-      max-width: 720px;
-      line-height: 1.55;
-    }
-
-    /* Grids & Cards */
-    .grid-3col {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.1rem;
-    }
-
-    .grid-2col {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.1rem;
-    }
-
-    .card-academic {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 1.15rem 1.25rem;
-      transition: all 0.25s var(--ease-smooth);
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      backdrop-filter: blur(14px);
-    }
-
-    .card-academic.card-interactive {
-      cursor: pointer;
-    }
-
-    .card-academic.card-interactive:hover {
-      background: var(--bg-card-hover);
-      border-color: var(--border-highlight);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--border-highlight);
-    }
-
-    .card-icon-academic {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      background: rgba(197, 160, 89, 0.1);
-      border: 1px solid var(--border-highlight);
-      color: var(--accent-gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.95rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .card-h-academic {
-      font-family: var(--font-serif);
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 0.35rem;
-      color: var(--text-primary);
-      letter-spacing: -0.01em;
-    }
-
-    .card-p-academic {
-      color: var(--text-secondary);
-      font-size: 0.84rem;
-      line-height: 1.5;
-      margin-bottom: 0.85rem;
-    }
-
-    .pill-tags-academic {
+    /* Pills / Tags */
+    .pill-list {
       display: flex;
       flex-wrap: wrap;
       gap: 0.35rem;
     }
 
-    .pill-academic {
+    .pill {
       font-family: var(--font-mono);
-      font-size: 0.68rem;
-      font-weight: 600;
+      font-size: 0.7rem;
+      font-weight: 500;
       padding: 0.15rem 0.5rem;
-      background: rgba(255, 255, 255, 0.04);
+      background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
       border-radius: 4px;
-      color: #cbd5e1;
+      color: #334155;
     }
 
-    .card-expand-link {
-      display: inline-flex;
+    /* Hero Section */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 3rem;
       align-items: center;
-      gap: 0.35rem;
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      font-weight: 600;
-      color: var(--accent-gold);
-      margin-top: 0.65rem;
-      transition: color 0.2s ease;
+      padding: 3rem 0 2rem;
     }
 
-    .card-academic.card-interactive:hover .card-expand-link {
-      color: var(--accent-gold-light);
-    }
-
-    /* Enterprise Flagship Banner Card */
-    .banner-card-academic {
-      background: linear-gradient(135deg, rgba(14, 20, 32, 0.85) 0%, rgba(20, 30, 48, 0.85) 100%);
-      border: 1px solid var(--border-subtle);
-      border-left: 3px solid var(--accent-emerald);
-      border-radius: 12px;
-      padding: 1.25rem 1.5rem;
-      margin-bottom: 1.1rem;
-      backdrop-filter: blur(16px);
-      box-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.4);
-      transition: all 0.25s var(--ease-smooth);
-    }
-
-    .banner-card-academic.card-interactive {
-      cursor: pointer;
-    }
-
-    .banner-card-academic.card-interactive:hover {
-      border-color: rgba(16, 185, 129, 0.4);
-      box-shadow: 0 10px 28px -4px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(16, 185, 129, 0.3);
-      transform: translateY(-2px);
-    }
-
-    .badge-production-live {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: var(--accent-emerald);
-      background: rgba(16, 185, 129, 0.12);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      letter-spacing: 0.04em;
-    }
-
-    .badge-scholarly-gold {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: var(--accent-gold);
-      background: rgba(197, 160, 89, 0.12);
-      border: 1px solid var(--border-highlight);
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      letter-spacing: 0.04em;
-    }
-
-    .banner-title-row {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 1rem;
-      margin: 0.45rem 0 0.65rem;
-    }
-
-    .banner-h {
+    .hero-h1 {
       font-family: var(--font-serif);
-      font-size: 1.35rem;
+      font-size: 3.1rem;
       font-weight: 600;
-      color: #fff;
-      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin: 0.75rem 0 1rem;
     }
 
-    .banner-sub {
-      font-size: 0.8rem;
+    .hero-h1 .serif-accent {
+      color: var(--accent-crimson);
+      font-style: italic;
+    }
+
+    .hero-lead {
       color: var(--text-secondary);
-      font-family: var(--font-mono);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      max-width: 640px;
     }
 
-    .banner-list {
-      list-style: none;
+    .credentials-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-left: 3px solid var(--accent-crimson);
+      border-radius: 6px;
+      padding: 0.85rem 1.15rem;
+      margin-bottom: 1.5rem;
       display: flex;
       flex-direction: column;
       gap: 0.4rem;
     }
 
-    .banner-list li {
+    .credential-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.84rem;
+      color: #334155;
+    }
+
+    .credential-row i {
+      color: var(--accent-crimson);
+      width: 14px;
+      text-align: center;
+    }
+
+    .hero-avatar-box {
+      width: 220px;
+      height: 220px;
+      margin: 0 auto;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      box-shadow: var(--shadow-md);
+      background: var(--bg-surface);
+    }
+
+    .hero-avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Stats Dashboard */
+    .stats-dashboard {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 1.25rem 1.75rem;
+      margin-top: 2rem;
+    }
+
+    .stat-item {
+      border-right: 1px solid var(--border-subtle);
+      padding-right: 1rem;
+    }
+
+    .stat-item:last-child {
+      border-right: none;
+      padding-right: 0;
+    }
+
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Grids */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 1.4rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .card.interactive {
+      cursor: pointer;
+    }
+
+    .card.interactive:hover {
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow-md);
+    }
+
+    .card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--accent-crimson);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.01em;
+    }
+
+    .card-desc {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+
+    .card-link-prompt {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--accent-crimson);
+      margin-top: 0.85rem;
+    }
+
+    /* Enterprise Flagship Banner Card */
+    .banner-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--accent-emerald);
+      border-radius: 8px;
+      padding: 1.5rem 1.75rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1.5rem;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .banner-card.interactive {
+      cursor: pointer;
+    }
+
+    .banner-card.interactive:hover {
+      border-color: var(--border-strong);
+      border-left-color: var(--accent-emerald);
+      box-shadow: var(--shadow-md);
+    }
+
+    .banner-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .banner-h3 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .banner-sub {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.85rem;
+    }
+
+    .bullet-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .bullet-list li {
       position: relative;
       padding-left: 1.25rem;
-      font-size: 0.835rem;
-      color: #cbd5e1;
+      font-size: 0.875rem;
+      color: #334155;
       line-height: 1.5;
     }
 
-    .banner-list li::before {
+    .bullet-list li::before {
       content: "•";
       position: absolute;
       left: 0.35rem;
-      color: var(--accent-gold);
-      font-size: 1.1rem;
-      line-height: 1.3;
+      color: var(--accent-crimson);
+      font-size: 1rem;
     }
 
-    /* Modal Backdrop & Dialog (Harvard Scholarly Aesthetic) */
+    /* Modal Backdrop & Dialog (Minimalist Clean White) */
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(4, 6, 10, 0.85);
-      backdrop-filter: blur(18px);
+      background: rgba(15, 23, 42, 0.5);
+      backdrop-filter: blur(4px);
       z-index: 10000;
       display: flex;
       align-items: center;
@@ -886,7 +611,7 @@
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
-      transition: opacity 0.3s var(--ease-smooth), visibility 0.3s;
+      transition: opacity 0.2s ease, visibility 0.2s;
     }
 
     .modal-backdrop.active {
@@ -897,95 +622,76 @@
 
     .modal-dialog {
       width: 100%;
-      max-width: 880px;
+      max-width: 860px;
       max-height: 88vh;
-      background: #0b1019;
-      border: 1px solid var(--border-highlight);
-      border-radius: 14px;
-      box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.8), 0 0 0 1px var(--border-subtle);
+      background: #ffffff;
+      border: 1px solid var(--border-strong);
+      border-radius: 10px;
+      box-shadow: var(--shadow-modal);
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      transform: scale(0.96) translateY(20px);
-      transition: transform 0.35s var(--ease-smooth), opacity 0.3s;
-      position: relative;
+      transform: scale(0.98);
+      transition: transform 0.2s ease;
     }
 
     .modal-backdrop.active .modal-dialog {
-      transform: scale(1) translateY(0);
+      transform: scale(1);
     }
 
     .modal-header {
-      padding: 1.2rem 1.6rem;
+      padding: 1.25rem 1.75rem;
+      background: var(--bg-surface);
       border-bottom: 1px solid var(--border-subtle);
-      background: rgba(15, 23, 42, 0.6);
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
       gap: 1rem;
     }
 
-    .modal-title-group {
-      flex: 1;
-    }
-
-    .modal-badge-row {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 0.35rem;
-    }
-
     .modal-title {
       font-family: var(--font-serif);
-      font-size: 1.45rem;
+      font-size: 1.5rem;
       font-weight: 600;
-      color: #fff;
+      color: var(--text-primary);
       line-height: 1.25;
-      letter-spacing: -0.01em;
     }
 
     .modal-subtitle {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
       font-family: var(--font-mono);
-      margin-top: 0.2rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
     }
 
     .modal-close-btn {
       width: 32px;
       height: 32px;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.05);
+      border-radius: 6px;
+      background: #ffffff;
       border: 1px solid var(--border-subtle);
-      color: var(--text-secondary);
+      color: var(--text-muted);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1rem;
-      transition: all 0.2s ease;
       cursor: pointer;
+      transition: all 0.15s ease;
       flex-shrink: 0;
     }
 
     .modal-close-btn:hover {
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.2);
+      color: var(--text-primary);
+      border-color: var(--border-strong);
     }
 
     .modal-body {
-      padding: 1.5rem 1.6rem;
+      padding: 1.75rem;
       overflow-y: auto;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
       display: flex;
       flex-direction: column;
-      gap: 1.35rem;
+      gap: 1.5rem;
     }
-
-    .modal-body::-webkit-scrollbar { display: none; }
 
     .modal-metrics-grid {
       display: grid;
@@ -994,133 +700,88 @@
     }
 
     .modal-metric-card {
-      background: rgba(15, 23, 42, 0.4);
+      background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 0.65rem 0.85rem;
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
       text-align: center;
     }
 
     .modal-metric-num {
       font-family: var(--font-serif);
-      font-size: 1.45rem;
+      font-size: 1.6rem;
       font-weight: 700;
-      color: var(--accent-gold);
+      color: var(--accent-crimson);
       margin-bottom: 0.1rem;
     }
 
     .modal-metric-label {
       font-family: var(--font-mono);
-      font-size: 0.66rem;
-      color: var(--text-secondary);
-      font-weight: 600;
+      font-size: 0.68rem;
+      color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.04em;
     }
 
-    .modal-card-box {
-      background: rgba(15, 23, 42, 0.35);
+    .modal-box {
+      background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
-      border-radius: 10px;
-      padding: 1.15rem 1.25rem;
+      border-radius: 6px;
+      padding: 1.25rem 1.4rem;
     }
 
-    .modal-section-h {
+    .modal-h4 {
       font-family: var(--font-serif);
-      font-size: 1.05rem;
+      font-size: 1.15rem;
       font-weight: 600;
-      color: #fff;
+      color: var(--text-primary);
+      margin-bottom: 0.6rem;
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.01em;
-    }
-
-    .modal-p {
-      color: #cbd5e1;
-      font-size: 0.875rem;
-      line-height: 1.6;
-    }
-
-    .modal-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-    }
-
-    .modal-list li {
-      position: relative;
-      padding-left: 1.25rem;
-      font-size: 0.85rem;
-      color: #cbd5e1;
-      line-height: 1.5;
-    }
-
-    .modal-list li::before {
-      content: "•";
-      position: absolute;
-      left: 0.35rem;
-      color: var(--accent-gold);
-      font-size: 1rem;
     }
 
     .modal-gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 0.85rem;
     }
 
     .proto-image-card {
-      background: rgba(8, 12, 19, 0.65);
-      border: 1px dashed rgba(197, 160, 89, 0.35);
-      border-radius: 10px;
+      background: #ffffff;
+      border: 1px dashed var(--border-strong);
+      border-radius: 6px;
       padding: 1rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: border-color 0.15s ease, background-color 0.15s ease;
     }
 
     .proto-image-card:hover {
-      border-color: var(--accent-gold);
-      background: rgba(18, 25, 40, 0.8);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+      border-color: var(--accent-crimson);
+      background: var(--bg-surface);
     }
 
     .proto-img-frame {
       width: 100%;
-      height: 105px;
-      background: rgba(4, 6, 10, 0.8);
+      height: 95px;
+      background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
-      border-radius: 8px;
+      border-radius: 4px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 0.45rem;
+      gap: 0.4rem;
       margin-bottom: 0.6rem;
     }
 
     .proto-img-icon {
       font-size: 1.5rem;
-      color: var(--accent-gold);
-    }
-
-    .badge-coming-soon {
-      font-family: var(--font-mono);
-      font-size: 0.64rem;
-      font-weight: 700;
-      color: var(--accent-gold);
-      background: rgba(197, 160, 89, 0.12);
-      border: 1px solid var(--border-highlight);
-      padding: 0.15rem 0.5rem;
-      border-radius: 4px;
-      letter-spacing: 0.04em;
+      color: var(--accent-crimson);
     }
 
     .proto-img-title {
@@ -1132,20 +793,9 @@
     }
 
     .proto-img-desc {
-      font-size: 0.74rem;
+      font-size: 0.76rem;
       color: var(--text-secondary);
       line-height: 1.45;
-    }
-
-    .proto-click-hint {
-      margin-top: 0.45rem;
-      font-family: var(--font-mono);
-      font-size: 0.66rem;
-      color: var(--accent-gold);
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
     }
 
     .modal-actions-row {
@@ -1161,8 +811,8 @@
     .lightbox-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(4, 6, 10, 0.9);
-      backdrop-filter: blur(20px);
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(4px);
       z-index: 11000;
       display: flex;
       align-items: center;
@@ -1171,7 +821,7 @@
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
-      transition: opacity 0.3s ease, visibility 0.3s;
+      transition: opacity 0.2s ease, visibility 0.2s;
     }
 
     .lightbox-backdrop.active {
@@ -1182,59 +832,51 @@
 
     .lightbox-dialog {
       width: 100%;
-      max-width: 680px;
-      background: #0d121c;
-      border: 1px solid var(--border-highlight);
-      border-radius: 14px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
+      max-width: 650px;
+      background: #ffffff;
+      border: 1px solid var(--border-strong);
+      border-radius: 10px;
+      box-shadow: var(--shadow-modal);
       padding: 1.5rem;
-      transform: scale(0.96) translateY(20px);
-      transition: transform 0.3s var(--ease-smooth);
       display: flex;
       flex-direction: column;
       gap: 1rem;
     }
 
-    .lightbox-backdrop.active .lightbox-dialog {
-      transform: scale(1) translateY(0);
-    }
-
-    .lightbox-canvas-placeholder {
+    .lightbox-placeholder {
       width: 100%;
-      height: 260px;
-      background: #07090f;
-      border: 1px dashed var(--border-highlight);
-      border-radius: 10px;
+      height: 240px;
+      background: var(--bg-surface);
+      border: 1px dashed var(--border-strong);
+      border-radius: 6px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 1.5rem;
-      gap: 0.75rem;
+      gap: 0.65rem;
     }
 
-    /* Interactive Toast */
+    /* Toast Notification */
     #copy-toast {
       visibility: hidden;
-      min-width: 250px;
-      background: #0d121c;
-      color: var(--accent-emerald);
-      border: 1px solid rgba(16, 185, 129, 0.4);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+      background: #0f172a;
+      color: #ffffff;
+      box-shadow: var(--shadow-lg);
       text-align: center;
-      border-radius: 8px;
+      border-radius: 6px;
       padding: 10px 18px;
       position: fixed;
       z-index: 12000;
-      bottom: 35px;
+      bottom: 25px;
       left: 50%;
       transform: translateX(-50%);
       font-family: var(--font-mono);
-      font-weight: 600;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
+      font-weight: 500;
       opacity: 0;
-      transition: opacity 0.25s, visibility 0.25s;
+      transition: opacity 0.2s ease, visibility 0.2s;
     }
 
     #copy-toast.show {
@@ -1242,476 +884,425 @@
       opacity: 1;
     }
 
-    /* Contact Stage Card */
-    .contact-card-academic {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-top: 3px solid var(--accent-gold);
-      border-radius: 14px;
-      padding: 2.25rem 2.5rem;
+    /* Footer */
+    .site-footer {
+      padding: 3.5rem 0;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-subtle);
       text-align: center;
-      max-width: 820px;
-      margin: 0 auto;
-      backdrop-filter: blur(16px);
     }
 
-    .social-pill-academic {
+    .footer-bio {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.04);
+      gap: 0.4rem;
+      padding: 0.45rem 0.95rem;
+      background: #ffffff;
       border: 1px solid var(--border-subtle);
+      border-radius: 6px;
       color: var(--text-primary);
       text-decoration: none;
-      font-family: var(--font-sans);
-      font-size: 0.82rem;
+      font-size: 0.825rem;
       font-weight: 600;
-      transition: all 0.2s ease;
-      cursor: pointer;
+      transition: all 0.15s ease;
     }
 
-    .social-pill-academic:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: var(--border-highlight);
-      color: var(--accent-gold);
-      transform: translateY(-1px);
+    .social-btn:hover {
+      border-color: var(--border-strong);
+      background: var(--bg-surface);
     }
 
-    /* Responsive Queries */
+    /* Responsive */
     @media (max-width: 1024px) {
-      .hero-layout { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
-      .hero-title { font-size: 2.4rem; }
-      .hero-subtitle { margin: 0 auto 1.25rem; }
-      .hero-credentials-strip { text-align: left; max-width: 520px; margin: 0 auto 1.25rem; }
-      .grid-3col { grid-template-columns: repeat(2, 1fr); }
-      .hud-nav-links { display: none; }
-      .hud-pagination { display: none; }
-      .stage { padding: 68px 1.5rem 45px; }
+      .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+      .hero-lead { margin: 0 auto 1.5rem; }
+      .credentials-card { text-align: left; max-width: 500px; margin: 0 auto 1.5rem; }
+      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .site-nav { display: none; }
     }
 
     @media (max-width: 640px) {
-      .hero-title { font-size: 1.95rem; }
-      .grid-3col, .grid-2col { grid-template-columns: 1fr; }
-      .counters-grid-academic { grid-template-columns: repeat(2, 1fr); }
-      .counter-item-academic { border-right: none; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem; }
-      .counter-item-academic:nth-child(3), .counter-item-academic:nth-child(4) { border-bottom: none; }
-      .hud-navbar { padding: 0 1rem; }
-      .hud-footer { left: 1rem; right: 1rem; }
-      .contact-card-academic { padding: 1.5rem 1rem; }
-      .modal-dialog { max-height: 94vh; border-radius: 12px; }
+      .hero-h1 { font-size: 2.2rem; }
+      .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .stats-dashboard { grid-template-columns: repeat(2, 1fr); }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.75rem; }
+      .stat-item:nth-child(3), .stat-item:nth-child(4) { border-bottom: none; }
+      .site-header { padding: 0 1rem; }
+      .modal-dialog { max-height: 94vh; }
       .modal-header { padding: 1rem 1.25rem; }
       .modal-body { padding: 1.25rem 1rem; }
-      .modal-gallery-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Living Neural Knowledge Graph Background -->
-  <canvas id="neural-canvas"></canvas>
-
   <!-- Top Institutional Header -->
-  <header class="hud-navbar">
-    <a href="javascript:goToStage(0)" class="hud-brand" title="Firas Aguech — Institutional Portfolio">
+  <header class="site-header">
+    <a href="#overview" class="brand-link" title="Firas Aguech">
       <div class="brand-crest">FA</div>
-      <div>
-        <div class="brand-name">Firas Aguech</div>
+      <div class="brand-text">
+        <span class="brand-name">Firas Aguech</span>
+        <span class="brand-sub">AI Engineer & Architect</span>
       </div>
-      <span class="brand-tag">AI ENGINEER & ARCHITECT</span>
     </a>
 
-    <ul class="hud-nav-links">
-      <li><a href="javascript:goToStage(0)" class="hud-link active">Overview</a></li>
-      <li><a href="javascript:goToStage(1)" class="hud-link">Capabilities</a></li>
-      <li><a href="javascript:goToStage(2)" class="hud-link">Enterprise Work</a></li>
-      <li><a href="javascript:goToStage(3)" class="hud-link">Shipped Products</a></li>
-      <li><a href="javascript:goToStage(4)" class="hud-link">Research Repos</a></li>
-      <li><a href="javascript:goToStage(5)" class="hud-link">Advisory</a></li>
-      <li><a href="javascript:goToStage(6)" class="hud-link">Contact</a></li>
+    <ul class="site-nav">
+      <li class="nav-item"><a href="#overview">Overview</a></li>
+      <li class="nav-item"><a href="#capabilities">Capabilities</a></li>
+      <li class="nav-item"><a href="#enterprise">Enterprise</a></li>
+      <li class="nav-item"><a href="#products">Products</a></li>
+      <li class="nav-item"><a href="#research">Research</a></li>
+      <li class="nav-item"><a href="#advisory">Advisory</a></li>
+      <li class="nav-item"><a href="#contact">Contact</a></li>
     </ul>
 
-    <div class="hud-action-group">
-      <a href="https://wa.me/21629861363" target="_blank" class="btn-whatsapp-pill" title="Direct WhatsApp Communication">
+    <div class="header-actions">
+      <a href="https://wa.me/21629861363" target="_blank" class="btn-header-wa">
         <i class="fa-brands fa-whatsapp"></i> +216 29861363
       </a>
-      <a href="assets/docs/Firas_Aguech_Resume.pdf" target="_blank" class="btn-academic btn-academic-gold" style="padding: 0.35rem 0.85rem; font-size: 0.78rem;">
-        <i class="fa-solid fa-file-pdf"></i> CV
+      <a href="assets/docs/Firas_Aguech_Resume.pdf" target="_blank" class="btn-header-cv">
+        <i class="fa-solid fa-file-pdf"></i> Resume CV
       </a>
     </div>
   </header>
 
-  <!-- Right-Side Stage Dot Navigator -->
-  <div class="hud-pagination">
-    <div class="hud-dot-wrap active" onclick="goToStage(0)">
-      <div class="hud-dot"></div>
-      <span class="hud-dot-tooltip">01. OVERVIEW</span>
-    </div>
-    <div class="hud-dot-wrap" onclick="goToStage(1)">
-      <div class="hud-dot"></div>
-      <span class="hud-dot-tooltip">02. CAPABILITIES</span>
-    </div>
-    <div class="hud-dot-wrap" onclick="goToStage(2)">
-      <div class="hud-dot"></div>
-      <span class="hud-dot-tooltip">03. ENTERPRISE</span>
-    </div>
-    <div class="hud-dot-wrap" onclick="goToStage(3)">
-      <div class="hud-dot"></div>
-      <span class="hud-dot-tooltip">04. PRODUCTS</span>
-    </div>
-    <div class="hud-dot-wrap" onclick="goToStage(4)">
-      <div class="hud-dot"></div>
-      <span class="hud-dot-tooltip">05. RESEARCH</span>
-    </div>
-    <div class="hud-dot-wrap" onclick="goToStage(5)">
-      <div class="hud-dot"></div>
-      <span class="hud-dot-tooltip">06. ADVISORY</span>
-    </div>
-    <div class="hud-dot-wrap" onclick="goToStage(6)">
-      <div class="hud-dot"></div>
-      <span class="hud-dot-tooltip">07. CONTACT</span>
-    </div>
-  </div>
+  <main>
 
-  <!-- Bottom HUD Controller -->
-  <footer class="hud-footer">
-    <div class="hud-counter-box" id="stage-counter">SECTION 01 / 07</div>
-    <div class="hud-scroll-hint" onclick="nextStage()" title="Advance to next section">
-      <div class="mouse-icon"><div class="mouse-wheel"></div></div>
-      <span>Scroll or Press ↓</span>
-    </div>
-    <div class="hud-arrows">
-      <button class="btn-arrow" onclick="prevStage()" title="Previous Section"><i class="fa-solid fa-chevron-up"></i></button>
-      <button class="btn-arrow" onclick="nextStage()" title="Next Section"><i class="fa-solid fa-chevron-down"></i></button>
-    </div>
-  </footer>
-
-  <!-- Single-Page Animated Stage Deck -->
-  <main class="deck-viewport" id="deck-viewport">
-
-    <!-- STAGE 01: SCHOLARLY & ENTERPRISE OVERVIEW -->
-    <section class="stage active" id="stage-0">
-      <div class="stage-container">
-        <div class="hero-layout anim-item">
+    <!-- SECTION 01: OVERVIEW & CREDENTIALS -->
+    <section id="overview" class="section-spacing">
+      <div class="container">
+        <div class="hero-grid">
           <div>
-            <div class="badge-institutional">
-              <span class="pulse-dot-green"></span>
-              <span>ML & DATA SCIENCE ENGINEER • OPEN TO ENTERPRISE & ADVISORY ROLES</span>
+            <div class="badge badge-crimson" style="margin-bottom: 0.5rem;">
+              <span>HARVARD-STYLE INSTITUTIONAL RESEARCH & ENTERPRISE PORTFOLIO</span>
             </div>
-            
-            <h1 class="hero-title">
-              Architecting <span class="text-gold">Graph-Orchestrated Multi-Agent</span> Systems & Information Retrieval
+
+            <h1 class="hero-h1">
+              Architecting <span class="serif-accent">Multi-Agent Intelligence</span> & Hybrid Information Retrieval
             </h1>
 
-            <p class="hero-subtitle">
-              I am <b>Firas Aguech</b> — an AI Engineer specialized in LangGraph4j Multi-Agent Architectures, Dense + Sparse BM25 Hybrid Retrieval with Distribution-Based Score Fusion (DBSF), ColBERT Token Reranking, and Cross-Platform Production Applications deployed to the Apple App Store & Google Play.
+            <p class="hero-lead">
+              I am <b>Firas Aguech</b> — an AI Engineer specialized in Graph-Orchestrated Multi-Agent Systems (LangGraph4j), Hybrid Retrieval (Dense + BM25 with DBSF Score Fusion), ColBERT Token Reranking, and Cross-Platform Applications deployed to the Apple App Store & Google Play.
             </p>
 
-            <div class="hero-credentials-strip">
-              <div class="credential-item">
+            <div class="credentials-card">
+              <div class="credential-row">
                 <i class="fa-solid fa-graduation-cap"></i>
                 <span><b>Engineering Degree in Machine Learning & Data Science</b> — ESPRIT</span>
               </div>
-              <div class="credential-item">
+              <div class="credential-row">
                 <i class="fa-solid fa-university"></i>
                 <span><b>Bachelor of Science in Computer Science</b> — ISIMS</span>
               </div>
-              <div class="credential-item">
+              <div class="credential-row">
                 <i class="fa-solid fa-building"></i>
                 <span><b>Bertsch Innovation GmbH</b> — Cockpit AI Enterprise Production Architect (MC15 Migrated)</span>
               </div>
             </div>
 
             <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-              <a href="javascript:goToStage(2)" class="btn-academic btn-academic-gold">
-                <i class="fa-solid fa-bolt"></i> Flagship Systems
+              <a href="#enterprise" class="btn btn-crimson">
+                <i class="fa-solid fa-bolt"></i> View Flagship Enterprise Work
               </a>
-              <a href="https://wa.me/21629861363" target="_blank" class="btn-academic btn-academic-crimson">
+              <a href="https://wa.me/21629861363" target="_blank" class="btn btn-outline" style="color: var(--whatsapp); border-color: #86efac;">
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp Direct
               </a>
-              <a href="assets/docs/Firas_Aguech_Resume.pdf" target="_blank" class="btn-academic btn-academic-outline">
-                <i class="fa-solid fa-file-pdf"></i> Curriculum Vitae
+              <a href="assets/docs/Firas_Aguech_Resume.pdf" target="_blank" class="btn btn-outline">
+                <i class="fa-solid fa-file-pdf"></i> Download CV (PDF)
               </a>
             </div>
           </div>
 
           <div>
-            <div class="hero-avatar-frame">
-              <div class="avatar-card-academic">
-                <img src="assets/img/me.jpg" alt="Firas Aguech" class="avatar-img-academic">
-              </div>
+            <div class="hero-avatar-box">
+              <img src="assets/img/me.jpg" alt="Firas Aguech" class="hero-avatar-img">
             </div>
           </div>
         </div>
 
-        <div class="counters-grid-academic anim-item">
-          <div class="counter-item-academic">
-            <div class="counter-num-academic">MC15</div>
-            <div class="counter-label-academic">Live Enterprise Production</div>
+        <div class="stats-dashboard">
+          <div class="stat-item">
+            <div class="stat-number">MC15</div>
+            <div class="stat-label">Live Enterprise Production</div>
           </div>
-          <div class="counter-item-academic">
-            <div class="counter-num-academic">14+</div>
-            <div class="counter-label-academic">Autonomous LLM Tools</div>
+          <div class="stat-item">
+            <div class="stat-number">14+</div>
+            <div class="stat-label">Autonomous LLM Tools</div>
           </div>
-          <div class="counter-item-academic">
-            <div class="counter-num-academic">43+</div>
-            <div class="counter-label-academic">Semantic Test Cases</div>
+          <div class="stat-item">
+            <div class="stat-number">43+</div>
+            <div class="stat-label">IR Evaluation Cases</div>
           </div>
-          <div class="counter-item-academic">
-            <div class="counter-num-academic">2 Stores</div>
-            <div class="counter-label-academic">Apple Store & Google Play</div>
+          <div class="stat-item">
+            <div class="stat-number">2 Stores</div>
+            <div class="stat-label">Apple Store & Google Play</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- STAGE 02: CAPABILITIES & RESEARCH SPECIALIZATIONS -->
-    <section class="stage" id="stage-1">
-      <div class="stage-container">
-        <div class="stage-header anim-item">
-          <span class="stage-tag">// 02. Research & Engineering Competencies</span>
-          <h2 class="stage-title">Core Technical Specializations</h2>
-          <p class="stage-desc">Translating bleeding-edge artificial intelligence research into resilient, high-throughput production infrastructure.</p>
+    <!-- SECTION 02: CAPABILITIES & TECHNICAL SPECIALIZATIONS -->
+    <section id="capabilities" class="section-spacing" style="background: var(--bg-surface);">
+      <div class="container">
+        <div>
+          <span class="section-eyebrow">// 02. Technical Competencies</span>
+          <h2 class="section-title">Core Research & Engineering Specializations</h2>
+          <p class="section-desc">Translating advanced artificial intelligence research into high-throughput, fault-tolerant production infrastructure.</p>
         </div>
 
-        <div class="grid-3col anim-item">
-          <div class="card-academic card-interactive" onclick="openProjectModal('spec-multi-agent')">
+        <div class="grid-3">
+          <div class="card interactive" onclick="openProjectModal('spec-multi-agent')">
             <div>
-              <div class="card-icon-academic"><i class="fa-solid fa-network-wired"></i></div>
-              <h3 class="card-h-academic">Agentic Multi-Agent Systems</h3>
-              <p class="card-p-academic">Graph-orchestrated workflows with LangGraph4j. Dynamic sequential/parallel tool routing, self-correction, ReAct planners, and persistent session memory.</p>
+              <div class="card-icon"><i class="fa-solid fa-network-wired"></i></div>
+              <h3 class="card-title">Agentic Multi-Agent Systems</h3>
+              <p class="card-desc">Graph-orchestrated workflows with LangGraph4j. Dynamic sequential/parallel tool routing, self-correction, ReAct planners, and persistent session memory.</p>
             </div>
             <div>
-              <div class="pill-tags-academic">
-                <span class="pill-academic">LangGraph4j</span>
-                <span class="pill-academic">ReAct</span>
-                <span class="pill-academic">Tool Discovery</span>
-                <span class="pill-academic">Memory</span>
+              <div class="pill-list">
+                <span class="pill">LangGraph4j</span>
+                <span class="pill">ReAct</span>
+                <span class="pill">Tool Discovery</span>
+                <span class="pill">Memory</span>
               </div>
-              <div class="card-expand-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Inspect Details & Architecture →</div>
+              <div class="card-link-prompt">Inspect Details & Architecture →</div>
             </div>
           </div>
 
-          <div class="card-academic card-interactive" onclick="openProjectModal('spec-hybrid-search')">
+          <div class="card interactive" onclick="openProjectModal('spec-hybrid-search')">
             <div>
-              <div class="card-icon-academic"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-              <h3 class="card-h-academic">Hybrid Semantic Search & IR</h3>
-              <p class="card-p-academic">Dual-collection retrieval blending dense representations and sparse BM25 with Distribution-Based Score Fusion (DBSF) outperforming baseline RRF.</p>
+              <div class="card-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+              <h3 class="card-title">Hybrid Semantic Search & IR</h3>
+              <p class="card-desc">Dual-collection retrieval blending dense representations and sparse BM25 with Distribution-Based Score Fusion (DBSF) outperforming baseline RRF.</p>
             </div>
             <div>
-              <div class="pill-tags-academic">
-                <span class="pill-academic">Qdrant</span>
-                <span class="pill-academic">ChromaDB</span>
-                <span class="pill-academic">DBSF Fusion</span>
-                <span class="pill-academic">nDCG@10</span>
+              <div class="pill-list">
+                <span class="pill">Qdrant</span>
+                <span class="pill">ChromaDB</span>
+                <span class="pill">DBSF Fusion</span>
+                <span class="pill">nDCG@10</span>
               </div>
-              <div class="card-expand-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Inspect Details & Architecture →</div>
+              <div class="card-link-prompt">Inspect Details & Architecture →</div>
             </div>
           </div>
 
-          <div class="card-academic card-interactive" onclick="openProjectModal('spec-colbert')">
+          <div class="card interactive" onclick="openProjectModal('spec-colbert')">
             <div>
-              <div class="card-icon-academic"><i class="fa-solid fa-microchip"></i></div>
-              <h3 class="card-h-academic">ColBERT & Token Rerankers</h3>
-              <p class="card-p-academic">Ground-up token-level MaxSim rerankers using chunked einsum operations, special-token masking, pre-encoded catalog caching, and cross-encoders.</p>
+              <div class="card-icon"><i class="fa-solid fa-microchip"></i></div>
+              <h3 class="card-title">ColBERT & Token Rerankers</h3>
+              <p class="card-desc">Ground-up token-level MaxSim rerankers using chunked einsum operations, special-token masking, pre-encoded catalog caching, and cross-encoders.</p>
             </div>
             <div>
-              <div class="pill-tags-academic">
-                <span class="pill-academic">ColBERT</span>
-                <span class="pill-academic">MaxSim</span>
-                <span class="pill-academic">Chunked Einsum</span>
-                <span class="pill-academic">Cross-Encoders</span>
+              <div class="pill-list">
+                <span class="pill">ColBERT</span>
+                <span class="pill">MaxSim</span>
+                <span class="pill">Chunked Einsum</span>
+                <span class="pill">Cross-Encoders</span>
               </div>
-              <div class="card-expand-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Inspect Details & Architecture →</div>
+              <div class="card-link-prompt">Inspect Details & Architecture →</div>
             </div>
           </div>
 
-          <div class="card-academic card-interactive" onclick="openProjectModal('spec-finetuning')">
+          <div class="card interactive" onclick="openProjectModal('spec-finetuning')">
             <div>
-              <div class="card-icon-academic"><i class="fa-solid fa-sliders"></i></div>
-              <h3 class="card-h-academic">Embedding Fine-Tuning</h3>
-              <p class="card-p-academic">Representation adaptation with LoRA/PEFT, MultipleNegativesRankingLoss, hard-negative mining, and synthetic triplet generation for domain alignment.</p>
+              <div class="card-icon"><i class="fa-solid fa-sliders"></i></div>
+              <h3 class="card-title">Embedding Fine-Tuning</h3>
+              <p class="card-desc">Representation adaptation with LoRA/PEFT, MultipleNegativesRankingLoss, hard-negative mining, and synthetic triplet generation for domain alignment.</p>
             </div>
             <div>
-              <div class="pill-tags-academic">
-                <span class="pill-academic">LoRA / PEFT</span>
-                <span class="pill-academic">Triplet Loss</span>
-                <span class="pill-academic">PyTorch</span>
-                <span class="pill-academic">Hugging Face</span>
+              <div class="pill-list">
+                <span class="pill">LoRA / PEFT</span>
+                <span class="pill">Triplet Loss</span>
+                <span class="pill">PyTorch</span>
+                <span class="pill">Hugging Face</span>
               </div>
-              <div class="card-expand-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Inspect Details & Architecture →</div>
+              <div class="card-link-prompt">Inspect Details & Architecture →</div>
             </div>
           </div>
 
-          <div class="card-academic card-interactive" onclick="openProjectModal('spec-mobile')">
+          <div class="card interactive" onclick="openProjectModal('spec-mobile')">
             <div>
-              <div class="card-icon-academic"><i class="fa-solid fa-mobile-screen-button"></i></div>
-              <h3 class="card-h-academic">Mobile & Full-Stack Apps</h3>
-              <p class="card-p-academic">Cross-platform mobile applications in Flutter/Dart shipped to Google Play and Apple App Store, backed by scalable REST APIs (Laravel, FastAPI, Spring AI).</p>
+              <div class="card-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+              <h3 class="card-title">Mobile & Full-Stack Apps</h3>
+              <p class="card-desc">Cross-platform mobile applications in Flutter/Dart shipped to Google Play and Apple App Store, backed by scalable REST APIs (Laravel, FastAPI, Spring AI).</p>
             </div>
             <div>
-              <div class="pill-tags-academic">
-                <span class="pill-academic">Flutter</span>
-                <span class="pill-academic">Dart</span>
-                <span class="pill-academic">App Store</span>
-                <span class="pill-academic">Google Play</span>
+              <div class="pill-list">
+                <span class="pill">Flutter</span>
+                <span class="pill">Dart</span>
+                <span class="pill">App Store</span>
+                <span class="pill">Google Play</span>
               </div>
-              <div class="card-expand-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Inspect Details & Architecture →</div>
+              <div class="card-link-prompt">Inspect Details & Architecture →</div>
             </div>
           </div>
 
-          <div class="card-academic card-interactive" onclick="openProjectModal('spec-backend')">
+          <div class="card interactive" onclick="openProjectModal('spec-backend')">
             <div>
-              <div class="card-icon-academic"><i class="fa-solid fa-server"></i></div>
-              <h3 class="card-h-academic">Production Backends & DevOps</h3>
-              <p class="card-p-academic">High-concurrency microservices, SSE real-time streaming, Docker containerization, MLflow tracking, and automated CI/CD pipelines.</p>
+              <div class="card-icon"><i class="fa-solid fa-server"></i></div>
+              <h3 class="card-title">Production Backends & DevOps</h3>
+              <p class="card-desc">High-concurrency microservices, SSE real-time streaming, Docker containerization, MLflow tracking, and automated CI/CD pipelines.</p>
             </div>
             <div>
-              <div class="pill-tags-academic">
-                <span class="pill-academic">Spring AI</span>
-                <span class="pill-academic">FastAPI</span>
-                <span class="pill-academic">Docker</span>
-                <span class="pill-academic">GitLab CI/CD</span>
+              <div class="pill-list">
+                <span class="pill">Spring AI</span>
+                <span class="pill">FastAPI</span>
+                <span class="pill">Docker</span>
+                <span class="pill">GitLab CI/CD</span>
               </div>
-              <div class="card-expand-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Inspect Details & Architecture →</div>
+              <div class="card-link-prompt">Inspect Details & Architecture →</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- STAGE 03: FLAGSHIP ENTERPRISE & RESEARCH ARCHITECTURE -->
-    <section class="stage" id="stage-2">
-      <div class="stage-container">
-        <div class="stage-header anim-item">
-          <span class="stage-tag">// 03. Flagship Enterprise & Applied Research</span>
-          <h2 class="stage-title">Enterprise Systems & Architectures</h2>
-          <p class="stage-desc">Enterprise solutions designed, migrated, and actively powering daily commercial operations.</p>
+    <!-- SECTION 03: ENTERPRISE ARCHITECTURES -->
+    <section id="enterprise" class="section-spacing">
+      <div class="container">
+        <div>
+          <span class="section-eyebrow">// 03. Flagship Enterprise Impact</span>
+          <h2 class="section-title">Enterprise Systems & Applied Research</h2>
+          <p class="section-desc">Commercial solutions engineered, migrated, and actively powering daily enterprise operations.</p>
         </div>
 
         <!-- Cockpit AI (Live in Production) -->
-        <div class="banner-card-academic anim-item card-interactive" onclick="openProjectModal('cockpit-ai')">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
-            <div class="badge-production-live">
-              <span class="pulse-dot-green"></span>
-              <span>LIVE IN ENTERPRISE PRODUCTION — MC15 MIGRATED & ACTIVELY USED</span>
-            </div>
-            <div class="card-expand-link" style="margin-top: 0;">
-              <span>Inspect Architecture, Metrics & Blueprint</span> <i class="fa-solid fa-arrow-right"></i>
-            </div>
+        <div class="banner-card interactive" onclick="openProjectModal('cockpit-ai')">
+          <div class="banner-header-row">
+            <span class="badge badge-emerald">★ LIVE IN ENTERPRISE PRODUCTION — MC15 MIGRATED & ACTIVELY USED</span>
+            <div class="card-link-prompt" style="margin-top: 0;">Click to Inspect Architecture & Metrics →</div>
           </div>
 
-          <div class="banner-title-row">
-            <div>
-              <h3 class="banner-h">Cockpit AI — Live Enterprise Context-Aware Assistant</h3>
-              <div class="banner-sub">Bertsch Innovation GmbH (MediaCockpit) • Deployed Live & Driving Daily Production</div>
-            </div>
-            <span class="pill-academic" style="color: var(--accent-gold); border-color: var(--border-highlight);">Java • LangGraph4j • Qdrant • Spring AI</span>
-          </div>
+          <h3 class="banner-h3">Cockpit AI — Live Enterprise Context-Aware Assistant</h3>
+          <div class="banner-sub">Bertsch Innovation GmbH (MediaCockpit) • Deployed Live & Driving Daily Production</div>
 
-          <ul class="banner-list">
+          <ul class="bullet-list">
             <li><b>Production Migration & Active Deployment:</b> Architected and completed the end-to-end production migration (MC14 to MC15); actively deployed and powering live daily workflows for Bertsch Innovation GmbH & MediaCockpit enterprise customers.</li>
             <li><b>Graph-Orchestrated Multi-Agent Architecture:</b> Built from scratch using LangGraph4j with dynamic routing between sequential/parallel tool-execution paths, looped self-correction, and persistent per-user conversation memory.</li>
             <li><b>14 LLM Tools Ecosystem & Dual Retrieval:</b> Deployed 14 self-registering tools with auto-discovery; node- and attribute-level embeddings merged via <b>Distribution-Based Score Fusion (DBSF)</b> outperforming standard RRF baselines across 43 semantic test cases.</li>
           </ul>
+
+          <div style="margin-top: 1rem;">
+            <div class="pill-list">
+              <span class="pill">Java 21</span>
+              <span class="pill">LangGraph4j</span>
+              <span class="pill">Spring AI</span>
+              <span class="pill">Qdrant</span>
+              <span class="pill">DBSF Hybrid Fusion</span>
+              <span class="pill">Docker</span>
+            </div>
+          </div>
         </div>
 
-        <div class="grid-2col anim-item">
-          <div class="card-academic card-interactive" onclick="openProjectModal('presto')">
+        <div class="grid-2">
+          <div class="card interactive" onclick="openProjectModal('presto')">
             <div>
-              <div class="badge-scholarly-gold" style="margin-bottom: 0.6rem;">★ LEADERBOARD FINISH & IR BENCHMARK</div>
-              <h3 class="card-h-academic">Presto — Arabic Search & ColBERT</h3>
-              <p class="card-p-academic">
+              <span class="badge badge-gold" style="margin-bottom: 0.65rem;">★ LEADERBOARD FINISH & IR BENCHMARK</span>
+              <h3 class="card-title">Presto — Arabic Search & ColBERT</h3>
+              <p class="card-desc">
                 Fine-tuned multilingual Qwen embeddings with LoRA. Engineered a custom ColBERT token-level MaxSim reranker with chunked einsum and pre-encoded catalog caching over Qdrant hybrid search.
               </p>
             </div>
             <div>
-              <div class="pill-tags-academic">
-                <span class="pill-academic">Qdrant Hybrid</span>
-                <span class="pill-academic">ColBERT MaxSim</span>
-                <span class="pill-academic">LoRA</span>
-                <span class="pill-academic">nDCG@10</span>
+              <div class="pill-list">
+                <span class="pill">Qdrant Hybrid</span>
+                <span class="pill">ColBERT MaxSim</span>
+                <span class="pill">LoRA</span>
+                <span class="pill">nDCG@10</span>
               </div>
-              <div class="card-expand-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Inspect Details & Media →</div>
+              <div class="card-link-prompt">Inspect Details & Blueprint →</div>
             </div>
           </div>
 
-          <div class="card-academic card-interactive" onclick="openProjectModal('biocortex')">
+          <div class="card interactive" onclick="openProjectModal('biocortex')">
             <div>
-              <div class="badge-scholarly-gold" style="margin-bottom: 0.6rem;">★ BIOMEDICAL RESEARCH ARCHITECTURE</div>
-              <h3 class="card-h-academic">BioCortex — Multi-Agent RAG</h3>
-              <p class="card-p-academic">
+              <span class="badge badge-blue" style="margin-bottom: 0.65rem;">★ BIOMEDICAL RESEARCH ARCHITECTURE</span>
+              <h3 class="card-title">BioCortex — Multi-Agent RAG</h3>
+              <p class="card-desc">
                 Hierarchical multi-agent retrieval system tailored for complex biomedical queries, molecular datasets, hypothesis extraction, and chemical structure cross-referencing.
               </p>
             </div>
             <div>
-              <div class="pill-tags-academic">
-                <span class="pill-academic">Multi-Agent</span>
-                <span class="pill-academic">Biomedical RAG</span>
-                <span class="pill-academic">Vector Search</span>
+              <div class="pill-list">
+                <span class="pill">Multi-Agent</span>
+                <span class="pill">Biomedical RAG</span>
+                <span class="pill">Vector Search</span>
               </div>
-              <div class="card-expand-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Inspect Details & Media →</div>
+              <div class="card-link-prompt">Inspect Details & Blueprint →</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- STAGE 04: SHIPPED COMMERCIAL PLATFORMS -->
-    <section class="stage" id="stage-3">
-      <div class="stage-container">
-        <div class="stage-header anim-item">
-          <span class="stage-tag">// 04. Commercial Deployments</span>
-          <h2 class="stage-title">Shipped Production Platforms</h2>
-          <p class="stage-desc">Commercial software architected, built solo, and deployed to live app stores and production domains.</p>
+    <!-- SECTION 04: SHIPPED COMMERCIAL PLATFORMS -->
+    <section id="products" class="section-spacing" style="background: var(--bg-surface);">
+      <div class="container">
+        <div>
+          <span class="section-eyebrow">// 04. Commercial Platforms</span>
+          <h2 class="section-title">Shipped Production Platforms</h2>
+          <p class="section-desc">Commercial software architected, built solo, and deployed to live app stores and production domains.</p>
         </div>
 
-        <div class="grid-2col anim-item">
+        <div class="grid-2">
           <!-- D30 Challenge -->
-          <div class="card-academic card-interactive" onclick="openProjectModal('d30-challenge')">
+          <div class="card interactive" onclick="openProjectModal('d30-challenge')">
             <div>
-              <div class="badge-production-live" style="margin-bottom: 0.6rem;">★ APPLE APP STORE & GOOGLE PLAY STORE</div>
-              <h3 class="card-h-academic" style="font-size: 1.25rem;">D30 Challenge — Mobile Fitness Application</h3>
-              <p class="card-p-academic">
-                Architected and built solo from zero to live production releases on both the <b>Apple App Store</b> and <b>Google Play Store</b>.
+              <span class="badge badge-emerald" style="margin-bottom: 0.65rem;">★ APPLE APP STORE & GOOGLE PLAY STORE</span>
+              <h3 class="card-title">D30 Challenge — Mobile Fitness Application</h3>
+              <p class="card-desc">
+                Architected and built solo from zero to live releases on both the <b>Apple App Store</b> and <b>Google Play Store</b>.
               </p>
-              <ul class="banner-list" style="margin-bottom: 0.85rem;">
+              <ul class="bullet-list" style="margin-bottom: 1rem;">
                 <li>Cross-platform Flutter frontend with custom workout timers, streak tracking, fluid animations, and offline-first Hive caching.</li>
-                <li>Scalable Laravel REST backend handling authentication, subscription state, and progression sync.</li>
+                <li>Scalable Laravel REST backend handling authentication, challenges, and sync.</li>
               </ul>
             </div>
             <div>
-              <div class="pill-tags-academic">
-                <span class="pill-academic" style="color: var(--accent-emerald);"><i class="fa-brands fa-apple"></i> App Store</span>
-                <span class="pill-academic" style="color: var(--accent-emerald);"><i class="fa-brands fa-google-play"></i> Play Store</span>
-                <span class="pill-academic">Flutter</span>
-                <span class="pill-academic">Dart</span>
-                <span class="pill-academic">Laravel</span>
+              <div class="pill-list">
+                <span class="pill" style="color: var(--accent-emerald);"><i class="fa-brands fa-apple"></i> App Store</span>
+                <span class="pill" style="color: var(--accent-emerald);"><i class="fa-brands fa-google-play"></i> Play Store</span>
+                <span class="pill">Flutter</span>
+                <span class="pill">Dart</span>
+                <span class="pill">Laravel</span>
               </div>
-              <div class="card-expand-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Inspect Screenshots & Architecture →</div>
+              <div class="card-link-prompt">Inspect Screenshots & Architecture →</div>
             </div>
           </div>
 
           <!-- teachers.tn -->
-          <div class="card-academic card-interactive" onclick="openProjectModal('teachers-tn')">
+          <div class="card interactive" onclick="openProjectModal('teachers-tn')">
             <div>
-              <div class="badge-production-live" style="margin-bottom: 0.6rem;">★ LIVE NATIONAL EDUCATION HUB</div>
-              <h3 class="card-h-academic" style="font-size: 1.25rem;">teachers.tn — National Educational Platform</h3>
-              <p class="card-p-academic">
-                Nationwide educational web platform built for Tunisia connecting educators, tutors, and students with high-speed access to curriculum resources.
+              <span class="badge badge-emerald" style="margin-bottom: 0.65rem;">★ LIVE NATIONAL PRODUCTION PLATFORM</span>
+              <h3 class="card-title">teachers.tn — National Education Hub</h3>
+              <p class="card-desc">
+                Nationwide educational platform built for Tunisia connecting educators, tutors, and students with high-speed access to teaching resources.
               </p>
-              <ul class="banner-list" style="margin-bottom: 0.85rem;">
+              <ul class="bullet-list" style="margin-bottom: 1rem;">
                 <li>Full-stack web platform with document management, cloud resource archives, and real-time community tools.</li>
                 <li>Mobile-first responsive architecture optimized for speed across all network types.</li>
               </ul>
             </div>
             <div>
-              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.4rem;">
-                <a href="https://teachers.tn/" target="_blank" onclick="event.stopPropagation();" class="btn-academic btn-academic-gold" style="padding: 0.35rem 0.85rem; font-size: 0.78rem;">
+              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+                <a href="https://teachers.tn/" target="_blank" onclick="event.stopPropagation();" class="btn btn-outline" style="padding: 0.35rem 0.8rem; font-size: 0.78rem;">
                   <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit teachers.tn
                 </a>
-                <div class="card-expand-link">Inspect Details & Blueprint →</div>
+                <div class="card-link-prompt">Inspect Details & Blueprint →</div>
               </div>
             </div>
           </div>
@@ -1719,184 +1310,187 @@
       </div>
     </section>
 
-    <!-- STAGE 05: OPEN-SOURCE DEEP LEARNING & RESEARCH REPOSITORIES -->
-    <section class="stage" id="stage-4">
-      <div class="stage-container">
-        <div class="stage-header anim-item">
-          <span class="stage-tag">// 05. Open-Source AI & Models</span>
-          <h2 class="stage-title">Research Repositories & Implementations</h2>
-          <p class="stage-desc">Public research implementations, modular transformer models, and multi-agent platforms available on GitHub.</p>
+    <!-- SECTION 05: RESEARCH REPOSITORIES -->
+    <section id="research" class="section-spacing">
+      <div class="container">
+        <div>
+          <span class="section-eyebrow">// 05. Research Repositories</span>
+          <h2 class="section-title">Open-Source Deep Learning & Models</h2>
+          <p class="section-desc">Public research implementations, self-attention architectures, and multi-agent platforms available on GitHub.</p>
         </div>
 
-        <div class="grid-3col anim-item">
-          <div class="card-academic card-interactive" onclick="openProjectModal('hirebotx')">
+        <div class="grid-3">
+          <div class="card interactive" onclick="openProjectModal('hirebotx')">
             <div>
-              <h3 class="card-h-academic"><a href="https://github.com/aguechfirass100/HireBotX" target="_blank" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;"><i class="fa-brands fa-github"></i> HireBotX</a></h3>
-              <p class="card-p-academic">Multi-agent interview simulation with HR, CTO, and CEO personas in ChromaDB evaluating candidate responses against structured rubrics in real time.</p>
+              <h3 class="card-title"><a href="https://github.com/aguechfirass100/HireBotX" target="_blank" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;"><i class="fa-brands fa-github"></i> HireBotX</a></h3>
+              <p class="card-desc">Multi-agent interview simulation with HR, CTO, and CEO personas in ChromaDB evaluating candidate responses against structured rubrics in real time.</p>
             </div>
             <div>
-              <div class="pill-tags-academic"><span class="pill-academic">ChromaDB</span><span class="pill-academic">RAG</span><span class="pill-academic">Multi-Agent</span></div>
-              <div class="card-expand-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Inspect Details →</div>
+              <div class="pill-list"><span class="pill">ChromaDB</span><span class="pill">RAG</span><span class="pill">Multi-Agent</span></div>
+              <div class="card-link-prompt">Inspect Details →</div>
             </div>
           </div>
 
-          <div class="card-academic card-interactive" onclick="openProjectModal('postpulse')">
+          <div class="card interactive" onclick="openProjectModal('postpulse')">
             <div>
-              <h3 class="card-h-academic"><a href="https://github.com/aguechfirass100/PostPulse" target="_blank" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;"><i class="fa-brands fa-github"></i> PostPulse</a></h3>
-              <p class="card-p-academic">AI marketing platform: fine-tuned LLaMA-3 for copywriting, Flux.1 for image generation, and BERT sentiment analysis steering campaign prompts.</p>
+              <h3 class="card-title"><a href="https://github.com/aguechfirass100/PostPulse" target="_blank" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;"><i class="fa-brands fa-github"></i> PostPulse</a></h3>
+              <p class="card-desc">AI marketing platform: fine-tuned LLaMA-3 for copywriting, Flux.1 for image generation, and BERT sentiment analysis steering campaign prompts.</p>
             </div>
             <div>
-              <div class="pill-tags-academic"><span class="pill-academic">LLaMA-3</span><span class="pill-academic">Flux.1</span><span class="pill-academic">BERT</span></div>
-              <div class="card-expand-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Inspect Details →</div>
+              <div class="pill-list"><span class="pill">LLaMA-3</span><span class="pill">Flux.1</span><span class="pill">BERT</span></div>
+              <div class="card-link-prompt">Inspect Details →</div>
             </div>
           </div>
 
-          <div class="card-academic card-interactive" onclick="openProjectModal('transformer-scratch')">
+          <div class="card interactive" onclick="openProjectModal('transformer-scratch')">
             <div>
-              <h3 class="card-h-academic"><a href="https://github.com/aguechfirass100/pytorch-transformer-from-scratch" target="_blank" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;"><i class="fa-brands fa-github"></i> Transformer Scratch</a></h3>
-              <p class="card-p-academic">Modular PyTorch implementation of the complete "Attention Is All You Need" paper from scratch: Multi-Head Attention, Positional Encodings, and training loop.</p>
+              <h3 class="card-title"><a href="https://github.com/aguechfirass100/pytorch-transformer-from-scratch" target="_blank" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;"><i class="fa-brands fa-github"></i> Transformer Scratch</a></h3>
+              <p class="card-desc">Modular PyTorch implementation of the complete "Attention Is All You Need" paper from scratch: Multi-Head Attention, Positional Encodings, and training loop.</p>
             </div>
             <div>
-              <div class="pill-tags-academic"><span class="pill-academic">PyTorch</span><span class="pill-academic">Self-Attention</span><span class="pill-academic">Research</span></div>
-              <div class="card-expand-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Inspect Details →</div>
+              <div class="pill-list"><span class="pill">PyTorch</span><span class="pill">Self-Attention</span><span class="pill">Research</span></div>
+              <div class="card-link-prompt">Inspect Details →</div>
             </div>
           </div>
 
-          <div class="card-academic card-interactive" onclick="openProjectModal('ddos-detection')">
+          <div class="card interactive" onclick="openProjectModal('ddos-detection')">
             <div>
-              <h3 class="card-h-academic"><a href="https://github.com/aguechfirass100/Transformer-Based-DDoS-Detection" target="_blank" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;"><i class="fa-brands fa-github"></i> DDoS Attention</a></h3>
-              <p class="card-p-academic">Transformer self-attention architecture applied to packet flow telemetry for real-time network anomaly detection and DDoS attack mitigation.</p>
+              <h3 class="card-title"><a href="https://github.com/aguechfirass100/Transformer-Based-DDoS-Detection" target="_blank" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;"><i class="fa-brands fa-github"></i> DDoS Attention</a></h3>
+              <p class="card-desc">Transformer self-attention architecture applied to packet flow telemetry for real-time network anomaly detection and DDoS attack mitigation.</p>
             </div>
             <div>
-              <div class="pill-tags-academic"><span class="pill-academic">Attention</span><span class="pill-academic">Cybersecurity</span><span class="pill-academic">PyTorch</span></div>
-              <div class="card-expand-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Inspect Details →</div>
+              <div class="pill-list"><span class="pill">Attention</span><span class="pill">Cybersecurity</span><span class="pill">PyTorch</span></div>
+              <div class="card-link-prompt">Inspect Details →</div>
             </div>
           </div>
 
-          <div class="card-academic card-interactive" onclick="openProjectModal('audio-emotion')">
+          <div class="card interactive" onclick="openProjectModal('audio-emotion')">
             <div>
-              <h3 class="card-h-academic">Audio Emotion VAE</h3>
-              <p class="card-p-academic">Generative VAE + diffusion model pipeline with ResNet-50 and U-Net augmentation to synthesize high-clarity emotion spectrograms on EmoDB & RAVDESS.</p>
+              <h3 class="card-title">Audio Emotion VAE</h3>
+              <p class="card-desc">Generative VAE + diffusion model pipeline with ResNet-50 and U-Net augmentation to synthesize high-clarity emotion spectrograms on EmoDB & RAVDESS.</p>
             </div>
             <div>
-              <div class="pill-tags-academic"><span class="pill-academic">Diffusion</span><span class="pill-academic">VAE</span><span class="pill-academic">Audio ML</span></div>
-              <div class="card-expand-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Inspect Details →</div>
+              <div class="pill-list"><span class="pill">Diffusion</span><span class="pill">VAE</span><span class="pill">Audio ML</span></div>
+              <div class="card-link-prompt">Inspect Details →</div>
             </div>
           </div>
 
-          <div class="card-academic card-interactive" onclick="openProjectModal('telecom-churn')">
+          <div class="card interactive" onclick="openProjectModal('telecom-churn')">
             <div>
-              <h3 class="card-h-academic"><a href="https://github.com/aguechfirass100/customer-churn-prediction-telecom" target="_blank" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;"><i class="fa-brands fa-github"></i> Telecom Churn</a></h3>
-              <p class="card-p-academic">Predictive churn modeling in telecom implementing 3 research papers, with advanced feature selection and SHAP explainability.</p>
+              <h3 class="card-title"><a href="https://github.com/aguechfirass100/customer-churn-prediction-telecom" target="_blank" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;"><i class="fa-brands fa-github"></i> Telecom Churn</a></h3>
+              <p class="card-desc">Predictive churn modeling in telecom implementing 3 research papers, with advanced feature selection and SHAP explainability.</p>
             </div>
             <div>
-              <div class="pill-tags-academic"><span class="pill-academic">Scikit-Learn</span><span class="pill-academic">SHAP</span><span class="pill-academic">EDA</span></div>
-              <div class="card-expand-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Inspect Details →</div>
+              <div class="pill-list"><span class="pill">Scikit-Learn</span><span class="pill">SHAP</span><span class="pill">EDA</span></div>
+              <div class="card-link-prompt">Inspect Details →</div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- STAGE 06: TECHNICAL ADVISORY & CONSULTING SERVICES -->
-    <section class="stage" id="stage-5">
-      <div class="stage-container">
-        <div class="banner-card-academic anim-item" style="border-left-color: var(--accent-gold);">
-          <div class="stage-header" style="margin-bottom: 1.15rem;">
-            <div class="badge-scholarly-gold">★ TECHNICAL ADVISORY & CONTRACT ENGINEERING</div>
-            <h2 class="stage-title">Turn AI Research into High-Throughput Production</h2>
-            <p class="stage-desc">Direct technical advisory, contract architecture, and execution for enterprises, research labs, and venture-backed startups.</p>
-          </div>
-
-          <div class="grid-2col" style="margin-bottom: 1.35rem;">
-            <div class="card-academic">
-              <h4 class="card-h-academic"><i class="fa-solid fa-diagram-project" style="color: var(--accent-gold);"></i> Multi-Agent System Architecture</h4>
-              <p class="card-p-academic">Graph-orchestrated workflows with LangGraph4j, autonomous tool ecosystems, loopback self-correction, ReAct planning, and persistent multi-session user memory.</p>
-            </div>
-            <div class="card-academic">
-              <h4 class="card-h-academic"><i class="fa-solid fa-magnifying-glass" style="color: var(--accent-cyan);"></i> Hybrid RAG & Vector Search</h4>
-              <p class="card-p-academic">Dense + BM25 sparse search, reciprocal rank & DBSF score fusion, custom chunking, and token-level ColBERT rerankers.</p>
-            </div>
-            <div class="card-academic">
-              <h4 class="card-h-academic"><i class="fa-solid fa-sliders" style="color: var(--accent-gold);"></i> Representation Fine-Tuning</h4>
-              <p class="card-p-academic">Domain embedding adaptation with LoRA, PEFT, triplet loss, and hard-negative mining to eliminate domain distribution gaps.</p>
-            </div>
-            <div class="card-academic">
-              <h4 class="card-h-academic"><i class="fa-solid fa-mobile" style="color: var(--accent-emerald);"></i> Cross-Platform Apps & MVPs</h4>
-              <p class="card-p-academic">Commercial Flutter mobile applications deployed to App Store & Play Store, backed by scalable FastAPI / Spring AI microservices.</p>
-            </div>
-          </div>
-
-          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-            <a href="https://wa.me/21629861363" target="_blank" class="btn-academic btn-academic-gold">
-              <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp (+216 29861363)
-            </a>
-            <a href="javascript:goToStage(6)" class="btn-academic btn-academic-outline">
-              <i class="fa-solid fa-envelope"></i> Send an Inquiry
-            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- STAGE 07: ACADEMIC PROFILE & DIRECT CONTACT -->
-    <section class="stage" id="stage-6">
-      <div class="stage-container">
-        <div class="contact-card-academic anim-item">
-          <div class="badge-scholarly-gold" style="margin-bottom: 0.65rem;">✦ ACADEMIC PROFILE & DIRECT CHANNELS</div>
-          <h2 class="stage-title" style="margin-bottom: 0.6rem;">Let's Build Something Exceptional</h2>
-          <p style="color: var(--text-secondary); font-size: 0.95rem; max-width: 640px; margin: 0 auto 1.35rem; line-height: 1.6;">
+    <!-- SECTION 06: TECHNICAL ADVISORY & SERVICES -->
+    <section id="advisory" class="section-spacing" style="background: var(--bg-surface);">
+      <div class="container">
+        <div>
+          <span class="section-eyebrow">// 06. Professional Advisory</span>
+          <h2 class="section-title">Technical Advisory & Engineering Contracts</h2>
+          <p class="section-desc">Providing direct architectural consulting, contract engineering, and enterprise AI delivery for startups and corporations.</p>
+        </div>
+
+        <div class="grid-2" style="margin-bottom: 2rem;">
+          <div class="card">
+            <h4 class="card-title"><i class="fa-solid fa-diagram-project" style="color: var(--accent-crimson); font-size: 1.1rem; margin-right: 0.35rem;"></i> Multi-Agent Orchestration</h4>
+            <p class="card-desc">StateGraph workflows with LangGraph4j, autonomous tool ecosystems, loopback self-correction, ReAct planning, and persistent multi-session user memory.</p>
+          </div>
+          <div class="card">
+            <h4 class="card-title"><i class="fa-solid fa-magnifying-glass" style="color: var(--accent-blue); font-size: 1.1rem; margin-right: 0.35rem;"></i> Hybrid RAG & Vector Search</h4>
+            <p class="card-desc">Dense + BM25 sparse search, reciprocal rank & DBSF score fusion, custom chunking, and token-level ColBERT rerankers.</p>
+          </div>
+          <div class="card">
+            <h4 class="card-title"><i class="fa-solid fa-sliders" style="color: var(--accent-gold); font-size: 1.1rem; margin-right: 0.35rem;"></i> Representation Fine-Tuning</h4>
+            <p class="card-desc">Domain embedding adaptation with LoRA, PEFT, triplet loss, and hard-negative mining to eliminate domain distribution gaps.</p>
+          </div>
+          <div class="card">
+            <h4 class="card-title"><i class="fa-solid fa-mobile" style="color: var(--accent-emerald); font-size: 1.1rem; margin-right: 0.35rem;"></i> Cross-Platform Apps & MVPs</h4>
+            <p class="card-desc">Commercial Flutter mobile applications deployed to App Store & Play Store, backed by scalable FastAPI / Spring AI microservices.</p>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="https://wa.me/21629861363" target="_blank" class="btn btn-crimson">
+            <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp (+216 29861363)
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <i class="fa-solid fa-envelope"></i> Send an Inquiry
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 07: CONTACT & VERIFICATION -->
+    <section id="contact" class="section-spacing">
+      <div class="container">
+        <div style="text-align: center; max-width: 720px; margin: 0 auto;">
+          <span class="section-eyebrow">// 07. Contact & Verification</span>
+          <h2 class="section-title">Let's Build Something Exceptional</h2>
+          <p class="section-desc" style="margin: 0 auto 2rem;">
             Whether you are planning an enterprise multi-agent deployment, an Information Retrieval architecture review, or an engineering advisory engagement, connect directly.
           </p>
 
-          <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.65rem; margin-bottom: 1.5rem;">
-            <a href="https://wa.me/21629861363" target="_blank" class="social-pill-academic" style="border-color: rgba(37, 211, 102, 0.4); color: var(--whatsapp);">
+          <div class="social-links">
+            <a href="https://wa.me/21629861363" target="_blank" class="social-btn" style="border-color: #86efac; color: var(--whatsapp);">
               <i class="fa-brands fa-whatsapp"></i> WhatsApp: +216 29861363
             </a>
-            <a href="mailto:aguechfirass100@gmail.com" class="social-pill-academic">
+            <a href="mailto:aguechfirass100@gmail.com" class="social-btn">
               <i class="fa-solid fa-envelope"></i> aguechfirass100@gmail.com
             </a>
-            <a href="https://linkedin.com/in/agfirass" target="_blank" class="social-pill-academic">
+            <a href="https://linkedin.com/in/agfirass" target="_blank" class="social-btn">
               <i class="fa-brands fa-linkedin-in"></i> LinkedIn
             </a>
-            <a href="https://github.com/aguechfirass100" target="_blank" class="social-pill-academic">
+            <a href="https://github.com/aguechfirass100" target="_blank" class="social-btn">
               <i class="fa-brands fa-github"></i> GitHub
             </a>
-            <a href="https://github.com/aguechfirass100/resumes" target="_blank" class="social-pill-academic">
+            <a href="https://github.com/aguechfirass100/resumes" target="_blank" class="social-btn">
               <i class="fa-solid fa-file-lines"></i> Resumes Repo
             </a>
           </div>
 
           <div style="display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;">
-            <button onclick="copyEmail()" class="btn-academic btn-academic-gold">
+            <button onclick="copyEmail()" class="btn btn-primary">
               <i class="fa-regular fa-copy"></i> Copy Email Address
             </button>
-            <a href="assets/docs/Firas_Aguech_Resume.pdf" target="_blank" class="btn-academic btn-academic-outline">
-              <i class="fa-solid fa-download"></i> Download Curriculum Vitae
+            <a href="assets/docs/Firas_Aguech_Resume.pdf" target="_blank" class="btn btn-outline">
+              <i class="fa-solid fa-download"></i> Download CV (PDF)
             </a>
           </div>
-
-          <p style="color: var(--text-muted); font-size: 0.8rem; font-family: var(--font-mono); margin-top: 1.8rem; border-top: 1px solid var(--border-subtle); padding-top: 1.25rem;">
-            &copy; 2026 Firas Aguech. Engineering Degree in Machine Learning & Data Science (ESPRIT) • Bachelor of Science in Computer Science (ISIMS).
-          </p>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- Interactive Toast Notification -->
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-bio">
+        &copy; 2026 Firas Aguech. Engineering Degree in Machine Learning & Data Science (ESPRIT) • Bachelor of Science in Computer Science (ISIMS).
+      </p>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
   <div id="copy-toast">✓ Email copied to clipboard!</div>
 
-  <!-- Project & Experience Deep-Dive Modal -->
+  <!-- Project Deep-Dive Modal (Minimalist Clean White) -->
   <div id="project-modal" class="modal-backdrop" onclick="handleBackdropClick(event)">
     <div class="modal-dialog" role="dialog" aria-modal="true">
       <!-- Modal Header -->
       <div class="modal-header">
-        <div class="modal-title-group">
-          <div class="modal-badge-row">
-            <span id="modal-badge" class="badge-production-live">★ LIVE IN ENTERPRISE PRODUCTION</span>
-            <span id="modal-type-tag" class="pill-academic" style="color: var(--accent-gold); border-color: var(--border-highlight);">Enterprise Architecture</span>
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem;">
+            <span id="modal-badge" class="badge badge-emerald">★ LIVE IN PRODUCTION</span>
+            <span id="modal-type-tag" class="pill">Enterprise Architecture</span>
           </div>
           <h2 id="modal-title" class="modal-title">Project Title</h2>
           <div id="modal-subtitle" class="modal-subtitle">Subtitle and Organization</div>
@@ -1906,33 +1500,33 @@
         </button>
       </div>
 
-      <!-- Modal Body (Scrollable with Zero Scrollbar) -->
+      <!-- Modal Body (Scrollable) -->
       <div class="modal-body" id="modal-body">
         
         <!-- Metrics Strip -->
         <div id="modal-metrics-strip" class="modal-metrics-grid"></div>
 
         <!-- Section 1: Overview -->
-        <div class="modal-card-box">
-          <h3 class="modal-section-h"><i class="fa-solid fa-align-left" style="color: var(--accent-gold);"></i> Executive Overview</h3>
-          <p id="modal-overview" class="modal-p"></p>
+        <div class="modal-box">
+          <h3 class="modal-h4"><i class="fa-solid fa-align-left" style="color: var(--accent-crimson);"></i> Executive Overview</h3>
+          <p id="modal-overview" style="color: #334155; font-size: 0.88rem; line-height: 1.6;"></p>
         </div>
 
         <!-- Section 2: Technical Highlights & Architecture -->
-        <div class="modal-card-box">
-          <h3 class="modal-section-h"><i class="fa-solid fa-diagram-project" style="color: var(--accent-cyan);"></i> Technical Highlights & Architecture</h3>
-          <ul id="modal-highlights" class="modal-list"></ul>
+        <div class="modal-box">
+          <h3 class="modal-h4"><i class="fa-solid fa-diagram-project" style="color: var(--accent-blue);"></i> Technical Highlights & Architecture</h3>
+          <ul id="modal-highlights" class="bullet-list"></ul>
         </div>
 
         <!-- Section 3: Visual Previews & Gallery (Prototype with Coming Soon) -->
-        <div class="modal-card-box" style="border-color: var(--border-highlight);">
+        <div class="modal-box">
           <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;">
-            <h3 class="modal-section-h" style="margin-bottom: 0;">
-              <i class="fa-regular fa-image" style="color: var(--accent-gold);"></i> Architecture & Visual Gallery
+            <h3 class="modal-h4" style="margin-bottom: 0;">
+              <i class="fa-regular fa-image" style="color: var(--accent-crimson);"></i> Architecture & Visual Gallery
             </h3>
-            <span class="badge-scholarly-gold">✦ PROTOTYPE BLUEPRINT</span>
+            <span class="badge badge-gold">✦ PROTOTYPE BLUEPRINT</span>
           </div>
-          <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.85rem; font-family: var(--font-mono);">
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.85rem; font-family: var(--font-mono);">
             // Visual showcase prototype with placeholder media frames. Click any frame to inspect its blueprint prototype.
           </p>
           
@@ -1941,8 +1535,8 @@
 
         <!-- Section 4: Technologies & Tools -->
         <div>
-          <h4 style="font-family: var(--font-serif); font-size: 0.95rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.04em;">Technologies & Tools</h4>
-          <div id="modal-tags" class="pill-tags-academic"></div>
+          <h4 style="font-family: var(--font-serif); font-size: 0.95rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.04em;">Technologies & Tools</h4>
+          <div id="modal-tags" class="pill-list"></div>
         </div>
 
         <!-- Section 5: Action Buttons -->
@@ -1957,7 +1551,7 @@
     <div class="lightbox-dialog" role="dialog" aria-modal="true">
       <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem;">
         <div>
-          <span class="badge-coming-soon" style="margin-bottom: 0.35rem; display: inline-block;">✦ VISUAL ASSET PROTOTYPE</span>
+          <span class="badge badge-gold" style="margin-bottom: 0.35rem; display: inline-block;">✦ VISUAL ASSET PROTOTYPE</span>
           <h3 id="lightbox-title" style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 600; color: var(--text-primary);"></h3>
         </div>
         <button class="modal-close-btn" onclick="closeImageLightbox()" title="Close (ESC)">
@@ -1965,19 +1559,19 @@
         </button>
       </div>
 
-      <div class="lightbox-canvas-placeholder">
-        <i id="lightbox-icon" class="fa-solid fa-diagram-project" style="font-size: 2.75rem; color: var(--accent-gold);"></i>
-        <div style="font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600; color: #fff;">
+      <div class="lightbox-placeholder">
+        <i id="lightbox-icon" class="fa-solid fa-diagram-project" style="font-size: 2.75rem; color: var(--accent-crimson);"></i>
+        <div style="font-family: var(--font-serif); font-size: 1.15rem; font-weight: 600; color: var(--text-primary);">
           [ VISUAL BLUEPRINT COMING SOON ]
         </div>
-        <p id="lightbox-caption" style="font-size: 0.82rem; color: #cbd5e1; max-width: 480px; line-height: 1.5; font-family: var(--font-mono);"></p>
+        <p id="lightbox-caption" style="font-size: 0.82rem; color: #475569; max-width: 480px; line-height: 1.5; font-family: var(--font-mono);"></p>
         <div style="font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono);">
           Ready for high-resolution PNG / WebP / SVG uploads.
         </div>
       </div>
 
       <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
-        <button class="btn-academic btn-academic-gold" onclick="closeImageLightbox()" style="padding: 0.4rem 1rem; font-size: 0.8rem;">
+        <button class="btn btn-primary" onclick="closeImageLightbox()" style="padding: 0.4rem 1rem; font-size: 0.8rem;">
           <i class="fa-solid fa-check"></i> Acknowledged
         </button>
       </div>
@@ -1992,7 +1586,7 @@
         subtitle: 'Bertsch Innovation GmbH (MediaCockpit) • Deployed Live & Driving Daily Production',
         category: 'Enterprise Architecture & Multi-Agent RAG',
         badge: '★ LIVE IN ENTERPRISE PRODUCTION — MC15 MIGRATED',
-        badgeType: 'emerald',
+        badgeClass: 'badge-emerald',
         metrics: [
           { num: 'MC15', label: 'Live Migration' },
           { num: '14+', label: 'Autonomous LLM Tools' },
@@ -2022,7 +1616,7 @@
         subtitle: 'Fine-Tuned Multilingual Embeddings & Token-Level MaxSim Reranker • Leaderboard Finish',
         category: 'Information Retrieval & Deep Learning',
         badge: '★ LEADERBOARD FINISH & REPO BACKED',
-        badgeType: 'gold',
+        badgeClass: 'badge-gold',
         metrics: [
           { num: 'Top', label: 'Arabic E-Com Finish' },
           { num: 'ColBERT', label: 'MaxSim Reranker' },
@@ -2051,7 +1645,7 @@
         subtitle: 'Hierarchical Agent System for Drug Discovery & Literature Cross-Referencing',
         category: 'Healthcare & Biomedical AI',
         badge: '★ BIOMEDICAL RESEARCH ARCHITECTURE',
-        badgeType: 'gold',
+        badgeClass: 'badge-blue',
         metrics: [
           { num: 'Multi-Agent', label: 'Hierarchical Structure' },
           { num: 'PubMed', label: 'Literature Ingestion' },
@@ -2078,7 +1672,7 @@
         subtitle: 'Live Commercial App Shipped to Apple App Store & Google Play Store',
         category: 'Production Mobile & Full-Stack System',
         badge: '★ SHIPPED LIVE ON APP STORE & PLAY STORE',
-        badgeType: 'emerald',
+        badgeClass: 'badge-emerald',
         metrics: [
           { num: '2', label: 'Live Store Releases' },
           { num: 'Flutter', label: 'Cross-Platform UI' },
@@ -2106,7 +1700,7 @@
         subtitle: 'Nationwide Educational Platform Connecting Educators & Students in Tunisia',
         category: 'Live Web Platform & Community Archive',
         badge: '★ LIVE IN PRODUCTION PLATFORM',
-        badgeType: 'emerald',
+        badgeClass: 'badge-emerald',
         metrics: [
           { num: 'Live', label: 'Production Domain' },
           { num: 'National', label: 'Educational Reach' },
@@ -2134,7 +1728,7 @@
         subtitle: 'Persona-Driven AI Interviewers with Dynamic Real-Time Rubric Evaluation',
         category: 'Multi-Agent LLM Application',
         badge: '★ OPEN SOURCE AI PROJECT',
-        badgeType: 'gold',
+        badgeClass: 'badge-gold',
         metrics: [
           { num: '3', label: 'AI Personas' },
           { num: 'ChromaDB', label: 'Persona Memory' },
@@ -2160,7 +1754,7 @@
         subtitle: 'Fine-Tuned LLaMA-3, Flux.1 Diffusion, and BERT Sentiment Feedback Loop',
         category: 'Multimodal Deep Learning & Generative AI',
         badge: '★ OPEN SOURCE AI PROJECT',
-        badgeType: 'gold',
+        badgeClass: 'badge-gold',
         metrics: [
           { num: 'LLaMA-3', label: 'Copywriting Engine' },
           { num: 'Flux.1', label: 'Diffusion Imagery' },
@@ -2185,7 +1779,7 @@
         subtitle: 'Pure PyTorch Implementation of "Attention Is All You Need"',
         category: 'Deep Learning Research & Implementation',
         badge: '★ RESEARCH CODEBASE',
-        badgeType: 'gold',
+        badgeClass: 'badge-gold',
         metrics: [
           { num: '100%', label: 'From Scratch' },
           { num: 'PyTorch', label: 'Core Framework' },
@@ -2211,7 +1805,7 @@
         subtitle: 'Self-Attention Applied to Network Packet Telemetry for Anomaly Detection',
         category: 'Cybersecurity & Deep Learning',
         badge: '★ CYBERSECURITY ML',
-        badgeType: 'gold',
+        badgeClass: 'badge-gold',
         metrics: [
           { num: 'Real-Time', label: 'Telemetry Analysis' },
           { num: 'Transformer', label: 'Packet Attention' },
@@ -2236,7 +1830,7 @@
         subtitle: 'Generative Spectrogram Synthesis & Classification on EmoDB & RAVDESS',
         category: 'Speech & Audio Machine Learning',
         badge: '★ AUDIO ML & DIFFUSION',
-        badgeType: 'gold',
+        badgeClass: 'badge-gold',
         metrics: [
           { num: 'VAE + Diffusion', label: 'Hybrid Pipeline' },
           { num: '2 Corpora', label: 'EmoDB & RAVDESS' },
@@ -2261,7 +1855,7 @@
         subtitle: 'Research-Based Predictive Modeling & Explainable Machine Learning',
         category: 'Applied ML & Explainability',
         badge: '★ EXPLAINABLE ML & RESEARCH',
-        badgeType: 'gold',
+        badgeClass: 'badge-gold',
         metrics: [
           { num: '3 Papers', label: 'Research Implemented' },
           { num: 'SHAP', label: 'Model Explainability' },
@@ -2286,7 +1880,7 @@
         subtitle: 'Graph-Orchestrated Autonomous Workflows & Tool Discovery Ecosystems',
         category: 'Core Competency & Architecture',
         badge: '★ CORE SPECIALIZATION',
-        badgeType: 'emerald',
+        badgeClass: 'badge-emerald',
         metrics: [
           { num: 'LangGraph4j', label: 'StateGraph Core' },
           { num: 'ReAct', label: 'Autonomous Planners' },
@@ -2311,7 +1905,7 @@
         subtitle: 'Dense Vectors + BM25 Sparse Retrieval with Distribution-Based Score Fusion (DBSF)',
         category: 'Core Competency & Information Retrieval',
         badge: '★ CORE SPECIALIZATION',
-        badgeType: 'emerald',
+        badgeClass: 'badge-emerald',
         metrics: [
           { num: 'Dense+BM25', label: 'Hybrid Retrievial' },
           { num: 'DBSF', label: 'Score Fusion' },
@@ -2336,7 +1930,7 @@
         subtitle: 'Late-Interaction Token Matching & Cross-Encoder Architectures',
         category: 'Core Competency & Deep Learning',
         badge: '★ CORE SPECIALIZATION',
-        badgeType: 'emerald',
+        badgeClass: 'badge-emerald',
         metrics: [
           { num: 'MaxSim', label: 'Token Scoring' },
           { num: 'Chunked', label: 'Einsum GPU Ops' },
@@ -2361,7 +1955,7 @@
         subtitle: 'LoRA, PEFT, MultipleNegativesRankingLoss & Synthetic Triplet Generation',
         category: 'Core Competency & Deep Learning',
         badge: '★ CORE SPECIALIZATION',
-        badgeType: 'emerald',
+        badgeClass: 'badge-emerald',
         metrics: [
           { num: 'LoRA / PEFT', label: 'Parameter-Efficient' },
           { num: 'Triplet Loss', label: 'Hard Negatives' },
@@ -2386,7 +1980,7 @@
         subtitle: 'Cross-Platform Flutter/Dart Shipped to App Store & Google Play',
         category: 'Core Competency & Production Engineering',
         badge: '★ CORE SPECIALIZATION',
-        badgeType: 'emerald',
+        badgeClass: 'badge-emerald',
         metrics: [
           { num: 'App Store', label: 'Apple Approvals' },
           { num: 'Play Store', label: 'Google Console' },
@@ -2411,7 +2005,7 @@
         subtitle: 'High-Concurrency Services, Real-Time Streaming & Automated CI/CD',
         category: 'Core Competency & Infrastructure',
         badge: '★ CORE SPECIALIZATION',
-        badgeType: 'emerald',
+        badgeClass: 'badge-emerald',
         metrics: [
           { num: 'Docker', label: 'Containerization' },
           { num: 'Spring AI', label: 'Java Microservices' },
@@ -2450,7 +2044,7 @@
       // Populate Badge & Type
       const badgeEl = document.getElementById('modal-badge');
       badgeEl.textContent = data.badge || '★ DETAILED BREAKDOWN';
-      badgeEl.className = data.badgeType === 'gold' ? 'badge-scholarly-gold' : 'badge-production-live';
+      badgeEl.className = 'badge ' + (data.badgeClass || 'badge-emerald');
 
       document.getElementById('modal-type-tag').textContent = data.category || 'Architecture & Implementation';
 
@@ -2498,11 +2092,13 @@
         card.innerHTML = `
           <div class="proto-img-frame">
             <i class="proto-img-icon ${img.icon || 'fa-solid fa-image'}"></i>
-            <span class="badge-coming-soon">${img.status || 'Coming Soon'}</span>
+            <span class="badge badge-gold" style="font-size: 0.65rem;">${img.status || 'Coming Soon'}</span>
           </div>
           <div class="proto-img-title">${img.title}</div>
           <div class="proto-img-desc">${img.caption}</div>
-          <div class="proto-click-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> View Blueprint Prototype</div>
+          <div style="margin-top: 0.4rem; font-family: var(--font-mono); font-size: 0.68rem; color: var(--accent-crimson); font-weight: 600;">
+            View Blueprint Prototype →
+          </div>
         `;
         gallery.appendChild(card);
       });
@@ -2512,7 +2108,7 @@
       tagsContainer.innerHTML = '';
       (data.tags || []).forEach(t => {
         const span = document.createElement('span');
-        span.className = 'pill-academic';
+        span.className = 'pill';
         span.textContent = t;
         tagsContainer.appendChild(span);
       });
@@ -2524,7 +2120,7 @@
         const a = document.createElement('a');
         a.href = l.url;
         a.target = '_blank';
-        a.className = l.primary ? 'btn-academic btn-academic-gold' : 'btn-academic btn-academic-outline';
+        a.className = l.primary ? 'btn btn-primary' : 'btn btn-outline';
         a.style.padding = '0.45rem 1rem';
         a.style.fontSize = '0.82rem';
         a.innerHTML = `<i class="${l.icon || 'fa-solid fa-arrow-up-right-from-square'}"></i> ${l.text}`;
@@ -2571,215 +2167,15 @@
         closeImageLightbox();
       }
     }
-  </script>
 
-  <!-- Stage Deck Navigation Controller with Intelligent Inner-Scroll Handling -->
-  <script>
-    const stages = document.querySelectorAll('.stage');
-    const dots = document.querySelectorAll('.hud-dot-wrap');
-    const navLinks = document.querySelectorAll('.hud-link');
-    const counterEl = document.getElementById('stage-counter');
-    const totalStages = stages.length;
-    let currentStage = 0;
-    let isTransitioning = false;
-    let lastWheelTime = 0;
-    let lastInnerScrollTime = 0;
-
-    function updateStageUI(index) {
-      stages.forEach((stage, i) => {
-        stage.classList.remove('active', 'exit-up', 'exit-down');
-        if (i === index) {
-          stage.classList.add('active');
-          const container = stage.querySelector('.stage-container');
-          if (container) container.scrollTop = 0; // Reset scroll to top
-        } else if (i < index) {
-          stage.classList.add('exit-up');
-        } else {
-          stage.classList.add('exit-down');
-        }
-      });
-
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-      });
-
-      navLinks.forEach((link, i) => {
-        link.classList.toggle('active', i === index);
-      });
-
-      counterEl.textContent = `SECTION 0${index + 1} / 0${totalStages}`;
-    }
-
-    function goToStage(index) {
-      if (index === currentStage || isTransitioning) return;
-      if (index < 0 || index >= totalStages) return;
-      isTransitioning = true;
-      currentStage = index;
-      updateStageUI(currentStage);
-      setTimeout(() => {
-        isTransitioning = false;
-      }, 650);
-    }
-
-    function nextStage() {
-      if (currentStage < totalStages - 1) goToStage(currentStage + 1);
-    }
-
-    function prevStage() {
-      if (currentStage > 0) goToStage(currentStage - 1);
-    }
-
-    // Wheel Event Handling with Inner-Scroll Boundary Checks
-    window.addEventListener('wheel', (e) => {
-      // FREEZE stage transitions if Project Modal or Lightbox is open!
-      const activeModal = document.querySelector('.modal-backdrop.active, .lightbox-backdrop.active');
-      if (activeModal) {
-        const modalBody = activeModal.querySelector('.modal-body');
-        if (modalBody) {
-          modalBody.scrollTop += e.deltaY * 0.85;
-        }
-        return;
-      }
-
-      const now = Date.now();
-      const activeStage = document.querySelector('.stage.active');
-      if (activeStage) {
-        const container = activeStage.querySelector('.stage-container');
-        if (container) {
-          const isScrollable = container.scrollHeight > container.clientHeight + 6;
-          if (isScrollable) {
-            const atBottom = Math.ceil(container.scrollTop + container.clientHeight) >= container.scrollHeight - 6;
-            const atTop = container.scrollTop <= 6;
-
-            // If scrolling down and hasn't reached the bottom of the container, allow smooth inner scrolling!
-            if (e.deltaY > 0 && !atBottom) {
-              if (!container.contains(e.target)) {
-                container.scrollTop += e.deltaY * 0.85;
-              }
-              lastInnerScrollTime = now;
-              return;
-            }
-            // If scrolling up and hasn't reached the top of the container, allow smooth inner scrolling!
-            if (e.deltaY < 0 && !atTop) {
-              if (!container.contains(e.target)) {
-                container.scrollTop += e.deltaY * 0.85;
-              }
-              lastInnerScrollTime = now;
-              return;
-            }
-
-            // Buffer: if actively scrolling inside container, wait 350ms before triggering stage change
-            if (now - lastInnerScrollTime < 350) {
-              return;
-            }
-          }
-        }
-      }
-
-      // If at boundaries or slide is not scrollable, trigger stage change with debounce
-      if (now - lastWheelTime < 600) return;
-      if (Math.abs(e.deltaY) > 20) {
-        lastWheelTime = now;
-        if (e.deltaY > 0) {
-          nextStage();
-        } else {
-          prevStage();
-        }
-      }
-    }, { passive: true });
-
-    // Keyboard Controller
+    // Keyboard Controller (ESC to close modals)
     window.addEventListener('keydown', (e) => {
       const activeModal = document.querySelector('.modal-backdrop.active, .lightbox-backdrop.active');
-      if (activeModal) {
-        if (e.key === 'Escape') {
-          closeImageLightbox();
-          closeProjectModal();
-          return;
-        }
-        const modalBody = activeModal.querySelector('.modal-body');
-        if (modalBody) {
-          if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
-            modalBody.scrollTop += 130;
-            e.preventDefault();
-            return;
-          }
-          if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-            modalBody.scrollTop -= 130;
-            e.preventDefault();
-            return;
-          }
-        }
-        return;
-      }
-
-      const activeStage = document.querySelector('.stage.active');
-      const container = activeStage ? activeStage.querySelector('.stage-container') : null;
-
-      if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
-        if (container && container.scrollHeight > container.clientHeight + 6) {
-          const atBottom = Math.ceil(container.scrollTop + container.clientHeight) >= container.scrollHeight - 6;
-          if (!atBottom) {
-            container.scrollTop += 140;
-            e.preventDefault();
-            return;
-          }
-        }
-        e.preventDefault();
-        nextStage();
-      } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-        if (container && container.scrollHeight > container.clientHeight + 6) {
-          const atTop = container.scrollTop <= 6;
-          if (!atTop) {
-            container.scrollTop -= 140;
-            e.preventDefault();
-            return;
-          }
-        }
-        e.preventDefault();
-        prevStage();
+      if (activeModal && e.key === 'Escape') {
+        closeImageLightbox();
+        closeProjectModal();
       }
     });
-
-    // Touch Swipe Controller
-    let touchStartY = 0;
-    window.addEventListener('touchstart', (e) => {
-      touchStartY = e.touches[0].clientY;
-    }, { passive: true });
-
-    window.addEventListener('touchend', (e) => {
-      const activeModal = document.querySelector('.modal-backdrop.active, .lightbox-backdrop.active');
-      if (activeModal) return;
-
-      const touchEndY = e.changedTouches[0].clientY;
-      const diffY = touchStartY - touchEndY;
-      const activeStage = document.querySelector('.stage.active');
-      const container = activeStage ? activeStage.querySelector('.stage-container') : null;
-
-      if (Math.abs(diffY) > 50) {
-        if (diffY > 0) {
-          // Swiping up -> scroll down
-          if (container && container.scrollHeight > container.clientHeight + 6) {
-            const atBottom = Math.ceil(container.scrollTop + container.clientHeight) >= container.scrollHeight - 6;
-            if (!atBottom) {
-              container.scrollTop += diffY * 1.2;
-              return;
-            }
-          }
-          nextStage();
-        } else {
-          // Swiping down -> scroll up
-          if (container && container.scrollHeight > container.clientHeight + 6) {
-            const atTop = container.scrollTop <= 6;
-            if (!atTop) {
-              container.scrollTop += diffY * 1.2;
-              return;
-            }
-          }
-          prevStage();
-        }
-      }
-    }, { passive: true });
 
     // Copy Email Toast
     function copyEmail() {
@@ -2787,90 +2183,27 @@
         showToast('✓ Email copied to clipboard: aguechfirass100@gmail.com');
       });
     }
-  </script>
 
-  <!-- Subtle Living Knowledge Graph Background Canvas -->
-  <script>
-    const canvas = document.getElementById('neural-canvas');
-    const ctx = canvas.getContext('2d');
-    let width, height;
-    let particles = [];
-    let mouse = { x: null, y: null, radius: 140 };
-
-    function initCanvas() {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-      const count = Math.floor((width * height) / 12000);
-      particles = [];
-      for (let i = 0; i < Math.min(count, 100); i++) {
-        particles.push({
-          x: Math.random() * width,
-          y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
-          radius: Math.random() * 1.8 + 1,
-          color: Math.random() > 0.65 ? '#c5a059' : '#38bdf8'
-        });
-      }
-    }
-
-    window.addEventListener('resize', initCanvas);
-    window.addEventListener('mousemove', (e) => {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-    });
-    window.addEventListener('mouseleave', () => {
-      mouse.x = null;
-      mouse.y = null;
-    });
-
-    function drawNeuralNetwork() {
-      ctx.clearRect(0, 0, width, height);
-
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
-
-        if (p.x < 0 || p.x > width) p.vx *= -1;
-        if (p.y < 0 || p.y > height) p.vy *= -1;
-
-        if (mouse.x !== null) {
-          const dx = mouse.x - p.x;
-          const dy = mouse.y - p.y;
-          const dist = Math.hypot(dx, dy);
-          if (dist < mouse.radius) {
-            const force = (mouse.radius - dist) / mouse.radius;
-            p.x -= (dx / dist) * force * 1.8;
-            p.y -= (dy / dist) * force * 1.8;
-          }
+    // Highlight active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-item a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
         }
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
-        ctx.fill();
-
-        for (let j = i + 1; j < particles.length; j++) {
-          const p2 = particles[j];
-          const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-          if (dist < 120) {
-            const alpha = (1 - dist / 120) * 0.18;
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(197, 160, 89, ${alpha})`;
-            ctx.lineWidth = 0.8;
-            ctx.stroke();
-          }
+      });
+      navLinks.forEach(link => {
+        link.style.color = '';
+        link.style.background = '';
+        if (link.getAttribute('href') === `#${current}`) {
+          link.style.color = 'var(--text-primary)';
+          link.style.background = 'var(--bg-surface)';
         }
-      }
-
-      requestAnimationFrame(drawNeuralNetwork);
-    }
-
-    initCanvas();
-    drawNeuralNetwork();
+      });
+    }, { passive: true });
   </script>
 </body>
 </html>
