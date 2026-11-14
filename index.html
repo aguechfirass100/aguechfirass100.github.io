@@ -964,8 +964,8 @@
     <ul class="site-nav">
       <li class="nav-item"><a href="#overview">Overview</a></li>
       <li class="nav-item"><a href="#capabilities">Capabilities</a></li>
-      <li class="nav-item"><a href="#enterprise">Enterprise</a></li>
-      <li class="nav-item"><a href="#products">Products</a></li>
+      <li class="nav-item"><a href="#production">Shipped Platforms</a></li>
+      <li class="nav-item"><a href="#ai-systems">AI Systems</a></li>
       <li class="nav-item"><a href="#research">Research</a></li>
       <li class="nav-item"><a href="#advisory">Advisory</a></li>
       <li class="nav-item"><a href="#contact">Contact</a></li>
@@ -1011,13 +1011,13 @@
               </div>
               <div class="credential-row">
                 <i class="fa-solid fa-building"></i>
-                <span><b>Bertsch Innovation GmbH</b> — Cockpit AI Enterprise Production Architect (MC15 Migrated)</span>
+                <span><b>Bertsch Innovation GmbH</b> — Cockpit AI Shipped to Production (MC15 Migrated & Actively Used)</span>
               </div>
             </div>
 
             <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-              <a href="#enterprise" class="btn btn-crimson">
-                <i class="fa-solid fa-bolt"></i> View Flagship Enterprise Work
+              <a href="#production" class="btn btn-crimson">
+                <i class="fa-solid fa-rocket"></i> View Shipped Production Platforms
               </a>
               <a href="https://wa.me/21629861363" target="_blank" class="btn btn-outline" style="color: var(--whatsapp); border-color: #86efac;">
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp Direct
@@ -1038,7 +1038,7 @@
         <div class="stats-dashboard">
           <div class="stat-item">
             <div class="stat-number">MC15</div>
-            <div class="stat-label">Live Enterprise Production</div>
+            <div class="stat-label">Shipped Enterprise Live</div>
           </div>
           <div class="stat-item">
             <div class="stat-number">14+</div>
@@ -1171,33 +1171,36 @@
       </div>
     </section>
 
-    <!-- SECTION 03: ENTERPRISE ARCHITECTURES -->
-    <section id="enterprise" class="section-spacing">
+    <!-- SECTION 03: SHIPPED PRODUCTION PLATFORMS -->
+    <section id="production" class="section-spacing">
+      <span id="enterprise" style="position: absolute; top: 0;"></span>
+      <span id="products" style="position: absolute; top: 0;"></span>
       <div class="container">
         <div>
-          <span class="section-eyebrow">// 03. Flagship Enterprise Impact</span>
-          <h2 class="section-title">Enterprise Systems & Applied Research</h2>
-          <p class="section-desc">Commercial solutions engineered, migrated, and actively powering daily enterprise operations.</p>
+          <span class="section-eyebrow">// 03. Live Systems & Deployments</span>
+          <h2 class="section-title">Shipped Production Platforms</h2>
+          <p class="section-desc">Full-scale platforms architected, migrated, and deployed into active daily production across enterprise B2B, Apple App Store, Google Play Store, and national web domains.</p>
         </div>
 
-        <!-- Cockpit AI (Live in Production) -->
+        <!-- 1. Cockpit AI (Shipped Enterprise Production) -->
         <div class="banner-card interactive" onclick="openProjectModal('cockpit-ai')">
           <div class="banner-header-row">
-            <span class="badge badge-emerald">★ LIVE IN ENTERPRISE PRODUCTION — MC15 MIGRATED & ACTIVELY USED</span>
+            <span class="badge badge-emerald">★ SHIPPED & LIVE IN ENTERPRISE PRODUCTION — MC15 MIGRATED & ACTIVELY USED</span>
             <div class="card-link-prompt" style="margin-top: 0;">Click to Inspect Architecture & Metrics →</div>
           </div>
 
           <h3 class="banner-h3">Cockpit AI — Live Enterprise Context-Aware Assistant</h3>
-          <div class="banner-sub">Bertsch Innovation GmbH (MediaCockpit) • Deployed Live & Driving Daily Production</div>
+          <div class="banner-sub">Bertsch Innovation GmbH (MediaCockpit) • Shipped to Production & Driving Daily Enterprise Operations</div>
 
           <ul class="bullet-list">
-            <li><b>Production Migration & Active Deployment:</b> Architected and completed the end-to-end production migration (MC14 to MC15); actively deployed and powering live daily workflows for Bertsch Innovation GmbH & MediaCockpit enterprise customers.</li>
+            <li><b>Production Migration & Active Deployment:</b> Architected and completed the end-to-end production migration (MC14 to MC15); shipped live and actively powering daily workflows for Bertsch Innovation GmbH & MediaCockpit enterprise customers.</li>
             <li><b>Graph-Orchestrated Multi-Agent Architecture:</b> Built from scratch using LangGraph4j with dynamic routing between sequential/parallel tool-execution paths, looped self-correction, and persistent per-user conversation memory.</li>
             <li><b>14 LLM Tools Ecosystem & Dual Retrieval:</b> Deployed 14 self-registering tools with auto-discovery; node- and attribute-level embeddings merged via <b>Distribution-Based Score Fusion (DBSF)</b> outperforming standard RRF baselines across 43 semantic test cases.</li>
           </ul>
 
-          <div style="margin-top: 1rem;">
+          <div style="margin-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
             <div class="pill-list">
+              <span class="pill" style="color: var(--accent-emerald); font-weight: 700;"><i class="fa-solid fa-circle-check"></i> Enterprise Shipped Live</span>
               <span class="pill">Java 21</span>
               <span class="pill">LangGraph4j</span>
               <span class="pill">Spring AI</span>
@@ -1205,13 +1208,79 @@
               <span class="pill">DBSF Hybrid Fusion</span>
               <span class="pill">Docker</span>
             </div>
+            <div class="card-link-prompt">Inspect Architecture & Details →</div>
           </div>
         </div>
 
+        <div class="grid-2" style="margin-top: 1.5rem;">
+          <!-- 2. D30 Challenge (Shipped App Store & Google Play) -->
+          <div class="card interactive" onclick="openProjectModal('d30-challenge')">
+            <div>
+              <span class="badge badge-emerald" style="margin-bottom: 0.65rem;">★ SHIPPED & LIVE ON APPLE APP STORE & GOOGLE PLAY STORE</span>
+              <h3 class="card-title">D30 Challenge — Mobile Fitness Application</h3>
+              <p class="card-desc">
+                Architected, built, and shipped solo from zero to live production on both the <b>Apple App Store</b> and <b>Google Play Store</b>.
+              </p>
+              <ul class="bullet-list" style="margin-bottom: 1rem;">
+                <li>Cross-platform Flutter frontend with custom workout timers, streak tracking, fluid animations, and offline-first Hive caching.</li>
+                <li>Scalable Laravel REST backend handling authentication, challenges, and cloud synchronization.</li>
+              </ul>
+            </div>
+            <div>
+              <div class="pill-list">
+                <span class="pill" style="color: var(--accent-emerald); font-weight: 700;"><i class="fa-solid fa-circle-check"></i> Mobile Shipped Live</span>
+                <span class="pill" style="color: var(--accent-emerald);"><i class="fa-brands fa-apple"></i> App Store</span>
+                <span class="pill" style="color: var(--accent-emerald);"><i class="fa-brands fa-google-play"></i> Play Store</span>
+                <span class="pill">Flutter</span>
+                <span class="pill">Laravel</span>
+              </div>
+              <div class="card-link-prompt">Inspect Screenshots & Architecture →</div>
+            </div>
+          </div>
+
+          <!-- 3. teachers.tn (Shipped Public Web Platform) -->
+          <div class="card interactive" onclick="openProjectModal('teachers-tn')">
+            <div>
+              <span class="badge badge-emerald" style="margin-bottom: 0.65rem;">★ SHIPPED & LIVE NATIONAL PRODUCTION PLATFORM</span>
+              <h3 class="card-title">teachers.tn — National Education Hub</h3>
+              <p class="card-desc">
+                Nationwide educational platform shipped and deployed live in Tunisia connecting educators, tutors, and students with high-speed access to teaching resources.
+              </p>
+              <ul class="bullet-list" style="margin-bottom: 1rem;">
+                <li>Full-stack web platform with document management, cloud resource archives, and real-time community tools.</li>
+                <li>Mobile-first responsive architecture optimized for speed across all network types.</li>
+              </ul>
+            </div>
+            <div>
+              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+                <div class="pill-list">
+                  <span class="pill" style="color: var(--accent-emerald); font-weight: 700;"><i class="fa-solid fa-circle-check"></i> Web Shipped Live</span>
+                  <a href="https://teachers.tn/" target="_blank" onclick="event.stopPropagation();" class="btn btn-outline" style="padding: 0.35rem 0.8rem; font-size: 0.78rem;">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit teachers.tn
+                  </a>
+                </div>
+                <div class="card-link-prompt">Inspect Details & Blueprint →</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 04: AI RESEARCH & INFORMATION RETRIEVAL ENGINES -->
+    <section id="ai-systems" class="section-spacing" style="background: var(--bg-surface);">
+      <div class="container">
+        <div>
+          <span class="section-eyebrow">// 04. Applied AI Systems & Benchmarks</span>
+          <h2 class="section-title">AI Architectures & Retrieval Systems</h2>
+          <p class="section-desc">Custom information retrieval pipelines, ColBERT token rerankers, and biomedical multi-agent architectures.</p>
+        </div>
+
         <div class="grid-2">
+          <!-- Presto -->
           <div class="card interactive" onclick="openProjectModal('presto')">
             <div>
-              <span class="badge badge-gold" style="margin-bottom: 0.65rem;">★ LEADERBOARD FINISH & IR BENCHMARK</span>
+              <span class="badge badge-gold" style="margin-bottom: 0.65rem;">★ TOP LEADERBOARD FINISH & IR BENCHMARK</span>
               <h3 class="card-title">Presto — Arabic Search & ColBERT</h3>
               <p class="card-desc">
                 Fine-tuned multilingual Qwen embeddings with LoRA. Engineered a custom ColBERT token-level MaxSim reranker with chunked einsum and pre-encoded catalog caching over Qdrant hybrid search.
@@ -1228,6 +1297,7 @@
             </div>
           </div>
 
+          <!-- BioCortex -->
           <div class="card interactive" onclick="openProjectModal('biocortex')">
             <div>
               <span class="badge badge-blue" style="margin-bottom: 0.65rem;">★ BIOMEDICAL RESEARCH ARCHITECTURE</span>
@@ -1243,67 +1313,6 @@
                 <span class="pill">Vector Search</span>
               </div>
               <div class="card-link-prompt">Inspect Details & Blueprint →</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 04: SHIPPED COMMERCIAL PLATFORMS -->
-    <section id="products" class="section-spacing" style="background: var(--bg-surface);">
-      <div class="container">
-        <div>
-          <span class="section-eyebrow">// 04. Commercial Platforms</span>
-          <h2 class="section-title">Shipped Production Platforms</h2>
-          <p class="section-desc">Commercial software architected, built solo, and deployed to live app stores and production domains.</p>
-        </div>
-
-        <div class="grid-2">
-          <!-- D30 Challenge -->
-          <div class="card interactive" onclick="openProjectModal('d30-challenge')">
-            <div>
-              <span class="badge badge-emerald" style="margin-bottom: 0.65rem;">★ APPLE APP STORE & GOOGLE PLAY STORE</span>
-              <h3 class="card-title">D30 Challenge — Mobile Fitness Application</h3>
-              <p class="card-desc">
-                Architected and built solo from zero to live releases on both the <b>Apple App Store</b> and <b>Google Play Store</b>.
-              </p>
-              <ul class="bullet-list" style="margin-bottom: 1rem;">
-                <li>Cross-platform Flutter frontend with custom workout timers, streak tracking, fluid animations, and offline-first Hive caching.</li>
-                <li>Scalable Laravel REST backend handling authentication, challenges, and sync.</li>
-              </ul>
-            </div>
-            <div>
-              <div class="pill-list">
-                <span class="pill" style="color: var(--accent-emerald);"><i class="fa-brands fa-apple"></i> App Store</span>
-                <span class="pill" style="color: var(--accent-emerald);"><i class="fa-brands fa-google-play"></i> Play Store</span>
-                <span class="pill">Flutter</span>
-                <span class="pill">Dart</span>
-                <span class="pill">Laravel</span>
-              </div>
-              <div class="card-link-prompt">Inspect Screenshots & Architecture →</div>
-            </div>
-          </div>
-
-          <!-- teachers.tn -->
-          <div class="card interactive" onclick="openProjectModal('teachers-tn')">
-            <div>
-              <span class="badge badge-emerald" style="margin-bottom: 0.65rem;">★ LIVE NATIONAL PRODUCTION PLATFORM</span>
-              <h3 class="card-title">teachers.tn — National Education Hub</h3>
-              <p class="card-desc">
-                Nationwide educational platform built for Tunisia connecting educators, tutors, and students with high-speed access to teaching resources.
-              </p>
-              <ul class="bullet-list" style="margin-bottom: 1rem;">
-                <li>Full-stack web platform with document management, cloud resource archives, and real-time community tools.</li>
-                <li>Mobile-first responsive architecture optimized for speed across all network types.</li>
-              </ul>
-            </div>
-            <div>
-              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
-                <a href="https://teachers.tn/" target="_blank" onclick="event.stopPropagation();" class="btn btn-outline" style="padding: 0.35rem 0.8rem; font-size: 0.78rem;">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit teachers.tn
-                </a>
-                <div class="card-link-prompt">Inspect Details & Blueprint →</div>
-              </div>
             </div>
           </div>
         </div>
@@ -1582,25 +1591,25 @@
   <script>
     const projectDetails = {
       'cockpit-ai': {
-        title: 'Cockpit AI — Live Enterprise Context-Aware Assistant',
-        subtitle: 'Bertsch Innovation GmbH (MediaCockpit) • Deployed Live & Driving Daily Production',
-        category: 'Enterprise Architecture & Multi-Agent RAG',
-        badge: '★ LIVE IN ENTERPRISE PRODUCTION — MC15 MIGRATED',
+        title: 'Cockpit AI — Shipped Enterprise Context-Aware Assistant',
+        subtitle: 'Bertsch Innovation GmbH (MediaCockpit) • Shipped to Production & Driving Daily Operations',
+        category: 'Shipped Enterprise Production & Multi-Agent RAG',
+        badge: '★ SHIPPED & LIVE IN ENTERPRISE PRODUCTION — MC15 MIGRATED',
         badgeClass: 'badge-emerald',
         metrics: [
-          { num: 'MC15', label: 'Live Migration' },
+          { num: 'MC15', label: 'Shipped Migration' },
           { num: '14+', label: 'Autonomous LLM Tools' },
           { num: '43', label: 'Semantic Test Cases' },
           { num: '90%+', label: 'Distribution Alignment' }
         ],
-        overview: 'A production-grade multi-agent enterprise assistant integrated into MediaCockpit, an enterprise digital asset management system. Architected and led the end-to-end production migration from MC14 to MC15, enabling contextual intelligence, automated catalog query generation, and document synthesis for daily enterprise operations.',
+        overview: 'A production-grade multi-agent enterprise assistant integrated into MediaCockpit, an enterprise digital asset management system. Architected and led the end-to-end production migration from MC14 to MC15; shipped live and actively used in daily enterprise production workflows.',
         highlights: [
           '<b>StateGraph Multi-Agent Architecture:</b> Developed with LangGraph4j featuring dynamic sequential and parallel execution branching, loopback self-correction, and persistent per-user conversation memory.',
           '<b>14 Autonomous LLM Tools:</b> Engineered self-registering tool endpoints covering semantic search, structural property filtering, aggregations, and automated reports with runtime auto-discovery and mode classification.',
           '<b>Dual-Collection Hybrid Retrieval with DBSF:</b> Blended dense vector embeddings with sparse BM25 keyword matching using Distribution-Based Score Fusion (DBSF), outperforming standard RRF across 43 semantic test cases.',
-          '<b>Live MC15 Enterprise Migration:</b> Successfully led the end-to-end migration into the live MC15 platform release with zero regression, now actively used in daily production.'
+          '<b>Live MC15 Enterprise Migration:</b> Successfully led the end-to-end migration into the live MC15 platform release with zero regression, now actively used in daily enterprise production.'
         ],
-        tags: ['Java', 'LangGraph4j', 'Spring AI', 'Qdrant', 'BM25', 'DBSF Fusion', 'Docker', 'GitLab CI/CD'],
+        tags: ['Enterprise Shipped Live', 'Java 21', 'LangGraph4j', 'Spring AI', 'Qdrant', 'BM25', 'DBSF Fusion', 'Docker', 'GitLab CI/CD'],
         images: [
           { title: 'LangGraph4j Multi-Agent Orchestration Topology', icon: 'fa-solid fa-diagram-project', caption: 'StateGraph nodes, intent routing, and ReAct self-correction feedback loop', status: 'Coming Soon' },
           { title: 'DBSF vs RRF Benchmark Curves', icon: 'fa-solid fa-chart-line', caption: 'Empirical precision, recall, and nDCG@10 comparison over 43 test queries', status: 'Coming Soon' },
