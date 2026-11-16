@@ -1621,10 +1621,6 @@
                 <i class="fa-solid fa-building"></i>
                 <span><b>Bertsch Innovation GmbH</b> — Cockpit AI: enterprise AI assistant shipped in MediaCockpit production (MC14 evaluated → MC15 migrated &amp; live)</span>
               </div>
-              <div class="credential-row">
-                <i class="fa-solid fa-file-signature"></i>
-                <span><b>Graduation Internship Report</b> — “Design, Integration and Evaluation of a Context-Aware AI Assistant for MediaCockpit” (114 pp., signed)</span>
-              </div>
             </div>
 
             <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
@@ -1870,11 +1866,11 @@
               <span class="badge badge-emerald" style="margin-bottom: 0.65rem;">★ SHIPPED & LIVE ON APPLE APP STORE & GOOGLE PLAY STORE</span>
               <h3 class="card-title">D30 Challenge — Mobile Fitness Application</h3>
               <p class="card-desc">
-                Architected, built, and shipped solo from zero to live production on both the <b>Apple App Store</b> and <b>Google Play Store</b>.
+                Production mobile app built during an internship at <b>Smartegy</b> (Tunisia) and shipped live on the <b>Apple App Store</b> and <b>Google Play</b> (Canada).
               </p>
               <ul class="bullet-list" style="margin-bottom: 1rem;">
-                <li>Cross-platform Flutter frontend with custom workout timers, streak tracking, fluid animations, and offline-first Hive caching.</li>
-                <li>Scalable Laravel REST backend handling authentication, challenges, and cloud synchronization.</li>
+                <li>Cross-platform Flutter frontend: progressive weekly plan, live-course scheduling, nutrition and grocery plans, and locked progress records.</li>
+                <li>Scalable Laravel REST backend handling authentication, progression analytics, and content synchronization.</li>
               </ul>
             </div>
             <div>
@@ -1882,10 +1878,11 @@
                 <span class="pill" style="color: var(--accent-emerald); font-weight: 700;"><i class="fa-solid fa-circle-check"></i> Mobile Shipped Live</span>
                 <span class="pill" style="color: var(--accent-emerald);"><i class="fa-brands fa-apple"></i> App Store</span>
                 <span class="pill" style="color: var(--accent-emerald);"><i class="fa-brands fa-google-play"></i> Play Store</span>
+                <span class="pill">Smartegy — Tunisia</span>
                 <span class="pill">Flutter</span>
                 <span class="pill">Laravel</span>
               </div>
-              <div class="card-link-prompt">Inspect Screenshots & Architecture →</div>
+              <div class="card-link-prompt">Inspect Store Screenshots &amp; Architecture →</div>
             </div>
           </div>
 
@@ -2295,8 +2292,8 @@
         meta: [
           ['Organization', 'Bertsch Innovation GmbH — MediaCockpit enterprise product-information & asset-management platform'],
           ['Role', 'AI Engineer Intern — assistant design, implementation, retrieval evaluation, MC14 → MC15 migration'],
-          ['Academic supervisor', 'Amine Bouzouita — ESPRIT School of Engineering'],
-          ['Corporate supervisor', 'Bassam Meguebli — Bertsch Innovation GmbH'],
+          ['Academic supervision', 'ESPRIT School of Engineering — graduation project direction'],
+          ['Corporate supervision', 'Bertsch Innovation GmbH — company-side project direction'],
           ['Deliverable', 'Signed 114-page graduation report: “Design, Integration and Evaluation of a Context-Aware AI Assistant for MediaCockpit”'],
           ['Runtime', 'MC14 portal (Java 17) — evaluated • MC15 portal (Java 25) — migrated and shipped']
         ],
@@ -2419,31 +2416,55 @@
         ]
       },
       'd30-challenge': {
-        title: 'D30 Challenge — Cross-Platform Fitness App',
-        subtitle: 'Live Commercial App Shipped to Apple App Store & Google Play Store',
-        category: 'Production Mobile & Full-Stack System',
+        title: 'D30 Challenge — Cross-Platform Fitness Challenge App',
+        subtitle: 'Smartegy (Tunisia) • Shipped live on the Apple App Store & Google Play (Canada)',
+        category: 'Production Mobile App & Full-Stack System',
         badge: '★ SHIPPED LIVE ON APP STORE & PLAY STORE',
         badgeClass: 'badge-emerald',
         metrics: [
           { num: '2', label: 'Live Store Releases' },
+          { num: 'v2.3.6', label: 'Live App Version' },
           { num: 'Flutter', label: 'Cross-Platform UI' },
-          { num: 'Laravel', label: 'Cloud Backend API' },
-          { num: 'Solo', label: 'End-to-End Build' }
+          { num: 'Laravel', label: 'Backend API' }
         ],
-        overview: 'A commercial 30-day fitness challenge mobile application designed, architected, and built solo from scratch, successfully launched on both the Apple App Store and Google Play Store.',
+        galleryBadge: '✓ OFFICIAL STORE CAPTURES',
+        galleryNote: '// Official App Store / Google Play captures of the shipped application (com.smartegy.jaytrain). Click any frame to inspect it full size.',
+        meta: [
+          ['Company', 'Smartegy — web & mobile development agency (Boumhel Ben Arous, Tunisia; Montreal, Canada)'],
+          ['Engagement', 'Mobile application development internship — production mobile project delivered end to end'],
+          ['Product', 'D30 Challenge — 30-day fitness challenge app for the D30 program: workouts, live classes, nutrition plans and progress tracking'],
+          ['Platforms', 'iOS and Android from one Flutter codebase — released on the Apple App Store and Google Play (Canada storefront)'],
+          ['Backend', 'Laravel REST API with JWT authentication, progression analytics and content synchronisation'],
+          ['Store links', 'apps.apple.com/ca/app/d30-challenge/id6670701512 · play.google.com/store/apps/details?id=com.smartegy.jaytrain']
+        ],
+        overview: 'D30 Challenge is a production fitness application built at Smartegy, a Tunisian web and mobile agency, and shipped live to both major app stores. It supports the D30 program end to end: course scheduling with online and in-person sessions, a week-by-week training plan that unlocks as the challenge progresses, personalised nutrition and grocery plans with recipe detail, and progress records captured at three checkpoints. The published iOS build is version 2.3.6 under the bundle id com.smartegy.jaytrain, and the same Android package is live on Google Play.',
         highlights: [
-          '<b>Cross-Platform Flutter/Dart Frontend:</b> Built with smooth 60fps workout timers, custom animations, streak tracking, audio cues, and offline caching via Hive.',
-          '<b>Scalable Laravel REST API:</b> Secure authentication, JWT tokens, user progression analytics, subscription checks, and content synchronization.',
-          '<b>Store Approvals & Operations:</b> Handled all developer store requirements, privacy compliance, app review guidelines, screenshot collateral, and production releases on both platforms.'
+          '<b>One Flutter codebase, two live stores:</b> a single Dart codebase targets iOS and Android, so the training plan, nutrition plan and progress logic behave identically across both releases — the same package id is published on the App Store and on Google Play.',
+          '<b>Challenge state machine in the UI:</b> the weekly plan unlocks progressively — week 1 is open while later weeks stay locked until the previous one is completed — so the app enforces the 30-day program instead of simply listing every workout.',
+          '<b>Session scheduling with delivery modes:</b> live and recorded classes are listed by day with online and in-person variants, each session marked with its scheduled slot, and the class list rendered from the backend schedule.',
+          '<b>Nutrition and grocery planning:</b> a day-by-day meal plan with per-day macro targets (protein, fat, carbs, calories), expandable meal entries with ingredient quantities, and a companion grocery list generated from the same plan data.',
+          '<b>Progress records with integrity:</b> initial, mid-point and final weight records are captured in-app, with later checkpoints locked until the previous one is submitted — the record is a progression gate, not a free-text field.',
+          '<b>Laravel REST backend behind it:</b> JWT-secured authentication, progression analytics, plan and schedule distribution, and content synchronisation served from a single API, with the client caching state locally through Hive for offline reads.',
+          '<b>Store operations handled end to end:</b> developer accounts, store listing copy, privacy and data-safety declarations, review submissions, release management and post-release monitoring for both storefronts.'
         ],
-        tags: ['Flutter', 'Dart', 'Laravel', 'PHP', 'MySQL', 'REST API', 'Apple App Store', 'Google Play', 'Hive'],
+        tags: ['Smartegy — Tunisia', 'Shipped Live', 'Flutter', 'Dart', 'Laravel', 'PHP', 'MySQL', 'REST API', 'JWT Auth', 'Hive', 'Offline Cache', 'Apple App Store (CA)', 'Google Play (CA)', 'iOS', 'Android', 'Health & Fitness'],
         images: [
-          { title: 'Apple App Store & Play Store Screens', icon: 'fa-brands fa-apple', caption: 'Production UI: workout countdown timers, challenge progress, and habit streaks', status: 'Coming Soon' },
-          { title: 'Flutter State & Offline Cache Diagram', icon: 'fa-solid fa-mobile-screen', caption: 'Architecture flow connecting Flutter local storage to Laravel REST backend', status: 'Coming Soon' },
-          { title: 'App Store Verification Credentials', icon: 'fa-solid fa-certificate', caption: 'Live store certificates, bundle IDs, and publisher accounts', status: 'Coming Soon' }
+          { group: 'Store listing identity', title: 'Published App Icon', icon: 'fa-solid fa-icons', caption: 'The icon shipped on both storefronts — the same brand mark used across the iOS and Android releases.', src: 'assets/img/d30-challenge/app-icon.png' },
+          { group: 'App Store — official listing', title: 'Onboarding & Programme Invitation', icon: 'fa-solid fa-play', caption: 'The entry point of the published app: the D30 challenge programme and the promise behind the 30-day cycle.', src: 'assets/img/d30-challenge/store-01.jpg', shot: true },
+          { group: 'App Store — official listing', title: 'Authentication', icon: 'fa-solid fa-right-to-bracket', caption: 'Email and password sign-in backed by JWT-secured Laravel endpoints.', src: 'assets/img/d30-challenge/store-02.jpg', shot: true },
+          { group: 'App Store — official listing', title: 'Courses & Live Classes', icon: 'fa-solid fa-person-running', caption: 'Course catalogue with today’s live classes, scheduled start times and registration.', src: 'assets/img/d30-challenge/store-03.jpg', shot: true },
+          { group: 'App Store — official listing', title: 'Session Schedule', icon: 'fa-solid fa-calendar-days', caption: 'The programme timetable: every workout slot with its delivery mode — online or in person — and its unlock state.', src: 'assets/img/d30-challenge/store-04.jpg', shot: true },
+          { group: 'App Store — official listing', title: 'Progressive Weekly Plan', icon: 'fa-solid fa-lock-open', caption: 'The 30-day structure enforced in the UI: week 1 unlocked while later weeks remain locked until completed.', src: 'assets/img/d30-challenge/store-05.jpg', shot: true },
+          { group: 'App Store — official listing', title: 'Nutrition Plan & Macro Targets', icon: 'fa-solid fa-utensils', caption: 'Day-by-day meal plan with protein, fat, carbohydrate and calorie totals computed per day.', src: 'assets/img/d30-challenge/store-06.jpg', shot: true },
+          { group: 'App Store — official listing', title: 'Meal Detail & Grocery List', icon: 'fa-solid fa-cart-shopping', caption: 'Expanded meal entries with ingredient quantities, alongside the grocery list derived from the plan.', src: 'assets/img/d30-challenge/store-07.jpg', shot: true },
+          { group: 'App Store — official listing', title: 'Recipe Detail', icon: 'fa-solid fa-book-open', caption: 'Full recipe with ingredients and quantities, selected by macro profile from the backend plan.', src: 'assets/img/d30-challenge/store-08.jpg', shot: true },
+          { group: 'App Store — official listing', title: 'Progress Records', icon: 'fa-solid fa-scale-balanced', caption: 'Initial, mid-point and final checkpoints, with later records locked until the previous one is submitted.', src: 'assets/img/d30-challenge/store-09.jpg', shot: true }
         ],
         links: [
-          { text: 'Chat on WhatsApp (+216 29861363)', url: 'https://wa.me/21629861363', icon: 'fa-brands fa-whatsapp', primary: true }
+          { text: 'App Store (Canada)', url: 'https://apps.apple.com/ca/app/d30-challenge/id6670701512', icon: 'fa-brands fa-apple', primary: true },
+          { text: 'Google Play (Canada)', url: 'https://play.google.com/store/apps/details?id=com.smartegy.jaytrain', icon: 'fa-brands fa-google-play' },
+          { text: 'Smartegy — Agency', url: 'https://smartegy.ca/en/work', icon: 'fa-solid fa-building' },
+          { text: 'Chat on WhatsApp (+216 29861363)', url: 'https://wa.me/21629861363', icon: 'fa-brands fa-whatsapp' }
         ]
       },
       'teachers-tn': {
