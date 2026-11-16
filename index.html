@@ -417,7 +417,7 @@
     /* Stats Dashboard */
     .stats-dashboard {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 1.25rem;
       background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
@@ -798,6 +798,198 @@
       line-height: 1.45;
     }
 
+    /* Real artifact gallery cards (shipped figures & screenshots) */
+    .artifact-card {
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+    }
+
+    .artifact-card:hover {
+      border-color: var(--accent-crimson);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .artifact-thumb {
+      width: 100%;
+      height: 150px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.6rem;
+    }
+
+    .artifact-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: top center;
+      background: #ffffff;
+    }
+
+    .artifact-thumb.is-shot img {
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .artifact-kind {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent-emerald);
+      border: 1px solid var(--accent-emerald);
+      border-radius: 3px;
+      padding: 0.05rem 0.35rem;
+      margin-bottom: 0.4rem;
+      align-self: flex-start;
+    }
+
+    .artifact-card .proto-img-title {
+      font-size: 0.88rem;
+    }
+
+    .gallery-group-label {
+      grid-column: 1 / -1;
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 0.3rem;
+      margin-top: 0.4rem;
+    }
+
+    /* Engagement context table */
+    .case-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.6rem;
+    }
+
+    .case-meta-item {
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      border-left: 3px solid var(--accent-blue);
+      border-radius: 4px;
+      padding: 0.6rem 0.75rem;
+    }
+
+    .case-meta-item dt {
+      font-family: var(--font-mono);
+      font-size: 0.63rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .case-meta-item dd {
+      margin: 0;
+      font-size: 0.82rem;
+      color: var(--text-primary);
+      line-height: 1.45;
+    }
+
+    /* Measured results table */
+    .evidence-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.78rem;
+      background: #ffffff;
+    }
+
+    .evidence-table th,
+    .evidence-table td {
+      border: 1px solid var(--border-subtle);
+      padding: 0.45rem 0.6rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .evidence-table thead th {
+      background: var(--bg-surface);
+      font-family: var(--font-mono);
+      font-size: 0.64rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .evidence-table tbody tr:nth-child(even) {
+      background: var(--bg-surface);
+    }
+
+    .evidence-table .num {
+      font-family: var(--font-mono);
+      white-space: nowrap;
+      color: var(--accent-crimson);
+      font-weight: 600;
+    }
+
+    .evidence-table tbody tr.is-best {
+      background: var(--accent-emerald-subtle);
+    }
+
+    .evidence-table tbody tr.is-best .num {
+      color: var(--accent-emerald);
+    }
+
+    .evidence-table .up {
+      color: var(--accent-emerald);
+      font-weight: 700;
+    }
+
+    .evidence-table .down {
+      color: var(--accent-gold);
+      font-weight: 700;
+    }
+
+    .evidence-note {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      margin-top: 0.5rem;
+      line-height: 1.5;
+    }
+
+    /* Trade-offs / open limits */
+    .tradeoff-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .tradeoff-list li {
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      border-left: 3px solid var(--accent-gold);
+      border-radius: 4px;
+      padding: 0.55rem 0.7rem;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+
+    .tradeoff-list li strong {
+      color: var(--text-primary);
+    }
+
     .modal-actions-row {
       display: flex;
       flex-wrap: wrap;
@@ -856,6 +1048,26 @@
       text-align: center;
       padding: 1.5rem;
       gap: 0.65rem;
+    }
+
+    /* Lightbox media for shipped artifacts */
+    .lightbox-media {
+      width: 100%;
+      max-height: 68vh;
+      overflow: auto;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 0.5rem;
+      text-align: center;
+    }
+
+    .lightbox-media img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      background: #ffffff;
     }
 
     /* Toast Notification */
@@ -941,7 +1153,8 @@
       .grid-3, .grid-2 { grid-template-columns: 1fr; }
       .stats-dashboard { grid-template-columns: repeat(2, 1fr); }
       .stat-item { border-right: none; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.75rem; }
-      .stat-item:nth-child(3), .stat-item:nth-child(4) { border-bottom: none; }
+      .stat-item:nth-child(odd):not(:last-child) { border-bottom: 1px solid var(--border-subtle); }
+      .stat-item:nth-child(5) { grid-column: 1 / -1; border-bottom: none; }
       .site-header { padding: 0 1rem; }
       .modal-dialog { max-height: 94vh; }
       .modal-header { padding: 1rem 1.25rem; }
@@ -1406,7 +1619,11 @@
               </div>
               <div class="credential-row">
                 <i class="fa-solid fa-building"></i>
-                <span><b>Bertsch Innovation GmbH</b> — Cockpit AI Shipped to Production (MC15 Migrated & Actively Used)</span>
+                <span><b>Bertsch Innovation GmbH</b> — Cockpit AI: enterprise AI assistant shipped in MediaCockpit production (MC14 evaluated → MC15 migrated &amp; live)</span>
+              </div>
+              <div class="credential-row">
+                <i class="fa-solid fa-file-signature"></i>
+                <span><b>Graduation Internship Report</b> — “Design, Integration and Evaluation of a Context-Aware AI Assistant for MediaCockpit” (114 pp., signed)</span>
               </div>
             </div>
 
@@ -1417,8 +1634,11 @@
               <a href="https://wa.me/21629861363" target="_blank" class="btn btn-outline" style="color: var(--whatsapp); border-color: #86efac;">
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp Direct
               </a>
+              <a href="assets/docs/Cockpit_AI_Graduation_Report.pdf" target="_blank" class="btn btn-outline">
+                <i class="fa-solid fa-file-pdf"></i> Cockpit AI Report (PDF)
+              </a>
               <a href="assets/docs/Firas_Aguech_Resume.pdf" target="_blank" class="btn btn-outline">
-                <i class="fa-solid fa-file-pdf"></i> Download CV (PDF)
+                <i class="fa-solid fa-file-lines"></i> Download CV (PDF)
               </a>
             </div>
           </div>
@@ -1433,19 +1653,23 @@
         <div class="stats-dashboard">
           <div class="stat-item">
             <div class="stat-number">MC15</div>
-            <div class="stat-label">Shipped Enterprise Live</div>
+            <div class="stat-label">Enterprise AI Shipped Live</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number">14+</div>
-            <div class="stat-label">Autonomous LLM Tools</div>
+            <div class="stat-number">23</div>
+            <div class="stat-label">Catalogued Portal Tools</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number">43+</div>
-            <div class="stat-label">IR Evaluation Cases</div>
+            <div class="stat-number">0.9067</div>
+            <div class="stat-label">NDCG@10 (Measured)</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">0.8338</div>
+            <div class="stat-label">Mean Answer Faithfulness</div>
           </div>
           <div class="stat-item">
             <div class="stat-number">2 Stores</div>
-            <div class="stat-label">Apple Store & Google Play</div>
+            <div class="stat-label">Apple Store &amp; Google Play</div>
           </div>
         </div>
       </div>
@@ -1610,30 +1834,32 @@
         <!-- 1. Cockpit AI (Shipped Enterprise Production) -->
         <div class="banner-card interactive filter-target" data-domains="shipped agent-rag ir-colbert" onclick="openProjectModal('cockpit-ai')">
           <div class="banner-header-row">
-            <span class="badge badge-emerald">★ SHIPPED & LIVE IN ENTERPRISE PRODUCTION — MC15 MIGRATED & ACTIVELY USED</span>
-            <div class="card-link-prompt" style="margin-top: 0;">Click to Inspect Architecture & Metrics →</div>
+            <span class="badge badge-emerald">★ SHIPPED IN PRODUCTION (MC15) — EVALUATED &amp; DOCUMENTED</span>
+            <div class="card-link-prompt" style="margin-top: 0;">Click to Inspect Architecture &amp; Measured Results →</div>
           </div>
 
-          <h3 class="banner-h3">Cockpit AI — Live Enterprise Context-Aware Assistant</h3>
-          <div class="banner-sub">Bertsch Innovation GmbH (MediaCockpit) • Shipped to Production & Driving Daily Enterprise Operations</div>
+          <h3 class="banner-h3">Cockpit AI — Context-Aware AI Assistant for MediaCockpit</h3>
+          <div class="banner-sub">Bertsch Innovation GmbH • Graduation Internship 2025–2026 • Enterprise PIM/DAM Platform</div>
 
           <ul class="bullet-list">
-            <li><b>Production Migration & Active Deployment:</b> Architected and completed the end-to-end production migration (MC14 to MC15); shipped live and actively powering daily workflows for Bertsch Innovation GmbH & MediaCockpit enterprise customers.</li>
-            <li><b>Graph-Orchestrated Multi-Agent Architecture:</b> Built from scratch using LangGraph4j with dynamic routing between sequential/parallel tool-execution paths, looped self-correction, and persistent per-user conversation memory.</li>
-            <li><b>14 LLM Tools Ecosystem & Dual Retrieval:</b> Deployed 14 self-registering tools with auto-discovery; node- and attribute-level embeddings merged via <b>Distribution-Based Score Fusion (DBSF)</b> outperforming standard RRF baselines across 43 semantic test cases.</li>
+            <li><b>Shipped assistant inside an enterprise platform:</b> built the conversational assistant directly into MediaCockpit (Apache Wicket portal + SSE streaming), then migrated it and the surrounding AI module from <b>MC14 to the live MC15 release</b>, where it runs as a production feature.</li>
+            <li><b>Bounded orchestration over a real capability surface:</b> LangGraph4j 1.8.16 StateGraph with sequential and parallel-safe tool branches, hard turn guards (12 reasoning / 3 empty-semantic) and <b>23 annotated portal operations</b> — every one of them application code, never raw model output against the data layer.</li>
+            <li><b>Retrieval improved by controlled experiment:</b> dual-collection Qdrant retrieval with distribution-based score fusion raised <b>NDCG@10 from 0.6986 → 0.7701</b>, and a local BGE cross-encoder took it to <b>0.9067 (Recall@5 0.8405)</b> on a 43-case semantic development set — with the CPU latency cost (103.3 ms → 26.3 s) measured and published rather than hidden.</li>
+            <li><b>End-to-end answers graded against real evidence:</b> a 25-question Ragas suite scored <b>0.8338 mean faithfulness</b> / 0.8539 answer relevancy over 23 eligible answers, after fixing the evaluator to capture the evidence the assistant actually received in the same request.</li>
           </ul>
 
           <div style="margin-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
             <div class="pill-list">
               <span class="pill" style="color: var(--accent-emerald); font-weight: 700;"><i class="fa-solid fa-circle-check"></i> Enterprise Shipped Live</span>
-              <span class="pill">Java 21</span>
+              <span class="pill">Java 17 → 25</span>
               <span class="pill">LangGraph4j</span>
               <span class="pill">Spring AI</span>
               <span class="pill">Qdrant</span>
-              <span class="pill">DBSF Hybrid Fusion</span>
-              <span class="pill">Docker</span>
+              <span class="pill">DBSF Fusion</span>
+              <span class="pill">BGE Reranker</span>
+              <span class="pill">Ragas</span>
             </div>
-            <div class="card-link-prompt">Inspect Architecture & Details →</div>
+            <div class="card-link-prompt">Inspect Architecture &amp; Results →</div>
           </div>
         </div>
 
@@ -1894,6 +2120,9 @@
             <button onclick="copyEmail()" class="btn btn-primary">
               <i class="fa-regular fa-copy"></i> Copy Email Address
             </button>
+            <a href="assets/docs/Cockpit_AI_Graduation_Report.pdf" target="_blank" class="btn btn-outline">
+              <i class="fa-solid fa-file-pdf"></i> Cockpit AI Report (PDF)
+            </a>
             <a href="assets/docs/Firas_Aguech_Resume.pdf" target="_blank" class="btn btn-outline">
               <i class="fa-solid fa-download"></i> Download CV (PDF)
             </a>
@@ -1958,21 +2187,39 @@
           <p id="modal-overview" style="color: #334155; font-size: 0.88rem; line-height: 1.6;"></p>
         </div>
 
-        <!-- Section 2: Technical Highlights & Architecture -->
+        <!-- Section 2: Engagement Context (optional) -->
+        <div class="modal-box" id="modal-context-box" style="display: none;">
+          <h3 class="modal-h4"><i class="fa-solid fa-briefcase" style="color: var(--accent-gold);"></i> Engagement Context</h3>
+          <dl id="modal-context-grid" class="case-meta-grid"></dl>
+        </div>
+
+        <!-- Section 3: Technical Highlights & Architecture -->
         <div class="modal-box">
           <h3 class="modal-h4"><i class="fa-solid fa-diagram-project" style="color: var(--accent-blue);"></i> Technical Highlights & Architecture</h3>
           <ul id="modal-highlights" class="bullet-list"></ul>
         </div>
 
-        <!-- Section 3: Visual Previews & Gallery (Prototype with Coming Soon) -->
+        <!-- Section 4: Measured Results (optional) -->
+        <div class="modal-box" id="modal-evidence-box" style="display: none;">
+          <h3 class="modal-h4"><i class="fa-solid fa-chart-simple" style="color: var(--accent-emerald);"></i> Measured Results</h3>
+          <div id="modal-evidence-table"></div>
+        </div>
+
+        <!-- Section 5: Trade-offs & Open Limits (optional) -->
+        <div class="modal-box" id="modal-tradeoff-box" style="display: none;">
+          <h3 class="modal-h4"><i class="fa-solid fa-scale-balanced" style="color: var(--accent-gold);"></i> Engineering Trade-offs & Open Limits</h3>
+          <ul id="modal-tradeoff-list" class="tradeoff-list"></ul>
+        </div>
+
+        <!-- Section 6: Visual Previews & Gallery -->
         <div class="modal-box">
           <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;">
             <h3 class="modal-h4" style="margin-bottom: 0;">
               <i class="fa-regular fa-image" style="color: var(--accent-crimson);"></i> Architecture & Visual Gallery
             </h3>
-            <span class="badge badge-gold">✦ PROTOTYPE BLUEPRINT</span>
+            <span id="modal-gallery-badge" class="badge badge-gold">✦ PROTOTYPE BLUEPRINT</span>
           </div>
-          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.85rem; font-family: var(--font-mono);">
+          <p id="modal-gallery-note" style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.85rem; font-family: var(--font-mono);">
             // Visual showcase prototype with placeholder media frames. Click any frame to inspect its blueprint prototype.
           </p>
           
@@ -1997,7 +2244,7 @@
     <div class="lightbox-dialog" role="dialog" aria-modal="true">
       <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem;">
         <div>
-          <span class="badge badge-gold" style="margin-bottom: 0.35rem; display: inline-block;">✦ VISUAL ASSET PROTOTYPE</span>
+          <span id="lightbox-badge" class="badge badge-gold" style="margin-bottom: 0.35rem; display: inline-block;">✦ VISUAL ASSET PROTOTYPE</span>
           <h3 id="lightbox-title" style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 600; color: var(--text-primary);"></h3>
         </div>
         <button class="modal-close-btn" onclick="closeImageLightbox()" title="Close (ESC)">
@@ -2005,7 +2252,11 @@
         </button>
       </div>
 
-      <div class="lightbox-placeholder">
+      <div id="lightbox-media" class="lightbox-media" style="display: none;">
+        <img id="lightbox-image" src="" alt="">
+      </div>
+
+      <div class="lightbox-placeholder" id="lightbox-placeholder">
         <i id="lightbox-icon" class="fa-solid fa-diagram-project" style="font-size: 2.75rem; color: var(--accent-crimson);"></i>
         <div style="font-family: var(--font-serif); font-size: 1.15rem; font-weight: 600; color: var(--text-primary);">
           [ VISUAL BLUEPRINT COMING SOON ]
@@ -2028,33 +2279,86 @@
   <script>
     const projectDetails = {
       'cockpit-ai': {
-        title: 'Cockpit AI — Shipped Enterprise Context-Aware Assistant',
-        subtitle: 'Bertsch Innovation GmbH (MediaCockpit) • Shipped to Production & Driving Daily Operations',
-        category: 'Shipped Enterprise Production & Multi-Agent RAG',
-        badge: '★ SHIPPED & LIVE IN ENTERPRISE PRODUCTION — MC15 MIGRATED',
+        title: 'Cockpit AI — Context-Aware AI Assistant for MediaCockpit',
+        subtitle: 'Bertsch Innovation GmbH • Graduation Internship 2025–2026 • Evaluated on MC14, migrated and shipped on MC15',
+        category: 'Enterprise Assistant • RAG • Tool Orchestration • Version Migration',
+        badge: '★ SHIPPED IN PRODUCTION (MC15) — MEASURED EVALUATION INCLUDED',
         badgeClass: 'badge-emerald',
         metrics: [
-          { num: 'MC15', label: 'Shipped Migration' },
-          { num: '14+', label: 'Autonomous LLM Tools' },
-          { num: '43', label: 'Semantic Test Cases' },
-          { num: '90%+', label: 'Distribution Alignment' }
+          { num: '0.9067', label: 'NDCG@10 (reranked)' },
+          { num: '0.8405', label: 'Recall@5' },
+          { num: '0.8338', label: 'Mean Faithfulness' },
+          { num: '23', label: 'Catalogued Tools' }
         ],
-        overview: 'A production-grade multi-agent enterprise assistant integrated into MediaCockpit, an enterprise digital asset management system. Architected and led the end-to-end production migration from MC14 to MC15; shipped live and actively used in daily enterprise production workflows.',
+        galleryBadge: '✓ SHIPPED ARTIFACTS',
+        galleryNote: '// Architecture diagrams and production UI captured from the running MediaCockpit portal. Click any frame to inspect it full size.',
+        meta: [
+          ['Organization', 'Bertsch Innovation GmbH — MediaCockpit enterprise product-information & asset-management platform'],
+          ['Role', 'AI Engineer Intern — assistant design, implementation, retrieval evaluation, MC14 → MC15 migration'],
+          ['Academic supervisor', 'Amine Bouzouita — ESPRIT School of Engineering'],
+          ['Corporate supervisor', 'Bassam Meguebli — Bertsch Innovation GmbH'],
+          ['Deliverable', 'Signed 114-page graduation report: “Design, Integration and Evaluation of a Context-Aware AI Assistant for MediaCockpit”'],
+          ['Runtime', 'MC14 portal (Java 17) — evaluated • MC15 portal (Java 25) — migrated and shipped']
+        ],
+        overview: 'Cockpit AI is a conversational assistant embedded directly inside MediaCockpit, an enterprise PIM/DAM platform where product information lives in structured fields, hierarchies, assets and PDFs. The assistant does not generate answers from a chat model alone: it identifies intent, selects from a bounded catalogue of application operations, retrieves through a measured hybrid-search pipeline, and always shows where an answer came from. The project also carried the assistant and an existing AI module from the MC14 platform to the MC15 release, where it ships as a live portal feature. Every quality claim below is a recorded measurement from the MC14 runtime, not an estimate.',
         highlights: [
-          '<b>StateGraph Multi-Agent Architecture:</b> Developed with LangGraph4j featuring dynamic sequential and parallel execution branching, loopback self-correction, and persistent per-user conversation memory.',
-          '<b>14 Autonomous LLM Tools:</b> Engineered self-registering tool endpoints covering semantic search, structural property filtering, aggregations, and automated reports with runtime auto-discovery and mode classification.',
-          '<b>Dual-Collection Hybrid Retrieval with DBSF:</b> Blended dense vector embeddings with sparse BM25 keyword matching using Distribution-Based Score Fusion (DBSF), outperforming standard RRF across 43 semantic test cases.',
-          '<b>Live MC15 Enterprise Migration:</b> Successfully led the end-to-end migration into the live MC15 platform release with zero regression, now actively used in daily enterprise production.'
+          '<b>Bounded agent orchestration (LangGraph4j 1.8.16):</b> an explicit StateGraph over the MC14 portal — a reasoning node that prepares the model call, sequential and parallel-safe tool branches, and a terminal node for the final answer or navigation. Hard guards cap the graph at 12 reasoning turns and 3 empty-semantic turns; provider errors and blank replies degrade to explicit text instead of silent failure. MC15 keeps the same contract through an explicit bounded tool loop.',
+          '<b>23-operation capability boundary:</b> the portal tool catalogue exposes 23 annotated operations — search &amp; discovery (4), page and user context (3), portal navigation (5), data quality and completion (3), documents and knowledge (4), administration and diagnostics (4). Model output never reaches the data layer: every operation is application code with its own permission and failure contract.',
+          '<b>Dual-collection hybrid retrieval with distribution fusion:</b> separate Qdrant collections for node vectors and attribute points, 768-dimensional local <i>nomic-embed-text-v1.5</i> embeddings served through Docker Model Runner. Qdrant DBSF fuses vectors inside the node branch; a second distribution-based fusion stage combines the strongest node score with the strongest per-product attribute score across branches.',
+          '<b>Retrieval quality improved by controlled experiment:</b> on the 43-case semantic development set, NDCG@10 rose 0.6986 → 0.7701 (fusion rework) → 0.9067 (BGE cross-encoder), Recall@5 reached 0.8405, and Success@5 went from 40/43 to 43/43 cases. The reranker improved 28 cases, regressed 7 and left 8 unchanged — every regression is documented with its per-case scores.',
+          '<b>End-to-end answer quality measured with Ragas 0.4.3:</b> a 25-question suite produced 23 eligible answers (92% completion) with mean faithfulness 0.8338, answer relevancy 0.8539, context precision 0.6562 (21 finite scores) and context recall 0.7971. The QA collector was first corrected to capture the evidence the assistant actually received in the same authenticated request, so the metrics grade the real execution rather than a parallel retrieval.',
+          '<b>Human-in-the-loop data quality:</b> missing-attribute analysis and staged attribute suggestions are reviewed and saved inside the platform’s own editing components — the assistant proposes, the user approves, and only the platform’s Save path persists a value. All 5 opaque identifier cases were resolved through exact or structured tools, never through approximate vector similarity.',
+          '<b>MC14 → MC15 migration:</b> orchestration, page-context acquisition and search integration were ported to the MC15 portal with OpenAI-compatible streaming clients and platform semantic-search adapters. The source comparison is documented so the MC15 runtime gets its own regression campaign instead of inheriting MC14 numbers.',
+          '<b>Permission propagation and observability:</b> authenticated principals travel through the retrieval path into catalogue and document scopes, administrator-only tools are gated, unavailable services surface as explicit outcomes, and Actuator/Micrometer/OpenTelemetry expose operational health to administrators.'
         ],
-        tags: ['Enterprise Shipped Live', 'Java 21', 'LangGraph4j', 'Spring AI', 'Qdrant', 'BM25', 'DBSF Fusion', 'Docker', 'GitLab CI/CD'],
+        evidence: {
+          caption: 'Controlled retrieval experiments — 43-case semantic development set, MC14 runtime, unchanged embedding model and index.',
+          bestRow: 3,
+          columns: ['Configuration', 'MRR', 'MAP', 'Success@5', 'NDCG@10', 'Recall@5'],
+          rows: [
+            ['Without attributes (ablation control)', '0.7500', '0.5618', '0.8605', '—', '—'],
+            ['Old attribute combination', '0.7734', '0.6023', '0.8837', '0.6986', '0.6144'],
+            ['Distribution fusion (DBSF across branches)', '0.8537', '0.6882', '0.9302', '0.7701', '0.6664'],
+            ['Distribution fusion + BGE cross-encoder', '0.9516', '0.8436', '1.0000', '0.9067', '0.8405']
+          ],
+          note: 'End-to-end QA (25 questions, Ragas 0.4.3): 23/25 eligible answers — faithfulness 0.8338, answer relevancy 0.8539, context precision 0.6562 (21 finite), context recall 0.7971. Identifier track: 5/5 resolved via exact/structured tools. Reranking cost: mean CPU request latency 103.3 ms → 26,314.6 ms (median ≈25.6 s), which is why it ships as an opt-in quality path rather than the default. The old-combination Recall@5 is derived from the recorded +0.0520 improvement, not printed directly in the report.'
+        },
+        tradeoffs: [
+          '<strong>Quality vs. latency:</strong> the cross-encoder adds +0.1366 NDCG@10 but ~26 s mean CPU latency on the evaluation host, so reranking stays optional and its deployment decision is tied to the application’s response-time budget.',
+          '<strong>Development set, not a holdout:</strong> the 43 semantic cases guided design choices and later measured them, so gains on unseen queries are likely smaller. Label coverage is incomplete and unlabelled alternatives score zero.',
+          '<strong>Correlated judge and chatbot:</strong> the recorded QA judge (gemini-2.5-flash) and chatbot (gemini-3.1-pro-preview) belong to the same provider family; independent domain review of references and judgments is still open.',
+          '<strong>Version separation:</strong> the quantitative results describe the MC14 runtime. MC15 shipped, but still needs its own feature-regression and evaluation campaign before MC14 numbers are quoted for it.',
+          '<strong>Coverage gaps under review:</strong> PDF/OCR and visual fallback paths were exercised manually rather than benchmarked, concurrent-user load was not measured, and source inspection flagged an empty-principal permission gap in catalogue retrieval that requires security remediation and a negative-access test.'
+        ],
+        tags: ['Enterprise Shipped Live', 'Java 17 → Java 25', 'LangGraph4j 1.8.16', 'LangChain4j 1.13.0', 'Spring Boot 3.5.9', 'Spring AI 1.1.2', 'Apache Wicket', 'Qdrant', 'Elasticsearch', 'DBSF Fusion', 'PDFBox 3.0.6', 'Server-Sent Events', 'Docker Model Runner', 'nomic-embed-text-v1.5', 'BGE-reranker-v2-m3', 'Ragas 0.4.3', 'PyTorch', 'Python / pytest', 'OpenTelemetry', 'Micrometer', 'MC14 → MC15 Migration'],
         images: [
-          { title: 'LangGraph4j Multi-Agent Orchestration Topology', icon: 'fa-solid fa-diagram-project', caption: 'StateGraph nodes, intent routing, and ReAct self-correction feedback loop', status: 'Coming Soon' },
-          { title: 'DBSF vs RRF Benchmark Curves', icon: 'fa-solid fa-chart-line', caption: 'Empirical precision, recall, and nDCG@10 comparison over 43 test queries', status: 'Coming Soon' },
-          { title: 'MediaCockpit Production UI & Tool Invocation', icon: 'fa-solid fa-desktop', caption: 'Live enterprise interface with streaming responses and contextual citations', status: 'Coming Soon' }
+          { group: 'Architecture (from the signed report)', title: 'MC14 System Landscape', icon: 'fa-solid fa-diagram-project', caption: 'Ownership and integration contracts between the portal, the RAG microservice, the local model services and the evaluation runner.', src: 'assets/img/cockpit-ai/architecture/18-detailed-system-landscape.svg' },
+          { group: 'Architecture (from the signed report)', title: 'Bounded Agent Control Flow', icon: 'fa-solid fa-route', caption: 'Reasoning node, sequential and parallel-safe tool branches, terminal answer/navigation node, with the 12-reasoning-turn and 3-empty-turn guards.', src: 'assets/img/cockpit-ai/architecture/03-langgraph-control-flow.svg' },
+          { group: 'Architecture (from the signed report)', title: 'Chat Request & Tool Sequence', icon: 'fa-solid fa-stream', caption: 'How a browser request becomes a streamed answer: page context capture, tool execution, server-sent events and error handling.', src: 'assets/img/cockpit-ai/architecture/02-chat-request-sequence.svg' },
+          { group: 'Architecture (from the signed report)', title: 'Product Index, Two Fusion Stages & Reranking', icon: 'fa-solid fa-layer-group', caption: 'Node and attribute collections, the in-branch DBSF stage, the cross-branch distribution fusion and the optional cross-encoder stage.', src: 'assets/img/cockpit-ai/architecture/04-vector-index-and-search.svg' },
+          { group: 'Architecture (from the signed report)', title: 'Context Assembly & Model Inputs', icon: 'fa-solid fa-code', caption: 'How page context, user identity, catalogue permissions and tool results are assembled into the model input.', src: 'assets/img/cockpit-ai/architecture/20-context-assembly.svg' },
+          { group: 'Architecture (from the signed report)', title: 'Access Context Propagation', icon: 'fa-solid fa-shield-halved', caption: 'Authenticated principals carried from the portal request through retrieval into catalogue and document scopes.', src: 'assets/img/cockpit-ai/architecture/22-access-context-propagation.svg' },
+          { group: 'Architecture (from the signed report)', title: 'PDF Document Intelligence Flow', icon: 'fa-solid fa-file-pdf', caption: 'Upload, extraction, chunking and page-level evidence selection for document question answering.', src: 'assets/img/cockpit-ai/architecture/07-pdf-document-flow.svg' },
+          { group: 'Architecture (from the signed report)', title: 'Evaluation Protocol', icon: 'fa-solid fa-clipboard-check', caption: 'How a change is connected to a baseline, a controlled comparison and an analysis before it is retained.', src: 'assets/img/cockpit-ai/architecture/10-evaluation-protocol.svg' },
+          { group: 'Production UI (live portal)', title: 'Context-Aware Answer in the Product Workspace', icon: 'fa-solid fa-desktop', caption: 'The assistant answering inside the current product workspace, using the page context it was given.', src: 'assets/img/cockpit-ai/screenshots/01-portal-context.png', shot: true },
+          { group: 'Production UI (live portal)', title: 'Product Alternatives with Comparison Facts', icon: 'fa-solid fa-table-list', caption: 'Named candidate products with the specification values behind the comparison.', src: 'assets/img/cockpit-ai/screenshots/02-product-comparison.png', shot: true },
+          { group: 'Production UI (live portal)', title: 'Knowledge Map & “Ask AI about this”', icon: 'fa-solid fa-diagram-project', caption: 'The related-product network and the context hand-off from a selected node into the conversation.', src: 'assets/img/cockpit-ai/screenshots/03-knowledge-map.png', shot: true },
+          { group: 'Production UI (live portal)', title: 'Context Hand-off from a Selected Node', icon: 'fa-solid fa-hand-pointer', caption: 'A selected product in the knowledge map becomes the explicit subject of the next question.', src: 'assets/img/cockpit-ai/screenshots/03b-knowledge-map-selection.png', shot: true },
+          { group: 'Production UI (live portal)', title: 'Human-Reviewed Attribute Suggestions', icon: 'fa-solid fa-user-check', caption: 'Proposed description drafts staged for review — the assistant proposes, the user approves, Save persists.', src: 'assets/img/cockpit-ai/screenshots/04a-attribute-review.png', shot: true },
+          { group: 'Production UI (live portal)', title: 'Generated Description Draft for Review', icon: 'fa-solid fa-pen-to-square', caption: 'An explicit product-facts request answered with a proposed long description and a review instruction.', src: 'assets/img/cockpit-ai/screenshots/08-description-draft.png', shot: true },
+          { group: 'Production UI (live portal)', title: 'Cited Specification Values from a PDF', icon: 'fa-solid fa-quote-right', caption: 'Concrete technical values extracted from a datasheet with their page citations.', src: 'assets/img/cockpit-ai/screenshots/05-pdf-citations.png', shot: true },
+          { group: 'Production UI (live portal)', title: 'Document Workspace Answer', icon: 'fa-solid fa-folder-open', caption: 'A cited answer produced from the active document workspace, with the evidence card attached.', src: 'assets/img/cockpit-ai/screenshots/10-pdf-workspace-answer.png', shot: true },
+          { group: 'Production UI (live portal)', title: 'Generated Product Report Hand-off', icon: 'fa-solid fa-file-arrow-down', caption: 'A product-sheet or flyer request answered with a downloadable document and its expiring link.', src: 'assets/img/cockpit-ai/screenshots/06-report-download.png', shot: true },
+          { group: 'Production UI (live portal)', title: 'Session Continuity & Portal Navigation', icon: 'fa-solid fa-location-arrow', caption: 'User identity and the opened node are retained across turns, so follow-ups stay in context.', src: 'assets/img/cockpit-ai/screenshots/07-navigation-history.png', shot: true },
+          { group: 'Production UI (live portal)', title: 'Contextual Follow-up Suggestions', icon: 'fa-solid fa-lightbulb', caption: 'Suggestions derived from the current page and the conversation, not from a generic prompt list.', src: 'assets/img/cockpit-ai/screenshots/09-contextual-followups.png', shot: true },
+          { group: 'Production UI (live portal)', title: 'Missing-Attribute Analysis', icon: 'fa-solid fa-magnifying-glass-chart', caption: 'Data-quality analysis distinguishing articles from group and model nodes to target incomplete catalogue data.', src: 'assets/img/cockpit-ai/screenshots/11-missing-attribute-analysis.png', shot: true },
+          { group: 'Production UI (live portal)', title: 'Workflow Inventory & Administration', icon: 'fa-solid fa-list-check', caption: 'Administrator view of registered background workflows grouped by execution state.', src: 'assets/img/cockpit-ai/screenshots/12-workflow-inventory.png', shot: true }
+
         ],
         links: [
-          { text: 'Chat on WhatsApp (+216 29861363)', url: 'https://wa.me/21629861363', icon: 'fa-brands fa-whatsapp', primary: true },
-          { text: 'Download Full Work Report', url: 'assets/docs/Firas_Aguech_Resume.pdf', icon: 'fa-solid fa-file-pdf' }
+          { text: 'Read the Signed Graduation Report (PDF)', url: 'assets/docs/Cockpit_AI_Graduation_Report.pdf', icon: 'fa-solid fa-file-pdf', primary: true },
+          { text: 'Download CV (PDF)', url: 'assets/docs/Firas_Aguech_Resume.pdf', icon: 'fa-solid fa-file-lines' },
+          { text: 'Chat on WhatsApp (+216 29861363)', url: 'https://wa.me/21629861363', icon: 'fa-brands fa-whatsapp' }
         ]
       },
       'presto': {
@@ -2519,6 +2823,22 @@
       // Overview
       document.getElementById('modal-overview').textContent = data.overview;
 
+      // Engagement Context (optional)
+      const contextBox = document.getElementById('modal-context-box');
+      const contextGrid = document.getElementById('modal-context-grid');
+      contextGrid.innerHTML = '';
+      if (data.meta && data.meta.length) {
+        data.meta.forEach(([label, value]) => {
+          const item = document.createElement('div');
+          item.className = 'case-meta-item';
+          item.innerHTML = `<dt>${label}</dt><dd>${value}</dd>`;
+          contextGrid.appendChild(item);
+        });
+        contextBox.style.display = '';
+      } else {
+        contextBox.style.display = 'none';
+      }
+
       // Highlights List
       const hlList = document.getElementById('modal-highlights');
       hlList.innerHTML = '';
@@ -2528,24 +2848,113 @@
         hlList.appendChild(li);
       });
 
-      // Visual Gallery (Coming Soon Prototype)
+      // Measured Results (optional)
+      const evidenceBox = document.getElementById('modal-evidence-box');
+      const evidenceHost = document.getElementById('modal-evidence-table');
+      evidenceHost.innerHTML = '';
+      if (data.evidence) {
+        const ev = data.evidence;
+        if (ev.caption) {
+          const cap = document.createElement('div');
+          cap.className = 'evidence-note';
+          cap.style.marginTop = '0';
+          cap.style.marginBottom = '0.45rem';
+          cap.textContent = ev.caption;
+          evidenceHost.appendChild(cap);
+        }
+        const table = document.createElement('table');
+        table.className = 'evidence-table';
+        const thead = document.createElement('thead');
+        thead.innerHTML = '<tr>' + ev.columns.map(c => `<th>${c}</th>`).join('') + '</tr>';
+        const tbody = document.createElement('tbody');
+        ev.rows.forEach((row, rowIndex) => {
+          const tr = document.createElement('tr');
+          if (ev.bestRow === rowIndex) tr.className = 'is-best';
+          tr.innerHTML = row.map((cell, i) => {
+            if (i === 0) return `<td><strong>${cell}</strong></td>`;
+            return `<td class="num">${cell}</td>`;
+          }).join('');
+          tbody.appendChild(tr);
+        });
+        table.appendChild(thead);
+        table.appendChild(tbody);
+        evidenceHost.appendChild(table);
+        if (ev.note) {
+          const note = document.createElement('div');
+          note.className = 'evidence-note';
+          note.textContent = ev.note;
+          evidenceHost.appendChild(note);
+        }
+        evidenceBox.style.display = '';
+      } else {
+        evidenceBox.style.display = 'none';
+      }
+
+      // Trade-offs & Open Limits (optional)
+      const tradeoffBox = document.getElementById('modal-tradeoff-box');
+      const tradeoffList = document.getElementById('modal-tradeoff-list');
+      tradeoffList.innerHTML = '';
+      if (data.tradeoffs && data.tradeoffs.length) {
+        data.tradeoffs.forEach(t => {
+          const li = document.createElement('li');
+          li.innerHTML = t;
+          tradeoffList.appendChild(li);
+        });
+        tradeoffBox.style.display = '';
+      } else {
+        tradeoffBox.style.display = 'none';
+      }
+
+      // Visual Gallery (shipped artifacts or blueprint placeholders)
+      const galleryBadge = document.getElementById('modal-gallery-badge');
+      const galleryNote = document.getElementById('modal-gallery-note');
       const gallery = document.getElementById('modal-gallery');
       gallery.innerHTML = '';
-      (data.images || []).forEach(img => {
+      const images = data.images || [];
+      const hasArtifacts = images.some(img => img.src);
+      galleryBadge.textContent = data.galleryBadge || (hasArtifacts ? '✓ SHIPPED ARTIFACTS' : '✦ PROTOTYPE BLUEPRINT');
+      galleryBadge.className = 'badge ' + (hasArtifacts ? 'badge-emerald' : 'badge-gold');
+      galleryNote.textContent = data.galleryNote || (hasArtifacts
+        ? '// Architecture diagrams and production UI captured from the running system. Click any frame to inspect it full size.'
+        : '// Visual showcase prototype with placeholder media frames. Click any frame to inspect its blueprint prototype.');
+
+      let currentGroup = null;
+      images.forEach(img => {
+        if (img.group && img.group !== currentGroup) {
+          currentGroup = img.group;
+          const label = document.createElement('div');
+          label.className = 'gallery-group-label';
+          label.textContent = currentGroup;
+          gallery.appendChild(label);
+        }
         const card = document.createElement('div');
-        card.className = 'proto-image-card';
+        card.className = img.src ? 'artifact-card' : 'proto-image-card';
         card.onclick = () => openImageLightbox(img);
-        card.innerHTML = `
-          <div class="proto-img-frame">
-            <i class="proto-img-icon ${img.icon || 'fa-solid fa-image'}"></i>
-            <span class="badge badge-gold" style="font-size: 0.65rem;">${img.status || 'Coming Soon'}</span>
-          </div>
-          <div class="proto-img-title">${img.title}</div>
-          <div class="proto-img-desc">${img.caption}</div>
-          <div style="margin-top: 0.4rem; font-family: var(--font-mono); font-size: 0.68rem; color: var(--accent-crimson); font-weight: 600;">
-            View Blueprint Prototype →
-          </div>
-        `;
+        if (img.src) {
+          card.innerHTML = `
+            <span class="artifact-kind">${img.shot ? 'Production UI' : 'Architecture'}</span>
+            <div class="artifact-thumb${img.shot ? ' is-shot' : ''}">
+              <img src="${img.src}" alt="${img.title}" loading="lazy">
+            </div>
+            <div class="proto-img-title">${img.title}</div>
+            <div class="proto-img-desc">${img.caption}</div>
+            <div style="margin-top: 0.4rem; font-family: var(--font-mono); font-size: 0.68rem; color: var(--accent-crimson); font-weight: 600;">
+              Inspect Artifact →
+            </div>
+          `;
+        } else {
+          card.innerHTML = `
+            <div class="proto-img-frame">
+              <i class="proto-img-icon ${img.icon || 'fa-solid fa-image'}"></i>
+              <span class="badge badge-gold" style="font-size: 0.65rem;">${img.status || 'Coming Soon'}</span>
+            </div>
+            <div class="proto-img-title">${img.title}</div>
+            <div class="proto-img-desc">${img.caption}</div>
+            <div style="margin-top: 0.4rem; font-family: var(--font-mono); font-size: 0.68rem; color: var(--accent-crimson); font-weight: 600;">
+              View Blueprint Prototype →
+            </div>
+          `;
+        }
         gallery.appendChild(card);
       });
 
@@ -2594,12 +3003,33 @@
       }
     }
 
-    // Lightbox Controls for Prototype Images
+    // Lightbox Controls for Prototype Images and Shipped Artifacts
     function openImageLightbox(img) {
       document.getElementById('lightbox-title').textContent = img.title;
       document.getElementById('lightbox-caption').textContent = img.caption;
       const iconEl = document.getElementById('lightbox-icon');
       iconEl.className = `${img.icon || 'fa-solid fa-diagram-project'}`;
+
+      const media = document.getElementById('lightbox-media');
+      const image = document.getElementById('lightbox-image');
+      const placeholder = document.getElementById('lightbox-placeholder');
+      const badge = document.getElementById('lightbox-badge');
+
+      if (img.src) {
+        image.src = img.src;
+        image.alt = img.title;
+        media.style.display = '';
+        placeholder.style.display = 'none';
+        badge.textContent = img.shot ? '✓ PRODUCTION UI CAPTURE' : '✓ ARCHITECTURE ARTIFACT';
+        badge.className = 'badge badge-emerald';
+      } else {
+        image.removeAttribute('src');
+        media.style.display = 'none';
+        placeholder.style.display = '';
+        badge.textContent = '✦ VISUAL ASSET PROTOTYPE';
+        badge.className = 'badge badge-gold';
+      }
+
       document.getElementById('image-lightbox').classList.add('active');
     }
 
