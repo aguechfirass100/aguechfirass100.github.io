@@ -1890,24 +1890,26 @@
           <div class="card interactive filter-target" data-domains="shipped mobile-fullstack" onclick="openProjectModal('teachers-tn')">
             <div>
               <span class="badge badge-emerald" style="margin-bottom: 0.65rem;">★ SHIPPED & LIVE NATIONAL PRODUCTION PLATFORM</span>
-              <h3 class="card-title">teachers.tn — National Education Hub</h3>
+              <h3 class="card-title">teachers.tn — Teaching Resources Platform</h3>
               <p class="card-desc">
-                Nationwide educational platform shipped and deployed live in Tunisia connecting educators, tutors, and students with high-speed access to teaching resources.
+                Live Arabic-first platform for Tunisian primary-school teachers: a paid catalogue organised by grade, trimester and subject, free materials, and an editorial blog — shipped on its own domain.
               </p>
               <ul class="bullet-list" style="margin-bottom: 1rem;">
-                <li>Full-stack web platform with document management, cloud resource archives, and real-time community tools.</li>
-                <li>Mobile-first responsive architecture optimized for speed across all network types.</li>
+                <li>Next.js (App Router) + Tailwind CSS + Supabase, RTL Arabic-first, with Word and video previews on every pack.</li>
+                <li>Free-materials archive, checkout flow in TND, audio testimonials, and a 49-route SEO surface.</li>
               </ul>
             </div>
             <div>
               <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
                 <div class="pill-list">
                   <span class="pill" style="color: var(--accent-emerald); font-weight: 700;"><i class="fa-solid fa-circle-check"></i> Web Shipped Live</span>
+                  <span class="pill">Next.js</span>
+                  <span class="pill">Supabase</span>
                   <a href="https://teachers.tn/" target="_blank" onclick="event.stopPropagation();" class="btn btn-outline" style="padding: 0.35rem 0.8rem; font-size: 0.78rem;">
                     <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit teachers.tn
                   </a>
                 </div>
-                <div class="card-link-prompt">Inspect Details & Blueprint →</div>
+                <div class="card-link-prompt">Inspect Live Screenshots →</div>
               </div>
             </div>
           </div>
@@ -2468,31 +2470,53 @@
         ]
       },
       'teachers-tn': {
-        title: 'teachers.tn — National Education Hub',
-        subtitle: 'Nationwide Educational Platform Connecting Educators & Students in Tunisia',
-        category: 'Live Web Platform & Community Archive',
-        badge: '★ LIVE IN PRODUCTION PLATFORM',
+        title: 'teachers.tn — Arabic-First Teaching Resources Platform',
+        subtitle: 'Live e-commerce & editorial platform for Tunisian primary-school teachers',
+        category: 'Production Web Platform • E-commerce • Editorial',
+        badge: '★ LIVE PLATFORM — BUILT & OPERATED END TO END',
         badgeClass: 'badge-emerald',
         metrics: [
-          { num: 'Live', label: 'Production Domain' },
-          { num: 'National', label: 'Educational Reach' },
-          { num: 'High-Speed', label: 'Document CDN' },
-          { num: 'Mobile', label: 'Responsive Architecture' }
+          { num: 'teachers.tn', label: 'Live Domain' },
+          { num: 'Next.js', label: 'App Router + SSR' },
+          { num: 'Supabase', label: 'Storage & Catalogue' },
+          { num: '49', label: 'Indexed Routes' }
         ],
-        overview: 'Architected and launched a comprehensive web portal dedicated to Tunisian educators and students, providing high-speed access to thousands of curriculum documents, exam preparations, and teaching resources.',
+        galleryBadge: '✓ LIVE PLATFORM CAPTURES',
+        galleryNote: '// Captured from the running production site in a headless browser at 1440 px. Click any frame to inspect it full size.',
+        meta: [
+          ['Platform', 'teachers.tn — «موارد المعلّم», a digital resources store and editorial site for primary-school teachers in Tunisia'],
+          ['Role', 'Full-stack web development — catalogue, checkout, content pipeline, SEO and day-to-day operations'],
+          ['Audience', 'Primary-school teachers (grades 3–6) buying lesson resources, plus free materials and pedagogical articles'],
+          ['Stack', 'Next.js App Router with React Server Components · Tailwind CSS · Supabase object storage · Arabic RTL UI'],
+          ['Monetisation', 'Paid resource packs priced in TND (25–80 DT), free-materials section, and display advertising'],
+          ['Reach', 'Deployed on Netlify on its own domain — 49-route sitemap, canonical and Open Graph metadata, legal pages']
+        ],
+        overview: 'teachers.tn is a live Arabic-first platform that sells and distributes teaching resources for the Tunisian primary system, and publishes an editorial blog alongside them. The catalogue is organised the way teachers actually work — grade, trimester, then subject — with each pack exposing a Word sample and a video preview before purchase, and each lesson page listing its sequence with previews. A free-materials section and a blog of pedagogical articles widen the top of the funnel. The site is fully RTL, runs on Next.js with server rendering, and serves its documents and previews from Supabase object storage.',
         highlights: [
-          '<b>Resource Archive & Fast Categorization:</b> Searchable database of curriculum subjects, past national exams, and lesson notes organized by academic grades.',
-          '<b>Optimized for Low-Bandwidth Networks:</b> Lightweight, server-rendered pages with aggressive caching ensuring rapid load times across 3G/4G networks in Tunisia.',
-          '<b>Teacher Publishing Tools:</b> Dedicated accounts allowing educators to upload resources, organize collections, and share materials with students.'
+          '<b>Catalogue modelled on the school year:</b> resources are indexed by grade (3rd science, 4, 5, 6) and then by trimester, with live per-subject counts shown on the card — so a teacher can see what exists for their class before opening anything.',
+          '<b>Preview-before-purchase product pages:</b> every pack ships a Word sample and an MP4 preview hosted in Supabase storage, and the lesson page lists the full sequence with its own previews — the catalogue is browsable without a purchase.',
+          '<b>Free-materials funnel with instant delivery:</b> free packs are downloadable directly from the site through a download proxy, with the underlying documents served from Supabase public storage, giving visitors value before they ever reach a paid pack.',
+          '<b>RTL Arabic-first interface:</b> the whole layout, navigation and typography are designed right-to-left from the start — mirrored cards, Arabic numerals, an Arabic editorial voice — rather than an English template translated afterwards.',
+          '<b>Commerce path end to end:</b> a cart with payment methods covers the purchase flow from the catalogue to checkout, with prices carried in Tunisian dinars and the client state managed in the browser.',
+          '<b>Editorial engine with real SEO:</b> the blog publishes long-form articles on the Tunisian primary curriculum — lesson plans, assessment, science activities, inspector visits — in a mix of Arabic, French and English, each with category, date and reading time, and all indexed through the sitemap.',
+          '<b>Audio testimonial instead of a wall of text:</b> teacher feedback is delivered as a playable waveform clip with volume control in the hero, so trust is transferred in the teacher’s own voice.',
+          '<b>Production plumbing:</b> server rendering, a 49-route sitemap, canonical and Open Graph metadata, legal pages for privacy, terms and refunds, a contact form with mail delivery, and advertising revenue on top of product sales.'
         ],
-        tags: ['PHP / Laravel', 'MySQL', 'Tailwind CSS', 'Nginx', 'Cloud Storage', 'JavaScript'],
+        tags: ['Next.js', 'App Router', 'React Server Components', 'Tailwind CSS', 'Supabase', 'Object Storage', 'Netlify', 'Arabic RTL', 'SEO', 'Sitemap & OG Metadata', 'E-commerce', 'Checkout', 'AdSense', 'Live Domain'],
         images: [
-          { title: 'Live Platform Homepage & Search', icon: 'fa-solid fa-globe', caption: 'Curriculum filter system, teacher profiles, and resource repository', status: 'Coming Soon' },
-          { title: 'Document Archive & Fast PDF Viewer', icon: 'fa-solid fa-file-pdf', caption: 'Categorized exam archives and one-click download interface', status: 'Coming Soon' }
+          { group: 'Homepage — production', title: 'Homepage Hero & Audio Testimonial', icon: 'fa-solid fa-house', caption: 'The hero positions the value proposition and plays a teacher’s recorded testimonial as a waveform, with the call to action below.', src: 'assets/img/teachers-tn/hero.jpg', shot: true },
+          { group: 'Homepage — production', title: 'Level Selection', icon: 'fa-solid fa-layer-group', caption: 'Entry points by school level — 3rd science, 4th, 5th and 6th primary — each with its own resource count.', src: 'assets/img/teachers-tn/levels.jpg', shot: true },
+          { group: 'Homepage — production', title: 'Teacher Testimonials', icon: 'fa-solid fa-star', caption: 'Rated reviews collected from working teachers across several grades, presented as filterable cards.', src: 'assets/img/teachers-tn/testimonials.jpg', shot: true },
+          { group: 'Catalogue — production', title: 'Catalogue by Grade & Trimester', icon: 'fa-solid fa-layer-group', caption: 'Termester cards carry live per-subject counts, so the size of each branch is visible at a glance before drilling in.', src: 'assets/img/teachers-tn/courses.jpg', shot: true },
+          { group: 'Catalogue — production', title: 'Free Materials Archive', icon: 'fa-solid fa-file-arrow-down', caption: 'Free packs grouped by grade, each with a direct download button served through the site’s download proxy.', src: 'assets/img/teachers-tn/free-resources.jpg', shot: true },
+          { group: 'Catalogue — production', title: 'Lesson Page with Video & Document Preview', icon: 'fa-solid fa-play', caption: 'A pack detail page: lesson sequence on the right, in-page video preview and Word preview on the left.', src: 'assets/img/teachers-tn/course-detail.jpg', shot: true },
+          { group: 'Editorial — production', title: 'Teaching Blog & Resource Index', icon: 'fa-solid fa-newspaper', caption: 'The blog indexes practical articles on the Tunisian primary curriculum with categories, dates and reading time.', src: 'assets/img/teachers-tn/guides.jpg', shot: true }
         ],
         links: [
           { text: 'Visit Live teachers.tn', url: 'https://teachers.tn/', icon: 'fa-solid fa-arrow-up-right-from-square', primary: true },
-          { text: 'Inquire on WhatsApp', url: 'https://wa.me/21629861363', icon: 'fa-brands fa-whatsapp' }
+          { text: 'Catalogue by Grade', url: 'https://teachers.tn/courses', icon: 'fa-solid fa-list' },
+          { text: 'Free Materials', url: 'https://teachers.tn/free', icon: 'fa-solid fa-gift' },
+          { text: 'Chat on WhatsApp (+216 29861363)', url: 'https://wa.me/21629861363', icon: 'fa-brands fa-whatsapp' }
         ]
       },
       'hirebotx': {
