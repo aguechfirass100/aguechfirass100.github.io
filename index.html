@@ -1993,10 +1993,10 @@
           <div class="card interactive filter-target" data-domains="agent-rag" onclick="openProjectModal('postpulse')">
             <div>
               <h3 class="card-title"><a href="https://github.com/aguechfirass100/PostPulse" target="_blank" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;"><i class="fa-brands fa-github"></i> PostPulse</a></h3>
-              <p class="card-desc">AI marketing platform: fine-tuned LLaMA-3 for copywriting, Flux.1 for image generation, and BERT sentiment analysis steering campaign prompts.</p>
+              <p class="card-desc">AI marketing platform with a fine-tuned FLUX.1-dev LoRA for ad posters, trained on a 2,000-pair poster corpus captioned by Gemini, plus LLaMA-3 copy and BERT sentiment scoring.</p>
             </div>
             <div>
-              <div class="pill-list"><span class="pill">LLaMA-3</span><span class="pill">Flux.1</span><span class="pill">BERT</span></div>
+              <div class="pill-list"><span class="pill">FLUX.1 LoRA</span><span class="pill">Diffusers</span><span class="pill">LLaMA-3</span></div>
               <div class="card-link-prompt">Inspect Details →</div>
             </div>
           </div>
@@ -2546,28 +2546,71 @@
         ]
       },
       'postpulse': {
-        title: 'PostPulse — Multimodal AI Marketing Platform',
-        subtitle: 'Fine-Tuned LLaMA-3, Flux.1 Diffusion, and BERT Sentiment Feedback Loop',
-        category: 'Multimodal Deep Learning & Generative AI',
-        badge: '★ OPEN SOURCE AI PROJECT',
+        title: 'PostPulse — Generative Marketing Suite',
+        subtitle: 'Fine-tuned FLUX.1-dev LoRA for advertising posters inside a multimodal marketing platform',
+        category: 'Generative AI • Diffusion Fine-Tuning • Applied ML',
+        badge: '★ OPEN SOURCE — TRAINING CONFIGS & CHECKPOINT GRIDS SHIPPED',
         badgeClass: 'badge-gold',
         metrics: [
-          { num: 'LLaMA-3', label: 'Copywriting Engine' },
-          { num: 'Flux.1', label: 'Diffusion Imagery' },
-          { num: 'BERT', label: 'Sentiment Steering' }
+          { num: '2,000', label: 'Poster–Caption Pairs' },
+          { num: 'r16/α16', label: 'LoRA Adapter' },
+          { num: '1,750', label: 'Checkpoint Shipped' },
+          { num: '~8 s', label: 'Per Image' }
         ],
-        overview: 'An end-to-end multimodal marketing suite combining fine-tuned large language models for copy generation with state-of-the-art diffusion models for advertising visual synthesis.',
+        galleryBadge: '✓ REAL MODEL OUTPUTS & TRAINING ARTIFACTS',
+        galleryNote: '// Every frame is a real artifact from the repository: test renders from the shipped FLUX LoRA, SD3.5 bake-off posters, the checkpoint sampling grid, and samples from the scraped training corpus. Click any frame to inspect it full size.',
+        meta: [
+          ['Project', 'PostPulse — an AI marketing platform that generates post copy, ad posters and short videos, then scores audience sentiment and predicts engagement'],
+          ['Role', 'Image-generation track: dataset pipeline, diffusion fine-tuning, model bake-off, and the Flask inference service the frontend calls'],
+          ['Models evaluated', 'FLUX.1-dev, Stable Diffusion 3.5 Large and SDXL for text-to-image; SD 2.1 and SDXL for image-to-image'],
+          ['Selected', 'FLUX.1-dev with a custom LoRA, served through a Flask + ngrok microservice'],
+          ['Corpus', '2,000 poster–caption pairs across 10 industry sectors (200 per sector), standardised to 512×512'],
+          ['Infra', 'Colab Pro (A100 40GB / L4) for training and inference · React/Next.js frontend ↔ Flask services ↔ MongoDB']
+        ],
+        overview: 'PostPulse automates social-media marketing end to end. On the image-generation track, the team scraped a corpus of real advertising posters from Pinterest, captioned every one with Gemini 1.5 Flash, and turned it into 2,000 image–text pairs under a single <code>[marketmind]</code> trigger token. FLUX.1-dev, SD3.5 Large and SDXL were all fine-tuned and sampled head-to-head; FLUX won on prompt fidelity and creativity and was shipped as a LoRA served by a Flask microservice with style presets and social-media aspect ratios. The same repo also fine-tunes LLaMA 3.2 for copy, a BERT classifier for sentiment, and a Prophet model for engagement forecasts.',
         highlights: [
-          '<b>Cohesive Multimodal Pipeline:</b> Automatically aligns advertising copy with generated visual elements based on brand guidelines.',
-          '<b>BERT Sentiment Analysis Loop:</b> Evaluates generated campaign copy against sentiment objectives, automatically refining tone and emotional resonance.'
+          '<b>Two-stage data pipeline, not a borrowed dataset:</b> <code>prompt_generator.py</code> captions each poster with Gemini 1.5 Flash (multithreaded, API-key per worker, resumable from a processed-image log), then <code>organize_images.py</code> renames images and writes one caption file per image — the exact image+text layout LoRA trainers expect.',
+          '<b>LoRA fine-tuning with ostris/ai-toolkit:</b> rank 16 / alpha 16 adapters on the UNet only, 512×512, batch size 1, LR 1e-4, AdamW 8-bit, bf16, EMA 0.99, flowmatch noise schedule, 2,000 steps with a checkpoint and sample grid every 250.',
+          '<b>Checkpoint selection by inspection:</b> the deployed adapter is <code>my_first_flux_lora_v1_000001750.safetensors</code> — step 1,750 was chosen from the periodic sample grids that ship with the repo, not by FID.',
+          '<b>Model bake-off with receipts:</b> SD3.5 Large got the same treatment (2,000 steps, r16/α16, sample prompts logged), and SDXL ran earlier at 1,024 px with cosine LR and warmup. The repo keeps the configs, run outputs and 63-image sample grids so the comparison is reproducible.',
+          '<b>Inference API shaped for the product:</b> a Flask + CORS service loads the base model in bf16 with CPU offload, attaches the LoRA, and exposes <code>/generate</code> returning raw PNG bytes — 50 steps, guidance 3.5.',
+          '<b>Prompt and format controls in the API:</b> five style presets (realistic, cartoon, 3D, minimalist, watercolour), four output formats (square 512², portrait 512×640, landscape 1024×576, story 576×1024) and a 0–100 creativity slider mapped linearly onto guidance scale 3–5.',
+          '<b>Image-to-image track:</b> a second microservice built on SDXL base at 1,024 px (strength 0.7, guidance 7.5, attention slicing), replacing an earlier SD 2.1 pipeline at 768 px — used to restyle product photos instead of generating from noise.',
+          '<b>One platform, five model families:</b> the same microservice pattern also serves LLaMA 3.2 copywriting (Unsloth), a BERT sentiment classifier (76% accuracy vs 62% for RoBERTa), Prophet 5-day engagement forecasts (MAE 92, RMSE 124) and Stable Video Diffusion clips.'
         ],
-        tags: ['Python', 'PyTorch', 'LLaMA-3', 'Flux.1', 'BERT', 'Diffusers', 'Transformers'],
+        tags: ['Python', 'PyTorch', 'Diffusers', 'FLUX.1-dev', 'SD3.5 Large', 'SDXL', 'LoRA', 'ai-toolkit', 'Gemini 1.5 Flash', 'Apify', 'Flask', 'ngrok', 'Colab A100', 'React / Next.js', 'MongoDB'],
+        evidence: {
+          caption: '// Training configuration read from the shipped YAML and the loaded checkpoint in the deployment notebook.',
+          columns: ['Setting', 'Value', 'Engineering note'],
+          rows: [
+            ['Base model', 'black-forest-labs/FLUX.1-dev, 8-bit quantised', 'Full fine-tuning unfit for a 24 GB card'],
+            ['Adapter', 'LoRA r16 / α16, UNet only', 'Text encoder frozen; cheap per-brand adapters'],
+            ['Optimisation', '2,000 steps · batch 1 · LR 1e-4 · AdamW 8-bit · bf16', 'EMA 0.99 and gradient checkpointing for stability'],
+            ['Sampling', 'flowmatch · 512×512 · checkpoint + grid every 250', 'Grids let the team pick by eye'],
+            ['Shipped weights', 'my_first_flux_lora_v1_000001750.safetensors', 'Step 1,750 loaded by the Flask service'],
+            ['Trigger token', '[marketmind]', 'One token binds the poster/ad aesthetic']
+          ],
+          bestRow: 4,
+          note: '// A second run used r32 / α32; the SD3.5 Large run used the same 2,000-step / r16 recipe at 512 px.'
+        },
+        tradeoffs: [
+          '<b>Poster typography is the ceiling.</b> Diffusion at 512 px still garbles long text. SD3.5 produced the cleanest type in our bake-off, but FLUX won on prompt fidelity and was the one shipped — so the honest read is that text rendering is the open problem, not the solved one.',
+          '<b>Checkpoints chosen by eye, not by metric.</b> Selection used printed sample grids and a 4.3/5 user rating, not FID/CLIP scores. Reproducible, but not statistically rigorous.',
+          '<b>Colab + ngrok is demo infrastructure.</b> Public URLs rotate and the service dies with the notebook; containerisation, CI/CD and monitoring are listed as future work in the README rather than done.',
+          '<b>Caption bias is inherited by the model.</b> Gemini described the scraped posters, so the LoRA learned their brand-heavy, text-laden aesthetic — including their typography quirks.',
+          '<b>The public snapshot is narrower than the corpus.</b> The README describes 10 sectors × 200 images; the repo ships two 200-image sectors (automotive and manufacturing) plus the tooling.'
+        ],
         images: [
-          { title: 'Multimodal Campaign Generation Suite', icon: 'fa-solid fa-wand-magic-sparkles', caption: 'Side-by-side prompt tuning, LLaMA-3 copywriting, and Flux.1 diffusion renders', status: 'Coming Soon' },
-          { title: 'Sentiment Analysis Calibration Curve', icon: 'fa-solid fa-chart-pie', caption: 'BERT sentiment distribution across generated marketing variations', status: 'Coming Soon' }
+          { group: 'Shipped LoRA — FLUX.1-dev', title: 'Production LoRA Test Render', icon: 'fa-solid fa-wine-bottle', caption: 'A test render from the fine-tuned FLUX.1-dev LoRA: readable headline, product shot and brand mark — a strong sample from the shipped adapter.', src: 'assets/img/postpulse/flux-brew.jpg', shot: true },
+          { group: 'Bake-off — SD3.5 Large LoRA', title: 'Autumn Campaign Poster', icon: 'fa-solid fa-mug-hot', caption: 'SD3.5 Large LoRA output on a trigger prompt: clean composition and the most reliable typography of the three model families.', src: 'assets/img/postpulse/sd35-pumpkin.jpg', shot: true },
+          { group: 'Bake-off — SD3.5 Large LoRA', title: 'Summer Sale Poster', icon: 'fa-solid fa-tags', caption: 'A second SD3.5 sample, showing the model holding layout and colour blocking while longer copy starts to drift.', src: 'assets/img/postpulse/sd35-summer.jpg', shot: true },
+          { group: 'Training evidence', title: 'Checkpoint Sampling Grid', icon: 'fa-solid fa-table-cells', caption: 'The same [marketmind] prompt rendered at every 250-step checkpoint of the FLUX LoRA run — the artifact used to pick step 1,750.', src: 'assets/img/postpulse/flux-progression.jpg', shot: true },
+          { group: 'Training corpus', title: 'Scraped Poster Corpus', icon: 'fa-solid fa-images', caption: 'Representative posters from the Apify/Pinterest scrape that Gemini 1.5 Flash captioned into the 2,000-pair training set.', src: 'assets/img/postpulse/corpus.jpg', shot: true }
         ],
         links: [
-          { text: 'GitHub: aguechfirass100/PostPulse', url: 'https://github.com/aguechfirass100/PostPulse', icon: 'fa-brands fa-github', primary: true }
+          { text: 'GitHub: aguechfirass100/PostPulse', url: 'https://github.com/aguechfirass100/PostPulse', icon: 'fa-brands fa-github', primary: true },
+          { text: 'Image-Generation Source Tree', url: 'https://github.com/aguechfirass100/PostPulse/tree/main/AI/image_generation_models', icon: 'fa-solid fa-folder-open' },
+          { text: 'Training Config (FLUX YAML)', url: 'https://github.com/aguechfirass100/PostPulse/blob/main/AI/image_generation_models/flux1_dev/train_lora_flux_24gb.yaml', icon: 'fa-solid fa-file-code' }
         ]
       },
       'transformer-scratch': {
