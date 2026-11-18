@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="800" viewBox="0 0 1400 800">
+<rect width="1400" height="800" fill="#ffffff"/>
+<text x="48" y="42" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="15" fill="#1d4ed8" letter-spacing="1.5">PRESTO · LEADERBOARD LADDER</text>
+<text x="48" y="86" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="34" font-weight="700" fill="#0f172a">What actually moved the score</text>
+<text x="48" y="120" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="18" fill="#5b6b7c">Kaggle nDCG@10, selected submissions and baselines · x-axis starts at 0.35</text>
+<line x1="48" y1="140" x2="1352" y2="140" stroke="#c9d6e3" stroke-width="1"/>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#1d4ed8"/>
+</marker>
+</defs>
+<text x="40" y="206" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">Best submission</text>
+<text x="40" y="230" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="13" fill="#5b6b7c">Qwen3 dense + BM25 + DBSF + Qwen3 ColBERT, top-5000</text>
+<text x="40" y="250" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="11" font-weight="700" fill="#047857" text-anchor="start">SHIPPED</text>
+<rect x="430" y="180" width="870" height="34" fill="#eef3f8" rx="4"/>
+<rect x="430" y="180" width="653.0" height="34" rx="4" fill="#047857" opacity="0.9"/>
+<text x="1071.0408108108109" y="204" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="16" font-weight="700" fill="#ffffff" text-anchor="end">0.62773</text>
+<text x="40" y="290" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">Published lexical baseline</text>
+<text x="40" y="314" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="13" fill="#5b6b7c">Meilisearch, organiser-provided</text>
+<text x="40" y="334" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="11" font-weight="700" fill="#5b6b7c" text-anchor="start">BASELINE</text>
+<rect x="430" y="264" width="870" height="34" fill="#eef3f8" rx="4"/>
+<rect x="430" y="264" width="644.5" height="34" rx="4" fill="#5b6b7c" opacity="0.9"/>
+<text x="1062.5054054054053" y="288" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="16" font-weight="700" fill="#ffffff" text-anchor="end">0.62410</text>
+<text x="40" y="374" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">Previous best</text>
+<text x="40" y="398" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="13" fill="#5b6b7c">DBSF + Qwen ColBERT, top-500</text>
+<text x="40" y="418" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="11" font-weight="700" fill="#1d4ed8" text-anchor="start">SUPERSEDED</text>
+<rect x="430" y="348" width="870" height="34" fill="#eef3f8" rx="4"/>
+<rect x="430" y="348" width="641.8" height="34" rx="4" fill="#1d4ed8" opacity="0.9"/>
+<text x="1059.7543243243244" y="372" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="16" font-weight="700" fill="#ffffff" text-anchor="end">0.62293</text>
+<text x="40" y="458" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">BGE-M3 full pipeline</text>
+<text x="40" y="482" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="13" fill="#5b6b7c">LoRA + dual ColBERT (untrained head)</text>
+<text x="40" y="502" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="11" font-weight="700" fill="#1d4ed8" text-anchor="start">EXPLORED</text>
+<rect x="430" y="432" width="870" height="34" fill="#eef3f8" rx="4"/>
+<rect x="430" y="432" width="604.7" height="34" rx="4" fill="#1d4ed8" opacity="0.9"/>
+<text x="1022.7205405405407" y="456" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="16" font-weight="700" fill="#ffffff" text-anchor="end">0.60718</text>
+<text x="40" y="542" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">Hybrid RRF, no reranker</text>
+<text x="40" y="566" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="13" fill="#5b6b7c">dense + BM25, k=60</text>
+<text x="40" y="586" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="11" font-weight="700" fill="#5b6b7c" text-anchor="start">CLEAN ABLATION</text>
+<rect x="430" y="516" width="870" height="34" fill="#eef3f8" rx="4"/>
+<rect x="430" y="516" width="589.5" height="34" rx="4" fill="#5b6b7c" opacity="0.9"/>
+<text x="1007.4602702702703" y="540" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="16" font-weight="700" fill="#ffffff" text-anchor="end">0.60069</text>
+<text x="40" y="626" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">Cross-encoder MiniLM</text>
+<text x="40" y="650" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="13" fill="#5b6b7c">top-100 → rerank 50</text>
+<text x="40" y="670" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="start">ABANDONED</text>
+<rect x="430" y="600" width="870" height="34" fill="#eef3f8" rx="4"/>
+<rect x="430" y="600" width="142.4" height="34" rx="4" fill="#b91c1c" opacity="0.9"/>
+<text x="584.4448648648649" y="624" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="16" font-weight="700" fill="#b91c1c" text-anchor="start">0.41058</text>
+<line x1="1237.9713513513516" y1="168" x2="1237.9713513513516" y2="664" stroke="#b91c1c" stroke-width="1.6" stroke-dasharray="6 5"/>
+<text x="1245.9713513513516" y="160" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="13" font-weight="700" fill="#b91c1c" text-anchor="start">top-3 cut 0.69362</text>
+<line x1="430" y1="700" x2="1300" y2="700" stroke="#c9d6e3" stroke-width="1.4"/>
+<line x1="547.5675675675677" y1="694" x2="547.5675675675677" y2="706" stroke="#c9d6e3" stroke-width="1.2"/>
+<text x="547.5675675675677" y="724" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="12" font-weight="500" fill="#5b6b7c" text-anchor="middle">0.40</text>
+<line x1="665.1351351351352" y1="694" x2="665.1351351351352" y2="706" stroke="#c9d6e3" stroke-width="1.2"/>
+<text x="665.1351351351352" y="724" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="12" font-weight="500" fill="#5b6b7c" text-anchor="middle">0.45</text>
+<line x1="782.7027027027027" y1="694" x2="782.7027027027027" y2="706" stroke="#c9d6e3" stroke-width="1.2"/>
+<text x="782.7027027027027" y="724" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="12" font-weight="500" fill="#5b6b7c" text-anchor="middle">0.50</text>
+<line x1="900.2702702702704" y1="694" x2="900.2702702702704" y2="706" stroke="#c9d6e3" stroke-width="1.2"/>
+<text x="900.2702702702704" y="724" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="12" font-weight="500" fill="#5b6b7c" text-anchor="middle">0.55</text>
+<line x1="1017.8378378378378" y1="694" x2="1017.8378378378378" y2="706" stroke="#c9d6e3" stroke-width="1.2"/>
+<text x="1017.8378378378378" y="724" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="12" font-weight="500" fill="#5b6b7c" text-anchor="middle">0.60</text>
+<line x1="1135.4054054054054" y1="694" x2="1135.4054054054054" y2="706" stroke="#c9d6e3" stroke-width="1.2"/>
+<text x="1135.4054054054054" y="724" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="12" font-weight="500" fill="#5b6b7c" text-anchor="middle">0.65</text>
+<line x1="1252.972972972973" y1="694" x2="1252.972972972973" y2="706" stroke="#c9d6e3" stroke-width="1.2"/>
+<text x="1252.972972972973" y="724" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="12" font-weight="500" fill="#5b6b7c" text-anchor="middle">0.70</text>
+<text x="40" y="762" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12" fill="#5b6b7c">The 0.62773 submission (#18) was banked on 26 Jul and never beaten; top-3 finishers received 3-month Presto AI internships.</text>
+<text x="40" y="784" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12" fill="#5b6b7c">Local validation was not used for submission selection — low catalog-match coverage made local nDCG directionally unreliable.</text>
+</svg>

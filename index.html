@@ -1930,20 +1930,20 @@
           <!-- Presto -->
           <div class="card interactive filter-target" data-domains="ir-colbert agent-rag" onclick="openProjectModal('presto')">
             <div>
-              <span class="badge badge-gold" style="margin-bottom: 0.65rem;">★ TOP LEADERBOARD FINISH & IR BENCHMARK</span>
-              <h3 class="card-title">Presto — Arabic Search & ColBERT</h3>
+              <span class="badge badge-gold" style="margin-bottom: 0.65rem;">★ #11 / 50+ · 0.62773 NDCG@10</span>
+              <h3 class="card-title">Presto — Arabic E-Commerce Search</h3>
               <p class="card-desc">
-                Fine-tuned multilingual Qwen embeddings with LoRA. Engineered a custom ColBERT token-level MaxSim reranker with chunked einsum and pre-encoded catalog caching over Qdrant hybrid search.
+                Two-stage Arabic retrieval for a 107k-product catalog: Qwen3 LoRA dense adapter + BM25 → DBSF → a from-scratch ColBERT MaxSim reranker. Diagnosed a 90.8% train/catalog text mismatch on the way to #11 of 50+.
               </p>
             </div>
             <div>
               <div class="pill-list">
-                <span class="pill">Qdrant Hybrid</span>
+                <span class="pill">Qwen3 + LoRA</span>
+                <span class="pill">DBSF Hybrid</span>
                 <span class="pill">ColBERT MaxSim</span>
-                <span class="pill">LoRA</span>
                 <span class="pill">nDCG@10</span>
               </div>
-              <div class="card-link-prompt">Inspect Details & Blueprint →</div>
+              <div class="card-link-prompt">Inspect Case Study & Evidence →</div>
             </div>
           </div>
 
@@ -2362,32 +2362,72 @@
         ]
       },
       'presto': {
-        title: 'Presto — Arabic E-Commerce Semantic Search & ColBERT',
-        subtitle: 'Fine-Tuned Multilingual Embeddings & Token-Level MaxSim Reranker • Leaderboard Finish',
-        category: 'Information Retrieval & Deep Learning',
-        badge: '★ LEADERBOARD FINISH & REPO BACKED',
+        title: 'Presto — Arabic E-Commerce Search',
+        subtitle: 'Two-stage Arabic retrieval and a from-scratch ColBERT reranker for a 107,041-product catalog · Kaggle, July 2026',
+        category: 'Information Retrieval • Embedding Fine-Tuning • Competition Engineering',
+        badge: '★ #11 / 50+ — LEADERBOARD-VALIDATED, PUBLIC REPO',
         badgeClass: 'badge-gold',
         metrics: [
-          { num: 'Top', label: 'Arabic E-Com Finish' },
-          { num: 'ColBERT', label: 'MaxSim Reranker' },
-          { num: 'LoRA', label: 'Domain Fine-Tuning' },
-          { num: '<35ms', label: 'Inference Latency' }
+          { num: '0.62773', label: 'Best nDCG@10' },
+          { num: '#11 / 50+', label: 'Final Rank' },
+          { num: '107,041', label: 'Catalog Products' },
+          { num: '8 nights', label: 'Build Window' }
         ],
-        overview: 'Engineered an advanced hybrid search and reranking engine specifically fine-tuned for Arabic e-commerce product catalogs. Combines LoRA-adapted multilingual Qwen embeddings with a ground-up token-level ColBERT MaxSim reranker over Qdrant hybrid retrieval.',
+        galleryBadge: '✓ REPRODUCIBLE RESEARCH ARTIFACTS',
+        galleryNote: '// Five diagrams hand-built from the repository&rsquo;s notes, configs and leaderboard rows: the pipeline, the score ladder, the 90.8% data gap, the MaxSim reranker and the two shipped adapters. Click any frame to inspect it full size.',
+        meta: [
+          ['Competition', 'PrestoAI Arabic E-Commerce Search &amp; Retrieval Challenge — Kaggle, July 2026 · graded nDCG@10 over 29,014 queries'],
+          ['Task', 'Return the top-10 product IDs for each Arabic query from a 107,041-product catalog; the top three received 3-month on-site internships'],
+          ['Role', 'Solo — data analysis, fine-tuning, retrieval, reranking, evaluation and submission'],
+          ['Constraints', '8 days · RTX 3050 4 GB laptop GPU, then a rented Colab A100 40 GB · 6-hour training windows scheduled around power cuts'],
+          ['Result', 'Best <b>0.62773</b> nDCG@10 · <b>#11 of 50+</b> · top-3 cut 0.69362 · organiser Meilisearch baseline 0.6241'],
+          ['Repository', 'Public: <code>src/</code>, configs, <code>A_NOTES/</code> (10 write-ups, ~1,500 lines), <code>results/experiments.csv</code> and nine documented pipeline bug-fixes']
+        ],
+        overview: 'A two-stage Arabic search system built for a Kaggle competition run by Presto AI: normalise the query, retrieve candidates with a fine-tuned Qwen3 dense adapter fused with BM25, then rerank a 5,000-product shortlist with a custom token-level ColBERT MaxSim scorer. The decisive work was not a larger model. A TF-IDF audit found that <b>90.8% of training positives have no exact match in the catalog</b>, and that <b>54% of catalog names are duplicates</b> — two data properties that bound what any embedding model can score. The final submission reached <b>0.62773 nDCG@10 (#11 of 50+)</b>, beating the organiser&rsquo;s published Meilisearch baseline. The highest-ROI fix, catalog-text augmentation, was diagnosed early but never shipped; that gap is kept in the write-up rather than averaged away.',
         highlights: [
-          '<b>LoRA / PEFT Embedding Adaptation:</b> Fine-tuned multilingual representations using MultipleNegativesRankingLoss, hard-negative mining, and synthetic Arabic triplet generation.',
-          '<b>Ground-Up ColBERT MaxSim:</b> Built custom chunked einsum matrix multiplications with special-token masking and pre-encoded catalog caching, eliminating GPU memory bottlenecks.',
-          '<b>Hybrid Vector Retrieval:</b> Integrated Qdrant vector database with dense and sparse representations to handle Arabic dialect variations and morphological inflection.'
+          '<b>Diagnosis before modelling:</b> TF-IDF fuzzy matching established that 90.8% of training positives have no exact catalog match, and 54% of catalog names are shared by at least one other product. Both were treated as measured ceilings, not footnotes.',
+          '<b>Arabic normalisation on both sides of the wire:</b> 12 operations — alef/yaa/taa unification, tashkeel and tatweel stripping, Arabic-Indic digits, dash variants, punctuation, definite-article prefixes and bidi marks — applied identically at index and query time.',
+          '<b>Dense retriever that shipped:</b> Qwen3-0.6B Arabic-ecom + LoRA r=16 on 531k hard-negative-expanded triplets with MultipleNegativesRankingLoss; checkpoint <code>155501</code> was used in every submission.',
+          '<b>Catalog-matched adapter:</b> 125k triplets rebuilt against the actual catalog text so training and inference finally share a vocabulary; batch 64, 5,563 steps, 1h 12m, final loss 0.122; checkpoint <code>010417</code> became the ColBERT reranker and produced the best score.',
+          '<b>ColBERT MaxSim from scratch:</b> special-token masking, documents padded to the chunk maximum with −∞, chunked <code>einsum("qd,ntd-&gt;nqt")</code>, and 65,759 catalog texts pre-encoded once (~2 GB in fp16).',
+          '<b>A two-order-of-magnitude scale fix:</b> a naive per-query Qdrant loop projected 9+ hours; batched <code>torch.mm</code> + <code>topk</code> scored all 29,014 queries in roughly two minutes.',
+          '<b>Leaderboard discipline:</b> every direction was judged on the real metric — a Jina reranker looked better locally but regressed on the LB, and a cross-encoder over a narrow top-100 window scored 0.41058; both were rejected.',
+          '<b>Reproducibility treated as part of the result:</b> fixed and documented nine pipeline bugs (including nondeterministic <code>uuid4</code> → deterministic <code>uuid5(product_id)</code>) and shipped the full ablation matrix.'
         ],
-        tags: ['Python', 'PyTorch', 'Qdrant', 'ColBERT', 'LoRA / PEFT', 'Hugging Face', 'Transformers'],
+        tags: ['Python', 'PyTorch', 'Qwen3-0.6B', 'LoRA / PEFT', 'SentenceTransformers', 'BM25', 'DBSF', 'Qdrant', 'ColBERT', 'nDCG@10', 'Kaggle', 'Weights &amp; Biases', 'Colab A100'],
+        evidence: {
+          caption: '// Final leaderboard rows and the organiser baseline. Scores are nDCG@10 on the graded split; local validation is not comparable (11.35% catalog-match coverage).',
+          columns: ['Pipeline', 'nDCG@10', 'Gap to top-3', 'Read'],
+          rows: [
+            ['Organiser Meilisearch baseline', '0.6241', '−0.0695', 'Published lexical floor'],
+            ['Hybrid RRF (dense + BM25, k=60)', '0.60069', '−0.0929', 'Fusion without reranker'],
+            ['DBSF + ColBERT, top-500', '0.62293', '−0.0707', 'Previous best'],
+            ['DBSF + ColBERT, top-5000', '0.62773', '−0.0659', 'Shipped submission (#18)'],
+            ['Top-3 internship cut', '0.69362', '—', 'Not reached']
+          ],
+          bestRow: 3,
+          note: '// The 0.62773 submission was banked on 26 Jul and never beaten. Local nDCG was excluded from selection because only 11.35% / 50.76% of queries had catalog matches.'
+        },
+        tradeoffs: [
+          '<b>90.8% distribution gap — diagnosed, never fixed.</b> The model trained on rich name + brand + category + description text but inferred on name + category only. Catalog-text augmentation was estimated at +0.03–0.05 nDCG@10 and never shipped.',
+          '<b>Duplicate names cap the metric.</b> 57,781 of 107,041 products share a name with another entry; returning a different clone earns zero and cannot be corrected from the submission side.',
+          '<b>Local evaluation pointed the wrong way.</b> With 11.35% coverage, the Jina reranker gained locally but lost about seven points on the real leaderboard. Only LB results drove decisions.',
+          '<b>The BGE-M3 experiment cost time for 0.60718.</b> Its ColBERT head received zero gradients during triplet training, so its 50% blend weight added noise; the post-mortem documents the fix, but the rerun did not finish.',
+          '<b>Deadline and Colab fragility.</b> A Phase-1 checkpoint was lost to an ephemeral Colab path; the unified rerun was still evaluating (projected 8+ hours) when the competition closed.',
+          '<b>Not a top-3 result.</b> 0.0659 nDCG@10 behind the cut is a real gap, not a rounding error; the write-up keeps the failure analysis next to the score.'
+        ],
         images: [
-          { title: 'ColBERT MaxSim Token Interaction Heatmap', icon: 'fa-solid fa-network-wired', caption: 'Chunked einsum cross-token matching between query and Arabic catalog entries', status: 'Coming Soon' },
-          { title: 'LoRA Embedding Triplet Loss Convergence', icon: 'fa-solid fa-chart-area', caption: 'Training progression and MRR/nDCG validation gains on e-commerce benchmarks', status: 'Coming Soon' },
-          { title: 'Morphological Query Disambiguation Demo', icon: 'fa-solid fa-magnifying-glass', caption: 'Handling Arabic dialectal variations and high-recall sparse token matches', status: 'Coming Soon' }
+          { group: 'System design', title: 'End-to-End Retrieval Pipeline', icon: 'fa-solid fa-diagram-project', caption: 'Normalisation → dense + BM25 lanes → DBSF fusion of 5,000 candidates → token-level MaxSim rerank → top-10 submission.', src: 'assets/img/presto/pipeline.svg' },
+          { group: 'Leaderboard evidence', title: 'What Actually Moved the Score', icon: 'fa-solid fa-chart-simple', caption: 'Selected submissions and baselines on the real nDCG@10 metric. The axis starts at 0.35; the top-3 cut is marked.', src: 'assets/img/presto/ladder.svg' },
+          { group: 'Leaderboard evidence', title: 'The 90.8% Distribution Gap', icon: 'fa-solid fa-arrows-left-right', caption: 'Training positives carry four rich fields; the inference catalog has only name + category. The mismatch was measured on day 1–2.', src: 'assets/img/presto/data-gap.svg' },
+          { group: 'Deep dives', title: 'ColBERT MaxSim Reranker', icon: 'fa-solid fa-table-cells-large', caption: 'Token-level scoring with masked special tokens, padded documents, chunked einsum and a 50/50 blend with the hybrid score.', src: 'assets/img/presto/colbert.svg' },
+          { group: 'Deep dives', title: 'Two Shipped Adapters, One Unfinished Rerun', icon: 'fa-solid fa-microchip', caption: '531k-triplet dense adapter and 125k catalog-matched reranker adapter, plus the unified phase-2 experiment that ran out of clock.', src: 'assets/img/presto/training.svg' }
         ],
         links: [
-          { text: 'Request Private Repo Access', url: 'https://wa.me/21629861363', icon: 'fa-brands fa-whatsapp', primary: true },
-          { text: 'GitHub: aguechfirass100/Presto', url: 'https://github.com/aguechfirass100/Presto', icon: 'fa-brands fa-github' }
+          { text: 'GitHub: aguechfirass100/Presto', url: 'https://github.com/aguechfirass100/Presto', icon: 'fa-brands fa-github', primary: true },
+          { text: 'Source Tree', url: 'https://github.com/aguechfirass100/Presto/tree/main/src', icon: 'fa-solid fa-folder-open' },
+          { text: 'Experiment Log (CSV)', url: 'https://github.com/aguechfirass100/Presto/blob/main/results/experiments.csv', icon: 'fa-solid fa-table' },
+          { text: 'Kaggle Competition', url: 'https://kaggle.com/competitions/presto-ai-arabic-e-commerce-search-retrieval-challenge', icon: 'fa-solid fa-trophy' }
         ]
       },
       'biocortex': {
