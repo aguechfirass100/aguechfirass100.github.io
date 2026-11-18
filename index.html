@@ -1982,10 +1982,10 @@
           <div class="card interactive filter-target" data-domains="agent-rag" onclick="openProjectModal('hirebotx')">
             <div>
               <h3 class="card-title"><a href="https://github.com/aguechfirass100/HireBotX" target="_blank" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;"><i class="fa-brands fa-github"></i> HireBotX</a></h3>
-              <p class="card-desc">Multi-agent interview simulation with HR, CTO, and CEO personas in ChromaDB evaluating candidate responses against structured rubrics in real time.</p>
+              <p class="card-desc">A CrewAI panel of CEO, CTO and HR agents grounds questions in a 752-document ChromaDB corpus, scores each answer only inside its domain, then preserves the disagreement in a calibrated hiring report.</p>
             </div>
             <div>
-              <div class="pill-list"><span class="pill">ChromaDB</span><span class="pill">RAG</span><span class="pill">Multi-Agent</span></div>
+              <div class="pill-list"><span class="pill">CrewAI + Gemini</span><span class="pill">752-doc RAG</span><span class="pill">Expert-Scoped Scoring</span></div>
               <div class="card-link-prompt">Inspect Details →</div>
             </div>
           </div>
@@ -2560,29 +2560,80 @@
         ]
       },
       'hirebotx': {
-        title: 'HireBotX — Multi-Agent Mock Interview Simulation',
-        subtitle: 'Persona-Driven AI Interviewers with Dynamic Real-Time Rubric Evaluation',
-        category: 'Multi-Agent LLM Application',
-        badge: '★ OPEN SOURCE AI PROJECT',
+        title: 'HireBotX — Multi-Agent Interview & CV Suite',
+        subtitle: 'A three-agent hiring panel, a grounded question bank, and a checked-in evaluation that says MAYBE',
+        category: 'Multi-Agent LLM Application • RAG • Full-Stack',
+        badge: '★ OPEN SOURCE — CREWAI + GEMINI',
         badgeClass: 'badge-gold',
         metrics: [
-          { num: '3', label: 'AI Personas' },
-          { num: 'ChromaDB', label: 'Persona Memory' },
-          { num: 'Real-Time', label: 'Rubric Scoring' }
+          { num: '3', label: 'Role Agents' },
+          { num: '752', label: 'RAG Documents' },
+          { num: '4', label: 'Chroma Collections' },
+          { num: '5.1/10', label: 'Real Evaluation' }
         ],
-        overview: 'A multi-agent interview preparation engine that simulates realistic technical and behavioral interviews with 3 distinct AI personas: HR Manager, Chief Technology Officer, and CEO.',
+        galleryBadge: '✓ REAL UI CAPTURES + CHECKED-IN EVALUATION',
+        galleryNote: '// The three UI frames are local captures of the React clients in this repository; the diagrams are built from source; the report is the checked-in first_interview_report.txt. No live model calls were made for these captures.',
+        meta: [
+          ['Project', 'HireBotX — a monorepo holding two products: JobMate AI (multi-agent mock interviews) and CV Enhancer AI (CV rewriting, job matching, LaTeX output)'],
+          ['Role', 'Solo — agent prompts and personas, RAG ingestion and retrieval, workflow orchestration, FastAPI routes, React clients'],
+          ['Agent stack', 'CrewAI 1.2.1 · CEO / CTO / HR personas · Gemini 2.5 Flash at temperature 0.7 · no delegation'],
+          ['Retrieval', 'ChromaDB 1.1.1 + all-MiniLM-L6-v2 (384-d) · 752 documents in four collections · metadata post-filters'],
+          ['Interview flow', 'Independent CV-vs-JD analysis → three-round question debate → expert-scoped scoring → CEO calibration'],
+          ['Result', 'Checked-in real report: <b>5.1/10</b>, <b>MAYBE</b>, mid-level with concerns; the CTO dissented with <b>NO HIRE</b>'],
+          ['CV branch', 'FastAPI + LangChain <code>create_agent</code> + ChatGroq (<code>gpt-oss-120b</code> orchestrator, <code>llama-3.3-70b</code> edits) + Apify job actor + pdflatex'],
+          ['Repository', 'Public monorepo: workflows, prompts, agents, RAG layer, two React clients, Chroma fixtures and the report artifact']
+        ],
+        overview: 'HireBotX is a two-product monorepo for job-search tooling. The larger branch, JobMate AI, runs a mock interview as a panel of three CrewAI agents: a CEO probing strategy, a CTO probing technical depth, and an HR lead probing ownership and collaboration. The orchestration is plain Python across four phases — three independent CV-vs-JD analyses, three rounds of question proposals, critique and CEO consensus, a turn-based interview where only the question owner scores the answer while all three agents observe, and a final report built from three domain assessments plus a CEO-led calibration meeting. The agents are grounded in a 752-document ChromaDB corpus: 400 questions, 240 job descriptions, 62 rubrics and red flags, and 50 best practices, embedded locally with all-MiniLM-L6-v2 and filtered by category, difficulty and owner.',
         highlights: [
-          '<b>Tri-Persona Interaction Model:</b> Each agent has distinct evaluation criteria, conversational styles, and specialized rubric scoring stored in ChromaDB.',
-          '<b>Adaptive Follow-Up Questions:</b> Agents dynamically adjust question difficulty based on the depth and accuracy of candidate answers.',
-          '<b>Comprehensive Scorecard Report:</b> Generates detailed post-interview assessments with competency ratings and actionable feedback.'
+          '<b>Phase separation instead of one mega-prompt:</b> four workflows with different contracts — JSON gap analyses, a debated question list, per-question expert scores plus cross-agent observations, and a composed report. Each phase is one or more separate Crew kickoffs, so the report can see what the scoring stage did rather than re-deriving it.',
+          '<b>Three-round question generation:</b> each agent proposes from its own CV analysis; round two asks every agent to critique all proposals through its own lens; round three gives the CEO the critiques and asks for a final balanced list. The RAG tool supplies questions, rubrics and best practices at the point of generation.',
+          '<b>Expert-scoped scoring:</b> the CEO scores only CEO questions, the CTO only CTO questions, and HR only HR questions. The other two agents still read every answer and record cross-cutting observations, but they cannot score outside their lane — the design decision that keeps a technical answer from being judged by a culture rubric.',
+          '<b>Disagreement survives into the report:</b> the checked-in run returned CEO 5.0, CTO 4.5 (NO HIRE) and HR 5.0 (MAYBE), with an overall 5.1/10 and a MAYBE decision. The CTO&rsquo;s dissent is quoted next to the final recommendation instead of being averaged into a single friendly number.',
+          '<b>A RAG layer with its own boundary:</b> <code>rag/</code> owns the persistent Chroma client, the MiniLM embedding model and retrieval; agents only see decorated tool functions. A process-wide singleton loads the model once, and the retriever pulls 5× results then filters by category prefix, difficulty and rubric owner in Python because Chroma&rsquo;s <code>where</code> cannot express those predicates.',
+          '<b>A corpus assembled from real role data:</b> 400 questions split across CTO technical (200), HR behavioral (107), CEO strategic (50), HR situational (37) and HR technical discussion (6); 240 job descriptions weighted toward DevOps, data science and backend roles; 62 criteria covering follow-up triggers, red flags and rubrics; 50 best practices.',
+          '<b>CV toolchain with real tools:</b> a LangChain agent chooses between an Apify job scraper, a CV rewriter and a LaTeX generator; the FastAPI service extracts PDF text, streams edits over SSE, and compiles the LaTeX with local <code>pdflatex</code> to a downloadable PDF.',
+          '<b>Two clients, one repository:</b> the interview app is React 19 / Vite 7 / Tailwind 4 with landing, upload, job, interview and report screens plus a mock-API switch for offline demos; the CV editor is a separate React 18 / Tailwind 3 app. They share a repo and a purpose, not a component library.'
         ],
-        tags: ['Python', 'LangChain', 'ChromaDB', 'OpenAI', 'Streamlit', 'RAG'],
+        tags: ['Python', 'CrewAI 1.2.1', 'Gemini 2.5 Flash', 'ChromaDB 1.1.1', 'all-MiniLM-L6-v2', 'RAG', 'Multi-Agent', 'FastAPI', 'LangChain', 'ChatGroq', 'Apify', 'LaTeX / pdflatex', 'React 19', 'Vite 7', 'Tailwind 4'],
+        evidence: {
+          caption: '// Corpus composition read from chroma.sqlite3, plus the scores and decision from the checked-in report.',
+          columns: ['Signal', 'Value', 'Read'],
+          rows: [
+            ['Interview questions', '400', 'CTO 200 · HR 150 · CEO 50'],
+            ['Question difficulty', '203 / 166 / 31', 'hard / medium / easy'],
+            ['Job descriptions', '240', 'DevOps / DS / backend heavy'],
+            ['JD seniority', '110 senior', '84 entry · 31 mid · 15 other'],
+            ['Rubrics & practices', '62 + 50', '30 triggers · 20 red flags'],
+            ['Embedding index', '752 × 384-d', 'all-MiniLM-L6-v2'],
+            ['Real report', '5.1/10 · MAYBE', 'CEO 5.0 · CTO 4.5 · HR 5.0'],
+            ['Panel result', 'Mid-Level', 'CTO dissent preserved']
+          ],
+          bestRow: 6,
+          note: '// The web client ships a separate STRONG HIRE 8.1 mock fixture for demos; the 5.1/10 row comes from first_interview_report.txt, not from that fixture.'
+        },
+        tradeoffs: [
+          '<b>Three personas, one model.</b> All three agents run on the same Gemini 2.5 Flash weights with different role prompts. The disagreement is real in the output, but it is prompt separation, not a true model ensemble.',
+          '<b>Cost and latency scale with turns.</b> Every answer triggers one expert evaluation plus observations from the other two agents, and every phase starts new Crew kickoffs. There is no caching or batching — acceptable for a local demo, not for high-throughput interviewing.',
+          '<b>Question-count drift.</b> The current parser keeps one proposal per agent and caps the final consensus list at three questions, while the checked-in report covers more than that. The report predates the cap; I would pin the expected count and add a contract test rather than leave the fixture and parser out of sync.',
+          '<b>Metadata filtering after retrieval can starve results.</b> Chroma&rsquo;s <code>where</code> cannot do a category-prefix or owner check, so the code pulls 5× candidates and filters in Python; a narrow category-plus-difficulty request can return fewer than five. The README calls this hybrid search, but there is no BM25 lane.',
+          '<b>Two products, two stacks.</b> React 19 / Tailwind 4 and React 18 / Tailwind 3, two FastAPI services, no shared component library or auth. The repo is a pair of working systems rather than one platform, and the duplicated setup is visible.',
+          '<b>Demo copy outran the build.</b> The interview client ships a mock STRONG HIRE 8.1 report and unsupported marketing stats, and the repository description mentions video, face/voice analysis and coding practice that are not in the code. This case study uses the shipped UI and the real report only; the README&rsquo;s Ollama setup is also stale, since the agents call Gemini.'
+        ],
         images: [
-          { title: 'Multi-Persona Interview Simulation UI', icon: 'fa-solid fa-robot', caption: 'Interactive session switching dynamically between HR, CTO, and CEO questions', status: 'Coming Soon' },
-          { title: 'Candidate Feedback Rubric Dashboard', icon: 'fa-solid fa-clipboard-check', caption: 'Score breakdowns across technical depth, communication, and leadership', status: 'Coming Soon' }
+          { group: 'System design', title: 'Two Products, One Repository', icon: 'fa-solid fa-diagram-project', caption: 'JobMate AI and CV Enhancer share a monorepo, not a runtime: two FastAPI services, four-phase interview orchestration, three role agents and a 752-document Chroma index.', src: 'assets/img/hirebotx/architecture.svg' },
+          { group: 'System design', title: 'Four-Phase Interview Pipeline', icon: 'fa-solid fa-sitemap', caption: 'The role matrix for each phase: independent CV analysis, three-round question generation, expert-scoped scoring with cross-agent observation, and CEO-led report calibration.', src: 'assets/img/hirebotx/phases.svg' },
+          { group: 'Retrieval evidence', title: 'What the Agents Can Retrieve', icon: 'fa-solid fa-database', caption: 'Collection counts, question categories, difficulty split, job-description roles and the retrieval path — all read from the shipped chroma.sqlite3, not from the README.', src: 'assets/img/hirebotx/corpus.svg' },
+          { group: 'Evaluation evidence', title: 'The Real Report: 5.1/10, MAYBE', icon: 'fa-solid fa-file-circle-exclamation', caption: 'The checked-in first_interview_report.txt: overall 5.1/10, mid-level with concerns, CEO 5.0, CTO 4.5 with NO HIRE, and HR 5.0 with MAYBE. The CTO dissent is preserved.', src: 'assets/img/hirebotx/report.svg' },
+          { group: 'Product surface', title: 'JobMate AI — CV Upload', icon: 'fa-solid fa-arrow-up-from-bracket', caption: 'Step 1 of the interview client: PDF/TXT upload with the four-step progress rail. Local preview capture of the repository UI; no model calls were made.', src: 'assets/img/hirebotx/interview-upload.png', shot: true },
+          { group: 'Product surface', title: 'JobMate AI — Job Description', icon: 'fa-solid fa-briefcase', caption: 'Step 2 of the interview client, with the built-in example job description loaded into the editor and the submit action enabled at 485 characters.', src: 'assets/img/hirebotx/interview-job.png', shot: true },
+          { group: 'Product surface', title: 'CV Enhancer — Upload', icon: 'fa-solid fa-file-arrow-up', caption: 'The separate CV editing client: PDF upload, streamed edit instructions and LaTeX preview, backed by its own FastAPI service.', src: 'assets/img/hirebotx/cv-upload.png', shot: true }
         ],
         links: [
-          { text: 'GitHub: aguechfirass100/HireBotX', url: 'https://github.com/aguechfirass100/HireBotX', icon: 'fa-brands fa-github', primary: true }
+          { text: 'GitHub: aguechfirass100/HireBotX', url: 'https://github.com/aguechfirass100/HireBotX', icon: 'fa-brands fa-github', primary: true },
+          { text: 'Interview Workflows', url: 'https://github.com/aguechfirass100/HireBotX/tree/main/mock_interview/src/workflows', icon: 'fa-solid fa-diagram-project' },
+          { text: 'Agent & RAG Source', url: 'https://github.com/aguechfirass100/HireBotX/tree/main/mock_interview/src', icon: 'fa-solid fa-folder-open' },
+          { text: 'Real Report Artifact', url: 'https://github.com/aguechfirass100/HireBotX/blob/main/first_interview_report.txt', icon: 'fa-solid fa-file-lines' },
+          { text: 'CV Enhancer Branch', url: 'https://github.com/aguechfirass100/HireBotX/tree/main/cv_enhancement_cover_letter', icon: 'fa-solid fa-wand-magic-sparkles' }
         ]
       },
       'postpulse': {

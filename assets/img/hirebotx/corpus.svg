@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1460" height="900" viewBox="0 0 1460 900">
+<rect width="1460" height="900" fill="#ffffff"/>
+<text x="48" y="42" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="15" fill="#1d4ed8" font-weight="500" letter-spacing="1.5">HIREBOTX · RETRIEVAL CORPUS</text>
+<text x="48" y="86" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="34" fill="#0f172a" font-weight="700">752 documents the agents can actually reach</text>
+<text x="48" y="120" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="18" fill="#5b6b7c">Four ChromaDB collections embedded locally with all-MiniLM-L6-v2 at 384 dimensions.</text>
+<line x1="48" y1="140" x2="1412" y2="140" stroke="#c9d6e3" stroke-width="1"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1d4ed8"/></marker></defs>
+<rect x="30" y="165" width="520" height="525" rx="8" fill="#f6f9fc" stroke="#c9d6e3" stroke-width="1.4"/>
+<text x="48" y="198" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="20" fill="#0f172a" font-weight="700">Collection sizes</text>
+<text x="48" y="219" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12" fill="#5b6b7c">documents per ChromaDB collection</text>
+<line x1="48" y1="233" x2="532" y2="233" stroke="#c9d6e3" stroke-width="1"/>
+<text x="48" y="270" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="13" fill="#0f172a" font-weight="600">interview_questions</text>
+<text x="508" y="270" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="18" fill="#1d4ed8" font-weight="700" text-anchor="end">400</text>
+<rect x="48" y="282" width="460" height="18" rx="4" fill="#eef2f7" stroke="#e2e8f0" stroke-width="0"/>
+<rect x="48" y="282" width="460.0" height="18" rx="4" fill="#1d4ed8" stroke="#1d4ed8" stroke-width="0"/>
+<text x="48" y="320" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="11.5" fill="#5b6b7c">question text + category, difficulty, follow-ups</text>
+<text x="48" y="366" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="13" fill="#0f172a" font-weight="600">job_descriptions</text>
+<text x="508" y="366" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="18" fill="#0f766e" font-weight="700" text-anchor="end">240</text>
+<rect x="48" y="378" width="460" height="18" rx="4" fill="#eef2f7" stroke="#e2e8f0" stroke-width="0"/>
+<rect x="48" y="378" width="276.0" height="18" rx="4" fill="#0f766e" stroke="#0f766e" stroke-width="0"/>
+<text x="48" y="416" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="11.5" fill="#5b6b7c">role, seniority, company type, skills</text>
+<text x="48" y="462" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="13" fill="#0f172a" font-weight="600">evaluation_criteria</text>
+<text x="508" y="462" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="18" fill="#b45309" font-weight="700" text-anchor="end">62</text>
+<rect x="48" y="474" width="460" height="18" rx="4" fill="#eef2f7" stroke="#e2e8f0" stroke-width="0"/>
+<rect x="48" y="474" width="71.3" height="18" rx="4" fill="#b45309" stroke="#b45309" stroke-width="0"/>
+<text x="48" y="512" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="11.5" fill="#5b6b7c">rubrics, red flags, follow-up triggers</text>
+<text x="48" y="558" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="13" fill="#0f172a" font-weight="600">best_practices</text>
+<text x="508" y="558" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="18" fill="#047857" font-weight="700" text-anchor="end">50</text>
+<rect x="48" y="570" width="460" height="18" rx="4" fill="#eef2f7" stroke="#e2e8f0" stroke-width="0"/>
+<rect x="48" y="570" width="57.5" height="18" rx="4" fill="#047857" stroke="#047857" stroke-width="0"/>
+<text x="48" y="608" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="11.5" fill="#5b6b7c">technical patterns &amp; behavioral technique</text>
+<text x="48" y="654" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12" fill="#0f766e" font-weight="600">752 total · 4 collections · 4,688 metadata rows</text>
+<rect x="580" y="165" width="850" height="270" rx="8" fill="#f6f9fc" stroke="#c9d6e3" stroke-width="1.4"/>
+<text x="598" y="198" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="20" fill="#0f172a" font-weight="700">Question bank — 400</text>
+<text x="598" y="219" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12" fill="#5b6b7c">50% CTO technical · 37.5% HR · 12.5% CEO</text>
+<line x1="598" y1="233" x2="1412" y2="233" stroke="#c9d6e3" stroke-width="1"/>
+<text x="598" y="262" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12.5" fill="#0f172a">CTO technical</text>
+<rect x="790" y="250" width="300.0" height="14" rx="3" fill="#1d4ed8" stroke="#1d4ed8" stroke-width="0"/>
+<text x="1104" y="262" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="12" fill="#5b6b7c" font-weight="600">200</text>
+<text x="598" y="290" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12.5" fill="#0f172a">HR behavioral</text>
+<rect x="790" y="278" width="160.5" height="14" rx="3" fill="#0f766e" stroke="#0f766e" stroke-width="0"/>
+<text x="1104" y="290" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="12" fill="#5b6b7c" font-weight="600">107</text>
+<text x="598" y="318" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12.5" fill="#0f172a">CEO strategic</text>
+<rect x="790" y="306" width="75.0" height="14" rx="3" fill="#4338ca" stroke="#4338ca" stroke-width="0"/>
+<text x="1104" y="318" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="12" fill="#5b6b7c" font-weight="600">50</text>
+<text x="598" y="346" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12.5" fill="#0f172a">HR situational</text>
+<rect x="790" y="334" width="55.5" height="14" rx="3" fill="#7c3aed" stroke="#7c3aed" stroke-width="0"/>
+<text x="1104" y="346" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="12" fill="#5b6b7c" font-weight="600">37</text>
+<text x="598" y="374" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12.5" fill="#0f172a">HR technical discussion</text>
+<rect x="790" y="362" width="9.0" height="14" rx="3" fill="#94a3b8" stroke="#94a3b8" stroke-width="0"/>
+<text x="1104" y="374" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="12" fill="#5b6b7c" font-weight="600">6</text>
+<text x="598" y="414" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12" fill="#b45309" font-weight="600">difficulty: hard 203 · medium 166 · easy 31</text>
+<rect x="580" y="455" width="850" height="120" rx="8" fill="#f6f9fc" stroke="#c9d6e3" stroke-width="1.4"/>
+<text x="598" y="486" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="20" fill="#0f172a" font-weight="700">Job descriptions — 240</text>
+<text x="598" y="513" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12.5" fill="#0f172a">DevOps 34 · Data Scientist 24 · Backend 18 · Frontend 9 · Full Stack 9 · other roles 146</text>
+<text x="598" y="541" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12" fill="#5b6b7c">seniority: senior 110 · entry 84 · mid 31 · junior 13 · lead 2</text>
+<text x="598" y="563" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="11.5" fill="#0f766e">used to ground questions in real role language</text>
+<rect x="580" y="595" width="850" height="95" rx="8" fill="#f6f9fc" stroke="#c9d6e3" stroke-width="1.4"/>
+<text x="598" y="626" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="20" fill="#0f172a" font-weight="700">Rubrics &amp; practices — 112</text>
+<text x="598" y="651" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12" fill="#0f172a">62 criteria: 30 follow-up triggers · 20 red flags · 12 rubrics · owners CTO 26 / all 21 / CEO 11 / HR 4</text>
+<text x="598" y="674" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12" fill="#0f172a">50 practices: 22 technical patterns · 16 behavioral techniques · 9 red flags · 3 questioning techniques</text>
+<rect x="30" y="710" width="1400" height="120" rx="8" fill="#f6f9fc" stroke="#c9d6e3" stroke-width="1.4"/>
+<text x="48" y="742" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="17" fill="#0f172a" font-weight="700">Retrieval path</text>
+<text x="48" y="770" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="13.5" fill="#0f172a">query text → MiniLM encode (384-d) → Chroma top-k × 5 → Python filter: category prefix, difficulty, owner → at most 5 results</text>
+<text x="48" y="798" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12.5" fill="#b45309">Not hybrid search: there is no BM25 lane. “Hybrid” in the README means vector recall plus post-retrieval metadata filtering.</text>
+<text x="48" y="820" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12.5" fill="#5b6b7c">The retriever is a process-wide singleton so the embedding model loads once — not once per tool call.</text>
+<text x="48" y="858" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12" fill="#5b6b7c">Counts read directly from mock_interview/chroma_db/chroma.sqlite3 · 752 embeddings · 384-d vectors · metadata distribution from embedding_metadata.</text>
+</svg>

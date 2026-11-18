@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1460" height="900" viewBox="0 0 1460 900">
+<rect width="1460" height="900" fill="#ffffff"/>
+<text x="48" y="42" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="15" fill="#1d4ed8" font-weight="500" letter-spacing="1.5">HIREBOTX · SYSTEM MAP</text>
+<text x="48" y="86" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="34" fill="#0f172a" font-weight="700">Two products, one monorepo</text>
+<text x="48" y="120" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="18" fill="#5b6b7c">An interview simulator and a CV editor share a repository — not a runtime.</text>
+<line x1="48" y1="140" x2="1412" y2="140" stroke="#c9d6e3" stroke-width="1"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1d4ed8"/></marker></defs>
+<text x="30" y="175" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="13" fill="#1d4ed8" font-weight="700" letter-spacing="1.2">01 · SURFACES</text>
+<text x="500" y="175" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="13" fill="#1d4ed8" font-weight="700" letter-spacing="1.2">02 · SERVICES</text>
+<text x="980" y="175" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="13" fill="#1d4ed8" font-weight="700" letter-spacing="1.2">03 · AGENTS &amp; DATA</text>
+<rect x="30" y="195" width="430" height="200" rx="8" fill="#f6f9fc" stroke="#c9d6e3" stroke-width="1.4"/>
+<text x="48" y="228" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="20" fill="#0f172a" font-weight="700">JobMate AI</text>
+<text x="48" y="250" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12" fill="#5b6b7c">interview client · React 19 / Vite 7 / Tailwind 4</text>
+<line x1="48" y1="264" x2="442" y2="264" stroke="#c9d6e3" stroke-width="1"/>
+<text x="48" y="290" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="13" fill="#1d4ed8" font-weight="700">•</text>
+<text x="64" y="290" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="13.5" fill="#0f172a">Landing → CV upload → job description</text>
+<text x="48" y="313" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="13" fill="#1d4ed8" font-weight="700">•</text>
+<text x="64" y="313" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="13.5" fill="#0f172a">Live question/answer chat with per-answer scores</text>
+<text x="48" y="336" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="13" fill="#1d4ed8" font-weight="700">•</text>
+<text x="64" y="336" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="13.5" fill="#0f172a">Report screen: decision, agent averages, Q&amp;A log</text>
+<rect x="48" y="356" width="108" height="24" rx="5" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1"/>
+<text x="102" y="372" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="11" fill="#4338ca" font-weight="600" text-anchor="middle">5 screens</text>
+<rect x="166" y="356" width="166" height="24" rx="5" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1"/>
+<text x="249" y="372" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="11" fill="#4338ca" font-weight="600" text-anchor="middle">mockApi demo switch</text>
+<rect x="30" y="425" width="430" height="200" rx="8" fill="#f6f9fc" stroke="#c9d6e3" stroke-width="1.4"/>
+<text x="48" y="458" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="20" fill="#0f172a" font-weight="700">CV Enhancer</text>
+<text x="48" y="480" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12" fill="#5b6b7c">editor client · React 18 / Vite 5 / Tailwind 3</text>
+<line x1="48" y1="494" x2="442" y2="494" stroke="#c9d6e3" stroke-width="1"/>
+<text x="48" y="520" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="13" fill="#4338ca" font-weight="700">•</text>
+<text x="64" y="520" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="13.5" fill="#0f172a">PDF upload with client-side type/size checks</text>
+<text x="48" y="543" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="13" fill="#4338ca" font-weight="700">•</text>
+<text x="64" y="543" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="13.5" fill="#0f172a">Chat edits streamed from the FastAPI service</text>
+<text x="48" y="566" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="13" fill="#4338ca" font-weight="700">•</text>
+<text x="64" y="566" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="13.5" fill="#0f172a">LaTeX preview and generated PDF download</text>
+<text x="48" y="600" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12" fill="#5b6b7c">Separate app, separate design system</text>
+<rect x="500" y="195" width="440" height="200" rx="8" fill="#f6f9fc" stroke="#c9d6e3" stroke-width="1.4"/>
+<text x="518" y="228" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="20" fill="#0f172a" font-weight="700">Interview API</text>
+<text x="518" y="250" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12" fill="#5b6b7c">FastAPI · in-memory session lifecycle</text>
+<line x1="518" y1="264" x2="922" y2="264" stroke="#c9d6e3" stroke-width="1"/>
+<text x="518" y="290" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#0f172a" font-weight="500">POST /session/create · /upload-cv · /job-description</text>
+<text x="518" y="314" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#0f172a" font-weight="500">POST /prepare-interview → generated questions</text>
+<text x="518" y="338" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#0f172a" font-weight="500">GET /question/current · POST /answer · GET /report</text>
+<text x="518" y="372" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="11.5" fill="#b45309">sessions live in a dict — no database, no resume-after-restart</text>
+<rect x="500" y="425" width="440" height="260" rx="8" fill="#f6f9fc" stroke="#c9d6e3" stroke-width="1.4"/>
+<text x="518" y="458" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="20" fill="#0f172a" font-weight="700">Four-phase workflow</text>
+<text x="518" y="480" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12" fill="#5b6b7c">plain Python orchestration over CrewAI</text>
+<line x1="518" y1="494" x2="922" y2="494" stroke="#c9d6e3" stroke-width="1"/>
+<rect x="518" y="505" width="22" height="22" rx="5" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1"/>
+<text x="529" y="521" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="12" fill="#4338ca" font-weight="700" text-anchor="middle">1</text>
+<text x="550" y="521" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="13.5" fill="#0f172a" font-weight="600">CV analysis</text>
+<text x="550" y="538" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="11.5" fill="#5b6b7c">each agent reads CV vs JD independently</text>
+<rect x="518" y="542" width="22" height="22" rx="5" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1"/>
+<text x="529" y="558" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="12" fill="#4338ca" font-weight="700" text-anchor="middle">2</text>
+<text x="550" y="558" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="13.5" fill="#0f172a" font-weight="600">Question generation</text>
+<text x="550" y="575" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="11.5" fill="#5b6b7c">propose → domain critique → CEO consensus</text>
+<rect x="518" y="579" width="22" height="22" rx="5" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1"/>
+<text x="529" y="595" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="12" fill="#4338ca" font-weight="700" text-anchor="middle">3</text>
+<text x="550" y="595" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="13.5" fill="#0f172a" font-weight="600">Interview</text>
+<text x="550" y="612" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="11.5" fill="#5b6b7c">expert-scoped scoring + cross-agent observations</text>
+<rect x="518" y="616" width="22" height="22" rx="5" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1"/>
+<text x="529" y="632" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="12" fill="#4338ca" font-weight="700" text-anchor="middle">4</text>
+<text x="550" y="632" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="13.5" fill="#0f172a" font-weight="600">Report</text>
+<text x="550" y="649" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="11.5" fill="#5b6b7c">domain assessments + CEO calibration meeting</text>
+<text x="518" y="668" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="11.5" fill="#b45309">each phase = one or more Crew kickoffs; no shared agent memory</text>
+<rect x="500" y="715" width="440" height="115" rx="8" fill="#f6f9fc" stroke="#c9d6e3" stroke-width="1.4"/>
+<text x="518" y="746" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="20" fill="#0f172a" font-weight="700">CV API</text>
+<text x="518" y="767" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12" fill="#5b6b7c">FastAPI · SSE streaming · pdflatex</text>
+<text x="518" y="796" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12.5" fill="#0f172a">upload → extract PDF text → enhance / edit</text>
+<text x="518" y="816" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12.5" fill="#0f172a">→ LaTeX template → PDF in output/</text>
+<rect x="980" y="195" width="450" height="210" rx="8" fill="#f6f9fc" stroke="#c9d6e3" stroke-width="1.4"/>
+<text x="998" y="228" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="20" fill="#0f172a" font-weight="700">CrewAI panel</text>
+<text x="998" y="250" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12" fill="#5b6b7c">three role agents, no delegation</text>
+<line x1="998" y1="264" x2="1412" y2="264" stroke="#c9d6e3" stroke-width="1"/>
+<rect x="998" y="286" width="54" height="22" rx="5" fill="#ffffff" stroke="#c9d6e3" stroke-width="1"/>
+<text x="1025" y="302" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="11" fill="#1d4ed8" font-weight="700" text-anchor="middle">CEO</text>
+<text x="1064" y="302" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12.5" fill="#0f172a">strategy · business impact · leadership</text>
+<rect x="998" y="316" width="54" height="22" rx="5" fill="#ffffff" stroke="#c9d6e3" stroke-width="1"/>
+<text x="1025" y="332" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="11" fill="#4338ca" font-weight="700" text-anchor="middle">CTO</text>
+<text x="1064" y="332" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12.5" fill="#0f172a">system design · ML delivery · depth</text>
+<rect x="998" y="346" width="54" height="22" rx="5" fill="#ffffff" stroke="#c9d6e3" stroke-width="1"/>
+<text x="1025" y="362" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="11" fill="#0f766e" font-weight="700" text-anchor="middle">HR</text>
+<text x="1064" y="362" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12.5" fill="#0f172a">ownership · collaboration · clarity</text>
+<text x="998" y="380" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12" fill="#0f766e" font-weight="600">Gemini 2.5 Flash · temperature 0.7</text>
+<text x="998" y="400" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="11.5" fill="#5b6b7c">tools: questions · rubrics · best practices</text>
+<rect x="980" y="425" width="450" height="200" rx="8" fill="#f6f9fc" stroke="#c9d6e3" stroke-width="1.4"/>
+<text x="998" y="458" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="20" fill="#0f172a" font-weight="700">ChromaDB + MiniLM</text>
+<text x="998" y="480" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12" fill="#5b6b7c">752 documents · 384-d embeddings</text>
+<line x1="998" y1="494" x2="1412" y2="494" stroke="#c9d6e3" stroke-width="1"/>
+<text x="998" y="530" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="24" fill="#0f172a" font-weight="700">400</text>
+<text x="1060" y="529" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="11.5" fill="#5b6b7c">questions</text>
+<text x="1214" y="530" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="24" fill="#0f172a" font-weight="700">240</text>
+<text x="1276" y="529" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="11.5" fill="#5b6b7c">job descriptions</text>
+<text x="998" y="580" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="24" fill="#0f172a" font-weight="700">62</text>
+<text x="1060" y="579" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="11.5" fill="#5b6b7c">rubrics / flags</text>
+<text x="1214" y="580" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="24" fill="#0f172a" font-weight="700">50</text>
+<text x="1276" y="579" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="11.5" fill="#5b6b7c">best practices</text>
+<text x="998" y="612" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="11.5" fill="#5b6b7c">vector search, then Python metadata filters</text>
+<rect x="980" y="655" width="450" height="175" rx="8" fill="#f6f9fc" stroke="#c9d6e3" stroke-width="1.4"/>
+<text x="998" y="688" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="20" fill="#0f172a" font-weight="700">CV agent toolchain</text>
+<text x="998" y="710" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12" fill="#5b6b7c">LangChain create_agent · ChatGroq</text>
+<line x1="998" y1="724" x2="1412" y2="724" stroke="#c9d6e3" stroke-width="1"/>
+<text x="998" y="750" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12.5" fill="#0f172a">gpt-oss-120b orchestrator decides tool order</text>
+<text x="998" y="774" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12.5" fill="#0f172a">llama-3.3-70b rewrites · Apify actor fetches jobs</text>
+<text x="998" y="798" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12.5" fill="#0f172a">LaTeX template compiled locally with pdflatex</text>
+<line x1="460" y1="295" x2="498" y2="295" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M 460 525 L 480 525 L 480 772 L 498 772" fill="none" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#arrow)"/>
+<line x1="940" y1="295" x2="978" y2="295" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#arrow)"/>
+<line x1="940" y1="555" x2="978" y2="535" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#arrow)"/>
+<line x1="940" y1="772" x2="978" y2="742" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#arrow)"/>
+<text x="48" y="858" font-family="'Inter','Helvetica Neue',Arial,Helvetica,sans-serif" font-size="12" fill="#5b6b7c">Repo-wide: 66 Python files (~9.7k LOC) · 27 JS/JSX files (~3.0k LOC) · diagram built from source; neither service was running when it was drawn.</text>
+</svg>
