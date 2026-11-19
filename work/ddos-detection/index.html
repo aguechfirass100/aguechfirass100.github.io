@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DDoS Detection — Case study — Firas Aguech</title>
+  <meta name="description" content="A 12-class DDoS detection study on a balanced CIC-DDoS2019 holdout: 95.26% accuracy, 0.95 macro-F1, and a clear look at the class the aggregate score hides.">
+  <meta name="author" content="Firas Aguech">
+  <meta name="theme-color" content="#fbfaf7">
+  <link rel="canonical" href="https://aguechfirass100.github.io/work/ddos-detection/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Firas Aguech">
+  <meta property="og:title" content="DDoS Detection — Class-aware ML case study">
+  <meta property="og:description" content="95.26% accuracy is not the whole story. A 12-class DDoS detector with per-class evaluation and honest limits.">
+  <meta property="og:url" content="https://aguechfirass100.github.io/work/ddos-detection/">
+  <meta property="og:image" content="https://aguechfirass100.github.io/assets/img/social/ddos.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="DDoS detection evaluation overview.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DDoS Detection — Class-aware ML case study">
+  <meta name="twitter:description" content="95.26% accuracy, 0.95 macro-F1, and the class-level failure behind the average.">
+  <meta name="twitter:image" content="https://aguechfirass100.github.io/assets/img/social/ddos.jpg">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script defer src="/assets/js/site.js"></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "DDoS Detection — Class-aware ML case study",
+      "description": "A 12-class DDoS detection model evaluated on a balanced CIC-DDoS2019 holdout.",
+      "author": { "@type": "Person", "name": "Firas Aguech", "url": "https://aguechfirass100.github.io/" },
+      "mainEntityOfPage": "https://aguechfirass100.github.io/work/ddos-detection/",
+      "image": "https://aguechfirass100.github.io/assets/img/social/ddos.jpg",
+      "about": ["DDoS detection", "Network security", "Machine learning"]
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Firas Aguech — home">
+        <span class="brand-mark" aria-hidden="true">FA</span>
+        <span class="brand-copy"><span class="brand-name">Firas Aguech</span><span class="brand-role">AI Engineer</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/projects/" aria-current="page">Projects</a>
+        <a href="/experience/">Experience</a>
+        <a href="/skills/">Skills</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a class="icon-link" href="https://github.com/aguechfirass100" target="_blank" rel="noopener" aria-label="GitHub profile">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.33.96.1-.74.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.25 5.69.41.35.77 1.04.77 2.1 0 1.52-.01 2.74-.01 3.11 0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+        </a>
+        <a class="icon-link" href="https://www.linkedin.com/in/agfirass" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.25 2.36 4.25 5.43v6.31ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.02H3.56V9h3.56v11.45Z"/></svg>
+        </a>
+        <a class="button button-primary button-small" href="/assets/docs/Firas_Aguech_Resume.pdf" target="_blank" rel="noopener">Resume <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <details class="mobile-nav">
+          <summary>Menu</summary>
+          <nav aria-label="Mobile navigation">
+            <a href="/">Home</a>
+            <a href="/projects/" aria-current="page">Projects</a>
+            <a href="/experience/">Experience</a>
+            <a href="/skills/">Skills</a>
+            <a href="/about/">About</a>
+            <a href="/contact/">Contact</a>
+            <span class="mobile-nav-rule" aria-hidden="true"></span>
+            <a href="https://github.com/aguechfirass100" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/in/agfirass" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="/assets/docs/Firas_Aguech_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+          </nav>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="case-header">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a><span>/</span><a href="/projects/">Projects</a><span>/</span><span aria-current="page">DDoS Detection</span>
+        </nav>
+        <span class="eyebrow eyebrow-accent">Applied ML · research case study</span>
+        <h1 class="case-title">DDoS Detection</h1>
+        <p class="case-subtitle">A 12-class detection study on a balanced CIC-DDoS2019 holdout. The headline number is 95.26% accuracy; the more important finding is that one attack class still fails a third of the time.</p>
+        <div class="case-meta">
+          <div><dt>Role</dt><dd>Research project — data, model, training, evaluation</dd></div>
+          <div><dt>Context</dt><dd>ESPRIT Research Lab</dd></div>
+          <div><dt>Timeline</dt><dd>2025</dd></div>
+          <div><dt>Evidence</dt><dd>Public repository · confusion matrix · interpretability code</dd></div>
+        </div>
+        <div class="case-actions">
+          <a class="button button-primary" href="https://github.com/aguechfirass100/Transformer-Based-DDoS-Detection" target="_blank" rel="noopener">View the repository <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="button button-secondary" href="#results">See the results</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="case-evidence" aria-label="DDoS detection at a glance">
+        <div class="case-evidence-item"><p class="case-evidence-value">95.26%</p><p class="case-evidence-label">accuracy on the balanced holdout</p></div>
+        <div class="case-evidence-item"><p class="case-evidence-value">0.95</p><p class="case-evidence-label">macro-F1 across 12 classes</p></div>
+        <div class="case-evidence-item"><p class="case-evidence-value">0.65</p><p class="case-evidence-label">recall on the weakest attack class</p></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="case-body">
+        <div class="reading-width">
+          <section class="case-section">
+            <h2>Context</h2>
+            <p>Multi-class intrusion detection has a familiar evaluation problem: a strong aggregate score can hide a class that the model rarely gets right. For a security product, the rare class is often the one that matters.</p>
+            <p>I worked on a transformer-based classifier for 12 traffic categories from CIC-DDoS2019, using a balanced 14,400-flow holdout. The goal was not to claim a production detector. It was to build the full path — preprocessing, feature grouping, training, class-level evaluation, and interpretation — and report what the model actually did.</p>
+          </section>
+
+          <section class="case-section">
+            <h2>The model, precisely</h2>
+            <p>The architecture is a feature-view transformer, not a packet-level transformer. Derived flow features are grouped into four families, encoded separately, projected into a shared width, concatenated, and passed through a transformer encoder. Pooling is combined with a protocol embedding before the classifier.</p>
+            <ul>
+              <li><strong>Temporal features:</strong> duration, rate, inter-arrival timing, and flow activity.</li>
+              <li><strong>Spatial features:</strong> packet-size and direction statistics.</li>
+              <li><strong>Protocol features:</strong> transport and application protocol signals.</li>
+              <li><strong>Statistical features:</strong> distribution summaries and aggregate flow statistics.</li>
+            </ul>
+            <figure class="figure">
+              <a href="/assets/img/ddos/model-architecture-dark.webp" target="_blank" rel="noopener">
+                <img src="/assets/img/ddos/model-architecture-dark.webp" alt="Detailed DDoS model architecture: four feature groups, attention, projections, transformer encoder, pooling, protocol embedding, and classifier" width="1383" height="1192" loading="lazy">
+              </a>
+              <figcaption>Feature-family encoders feed a shared transformer. This is a flow-feature model; it does not consume raw packet sequences. Source: public repository.</figcaption>
+            </figure>
+          </section>
+
+          <section class="case-section">
+            <h2>Evaluation setup</h2>
+            <p>I filtered CIC-DDoS2019 to a 12-class problem and evaluated on a balanced holdout of 14,400 flows. That choice makes class-level comparison easier, but it is not the full, imbalanced dataset. The numbers below should be read as a controlled research result, not as a benchmark against every published detector.</p>
+            <div class="table-wrap" tabindex="0" role="region" aria-label="Selected per-class results">
+              <table>
+                <caption>Selected class-level results from the confusion matrix</caption>
+                <thead><tr><th scope="col">Class</th><th scope="col" class="num">Recall</th><th scope="col">What the errors look like</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">BENIGN</th><td class="num">0.96</td><td>1,189 / 1,242 correct; 36 predicted as DrDoS_NetBIOS</td></tr>
+                  <tr><th scope="row">DrDoS_NetBIOS</th><td class="num">0.65</td><td>740 / 1,141 correct; 400 predicted as DrDoS_DNS</td></tr>
+                  <tr><th scope="row">Syn</th><td class="num">0.94</td><td>1,112 / 1,177 correct; 65 predicted as TFTP</td></tr>
+                  <tr><th scope="row">TFTP</th><td class="num">0.92</td><td>1,104 / 1,200 correct; 94 predicted as Syn</td></tr>
+                </tbody>
+              </table>
+              <div class="table-note">Class counts are from the saved 14,400-flow holdout confusion matrix. Overall accuracy is 13,717 / 14,400 = 95.26%.</div>
+            </div>
+            <figure class="figure">
+              <a href="/assets/img/optimized/ddos/confusion-matrix.webp" target="_blank" rel="noopener">
+                <img src="/assets/img/optimized/ddos/confusion-matrix.webp" alt="Normalized confusion matrix for 12 DDoS traffic classes" width="1400" height="1234" loading="lazy">
+              </a>
+              <figcaption>Normalised confusion matrix from the repository. NetBIOS is the visible weak point: 400 of 1,141 examples are classified as DrDoS_DNS.</figcaption>
+            </figure>
+          </section>
+
+          <section class="case-section">
+            <h2>Interpretation</h2>
+            <p>The repository includes attention inspection and integrated-gradients analysis over the feature groups. Those tools help answer which feature family influenced a prediction. They do not prove causality, and they do not turn the model into a deployable security control.</p>
+            <div class="callout">
+              <h3>What the code supports</h3>
+              <p>The implementation uses separate attention per feature family, concatenation, and a transformer encoder. The interpretability work is attention and integrated gradients; the repository does not include SHAP or adversarial-robustness results.</p>
+            </div>
+          </section>
+
+          <section class="case-section">
+            <h2>Limits</h2>
+            <ul>
+              <li><strong>Filtered data.</strong> The 12-class balanced holdout is not the full CIC-DDoS2019 distribution.</li>
+              <li><strong>Offline only.</strong> There is no live capture, latency budget, or deployment evaluation.</li>
+              <li><strong>No adversarial testing.</strong> The model’s behaviour under evasion or distribution shift is not measured.</li>
+              <li><strong>Interpretability is diagnostic.</strong> Attention and integrated gradients are not a security guarantee.</li>
+            </ul>
+          </section>
+
+          <section class="case-section">
+            <h2>What I would do next</h2>
+            <ul>
+              <li>Rebuild the split with group-aware separation so related flows cannot leak across train and test.</li>
+              <li>Evaluate on the full imbalanced dataset and report per-class precision, recall, and calibration.</li>
+              <li>Add an adversarial and drift test suite before making any deployment claim.</li>
+              <li>Measure inference latency and memory on a realistic edge target.</li>
+            </ul>
+            <p class="case-footer-note">Last verified November 2026. Research code and saved evaluation artifacts are public in the linked repository. The project was not deployed in a production network.</p>
+            <p><a class="text-link" href="https://github.com/aguechfirass100/Transformer-Based-DDoS-Detection" target="_blank" rel="noopener">Transformer-Based-DDoS-Detection on GitHub <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+          </section>
+
+          <nav class="case-nav" aria-label="Project navigation">
+            <a href="/work/presto/"><span>Previous case study</span><strong>Presto</strong></a>
+            <a class="next" href="/work/d30-challenge/"><span>Next case study</span><strong>D30 Challenge</strong></a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="footer-brand" href="/"><span class="brand-mark" aria-hidden="true">FA</span><span>Firas Aguech</span></a>
+          <p class="footer-bio">AI engineer in Sfax, Tunisia. Applied ML, retrieval systems, and software that has to make sense in use.</p>
+        </div>
+        <div>
+          <h2 class="footer-heading">Explore</h2>
+          <ul class="footer-links"><li><a href="/projects/">Projects</a></li><li><a href="/experience/">Experience</a></li><li><a href="/skills/">Skills</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul>
+        </div>
+        <div>
+          <h2 class="footer-heading">Elsewhere</h2>
+          <ul class="footer-links"><li><a href="https://github.com/aguechfirass100" target="_blank" rel="noopener">GitHub</a></li><li><a href="https://www.linkedin.com/in/agfirass" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="mailto:aguechfirass100@gmail.com">Email</a></li><li><a href="/assets/docs/Firas_Aguech_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a></li></ul>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>© <span data-year>2026</span> Firas Aguech. Sfax, Tunisia.</p><a href="#main">Back to top</a></div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presto — Case study — Firas Aguech</title>
+  <meta name="description" content="A retrieval ranking case study: 107,041 products, 29,014 queries, an 11th-place finish from 50+ teams, and the catalogue-text problem that mattered more than another model.">
+  <meta name="author" content="Firas Aguech">
+  <meta name="theme-color" content="#fbfaf7">
+  <link rel="canonical" href="https://aguechfirass100.github.io/work/presto/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Firas Aguech">
+  <meta property="og:title" content="Presto — Retrieval ranking case study">
+  <meta property="og:description" content="Ranking 107,041 products for 29,014 queries in eight nights. The result was 11th of 50+, but the useful lesson was the catalogue-text gap.">
+  <meta property="og:url" content="https://aguechfirass100.github.io/work/presto/">
+  <meta property="og:image" content="https://aguechfirass100.github.io/assets/img/social/presto.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Presto retrieval pipeline diagram.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Presto — Retrieval ranking case study">
+  <meta name="twitter:description" content="107,041 products, 29,014 queries, eight nights, and a lesson about catalogue text.">
+  <meta name="twitter:image" content="https://aguechfirass100.github.io/assets/img/social/presto.jpg">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script defer src="/assets/js/site.js"></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Presto — Retrieval ranking case study",
+      "description": "A product retrieval challenge: 107,041 products, 29,014 queries, and an 11th-place finish.",
+      "author": { "@type": "Person", "name": "Firas Aguech", "url": "https://aguechfirass100.github.io/" },
+      "mainEntityOfPage": "https://aguechfirass100.github.io/work/presto/",
+      "image": "https://aguechfirass100.github.io/assets/img/social/presto.jpg",
+      "about": ["Information retrieval", "Learning to rank", "E-commerce search"]
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Firas Aguech — home">
+        <span class="brand-mark" aria-hidden="true">FA</span>
+        <span class="brand-copy"><span class="brand-name">Firas Aguech</span><span class="brand-role">AI Engineer</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/projects/" aria-current="page">Projects</a>
+        <a href="/experience/">Experience</a>
+        <a href="/skills/">Skills</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a class="icon-link" href="https://github.com/aguechfirass100" target="_blank" rel="noopener" aria-label="GitHub profile">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.33.96.1-.74.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.25 5.69.41.35.77 1.04.77 2.1 0 1.52-.01 2.74-.01 3.11 0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+        </a>
+        <a class="icon-link" href="https://www.linkedin.com/in/agfirass" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.25 2.36 4.25 5.43v6.31ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.02H3.56V9h3.56v11.45Z"/></svg>
+        </a>
+        <a class="button button-primary button-small" href="/assets/docs/Firas_Aguech_Resume.pdf" target="_blank" rel="noopener">Resume <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <details class="mobile-nav">
+          <summary>Menu</summary>
+          <nav aria-label="Mobile navigation">
+            <a href="/">Home</a>
+            <a href="/projects/" aria-current="page">Projects</a>
+            <a href="/experience/">Experience</a>
+            <a href="/skills/">Skills</a>
+            <a href="/about/">About</a>
+            <a href="/contact/">Contact</a>
+            <span class="mobile-nav-rule" aria-hidden="true"></span>
+            <a href="https://github.com/aguechfirass100" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/in/agfirass" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="/assets/docs/Firas_Aguech_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+          </nav>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="case-header">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a><span>/</span><a href="/projects/">Projects</a><span>/</span><span aria-current="page">Presto</span>
+        </nav>
+        <span class="eyebrow eyebrow-accent">Retrieval · competition case study</span>
+        <h1 class="case-title">Presto</h1>
+        <p class="case-subtitle">Ranking 107,041 products for 29,014 queries in eight nights. The final submission placed 11th of 50+; the more useful result was understanding why catalogue text, not another ranking model, was the real constraint.</p>
+        <div class="case-meta">
+          <div><dt>Role</dt><dd>Solo participant — retrieval, ranking, evaluation</dd></div>
+          <div><dt>Context</dt><dd>Presto product retrieval challenge</dd></div>
+          <div><dt>Timeline</dt><dd>Eight nights</dd></div>
+          <div><dt>Evidence</dt><dd>Preserved experiment records · final leaderboard placement</dd></div>
+        </div>
+        <div class="case-actions">
+          <a class="button button-primary" href="#result">See the result</a>
+          <a class="button button-secondary" href="/experience/">See the role</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="case-evidence" aria-label="Presto at a glance">
+        <div class="case-evidence-item"><p class="case-evidence-value">0.62773</p><p class="case-evidence-label">final nDCG@10 on the leaderboard</p></div>
+        <div class="case-evidence-item"><p class="case-evidence-value">11th</p><p class="case-evidence-label">of 50+ teams</p></div>
+        <div class="case-evidence-item"><p class="case-evidence-value">90.8%</p><p class="case-evidence-label">of training positives had no exact catalogue match</p></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="case-body">
+        <div class="reading-width">
+          <section class="case-section">
+            <h2>The problem</h2>
+            <p>The catalogue contained 107,041 products and the query set contained 29,014 queries. This was a ranking problem, not a classification exercise: for each query, the system had to order a small set of relevant products above a much larger set of plausible ones.</p>
+            <p>The data made that harder than the model choice suggested. About 90.8% of training positives had no exact catalogue-text match. More than half of the catalogue shared a name with another product: 57,781 of 107,041 entries had duplicate names. A model can learn from queries, but it cannot invent the missing distinction between two similar products.</p>
+            <figure class="figure">
+              <img src="/assets/img/presto/pipeline-warm.svg" alt="Presto pipeline: two candidate retrievers, rank fusion, reranking, and decision layer" width="1200" height="630" loading="lazy">
+              <figcaption>The final retrieval shape: dense and sparse candidates, fusion, optional reranking, and a decision layer. Diagram reconstructed from preserved experiment notes.</figcaption>
+            </figure>
+          </section>
+
+          <section class="case-section">
+            <h2>What I built</h2>
+            <p>I started with a reproducible baseline and added components only when they could be measured. The final system combined complementary candidate sources, fused their rankings, and used a learned reranker on a bounded candidate pool.</p>
+            <ul>
+              <li><strong>Query understanding.</strong> Normalisation, query expansion, and pseudo-query generation with a small instruction-tuned language model.</li>
+              <li><strong>Dense retrieval.</strong> E5 embeddings over product titles and structured text, indexed with HNSW.</li>
+              <li><strong>Lexical retrieval.</strong> BM25 and product-name matching to recover exact tokens that embeddings blur.</li>
+              <li><strong>Rank fusion.</strong> Weighted reciprocal-rank fusion to combine dense, lexical, and heuristic signals.</li>
+              <li><strong>Reranking.</strong> A Jina cross-encoder over the fused candidate pool, with latency measured separately from ranking quality.</li>
+              <li><strong>Fine-tuning.</strong> Qwen3-0.6B with LoRA to generate catalogue-style pseudo-queries from product text.</li>
+            </ul>
+            <p>I also prototyped a ColBERT-style late-interaction branch and ran hard-query stratified analysis. Those experiments were useful for diagnosis, but they did not make the final submission.</p>
+          </section>
+
+          <section class="case-section">
+            <h2>Evaluation discipline</h2>
+            <p>With eight nights and a public leaderboard, it is easy to overfit to the visible score. I kept a local validation split, recorded each configuration, and separated changes to candidate generation from changes to ranking. I used paired bootstrap intervals on a hard-query subset to check whether small differences were stable enough to keep.</p>
+            <p>The final leaderboard gain over the organiser baseline was small: 0.62773 versus 0.6241. That is a real result, but not a reason to describe the system as a breakthrough. The top-3 selection cut was 0.69362; I did not reach it.</p>
+            <div class="callout">
+              <h3>The result in one sentence</h3>
+              <p>I placed 11th of 50+ with a ranking pipeline that improved on the organiser baseline, but the gap to the top three was larger than another reranker could close.</p>
+            </div>
+          </section>
+
+          <section class="case-section" id="result">
+            <h2>Result</h2>
+            <div class="table-wrap" tabindex="0" role="region" aria-label="Presto results">
+              <table>
+                <caption>Final recorded numbers</caption>
+                <thead><tr><th scope="col">Measure</th><th scope="col" class="num">Value</th><th scope="col">Note</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Final nDCG@10</th><td class="num">0.62773</td><td>Submitted run</td></tr>
+                  <tr><th scope="row">Leaderboard placement</th><td class="num">11 / 50+</td><td>Final recorded placement</td></tr>
+                  <tr><th scope="row">Organiser Meilisearch baseline</th><td class="num">0.6241</td><td>Reference solution</td></tr>
+                  <tr><th scope="row">Top-3 selection cut</th><td class="num">0.69362</td><td>Not reached</td></tr>
+                  <tr><th scope="row">Catalogue size</th><td class="num">107,041</td><td>Products</td></tr>
+                  <tr><th scope="row">Query set</th><td class="num">29,014</td><td>Queries</td></tr>
+                  <tr><th scope="row">Training positives without an exact catalogue match</th><td class="num">90.8%</td><td>Core data gap</td></tr>
+                  <tr><th scope="row">Duplicate catalogue names</th><td class="num">54%</td><td>57,781 products</td></tr>
+                </tbody>
+              </table>
+              <div class="table-note">Numbers are from preserved experiment records and the public challenge result. Source repositories and the original Kaggle listing are no longer publicly reachable; this page does not link to substitutes.</div>
+            </div>
+          </section>
+
+          <section class="case-section">
+            <h2>The diagnosis that mattered</h2>
+            <p>The highest-ROI improvement was not a larger reranker. It was catalogue-text augmentation: generating or enriching product descriptions so that queries and products share meaningful language before retrieval begins. The data showed the gap clearly, but I did not ship that improvement within the challenge window.</p>
+            <p>That is the honest lesson. The pipeline worked well enough to finish in the top quartile, but the ceiling was set by representation and data, not by the final ranking layer.</p>
+          </section>
+
+          <section class="case-section">
+            <h2>Constraints and limits</h2>
+            <ul>
+              <li><strong>Time.</strong> Eight nights, with the final submission taking priority over further research.</li>
+              <li><strong>Compute.</strong> A 4 GB RTX 3050 initially, then an A100 40 GB for the heavier runs.</li>
+              <li><strong>Source availability.</strong> The original repository and challenge endpoints are offline; the page uses preserved metrics and experiment records, not a reproduced run.</li>
+              <li><strong>Score interpretation.</strong> A public leaderboard is not a production search evaluation. The result says the pipeline was competitive, not that it is ready to deploy.</li>
+            </ul>
+          </section>
+
+          <section class="case-section">
+            <h2>What I would do next</h2>
+            <ul>
+              <li>Build the catalogue-text augmentation pipeline and measure it against the same validation split.</li>
+              <li>Test a full late-interaction retriever on the hard-query slice, not just a prototype branch.</li>
+              <li>Use a larger query generator with stronger filtering against unsupported product claims.</li>
+              <li>Measure latency and cost per query from the beginning, not only after the ranking pipeline is fixed.</li>
+            </ul>
+            <p class="case-footer-note">Last verified November 2026. The original challenge repository and Kaggle link are no longer available. This case study is based on preserved experiment records and does not link to a substitute repository.</p>
+          </section>
+
+          <nav class="case-nav" aria-label="Project navigation">
+            <a href="/work/cockpit-ai/"><span>Previous case study</span><strong>Cockpit AI</strong></a>
+            <a class="next" href="/work/ddos-detection/"><span>Next case study</span><strong>DDoS Detection</strong></a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="footer-brand" href="/"><span class="brand-mark" aria-hidden="true">FA</span><span>Firas Aguech</span></a>
+          <p class="footer-bio">AI engineer in Sfax, Tunisia. Applied ML, retrieval systems, and software that has to make sense in use.</p>
+        </div>
+        <div>
+          <h2 class="footer-heading">Explore</h2>
+          <ul class="footer-links"><li><a href="/projects/">Projects</a></li><li><a href="/experience/">Experience</a></li><li><a href="/skills/">Skills</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul>
+        </div>
+        <div>
+          <h2 class="footer-heading">Elsewhere</h2>
+          <ul class="footer-links"><li><a href="https://github.com/aguechfirass100" target="_blank" rel="noopener">GitHub</a></li><li><a href="https://www.linkedin.com/in/agfirass" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="mailto:aguechfirass100@gmail.com">Email</a></li><li><a href="/assets/docs/Firas_Aguech_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a></li></ul>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>© <span data-year>2026</span> Firas Aguech. Sfax, Tunisia.</p><a href="#main">Back to top</a></div>
+    </div>
+  </footer>
+</body>
+</html>
